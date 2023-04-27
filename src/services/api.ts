@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: '',
+  baseURL: 'https://json-server-projeto-front-end.onrender.com',
   timeout: 5000,
 });
