@@ -16,6 +16,7 @@ export interface ICommerceUser {
   confirmPassword: string;
   foodCategory: string;
   company: boolean;
+  id: number;
 }
 
 export interface ILoginResponse {
@@ -50,7 +51,14 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
           api.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
 
           localStorage.setItem('@TOKENCOMMERCE', accessToken);
-          localStorage.setItem('@USERIDCOMMERCE', JSON.stringify(userResponse.id));
+          localStorage.setItem(
+            '@USERIDCOMMERCE',
+            JSON.stringify(userResponse.id)
+          );
+          localStorage.setItem(
+            '@USERNAMECOMMERCE',
+            JSON.stringify(userResponse.userName)
+          );
 
           setCommerceUser(userResponse);
           navigate('/companyHome');
