@@ -8,7 +8,7 @@ export interface IRegisterUserFormData {
   email: string;
   password: string;
   confirmPassword: string;
-  typeOfCompany: string;
+  foodCategory: string;
 }
 
 export const RegisterCommerceForm = () => {
@@ -61,12 +61,12 @@ export const RegisterCommerceForm = () => {
         {...register('confirmPassword')}
         error={errors.confirmPassword}
       />
-      {/* Inserir select na validação do schema */}
+      {/* Checar se validação do select no schema está correta*/}
       <label htmlFor='typeOfCompany'>Selecionar setor alimentício</label>
       <select
         id='typeOfCompany'
-        {...register('typeOfCompany')}
-        error={errors.typeOfCompany?.message}
+        {...register('foodCategory')}
+        error={errors.foodCategory?.message}
       >
         <option value='' disabled selected>
           Categorias

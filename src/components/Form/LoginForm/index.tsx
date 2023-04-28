@@ -2,6 +2,8 @@ import { Input } from '../Input';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { loginFormSchema } from './loginFormSchema';
+import { useContext } from 'react';
+import { UserContext } from '../../../providers/UserProvider';
 
 export interface ILoginFormData {
   email: string;
@@ -17,9 +19,11 @@ export const LoginForm = () => {
     resolver: zodResolver(loginFormSchema),
   });
 
+  const { login, loading } = useContext(UserContext);
+
   const loginFormSubmit: SubmitHandler<ILoginFormData> = (loginFormData) => {
     console.log(loginFormData);
-    // Executar função de request de Login, recebendo loginFormData como parâmetro
+    login(loginFormData);
   };
 
   return (
@@ -40,8 +44,8 @@ export const LoginForm = () => {
         {...register('password')}
         error={errors.password}
       />
-      <button type='submit' disabled>
-        Login
+      <button type='submit' disabled={loading}>
+        {loading ? 'Entrando' : 'Login'}
       </button>
     </form>
   );

@@ -27,6 +27,7 @@ export const CommerceContext = createContext({} as IProductsContext);
 
 export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
   const [productsList, setProductsList] = useState<IProduct[]>([]);
+  console.log(productsList);
 
   useEffect(() => {
     const getAllProductsFromServer = async () => {
@@ -48,6 +49,7 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
     };
     getAllProductsFromServer();
   }, []);
+
 
   // Create product:
   const createNewProduct = async (
