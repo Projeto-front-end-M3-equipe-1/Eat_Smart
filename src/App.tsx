@@ -1,5 +1,11 @@
+import { RoutesMain } from './routes';
+
 const App = () => {
-  return <></>;
+  return (
+    <div>
+      <RoutesMain />
+    </div>
+  );
 };
 
 export default App;

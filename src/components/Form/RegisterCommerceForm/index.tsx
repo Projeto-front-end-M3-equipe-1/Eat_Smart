@@ -1,4 +1,5 @@
 import { Input } from '../Input';
+import { Option } from '../../Option';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { registerCommerceFormSchema } from './registerCommerceFormSchema';
@@ -62,12 +63,18 @@ export const RegisterCommerceForm = () => {
         error={errors.confirmPassword}
       />
       {/* Inserir select na validação do schema */}
-      <select name='typeOfCompany' id='typeOfCompany'>
+      <label htmlFor='typeOfCompany'>Selecionar setor alimentício</label>
+      <select
+        id='typeOfCompany'
+        {...register('typeOfCompany')}
+        error={errors.typeOfCompany?.message}
+      >
         <option value='' disabled selected>
           Categoria
         </option>
-        <option value=''></option>
+        <option value=''>Nome setor alimentício</option>
       </select>
+
       <button type='submit' disabled>
         Cadastrar
       </button>

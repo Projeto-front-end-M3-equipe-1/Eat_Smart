@@ -4,9 +4,7 @@ import { SearchForm } from './SearchForm';
 export const Header = () => {
   return (
     <header>
-      <img src='' alt='Logo'>
-        Logo
-      </img>
+      <img src='Logo' alt='Logo'></img>
       {/*Será renderizado apenas na mainDashboard */}
       <nav>
         <div>
@@ -24,9 +22,7 @@ export const Header = () => {
         <SearchForm />
         <div>
           <button type='button'>
-            <img src='' alt='Icon-Cart'>
-              Abrir modal carrinho de compras
-            </img>
+            <img src='Abrir modal carrinho de compras' alt='Abrir modal carrinho de compras'></img>
           </button>
           <div>
             <button type='button'>Logout</button>

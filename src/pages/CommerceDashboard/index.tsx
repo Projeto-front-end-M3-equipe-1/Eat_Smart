@@ -9,9 +9,7 @@ export const CommerceDashboard = () => {
         <CreateProductForm />
         <section>
           <h1>Sacola surpresa cadastrada</h1>
-          <img src='' alt='product-bag'>
-            Logo da sacola ou prato
-          </img>
+          <img src='Logo da sacola ou prato' alt=''></img>
           <p>title</p>
           <small>quantity</small>
           <p>R$ new price</p>

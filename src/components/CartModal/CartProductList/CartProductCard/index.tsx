@@ -1,7 +1,7 @@
 export const CartProductCard = () => {
   return (
     <li>
-      <img>Logo estabelecimento</img>
+      <img src='Logo estabelecimento' alt=''></img>
       <p>Sacola surpresa</p>
       <small>Quantidade</small>
       <img>
