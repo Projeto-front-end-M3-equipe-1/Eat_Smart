@@ -1,21 +1,27 @@
-import { Footer } from "../../components/Footer";
-import { LoginForm } from "../../components/Form/LoginForm";
-import { Header } from "../../components/Header";
+import { Header } from '../../components/Header';
+import { LoginForm } from '../../components/Form/LoginForm';
+import { Link } from 'react-router-dom';
 
 export const LoginPage = () => {
   return (
     <>
       <Header />
       <main>
-        <div>
+        <section>
           <p>Fatos, coisas bonitinhas</p>
-          <img src="" alt="">
+          <img src='' alt=''>
             Imagem
           </img>
-        </div>
+        </section>
         <LoginForm />
+        <div>
+          <p>Ainda não é cadastrado?</p>
+          <button>
+            <Link to='' />
+            Cadastre-se
+          </button>
+        </div>
       </main>
-      <Footer />
     </>
   );
 };
