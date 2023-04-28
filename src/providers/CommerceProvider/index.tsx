@@ -26,7 +26,7 @@ export interface IProductsContext {
   ) => Promise<void>;
   updateProduct: (
     productId: number,
-    formData: ICreateProductFormValues
+    productFormData: ICreateProductFormValues
   ) => Promise<void>;
   removeProductCart: (productId: number) => void;
   removeAllProductsFromCart: () => void;
@@ -60,7 +60,6 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
       }
     };
     getAllProductsFromServer();
-
   }, []);
 
   // Create product:
@@ -70,7 +69,7 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
     try {
       const userToken = localStorage.getItem('@TOKENCOMMERCE');
       const userId = localStorage.getItem('@USERIDCOMMERCE');
-      
+
       const productComplete = {
         ...productFormData,
         userId: userId,
@@ -97,11 +96,15 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
   // Update product:
   const updateProduct = async (
     productId: number,
-    formData: ICreateProductFormValues
+    productFormData: ICreateProductFormValues
   ) => {
     try {
+      const userToken = localStorage.getItem('@TOKENCOMMERCE');
+
       const responseApi = await api
-        .put(`/products/${productId}`, formData)
+        .patch<IProduct>(`/products/${productId}`, productFormData, {
+          headers: { Authorization: `Bearer ${userToken}` },
+        })
         .then((response) => {
           const updateCurrentProduct = productsList.filter(
             (product) => product.id !== productId

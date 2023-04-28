@@ -1,4 +1,5 @@
-import { IProduct } from '../../../providers/CommerceProvider';
+import { useState } from 'react';
+import { CommerceContext, IProduct } from '../../../providers/CommerceProvider';
 
 export interface IOfferProductCard {
   offer: IProduct;
@@ -8,6 +9,8 @@ export const OfferCard = ({ offer }: IOfferProductCard) => {
   const userNameCommerce = localStorage.getItem('@USERNAMECOMMERCE');
   const newPrice = offer.originalPrice * (offer.discount / 100);
 
+  const {updateProduct} = useState(CommerceContext);
+
   return (
     <li>
       <img src='Logo da sacola ou prato' alt=''></img>
@@ -15,8 +18,8 @@ export const OfferCard = ({ offer }: IOfferProductCard) => {
       <small>{offer.quantity}</small>
       <p>R$ {newPrice.toLocaleString('pt-br', { minimumFractionDigits: 2 })}</p>
       <p>{userNameCommerce};</p>
-      <button type='button'>
-        <img src='Edit'></img>
+      <button onClick={() => updateProduct(offer.id)}>
+        Edit
       </button>
       <button type='button'>Excluir sacola surpresa</button>
     </li>
