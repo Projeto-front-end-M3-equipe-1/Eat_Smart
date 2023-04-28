@@ -13,7 +13,7 @@ export const Input = forwardRef(
     return (
       <div>
         <div>
-          <input ref={ref} id={id} {...rest} />
+          <input ref={ref} id={id}{...rest} />
           {label ? <label htmlFor={id}>{label}</label> : null}
         </div>
         {error ? <p>{error.message}</p> : null}
