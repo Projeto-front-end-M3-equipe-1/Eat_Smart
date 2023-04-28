@@ -1,5 +1,4 @@
 import { Input } from '../Input';
-import { Option } from '../../Option';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { registerCommerceFormSchema } from './registerCommerceFormSchema';
@@ -70,9 +69,14 @@ export const RegisterCommerceForm = () => {
         error={errors.typeOfCompany?.message}
       >
         <option value='' disabled selected>
-          Categoria
+          Categorias
         </option>
-        <option value=''>Nome setor alimentício</option>
+        <option value='Padaria'>Padaria</option>
+        <option value='Lanches'>Lanches</option>
+        <option value='Cafeteria'>Cafeteria</option>
+        <option value='Restaurante'>Restaurante</option>
+        <option value='Bares'>Bares</option>
+        <option value='Mercado'>Mercado</option>
       </select>
 
       <button type='submit' disabled>

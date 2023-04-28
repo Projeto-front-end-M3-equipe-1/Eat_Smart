@@ -2,13 +2,14 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { Input } from '../Input';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { createProductSchema } from './createProductSchema';
+import { useContext } from 'react';
+import { CommerceContext } from '../../../providers/CommerceProvider';
 
 export interface ICreateProductFormValues {
   title: string;
-  quantity: number;
-  originalPrice: number;
-  discount: number;
-  newPrice: number;
+  quantity: string;
+  originalPrice: string;
+  discount: string;
 }
 
 export const CreateProductForm = () => {
@@ -21,16 +22,18 @@ export const CreateProductForm = () => {
     resolver: zodResolver(createProductSchema),
   });
 
+  const { createNewProduct } = useContext(CommerceContext);
+
   const createProductSubmit: SubmitHandler<ICreateProductFormValues> = (
     productFormData
   ) => {
     console.log(productFormData);
-    // Executar função de criar produto, recebendo productFormData como parâmetro;
+    createNewProduct(productFormData);
+
     setValue('title', '');
-    setValue('quantity', 0);
-    setValue('originalPrice', 0);
-    setValue('discount', 0);
-    setValue('newPrice', 0);
+    setValue('quantity', '');
+    setValue('originalPrice', '');
+    setValue('discount', '');
   };
 
   return (
@@ -66,14 +69,6 @@ export const CreateProductForm = () => {
         id='discount'
         {...register('discount')}
         error={errors.discount}
-      />
-      <Input
-        type='number'
-        label='Valor final'
-        placeholder='Valor final'
-        id='newPrice'
-        {...register('newPrice')}
-        error={errors.newPrice}
       />
       <button type='submit'>Cadastrar sacola surpresa</button>
     </form>
