@@ -11,7 +11,7 @@ export interface IProduct {
   originalPrice: number;
   discount: number;
   quantity: number;
-  userId: number;
+  userId: number | null;
   id: number;
 }
 
@@ -21,13 +21,15 @@ export interface IProductsContext {
   createNewProduct: (
     productFormData: ICreateProductFormValues
   ) => Promise<void>;
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const CommerceContext = createContext({} as IProductsContext);
 
 export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
   const [productsList, setProductsList] = useState<IProduct[]>([]);
-  console.log(productsList);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const getAllProductsFromServer = async () => {
@@ -44,44 +46,50 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
       } catch (error) {
         console.log(error);
       } finally {
-        // setLoading(false);
+        setLoading(false);
       }
     };
     getAllProductsFromServer();
   }, []);
-
 
   // Create product:
   const createNewProduct = async (
     productFormData: ICreateProductFormValues
   ) => {
     try {
-      // const userToken = localStorage.getItem('@TOKENCOMMERCE');
+      const userToken = localStorage.getItem('@TOKENCOMMERCE');
       const userId = localStorage.getItem('@USERIDCOMMERCE');
+      const productComplete = {
+        ...productFormData,
+        userId: userId,
+      };
       const responseApi = await api
-        .post(
-          `products/${userId}`,
-          productFormData
-          // {
-          //   headers: { Authorization: `Bearer ${userToken}` },
-          // }
-        )
+        .post(`products/`, productComplete, {
+          headers: { Authorization: `Bearer ${userToken}` },
+        })
         .then((response) => {
           setProductsList([...productsList, response.data]);
 
           console.log('Sacola surpresa cadastrada');
         });
+
       return responseApi;
     } catch (error) {
       console.log(error);
     } finally {
-      // setLoading(false);
+      setLoading(false);
     }
   };
 
   return (
     <CommerceContext.Provider
-      value={{ productsList, setProductsList, createNewProduct }}
+      value={{
+        productsList,
+        setProductsList,
+        createNewProduct,
+        loading,
+        setLoading,
+      }}
     >
       {children}
     </CommerceContext.Provider>

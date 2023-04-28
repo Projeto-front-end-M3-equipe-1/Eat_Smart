@@ -4,12 +4,14 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { createProductSchema } from './createProductSchema';
 import { useContext } from 'react';
 import { CommerceContext } from '../../../providers/CommerceProvider';
+import { StyledInputUserId } from './style';
 
 export interface ICreateProductFormValues {
   title: string;
   quantity: string;
   originalPrice: string;
   discount: string;
+  userId: string | null;
 }
 
 export const CreateProductForm = () => {

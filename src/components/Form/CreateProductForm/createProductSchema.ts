@@ -22,5 +22,9 @@ export const createProductSchema = z.object({
   discount: z
     .string()
     .nonempty('Preencha o percentual da oferta')
-    .transform((value) => Number(parseFloat(value)))
+    .transform((value) => Number(parseFloat(value))),
+  userId: z
+    .string()
+    .transform((value) => Number(parseInt(value)))
+    .optional()
 });
