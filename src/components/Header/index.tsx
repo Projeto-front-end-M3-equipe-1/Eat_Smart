@@ -1,18 +1,18 @@
-import { Link } from "react-router-dom";
-import { SearchForm } from "./SearchForm";
+import { Link } from 'react-router-dom';
+import { SearchForm } from './SearchForm';
 
 export const Header = () => {
   return (
     <header>
-      <img src="" alt="Logo">
+      <img src='' alt='Logo'>
         Logo
       </img>
       {/*Será renderizado apenas na mainDashboard */}
       <nav>
         <div>
-          <button type="button">
-            {" "}
-            <Link to="" />
+          <button type='button'>
+            {' '}
+            <Link to='' />
             Home
           </button>
         </div>
@@ -23,12 +23,15 @@ export const Header = () => {
         {/*SearchForm e button de carrinho será renderizado apenas na commerceDashboard */}
         <SearchForm />
         <div>
-          <button type="button">
-            <img src="" alt="Icon-Cart">
+          <button type='button'>
+            <img src='' alt='Icon-Cart'>
               Abrir modal carrinho de compras
             </img>
           </button>
-          <button type="button">Logout</button>
+          <div>
+            <button type='button'>Logout</button>
+            <button type='button'>Abrir modal para editar perfil</button>
+          </div>
         </div>
       </nav>
     </header>

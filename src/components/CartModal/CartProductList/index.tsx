@@ -1,4 +1,4 @@
-import { CartProductCard } from "./CartProductCard";
+import { CartProductCard } from './CartProductCard';
 
 export const CartProductList = () => {
   return (
@@ -12,10 +12,10 @@ export const CartProductList = () => {
           <strong>Total</strong>
         </p>
       </div>
-      
+
       <button>Remover todos</button>
 
-      <button type="button">Finalizar compra</button>
+      <button type='button'>Finalizar compra</button>
     </div>
   );
 };

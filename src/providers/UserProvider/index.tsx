@@ -1,4 +1,6 @@
-import { createContext } from "react";
+import { createContext } from 'react';
+
+// Contexto criado para lógicas relacionadas ao usuario (login, auto-login, etc...)
 
 export interface IUserProviderProps {
   children: React.ReactNode;

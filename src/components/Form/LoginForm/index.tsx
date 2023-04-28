@@ -1,7 +1,7 @@
-import { Input } from "../Input";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { loginFormSchema } from "./loginFormSchema";
+import { Input } from '../Input';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { loginFormSchema } from './loginFormSchema';
 
 export interface ILoginFormData {
   email: string;
@@ -25,22 +25,24 @@ export const LoginForm = () => {
   return (
     <form onSubmit={handleSubmit(loginFormSubmit)}>
       <Input
-        type="email"
-        label="Email"
-        placeholder="Email"
-        id="email"
-        {...register("email")}
+        type='email'
+        label='Email'
+        placeholder='Email'
+        id='email'
+        {...register('email')}
         error={errors.email}
       />
       <Input
-        type="password"
-        label="Senha"
-        placeholder="Senha"
-        id="password"
-        {...register("password")}
+        type='password'
+        label='Senha'
+        placeholder='Senha'
+        id='password'
+        {...register('password')}
         error={errors.password}
       />
-      <button type="submit" disabled>Login</button>
+      <button type='submit' disabled>
+        Login
+      </button>
     </form>
   );
 };
