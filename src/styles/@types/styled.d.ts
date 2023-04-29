@@ -10,7 +10,7 @@ declare module "styled-components" {
     colors: {
       greenPrimary: string;
       greenSecondary: string;
-      orangePrymary: string;
+      orangePrimary: string;
       primaryFocus: string;
       BackgroundLight: string;
       backgroundDark: string;

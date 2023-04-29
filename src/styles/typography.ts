@@ -26,9 +26,9 @@ interface IStyledParagraphProps {
   textAlign?: "center" | "left" | "right";
 }
 
-export const StyledTitle = styled(BaseTitle)<IStyledTitleProps>`
+export const StyledTitleGreen = styled(BaseTitle)<IStyledTitleProps>`
   width: 100%;
-
+  color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.fonts.primaryPoppins};
   line-height: 1.6;
 
@@ -51,13 +51,6 @@ export const StyledTitle = styled(BaseTitle)<IStyledTitleProps>`
         return css`
           font-size: 1.125rem;
           font-weight: 600;
-        `;
-
-      case "textInput":
-      default:
-        return css`
-          font-size: 0.875rem;
-          font-weight: 400;
         `;
       case "textLabel":
         return css`
@@ -85,11 +78,78 @@ export const StyledTitle = styled(BaseTitle)<IStyledTitleProps>`
           font-size: 1.125rem;
           font-weight: 400;
         `;
+      case "textInput":
+      default:
+        return css`
+          font-size: 0.875rem;
+          font-weight: 400;
+        `;
+    }
+  }}
+`;
+export const StyledTitleWhite = styled(BaseTitle)<IStyledTitleProps>`
+  width: 100%;
+  color: ${({ theme }) => theme.colors.gray600};
+  font-family: ${({ theme }) => theme.fonts.primaryPoppins};
+  line-height: 1.6;
+
+  text-align: ${({ textAlign }) => textAlign};
+
+  ${({ $fontSize }) => {
+    switch ($fontSize) {
+      case "principal":
+        return css`
+          font-size: 3.025rem;
+          font-weight: 700;
+        `;
+      case "logo":
+        return css`
+          font-size: 2.25rem;
+          font-weight: 700;
+        `;
+
+      case "titleForm":
+        return css`
+          font-size: 1.125rem;
+          font-weight: 600;
+        `;
+      case "textLabel":
+        return css`
+          font-size: 0.875rem;
+          font-weight: 400;
+        `;
+      case "textButton":
+        return css`
+          font-size: 0.75rem;
+          font-weight: 400;
+        `;
+      case "small":
+        return css`
+          font-size: 0.75rem;
+          font-weight: 400;
+        `;
+      case "titleSections":
+        return css`
+          font-size: 1.5rem;
+          font-weight: 400;
+        `;
+
+      case "category":
+        return css`
+          font-size: 1.125rem;
+          font-weight: 400;
+        `;
+      case "textInput":
+      default:
+        return css`
+          font-size: 0.875rem;
+          font-weight: 400;
+        `;
     }
   }}
 `;
 
-export const StyledParagraph = styled.p<IStyledParagraphProps>`
+export const StyledParagraph = styled.h2<IStyledParagraphProps>`
   font-family: ${({ theme }) => theme.fonts.primaryPoppins};
   font-size: 0.875rem;
   font-weight: 400;
@@ -117,7 +177,7 @@ export const StyledParagraph = styled.p<IStyledParagraphProps>`
         `;
       case "orange":
         return css`
-          color: ${theme.colors.orangePrymary};
+          color: ${theme.colors.orangePrimary};
         `;
       case "white":
         return css`

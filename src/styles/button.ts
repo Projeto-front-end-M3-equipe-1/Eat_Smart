@@ -56,7 +56,7 @@ export const StyledButtonCSS = css<IStyledButtonProps>`
       case "buttonOrange":
         return css`
           color: ${theme.colors.white};
-          background: ${theme.colors.orangePrymary};
+          background: ${theme.colors.orangePrimary};
           &:hover {
             opacity: 0.5;
           }

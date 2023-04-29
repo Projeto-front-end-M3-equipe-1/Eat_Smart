@@ -1,5 +1,16 @@
+import { UserProvider } from "./providers/UserProvider";
+import { RoutesMain } from "./routes";
+import { GlobalStyles } from "./styles/global";
+
 const App = () => {
-  return <></>;
+  return (
+    <div>
+      <UserProvider>
+        <RoutesMain />
+      </UserProvider>
+      <GlobalStyles />
+    </div>
+  );
 };
 
 export default App;

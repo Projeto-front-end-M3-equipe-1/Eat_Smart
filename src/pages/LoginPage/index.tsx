@@ -9,9 +9,7 @@ export const LoginPage = () => {
       <main>
         <section>
           <p>Fatos, coisas bonitinhas</p>
-          <img src='' alt=''>
-            Imagem
-          </img>
+          <img src='Imagem' alt=''></img>
         </section>
         <LoginForm />
         <div>

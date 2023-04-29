@@ -1,13 +1,13 @@
 export const EatSmartTheme = {
   fonts: {
     primaryPoppins: "Poppins",
-    secondaryNerko: "'Nerko One', cursive",
-    primaryFocusNarrow: "PT Sans Narrow',sans-serif",
+    secondaryNerko: "Nerko One",
+    primaryFocusNarrow: "PT Sans Narrow",
   },
   colors: {
     greenPrimary: "#056365",
     greenSecondary: "#71CB9F",
-    orangePrymary: "#FF543D",
+    orangePrimary: "#FF543D",
     primaryFocus: "#93D7AF",
     BackgroundLight: "#F1EDE7",
     backgroundDark: "#056365",

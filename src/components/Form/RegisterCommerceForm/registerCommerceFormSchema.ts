@@ -24,7 +24,7 @@ export const registerCommerceFormSchema = z
       .regex(/(?=.*?[0-9])/, 'Necessário conter ao menos um número')
       .regex(/(?=.*?[\W])/, 'Necessário conter ao menos um caracter especial'),
     confirmPassword: z.string().nonempty('Por favor, confirme sua senha'),
-    typeOfCompany: z.string().nonempty('Selecione o setor alimentício'),
+    foodCategory: z.string().nonempty('Selecione o setor alimentício'),
   })
   .refine(({ password, confirmPassword }) => confirmPassword === password, {
     message: 'As senhas não correspondem. Por favor, tente novamente.',
