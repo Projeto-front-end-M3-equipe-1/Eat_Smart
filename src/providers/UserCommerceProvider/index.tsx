@@ -55,10 +55,7 @@ export const UserCommerceProvider = ({ children }: IUserProviderProps) => {
             '@USERIDCOMMERCE',
             JSON.stringify(userResponse.id)
           );
-          localStorage.setItem(
-            '@USERNAMECOMMERCE',
-            JSON.stringify(userResponse.userName)
-          );
+          localStorage.setItem('@USERNAMECOMMERCE', userResponse.userName);
 
           setCommerceUser(userResponse);
           navigate('/companyHome');

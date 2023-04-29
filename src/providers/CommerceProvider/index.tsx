@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 import { api } from '../../services/api';
 import { ICreateProductFormValues } from '../../components/Form/CreateProductForm';
+import { IRegisterUserFormData } from '../../components/Form/RegisterCommerceForm';
 
 export interface ICommerceProviderProps {
   children: React.ReactNode;
@@ -29,6 +30,7 @@ export interface IProductsContext {
   ) => Promise<void>;
   removeOfferFromOfferList: (productId: number) => void;
   removeAllOffers: () => void;
+  editCommerceProfile: Promise<void>
 }
 
 export const CommerceContext = createContext({} as IProductsContext);
@@ -68,10 +70,12 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
     try {
       const userToken = localStorage.getItem('@TOKENUSERCOMMERCE');
       const userId = localStorage.getItem('@USERIDCOMMERCE');
+      const userCommerce = localStorage.getItem('@USERNAMECOMMERCE');
 
       const productComplete = {
         ...productFormData,
         userId: Number(userId),
+        company: userCommerce,
       };
 
       const responseApi = await api
@@ -139,6 +143,35 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
     setProductsList([]);
   };
 
+  // *Edit commerce profile*:
+  const editCommerceProfile = async (
+    newCommerceProfileData: IRegisterUserFormData
+  ) => {
+    const userCommerceId = localStorage.getItem('@USERIDCOMMERCE');
+    const userToken = localStorage.getItem('@TOKENUSERCOMMERCE');
+
+    try {
+      const responseApi = await api
+        .patch<IRegisterUserFormData>(
+          `/users/${userCommerceId}`,
+          newCommerceProfileData,
+          {
+            headers: { Authorization: `Bearer ${userToken}` },
+          }
+        )
+        .then((response) => {
+          console.log(response.data); //substituir por toast
+          console.log('Alterado');
+        });
+
+      return responseApi;
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <CommerceContext.Provider
       value={{
@@ -150,6 +183,7 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
         editOffer,
         removeOfferFromOfferList,
         removeAllOffers,
+        editCommerceProfile,
       }}
     >
       {children}

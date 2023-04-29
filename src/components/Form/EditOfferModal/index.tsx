@@ -56,13 +56,13 @@ export const EditOfferModal = ({
         />
         <Input
           type='number'
-          label='Itens disponíveis'
+          label='Quantidade'
           placeholder={offer.quantity.toString()}
           id='quantity'
           {...register('quantity')}
           error={errors.quantity}
         />
-        <Input
+        {/* <Input
           type='number'
           label='Preço original'
           placeholder={`R$ ${offer.originalPrice.toLocaleString('pt-br', {
@@ -71,7 +71,7 @@ export const EditOfferModal = ({
           id='originalPrice'
           {...register('originalPrice')}
           error={errors.originalPrice}
-        />
+        /> */}
         <Input
           type='number'
           label='Desconto'

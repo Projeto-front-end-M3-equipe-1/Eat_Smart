@@ -18,7 +18,7 @@ export const createProductSchema = z.object({
   originalPrice: z
     .string()
     .nonempty('Preencha o valor original do produto')
-    .transform((value) => Number(parseInt(value))),
+    .transform((value) => Number(parseFloat(value))),
   discount: z
     .string()
     .nonempty('Preencha o percentual da oferta')

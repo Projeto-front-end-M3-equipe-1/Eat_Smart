@@ -11,6 +11,7 @@ export interface ICreateProductFormValues {
   originalPrice: string;
   discount: string;
   userId: string | null;
+  company: string | null;
 }
 
 export const CreateProductForm = () => {
@@ -39,7 +40,12 @@ export const CreateProductForm = () => {
 
   return (
     <form onSubmit={handleSubmit(createProductSubmit)}>
-      <h1>Cadastrar nova oferta</h1>
+      <div>
+        <h1>Cadastrar nova oferta</h1>
+        <label htmlFor='retirement'>Horário de Retirada</label>
+        <input placeholder='A partir das 22:00' disabled id='retirement' />
+      </div>
+
       <Input
         type='text'
         label='Preferências'
@@ -50,7 +56,7 @@ export const CreateProductForm = () => {
       />
       <Input
         type='number'
-        label='Itens disponíveis'
+        label='Quantidade'
         placeholder='1'
         id='quantity'
         {...register('quantity')}
@@ -58,8 +64,8 @@ export const CreateProductForm = () => {
       />
       <Input
         type='number'
-        label='Preço original'
-        placeholder='Preço original'
+        label='Valor Real'
+        placeholder='Valor Real'
         id='originalPrice'
         {...register('originalPrice')}
         error={errors.originalPrice}
