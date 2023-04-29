@@ -1,10 +1,11 @@
 import { ProductCard } from './ProductCard';
 
-export const ProductList = () => {
+export const ProductList = ({offers}) => {
   return (
     <ul>
-      {/* Realizar map para renderizar o ProductCard */}
-      <ProductCard />
+      {offers.map((offer) => {
+        return <ProductCard key={offer.id} offer={offer} />
+      })}
     </ul>
   );
 };
