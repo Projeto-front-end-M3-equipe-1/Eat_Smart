@@ -11,15 +11,15 @@ export interface IProduct {
   originalPrice: number;
   discount: number;
   quantity: number;
-  userId: number;
+  userId: number | null;
   id: number;
 }
 
 export interface IProductsContext {
   productsList: IProduct[];
   setProductsList: React.Dispatch<React.SetStateAction<IProduct[]>>;
-  isEditOfferModalOpen: boolean;
-  setIsEditOfferModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  // isEditOfferModalOpen: boolean;
+  // setIsEditOfferModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   createNewProduct: (
@@ -36,24 +36,31 @@ export const CommerceContext = createContext({} as IProductsContext);
 
 export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
   const [productsList, setProductsList] = useState<IProduct[]>([]);
-  const [isEditOfferModalOpen, setIsEditOfferModalOpen] = useState(false);
+  // const [isEditOfferModalOpen, setIsEditOfferModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
   // console.log(productsList);
 
   useEffect(() => {
     const getAllProductsFromServer = async () => {
-      const userToken = localStorage.getItem('@TOKEN');
+      try {
+        setLoading(true);
+        const userToken = localStorage.getItem('@TOKEN');
 
-      const responseApi = await api
-        .get<IProduct[]>('/products', {
-          headers: { Authorization: `Bearer ${userToken}` },
-        })
-        .then((response) => {
-          setProductsList(response.data);
-        });
+        const responseApi = await api
+          .get<IProduct[]>('/products', {
+            headers: { Authorization: `Bearer ${userToken}` },
+          })
+          .then((response) => {
+            setProductsList(response.data);
+          });
 
-      return responseApi;
+        return responseApi;
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
     };
     getAllProductsFromServer();
   }, [productsList]);
@@ -63,16 +70,16 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
     productFormData: ICreateProductFormValues
   ) => {
     try {
-      const userToken = localStorage.getItem('@TOKENCOMMERCE');
+      const userToken = localStorage.getItem('@TOKENUSERCOMMERCE');
       const userId = localStorage.getItem('@USERIDCOMMERCE');
 
       const productComplete = {
         ...productFormData,
-        userId: userId,
+        userId: Number(userId),
       };
 
       const responseApi = await api
-        .post(`products/`, productComplete, {
+        .post<IProduct>(`products/`, productComplete, {
           headers: { Authorization: `Bearer ${userToken}` },
         })
         .then((response) => {
@@ -120,22 +127,16 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
 
   // Remove product from cart:
   const removeOfferFromOfferList = async (offerId: number) => {
-    try {
-      const response = await api.delete(`/products/${offerId}`);
+    const response = await api.delete(`/products/${offerId}`);
 
-      const removeCurrentOffer = productsList.filter(
-        (currentOffer) => currentOffer.id !== offerId
-      );
+    const removeCurrentOffer = productsList.filter(
+      (currentOffer) => currentOffer.id !== offerId
+    );
 
-      setProductsList(removeCurrentOffer);
+    setProductsList(removeCurrentOffer);
 
-      console.log('Oferta removida'); //Substituir por toast
-      return response;
-    } catch (error) {
-      // toastError();
-    } finally {
-      setLoading(false);
-    }
+    console.log('Oferta removida'); //Substituir por toast
+    // console.log(response);
   };
 
   return (
@@ -143,8 +144,8 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
       value={{
         productsList,
         setProductsList,
-        isEditOfferModalOpen,
-        setIsEditOfferModalOpen,
+        // isEditOfferModalOpen,
+        // setIsEditOfferModalOpen,
         loading,
         setLoading,
         createNewProduct,

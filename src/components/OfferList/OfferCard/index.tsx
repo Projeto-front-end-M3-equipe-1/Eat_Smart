@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { CommerceContext, IProduct } from '../../../providers/CommerceProvider';
 import { EditOfferModal } from '../../Form/EditOfferModal';
 
@@ -11,10 +11,10 @@ export const OfferCard = ({ offer }: IOfferProductCard) => {
   const newPrice = offer.originalPrice * (offer.discount / 100);
 
   const {
-    isEditOfferModalOpen,
-    setIsEditOfferModalOpen,
     removeOfferFromOfferList,
   } = useContext(CommerceContext);
+
+  const [isEditOfferModalOpen, setIsEditOfferModalOpen] = useState(false);
 
   return (
     <li>
@@ -25,7 +25,7 @@ export const OfferCard = ({ offer }: IOfferProductCard) => {
       <p>{userNameCommerce};</p>
 
       <button onClick={() => setIsEditOfferModalOpen(true)}>Edit</button>
-      {isEditOfferModalOpen ? <EditOfferModal offer={offer} /> : null}
+      {isEditOfferModalOpen ? <EditOfferModal offer={offer} setIsEditOfferModalOpen={setIsEditOfferModalOpen}/> : null}
 
       <button onClick={() => removeOfferFromOfferList(offer.id)}>Remove</button>
     </li>

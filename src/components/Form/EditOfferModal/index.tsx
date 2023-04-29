@@ -4,12 +4,10 @@ import { editOfferSchema } from './editOfferSchema';
 import { ICreateProductFormValues } from '../CreateProductForm';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useContext } from 'react';
-import { CommerceContext } from '../../../providers/CommerceProvider';
-import { any } from 'zod';
+import { CommerceContext, IProduct } from '../../../providers/CommerceProvider';
 
 
-export const EditOfferModal = ({ offer }: any) => {
-  
+export const EditOfferModal = ({ offer, setIsEditOfferModalOpen } : {offer: IProduct; setIsEditOfferModalOpen:React.Dispatch<React.SetStateAction<boolean>>}) => {
   const {
     register,
     handleSubmit,
@@ -18,13 +16,34 @@ export const EditOfferModal = ({ offer }: any) => {
     resolver: zodResolver(editOfferSchema),
   });
 
-  const { setIsEditOfferModalOpen, editOffer } = useContext(CommerceContext);
+  const { editOffer } = useContext(CommerceContext);
   const offerId = offer.id;
-
 
   const editOfferSubmit: SubmitHandler<ICreateProductFormValues> = (
     newOfferFormData
   ) => {
+    for (const key in newOfferFormData) {
+      if (newOfferFormData[key as keyof ICreateProductFormValues] === '') {
+        newOfferFormData[key as keyof ICreateProductFormValues] = offer[key as keyof IProduct] as string ;
+      }
+    }
+
+    // if (newOfferFormData.title === '') {
+    //   newOfferFormData.title = offer.title;
+    // }
+
+    // if (newOfferFormData.quantity === '') {
+    //   newOfferFormData.quantity = offer.quantity;
+    // }
+
+    // if (newOfferFormData.originalPrice === '') {
+    //   newOfferFormData.originalPrice = offer.originalPrice;
+    // }
+
+    // if (newOfferFormData.discount === '') {
+    //   newOfferFormData.discount = offer.discount;
+    // }
+
     console.log(newOfferFormData);
     editOffer(offerId, newOfferFormData);
     setIsEditOfferModalOpen(false);
@@ -49,7 +68,7 @@ export const EditOfferModal = ({ offer }: any) => {
         <Input
           type='number'
           label='Itens disponíveis'
-          placeholder={offer.quantity}
+          placeholder={offer.quantity.toString()}
           id='quantity'
           {...register('quantity')}
           error={errors.quantity}

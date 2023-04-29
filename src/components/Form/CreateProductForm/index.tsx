@@ -10,7 +10,7 @@ export interface ICreateProductFormValues {
   quantity: string;
   originalPrice: string;
   discount: string;
-  userId: string;
+  userId: string | null;
 }
 
 export const CreateProductForm = () => {

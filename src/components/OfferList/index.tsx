@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { OfferCard } from './OfferCard';
-import { CommerceContext } from '../../providers/CommerceProvider';
+import { CommerceContext} from '../../providers/CommerceProvider';
+
 
 export const OfferList = () => {
   const userId = Number(localStorage.getItem('@USERIDCOMMERCE'));
