@@ -4,14 +4,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { createProductSchema } from './createProductSchema';
 import { useContext } from 'react';
 import { CommerceContext } from '../../../providers/CommerceProvider';
-import { StyledInputUserId } from './style';
 
 export interface ICreateProductFormValues {
   title: string;
   quantity: string;
   originalPrice: string;
   discount: string;
-  userId: string | null;
+  userId: string;
 }
 
 export const CreateProductForm = () => {
@@ -40,18 +39,19 @@ export const CreateProductForm = () => {
 
   return (
     <form onSubmit={handleSubmit(createProductSubmit)}>
+      <h1>Cadastrar nova oferta</h1>
       <Input
         type='text'
-        label='Nome do produto'
-        placeholder='Nome do produto'
+        label='Preferências'
+        placeholder='Ex: Vegana, Vegetariana, Zero Lactose'
         id='title'
         {...register('title')}
         error={errors.title}
       />
       <Input
         type='number'
-        label='Qt.'
-        placeholder='Qt.'
+        label='Itens disponíveis'
+        placeholder='1'
         id='quantity'
         {...register('quantity')}
         error={errors.quantity}
@@ -66,13 +66,13 @@ export const CreateProductForm = () => {
       />
       <Input
         type='number'
-        label='Desconto %'
-        placeholder='Desconto %'
+        label='Desconto'
+        placeholder='20%'
         id='discount'
         {...register('discount')}
         error={errors.discount}
       />
-      <button type='submit'>Cadastrar sacola surpresa</button>
+      <button type='submit'>Cadastrar oferta</button>
     </form>
   );
 };

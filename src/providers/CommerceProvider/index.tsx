@@ -11,56 +11,52 @@ export interface IProduct {
   originalPrice: number;
   discount: number;
   quantity: number;
-  userId: number | null;
+  userId: number;
   id: number;
 }
 
 export interface IProductsContext {
   productsList: IProduct[];
   setProductsList: React.Dispatch<React.SetStateAction<IProduct[]>>;
-  cartProducts: IProduct[];
+  isEditOfferModalOpen: boolean;
+  setIsEditOfferModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   createNewProduct: (
     productFormData: ICreateProductFormValues
   ) => Promise<void>;
-  updateProduct: (
+  editOffer: (
     productId: number,
     productFormData: ICreateProductFormValues
   ) => Promise<void>;
-  removeProductCart: (productId: number) => void;
-  removeAllProductsFromCart: () => void;
+  removeOfferFromOfferList: (productId: number) => void;
 }
 
 export const CommerceContext = createContext({} as IProductsContext);
 
 export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
   const [productsList, setProductsList] = useState<IProduct[]>([]);
-  const [cartProducts, setCartProducts] = useState<IProduct[]>([]);
+  const [isEditOfferModalOpen, setIsEditOfferModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  // console.log(productsList);
 
   useEffect(() => {
     const getAllProductsFromServer = async () => {
-      try {
-        const userToken = localStorage.getItem('@TOKEN');
+      const userToken = localStorage.getItem('@TOKEN');
 
-        const responseApi = await api
-          .get<IProduct[]>('/products', {
-            headers: { Authorization: `Bearer ${userToken}` },
-          })
-          .then((response) => {
-            setProductsList(response.data);
-          });
+      const responseApi = await api
+        .get<IProduct[]>('/products', {
+          headers: { Authorization: `Bearer ${userToken}` },
+        })
+        .then((response) => {
+          setProductsList(response.data);
+        });
 
-        return responseApi;
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
+      return responseApi;
     };
     getAllProductsFromServer();
-  }, []);
+  }, [productsList]);
 
   // Create product:
   const createNewProduct = async (
@@ -93,21 +89,21 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
     }
   };
 
-  // Update product:
-  const updateProduct = async (
-    productId: number,
-    productFormData: ICreateProductFormValues
+  // Edit offer:
+  const editOffer = async (
+    offerId: number,
+    newOfferFormData: ICreateProductFormValues
   ) => {
     try {
-      const userToken = localStorage.getItem('@TOKENCOMMERCE');
+      const userToken = localStorage.getItem('@TOKENUSERCOMMERCE');
 
       const responseApi = await api
-        .patch<IProduct>(`/products/${productId}`, productFormData, {
+        .patch<IProduct>(`/products/${offerId}`, newOfferFormData, {
           headers: { Authorization: `Bearer ${userToken}` },
         })
         .then((response) => {
           const updateCurrentProduct = productsList.filter(
-            (product) => product.id !== productId
+            (product) => product.id !== offerId
           );
           setProductsList([...updateCurrentProduct, response.data]);
 
@@ -122,16 +118,24 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
     }
   };
 
-  // *Remove product from cart*:
-  const removeProductCart = (productId: number) => {
-    const newCartList = cartProducts.filter(
-      (product) => product.id !== productId
-    );
-    setCartProducts(newCartList);
-  };
+  // Remove product from cart:
+  const removeOfferFromOfferList = async (offerId: number) => {
+    try {
+      const response = await api.delete(`/products/${offerId}`);
 
-  const removeAllProductsFromCart = () => {
-    setCartProducts([]);
+      const removeCurrentOffer = productsList.filter(
+        (currentOffer) => currentOffer.id !== offerId
+      );
+
+      setProductsList(removeCurrentOffer);
+
+      console.log('Oferta removida'); //Substituir por toast
+      return response;
+    } catch (error) {
+      // toastError();
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -139,12 +143,14 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
       value={{
         productsList,
         setProductsList,
+        isEditOfferModalOpen,
+        setIsEditOfferModalOpen,
         loading,
         setLoading,
         createNewProduct,
-        updateProduct,
-        removeProductCart,
-        removeAllProductsFromCart,
+        editOffer,
+        removeOfferFromOfferList,
+        // removeAllProductsFromCart,
       }}
     >
       {children}

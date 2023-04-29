@@ -26,5 +26,4 @@ export const createProductSchema = z.object({
   userId: z
     .string()
     .transform((value) => Number(parseInt(value)))
-    .optional()
 });

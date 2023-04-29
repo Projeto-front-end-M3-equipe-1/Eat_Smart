@@ -46,11 +46,11 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       const responseApi = await api
         .post<ILoginResponse>('/signin', loginFormData)
         .then((response) => {
-          const { accessToken, user: userResponse } = response.data;
+          const { accessToken, user: userResponse} = response.data;
 
           api.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
 
-          localStorage.setItem('@TOKENCOMMERCE', accessToken);
+          localStorage.setItem('@TOKENUSERCOMMERCE', accessToken);
           localStorage.setItem(
             '@USERIDCOMMERCE',
             JSON.stringify(userResponse.id)

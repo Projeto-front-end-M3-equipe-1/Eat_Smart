@@ -66,7 +66,7 @@ export const RegisterCommerceForm = () => {
       <select
         id='typeOfCompany'
         {...register('foodCategory')}
-        error={errors.foodCategory?.message}
+        error={errors.foodCategory?.message} //Verificar tipagem
       >
         <option value='' disabled selected>
           Categorias

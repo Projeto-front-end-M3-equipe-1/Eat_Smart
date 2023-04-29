@@ -1,6 +1,7 @@
 import { CreateProductForm } from '../../components/Form/CreateProductForm';
 import { Header } from '../../components/Header';
-import { OffersList } from '../../components/OffersList';
+import { OfferList } from '../../components/OfferList';
+import { ReservedProductsList } from '../../components/ReservedProductsList';
 
 export const CommerceDashboard = () => {
   return (
@@ -9,7 +10,10 @@ export const CommerceDashboard = () => {
       <main>
         <CreateProductForm />
         <section>
-          <OffersList />
+          <ReservedProductsList />
+        </section>
+        <section>
+          <OfferList />
         </section>
       </main>
     </div>

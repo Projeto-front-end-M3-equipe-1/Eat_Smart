@@ -19,7 +19,7 @@ export const LoginForm = () => {
     resolver: zodResolver(loginFormSchema),
   });
 
-  const { login, loading } = useContext(UserContext);
+  const { login, loading } = useContext(UserContext); //Verificar tipagem
 
   const loginFormSubmit: SubmitHandler<ILoginFormData> = (loginFormData) => {
     login(loginFormData);
