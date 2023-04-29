@@ -1,13 +1,23 @@
-export const ProductCard = ({offer}) => {
-  const newPrice =
-    offer.originalPrice - (offer.discount / 100) * offer.originalPrice;
-    
+import { StyledProductCard } from "./style";
+import backGroundCart from "../../../assets/images/image3.svg"
+import heart from "../../../assets/icons/coração.svg"
+import star from "../../../assets/icons/star.svg"
+
+
+export const ProductCard = ({ offer }) => {
+  const newPrice = offer.originalPrice - (offer.discount / 100) * offer.originalPrice;
+
   return (
-    <li>
+    <StyledProductCard>
       <div>
-        <img src="" alt="" />
-        <h3>{offer.quantity}</h3>
+        <img src={backGroundCart} alt="Mesa servida" />
         <h4>{offer.company}</h4>
+        <figure>
+          <img src={heart} alt="Coração vermelho" />
+        </figure>
+        <div>
+          <h3>{offer.quantity} sacolas</h3>
+        </div>
       </div>
       <div>
         <div>
@@ -15,10 +25,13 @@ export const ProductCard = ({offer}) => {
           <p>Retirar hoje até às 22:00h</p>
         </div>
         <div>
-          <h4>* 4.2</h4>
-          <h4>{newPrice}</h4>
+          <h4>★ 4.2</h4>
+          <h3>{newPrice.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+          })}</h3>
         </div>
       </div>
-    </li>
+    </StyledProductCard>
   );
 };

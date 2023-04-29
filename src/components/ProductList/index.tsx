@@ -1,11 +1,12 @@
 import { ProductCard } from './ProductCard';
+import { StyledProductList } from './style';
 
 export const ProductList = ({offers}) => {
   return (
-    <ul>
+    <StyledProductList>
       {offers.map((offer) => {
         return <ProductCard key={offer.id} offer={offer} />
       })}
-    </ul>
+    </StyledProductList>
   );
 };

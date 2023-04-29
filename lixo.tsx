@@ -50,6 +50,7 @@ export const offers = [
       "discount": 40,
       "quantity": 8,
       "userId": 7,
+      "company": "Noma Restaurante",
       "id": 6
     },
     {
@@ -121,6 +122,7 @@ export const offers = [
       "discount": 50,
       "quantity": 8,
       "userId": 3,
+      "company": "Skina Lanches",
       "id": 14
     },
     {
