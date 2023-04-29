@@ -3,7 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { loginFormSchema } from './loginFormSchema';
 import { useContext } from 'react';
-import { UserContext } from '../../../providers/UserProvider';
+import { UserContext } from '../../../providers/UserCommerceProvider';
 
 export interface ILoginFormData {
   email: string;

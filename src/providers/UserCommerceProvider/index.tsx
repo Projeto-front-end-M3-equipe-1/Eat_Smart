@@ -31,9 +31,9 @@ export interface IUserContext {
   loading: boolean;
 }
 
-export const UserContext = createContext({});
+export const UserCommerceContext = createContext({});
 
-export const UserProvider = ({ children }: IUserProviderProps) => {
+export const UserCommerceProvider = ({ children }: IUserProviderProps) => {
   const [commerceUser, setCommerceUser] = useState<ICommerceUser | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -73,10 +73,10 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   };
 
   return (
-    <UserContext.Provider
+    <UserCommerceContext.Provider
       value={{ login, commerceUser, setCommerceUser, loading }}
     >
       {children}
-    </UserContext.Provider>
+    </UserCommerceContext.Provider>
   );
 };

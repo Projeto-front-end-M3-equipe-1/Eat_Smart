@@ -1,4 +1,4 @@
-import { UserProvider } from './providers/UserProvider';
+import { UserProvider } from './providers/UserCommerceProvider';
 import { RoutesMain } from './routes';
 
 const App = () => {
