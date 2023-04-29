@@ -1,5 +1,5 @@
-import logo from "../../assets/images/image1.svg";
-import { StyledMainDashboard } from "./style";
+import logo from '../../assets/images/image1.svg';
+import { StyledMainDashboard } from './style';
 
 export const MainDashboardComponent = () => {
   return (
@@ -11,17 +11,18 @@ export const MainDashboardComponent = () => {
         </div>
         <div>
           <p>
-            Junte-se à luta contra o desperdício de alimentos e ajude a salvar alimentos
-            perfeitamente bons que de outra forma iriam para o lixo.
+            Junte-se à luta contra o desperdício de alimentos e ajude a salvar
+            alimentos perfeitamente bons que de outra forma iriam para o lixo.
           </p>
           <small>
-            Descubra lojas e restaurantes perto de você com a EatSmart e evite que sacolas surpresa
-            de mantimentos excedentes sejam desperdiçadas - adquirindo por um ótimo preço.
+            Descubra lojas e restaurantes perto de você com a EatSmart e evite
+            que sacolas surpresa de mantimentos excedentes sejam desperdiçadas -
+            adquirindo por um ótimo preço.
           </small>
         </div>
       </section>
       <section>
-        <img src={logo} alt="produtos para entrega" />
+        <img src={logo} alt='produtos para entrega' />
       </section>
     </StyledMainDashboard>
   );

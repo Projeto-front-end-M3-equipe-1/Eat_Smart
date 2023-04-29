@@ -1,7 +1,7 @@
-import { CreateProductForm } from '../../components/Form/CreateProductForm';
 import { Header } from '../../components/Header';
-import { OfferList } from '../../components/OfferList';
+import { CreateProductForm } from '../../components/Form/CreateProductForm';
 import { ReservedProductsList } from '../../components/ReservedProductsList';
+import { OfferList } from '../../components/OfferList';
 
 export const CommerceDashboard = () => {
   return (

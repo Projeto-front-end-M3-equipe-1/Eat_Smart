@@ -8,11 +8,10 @@ export interface IOfferProductCard {
 
 export const OfferCard = ({ offer }: IOfferProductCard) => {
   const userNameCommerce = localStorage.getItem('@USERNAMECOMMERCE');
-  const newPrice = offer.originalPrice * (offer.discount / 100);
+  const newPrice =
+    offer.originalPrice - (offer.discount / 100) * offer.originalPrice;
 
-  const {
-    removeOfferFromOfferList,
-  } = useContext(CommerceContext);
+  const { removeOfferFromOfferList } = useContext(CommerceContext);
 
   const [isEditOfferModalOpen, setIsEditOfferModalOpen] = useState(false);
 
@@ -25,7 +24,12 @@ export const OfferCard = ({ offer }: IOfferProductCard) => {
       <p>{userNameCommerce};</p>
 
       <button onClick={() => setIsEditOfferModalOpen(true)}>Edit</button>
-      {isEditOfferModalOpen ? <EditOfferModal offer={offer} setIsEditOfferModalOpen={setIsEditOfferModalOpen}/> : null}
+      {isEditOfferModalOpen ? (
+        <EditOfferModal
+          offer={offer}
+          setIsEditOfferModalOpen={setIsEditOfferModalOpen}
+        />
+      ) : null}
 
       <button onClick={() => removeOfferFromOfferList(offer.id)}>Remove</button>
     </li>

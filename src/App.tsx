@@ -1,12 +1,12 @@
-import { UserProvider } from './providers/UserCommerceProvider';
+import { UserCommerceProvider } from './providers/UserCommerceProvider';
 import { RoutesMain } from './routes';
 
 const App = () => {
   return (
     <div>
-      <UserProvider>
+      <UserCommerceProvider>
         <RoutesMain />
-      </UserProvider>
+      </UserCommerceProvider>
     </div>
   );
 

@@ -1,9 +1,9 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { Input } from '../Input';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { createProductSchema } from './createProductSchema';
 import { useContext } from 'react';
 import { CommerceContext } from '../../../providers/CommerceProvider';
+import { Input } from '../Input';
 
 export interface ICreateProductFormValues {
   title: string;

@@ -14,16 +14,13 @@ export const createProductSchema = z.object({
   quantity: z
     .string()
     .nonempty('Preencha a quantidade que deseja cadastrar')
-    .transform((value) => Number(parseFloat(value))),
+    .transform((value) => Number(parseInt(value))),
   originalPrice: z
     .string()
     .nonempty('Preencha o valor original do produto')
-    .transform((value) => Number(parseFloat(value))),
+    .transform((value) => Number(parseInt(value))),
   discount: z
     .string()
     .nonempty('Preencha o percentual da oferta')
-    .transform((value) => Number(parseFloat(value))),
-  // userId: z
-  //   .string()
-  //   .transform((value) => Number(parseInt(value)))
+    .transform((value) => Number(parseInt(value))),
 });

@@ -18,8 +18,6 @@ export interface IProduct {
 export interface IProductsContext {
   productsList: IProduct[];
   setProductsList: React.Dispatch<React.SetStateAction<IProduct[]>>;
-  // isEditOfferModalOpen: boolean;
-  // setIsEditOfferModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   createNewProduct: (
@@ -30,16 +28,14 @@ export interface IProductsContext {
     productFormData: ICreateProductFormValues
   ) => Promise<void>;
   removeOfferFromOfferList: (productId: number) => void;
+  removeAllOffers: () => void;
 }
 
 export const CommerceContext = createContext({} as IProductsContext);
 
 export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
   const [productsList, setProductsList] = useState<IProduct[]>([]);
-  // const [isEditOfferModalOpen, setIsEditOfferModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  // console.log(productsList);
 
   useEffect(() => {
     const getAllProductsFromServer = async () => {
@@ -65,7 +61,7 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
     getAllProductsFromServer();
   }, [productsList]);
 
-  // Create product:
+  // *Create product*:
   const createNewProduct = async (
     productFormData: ICreateProductFormValues
   ) => {
@@ -85,7 +81,7 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
         .then((response) => {
           setProductsList([...productsList, response.data]);
 
-          console.log('Sacola surpresa cadastrada');
+          console.log('Sacola surpresa cadastrada'); //substituir por toast
         });
 
       return responseApi;
@@ -96,7 +92,7 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
     }
   };
 
-  // Edit offer:
+  // *Edit offer*:
   const editOffer = async (
     offerId: number,
     newOfferFormData: ICreateProductFormValues
@@ -125,7 +121,7 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
     }
   };
 
-  // Remove product from cart:
+  // *Remove offer from registered offers *:
   const removeOfferFromOfferList = async (offerId: number) => {
     const response = await api.delete(`/products/${offerId}`);
 
@@ -135,8 +131,12 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
 
     setProductsList(removeCurrentOffer);
 
-    console.log('Oferta removida'); //Substituir por toast
-    // console.log(response);
+    console.log('Oferta removida'); //substituir por toast
+  };
+
+  // *Remove all offers from resgitered offers*:
+  const removeAllOffers = () => {
+    setProductsList([]);
   };
 
   return (
@@ -144,14 +144,12 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
       value={{
         productsList,
         setProductsList,
-        // isEditOfferModalOpen,
-        // setIsEditOfferModalOpen,
         loading,
         setLoading,
         createNewProduct,
         editOffer,
         removeOfferFromOfferList,
-        // removeAllProductsFromCart,
+        removeAllOffers,
       }}
     >
       {children}

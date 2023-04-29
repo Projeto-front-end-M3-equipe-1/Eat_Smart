@@ -1,13 +1,18 @@
-import { Input } from '../Input';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { editOfferSchema } from './editOfferSchema';
 import { ICreateProductFormValues } from '../CreateProductForm';
+import { CommerceContext, IProduct } from '../../../providers/CommerceProvider';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useContext } from 'react';
-import { CommerceContext, IProduct } from '../../../providers/CommerceProvider';
+import { editOfferSchema } from './editOfferSchema';
+import { Input } from '../Input';
 
-
-export const EditOfferModal = ({ offer, setIsEditOfferModalOpen } : {offer: IProduct; setIsEditOfferModalOpen:React.Dispatch<React.SetStateAction<boolean>>}) => {
+export const EditOfferModal = ({
+  offer,
+  setIsEditOfferModalOpen,
+}: {
+  offer: IProduct;
+  setIsEditOfferModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const {
     register,
     handleSubmit,
@@ -24,27 +29,11 @@ export const EditOfferModal = ({ offer, setIsEditOfferModalOpen } : {offer: IPro
   ) => {
     for (const key in newOfferFormData) {
       if (newOfferFormData[key as keyof ICreateProductFormValues] === '') {
-        newOfferFormData[key as keyof ICreateProductFormValues] = offer[key as keyof IProduct] as string ;
+        newOfferFormData[key as keyof ICreateProductFormValues] = offer[
+          key as keyof IProduct
+        ] as string;
       }
     }
-
-    // if (newOfferFormData.title === '') {
-    //   newOfferFormData.title = offer.title;
-    // }
-
-    // if (newOfferFormData.quantity === '') {
-    //   newOfferFormData.quantity = offer.quantity;
-    // }
-
-    // if (newOfferFormData.originalPrice === '') {
-    //   newOfferFormData.originalPrice = offer.originalPrice;
-    // }
-
-    // if (newOfferFormData.discount === '') {
-    //   newOfferFormData.discount = offer.discount;
-    // }
-
-    console.log(newOfferFormData);
     editOffer(offerId, newOfferFormData);
     setIsEditOfferModalOpen(false);
   };

@@ -1,5 +1,5 @@
-import { createContext, useState } from 'react';
 import { ILoginFormData } from '../../components/Form/LoginForm';
+import { createContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../services/api';
 
@@ -46,7 +46,7 @@ export const UserCommerceProvider = ({ children }: IUserProviderProps) => {
       const responseApi = await api
         .post<ILoginResponse>('/signin', loginFormData)
         .then((response) => {
-          const { accessToken, user: userResponse} = response.data;
+          const { accessToken, user: userResponse } = response.data;
 
           api.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
 
