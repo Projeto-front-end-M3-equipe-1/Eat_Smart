@@ -29,7 +29,7 @@ export const CommerceDashboard = () => {
         />
       ) : null}
       <StyledCommerceDataContainer>
-        {/* Criar renderização dinâmica para logo */}
+        {}
         <img src={logoCommerce} alt='icon'></img>
         <h2>{userNameCommerce}</h2>
       </StyledCommerceDataContainer>

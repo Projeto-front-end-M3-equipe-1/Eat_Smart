@@ -5,8 +5,8 @@ export const StyledCreateProductForm = styled.form`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  background-color: #ffffff;
-  border: 2px solid #056365;
+  background-color: ${({ theme }) => theme.colors.white};
+  border: 2px solid ${({ theme }) => theme.colors.greenPrimary};
   border-radius: 1rem;
   gap: 1rem;
 
@@ -23,7 +23,7 @@ export const StyledCreateProductForm = styled.form`
       font-size: 1.125rem;
       font-weight: 600;
       color: #2e2e2e;
-      border-bottom: 1px solid #000000; 
+      border-bottom: 1px solid #000000;
     }
 
     label {
@@ -34,16 +34,16 @@ export const StyledCreateProductForm = styled.form`
 
     div {
       width: 100%;
-      flex-direction: column-reverse;
+      flex-direction: column;
     }
 
     input {
-      height: 2.8125rem;
+      width: auto;
       border: 2px solid #989898;
-      background-color: #ffffff;
+      background-color: ${({ theme }) => theme.colors.white};
       border-radius: 1rem;
-      padding-left: 1rem;
-      color: #333333;
+      // padding-left: 1rem;
+      color: ${({ theme }) => theme.colors.gray600};
       font-size: 0.875rem;
       font-weight: 400;
     }
@@ -52,10 +52,10 @@ export const StyledCreateProductForm = styled.form`
   button {
     height: 2.8125rem;
     width: 90%;
-    border: 1px solid #056365;
-    background-color: #056365;
+    border: 1px solid ${({ theme }) => theme.colors.backgroundDark};
+    background-color: ${({ theme }) => theme.colors.backgroundDark};
     border-radius: 1rem;
-    color: #ffffff;
+    color: ${({ theme }) => theme.colors.white};
     font-size: 1rem;
     font-weight: 700;
     line-height: 1.5rem;

@@ -10,28 +10,33 @@ export const StyledOffersContainer = styled.div`
   border-radius: 1rem;
 
   h1 {
+    border: 1px solid red;
     display: flex;
     font-size: 1.125rem;
     font-weight: 600;
     line-height: 2.0625rem;
     color: #2e2e2e;
-    padding-left: 1rem;
+    margin-left: 1rem;
+    width: 90%;
+    border-bottom: 1px solid #000000;
   }
 
   ul {
     list-style: none;
     margin-top: 0;
-    width: 90%;
     padding: 0 1rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
   }
 
-  div {
+  span {
+    border: 1px solid red;
     height: 2rem;
     display: flex;
     align-items: center;
+    padding: 0 1rem;
+    justify-content: space-between;
 
     p,
     small {

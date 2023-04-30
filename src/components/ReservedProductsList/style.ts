@@ -11,6 +11,7 @@ export const StyledReserveContainer = styled.ul`
   padding: 0 1rem;
 
   h3 {
+    border: 1px solid red;
     display: flex;
     font-size: 1.125rem;
     font-weight: 700;

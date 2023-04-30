@@ -25,21 +25,20 @@ export const OfferCard = ({ offer }: IOfferProductCard) => {
         <section>
           <div>
             <span>
-              <h4>{offer.title} |</h4>
-              <small>Qt.{offer.quantity}</small>
+              <h4>{offer.title}</h4>
+              <p>
+                R${' '}
+                {newPrice.toLocaleString('pt-br', { minimumFractionDigits: 2 })}
+              </p>
             </span>
-            <p>
-              R${' '}
-              {newPrice.toLocaleString('pt-br', { minimumFractionDigits: 2 })}
-            </p>
           </div>
           <div>
-            <span>
+            <p>
               R${' '}
               {offer.originalPrice.toLocaleString('pt-br', {
                 minimumFractionDigits: 2,
               })}
-            </span>
+            </p>
             <div>
               <button onClick={() => setIsEditOfferModalOpen(true)}>
                 <img src={edit} alt='pen-icon' />

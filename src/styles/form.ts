@@ -19,6 +19,7 @@ export const StyledFormUserDark = styled.form`
   flex-direction: column;
   gap: 20px;
   padding: 15px;
+  
   background-color: ${({ theme }) => theme.colors.backgroundDark};
 
   p {

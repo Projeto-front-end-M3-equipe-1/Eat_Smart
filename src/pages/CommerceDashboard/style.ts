@@ -48,9 +48,9 @@ export const StyledCommerceDashboardMainContainer = styled.main`
   border: 1px solid red;
   display: flex;
   flex-direction: column;
-  width: 90vw;
   align-items: center;
   margin-top: 1rem;
+  width: 90%;
 
   section {
     display: flex;

@@ -30,7 +30,9 @@ export interface IProductsContext {
   ) => Promise<void>;
   removeOfferFromOfferList: (productId: number) => void;
   removeAllOffers: () => void;
-  editCommerceProfile:  (newCommerceProfileData: IRegisterUserFormData) => Promise<void>;
+  editCommerceProfile: (
+    newCommerceProfileData: IRegisterUserFormData
+  ) => Promise<void>;
 }
 
 export const CommerceContext = createContext({} as IProductsContext);
@@ -39,27 +41,28 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
   const [productsList, setProductsList] = useState<IProduct[]>([]);
   const [loading, setLoading] = useState(false);
 
+  const getAllProductsFromServer = async () => {
+    try {
+      setLoading(true);
+      const userToken = localStorage.getItem('@TOKEN');
+
+      const responseApi = await api
+        .get<IProduct[]>('/products', {
+          headers: { Authorization: `Bearer ${userToken}` },
+        })
+        .then((response) => {
+          setProductsList(response.data);
+        });
+
+      return responseApi;
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const getAllProductsFromServer = async () => {
-      try {
-        setLoading(true);
-        const userToken = localStorage.getItem('@TOKEN');
-
-        const responseApi = await api
-          .get<IProduct[]>('/products', {
-            headers: { Authorization: `Bearer ${userToken}` },
-          })
-          .then((response) => {
-            setProductsList(response.data);
-          });
-
-        return responseApi;
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    };
     getAllProductsFromServer();
   }, [productsList]);
 
@@ -114,7 +117,7 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
           );
           setProductsList([...updateCurrentProduct, response.data]);
 
-          console.log("Offerta alterada"); //substituir por toast
+          console.log('Offerta alterada'); //substituir por toast
         });
 
       return responseApi;
