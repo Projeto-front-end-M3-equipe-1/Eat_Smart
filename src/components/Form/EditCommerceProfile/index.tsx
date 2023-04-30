@@ -18,15 +18,14 @@ export const EditCommerceProfile = ({
   });
 
   const { editCommerceProfile } = useContext(CommerceContext);
-  const userNameCommerce = localStorage.getItem('@USERNAMECOMMERCE');
+  const userNameCommerce = localStorage.getItem('@EatSmart:userNameCommerce');
   const emailUserCommerce = localStorage.getItem('@EatSmart:userCommerceEmail');
 
   const editCommerceProfileSubmit: SubmitHandler<IRegisterUserFormData> = (
     newCommerceProfileData
   ) => {
     editCommerceProfile(newCommerceProfileData);
-    // setIsEditProfileModalOpen(false);
-    console.log(newCommerceProfileData);
+    setIsEditProfileModalOpen(false);
   };
 
   return (

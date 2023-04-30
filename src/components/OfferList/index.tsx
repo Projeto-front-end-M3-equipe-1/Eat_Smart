@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { CommerceContext } from '../../providers/CommerceProvider';
 import { OfferCard } from './OfferCard';
+import { StyledOffersContainer } from './style';
 
 export const OfferList = () => {
   const userId = Number(localStorage.getItem('@USERIDCOMMERCE'));
@@ -21,7 +22,7 @@ export const OfferList = () => {
     .toLocaleString('pt-br', { minimumFractionDigits: 2 });
 
   return (
-    <div>
+    <StyledOffersContainer>
       <h1>Ofertas Cadastradas</h1>
       <ul>
         {newListByCommerce.map((offer) => (
@@ -33,6 +34,6 @@ export const OfferList = () => {
         <small>R$ {total}</small>
       </div>
       <button onClick={removeAllOffers}>Remover ofertas</button>
-    </div>
+    </StyledOffersContainer>
   );
 };

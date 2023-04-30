@@ -1,16 +1,22 @@
+import { StyledReserveCard } from './style';
+import bag from '../../../assets/icons/bag.svg';
+import check from '../../../assets/icons/check.svg';
+
 export const ReservedProtectedCard = () => {
   return (
-    <li>
-      <img src='Sacola surpresa' alt='bag-icon'></img>
+    <StyledReserveCard>
+      <img src={bag} alt='bag-icon'></img>
       <div>
-        <p>Sacola Surpresa</p>
-        <small>1</small>
+        <div>
+          <p>Sacola Surpresa |</p>
+          <small> 1</small>
+        </div>
+        <img src={check} alt='check-icon'></img>
       </div>
       <div>
+        <p>João</p>
         <small>R$ 25,59</small>
-        <img src='Checkbox' alt='check-icon'></img>
       </div>
-      <p>João</p>
-    </li>
+    </StyledReserveCard>
   );
 };

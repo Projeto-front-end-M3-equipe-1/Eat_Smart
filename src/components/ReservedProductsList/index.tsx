@@ -1,12 +1,13 @@
-import { ReservedProtectedCard } from "./ReservedProductCard"
+import { ReservedProtectedCard } from './ReservedProductCard';
+import { StyledReserveContainer } from './style';
 
 export const ReservedProductsList = () => {
-    return (
-        <>
-        <h1>Reservas</h1>
-        <ul>
-            <ReservedProtectedCard/>
-        </ul>
-        </>
-    )
-}
+  return (
+    <>
+      <StyledReserveContainer>
+        <h3>Reservas</h3>
+        <ReservedProtectedCard />
+      </StyledReserveContainer>
+    </>
+  );
+};

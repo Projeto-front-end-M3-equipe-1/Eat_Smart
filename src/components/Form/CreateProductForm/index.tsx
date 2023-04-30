@@ -4,6 +4,7 @@ import { createProductSchema } from './createProductSchema';
 import { useContext } from 'react';
 import { CommerceContext } from '../../../providers/CommerceProvider';
 import { Input } from '../Input';
+import { StyledCreateProductForm } from './style';
 
 export interface ICreateProductFormValues {
   title: string;
@@ -39,17 +40,17 @@ export const CreateProductForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(createProductSubmit)}>
-      <div>
+    <StyledCreateProductForm onSubmit={handleSubmit(createProductSubmit)}>
+      <header>
         <h1>Cadastrar nova oferta</h1>
         <label htmlFor='retirement'>Horário de Retirada</label>
         <input placeholder='A partir das 22:00' disabled id='retirement' />
-      </div>
+      </header>
 
       <Input
         type='text'
         label='Preferências'
-        placeholder='Ex: Vegana, Vegetariana, Zero Lactose'
+        placeholder='Vegana, Vegetariana, etc.'
         id='title'
         {...register('title')}
         error={errors.title}
@@ -65,7 +66,7 @@ export const CreateProductForm = () => {
       <Input
         type='number'
         label='Valor Real'
-        placeholder='Valor Real'
+        placeholder='R$80,00'
         id='originalPrice'
         {...register('originalPrice')}
         error={errors.originalPrice}
@@ -79,6 +80,6 @@ export const CreateProductForm = () => {
         error={errors.discount}
       />
       <button type='submit'>Cadastrar oferta</button>
-    </form>
+    </StyledCreateProductForm>
   );
 };

@@ -30,7 +30,7 @@ export interface IProductsContext {
   ) => Promise<void>;
   removeOfferFromOfferList: (productId: number) => void;
   removeAllOffers: () => void;
-  editCommerceProfile: Promise<void>
+  editCommerceProfile:  (newCommerceProfileData: IRegisterUserFormData) => Promise<void>;
 }
 
 export const CommerceContext = createContext({} as IProductsContext);
@@ -70,7 +70,7 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
     try {
       const userToken = localStorage.getItem('@TOKENUSERCOMMERCE');
       const userId = localStorage.getItem('@USERIDCOMMERCE');
-      const userCommerce = localStorage.getItem('@USERNAMECOMMERCE');
+      const userCommerce = localStorage.getItem('@EatSmart:userNameCommerce');
 
       const productComplete = {
         ...productFormData,

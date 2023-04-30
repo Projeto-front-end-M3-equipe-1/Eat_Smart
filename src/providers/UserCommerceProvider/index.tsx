@@ -55,7 +55,7 @@ export const UserCommerceProvider = ({ children }: IUserProviderProps) => {
             '@USERIDCOMMERCE',
             JSON.stringify(userResponse.id)
           );
-          localStorage.setItem('@USERNAMECOMMERCE', userResponse.userName);
+          localStorage.setItem('@EatSmart:userNameCommerce', userResponse.userName);
           localStorage.setItem('@EatSmart:userCommerceEmail', userResponse.email);
 
           setCommerceUser(userResponse);

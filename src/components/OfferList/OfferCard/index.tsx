@@ -1,37 +1,63 @@
 import { useContext, useState } from 'react';
 import { CommerceContext, IProduct } from '../../../providers/CommerceProvider';
 import { EditOfferModal } from '../../Form/EditOfferModal';
+import { StyledOfferCard } from './style';
+import bag from '../../../assets/icons/bag.svg';
+import edit from '../../../assets/icons/edit.svg';
+import trash from '../../../assets/icons/trash.svg';
 
 export interface IOfferProductCard {
   offer: IProduct;
 }
 
 export const OfferCard = ({ offer }: IOfferProductCard) => {
-  const userNameCommerce = localStorage.getItem('@USERNAMECOMMERCE');
   const newPrice =
-    (offer.originalPrice - (offer.discount / 100) * offer.originalPrice);
+    offer.originalPrice - (offer.discount / 100) * offer.originalPrice;
 
   const { removeOfferFromOfferList } = useContext(CommerceContext);
 
   const [isEditOfferModalOpen, setIsEditOfferModalOpen] = useState(false);
 
   return (
-    <li>
-      <img src='Logo da sacola ou prato' alt=''></img>
-      <p>{offer.title}</p>
-      <small>{offer.quantity}</small>
-      <p>R$ {newPrice.toLocaleString('pt-br', { minimumFractionDigits: 2 })}</p>
-      <p>{userNameCommerce}</p>
+    <StyledOfferCard>
+      <div>
+        <img src={bag} alt=''></img>
+        <section>
+          <div>
+            <span>
+              <h4>{offer.title} |</h4>
+              <small>Qt.{offer.quantity}</small>
+            </span>
+            <p>
+              R${' '}
+              {newPrice.toLocaleString('pt-br', { minimumFractionDigits: 2 })}
+            </p>
+          </div>
+          <div>
+            <span>
+              R${' '}
+              {offer.originalPrice.toLocaleString('pt-br', {
+                minimumFractionDigits: 2,
+              })}
+            </span>
+            <div>
+              <button onClick={() => setIsEditOfferModalOpen(true)}>
+                <img src={edit} alt='pen-icon' />
+              </button>
+              {isEditOfferModalOpen ? (
+                <EditOfferModal
+                  offer={offer}
+                  setIsEditOfferModalOpen={setIsEditOfferModalOpen}
+                />
+              ) : null}
 
-      <button onClick={() => setIsEditOfferModalOpen(true)}>Edit</button>
-      {isEditOfferModalOpen ? (
-        <EditOfferModal
-          offer={offer}
-          setIsEditOfferModalOpen={setIsEditOfferModalOpen}
-        />
-      ) : null}
-
-      <button onClick={() => removeOfferFromOfferList(offer.id)}>Remove</button>
-    </li>
+              <button onClick={() => removeOfferFromOfferList(offer.id)}>
+                <img src={trash} alt='trash-icon' />
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </StyledOfferCard>
   );
 };
