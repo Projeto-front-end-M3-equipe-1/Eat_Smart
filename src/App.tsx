@@ -1,6 +1,5 @@
 import { UserCommerceProvider } from './providers/UserCommerceProvider';
 import { RoutesMain } from './routes';
-import { GlobalStyles } from './styles/global';
 
 const App = () => {
   return (
