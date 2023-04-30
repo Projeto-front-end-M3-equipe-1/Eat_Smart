@@ -1,10 +1,10 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { Input } from '../Input';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { createProductSchema } from './createProductSchema';
 import { useContext } from 'react';
 import { CommerceContext } from '../../../providers/CommerceProvider';
-import { StyledInputUserId } from './style';
+import { Input } from '../Input';
+import { StyledCreateProductForm } from './style';
 
 export interface ICreateProductFormValues {
   title: string;
@@ -12,6 +12,7 @@ export interface ICreateProductFormValues {
   originalPrice: string;
   discount: string;
   userId: string | null;
+  company: string | null;
 }
 
 export const CreateProductForm = () => {
@@ -39,40 +40,46 @@ export const CreateProductForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(createProductSubmit)}>
+    <StyledCreateProductForm onSubmit={handleSubmit(createProductSubmit)}>
+      <header>
+        <h1>Cadastrar nova oferta</h1>
+        <label htmlFor='retirement'>Horário de Retirada</label>
+        <input placeholder='A partir das 22:00' disabled id='retirement' />
+      </header>
+
       <Input
         type='text'
-        label='Nome do produto'
-        placeholder='Nome do produto'
+        label='Preferências'
+        placeholder='Vegana, Vegetariana, etc.'
         id='title'
         {...register('title')}
         error={errors.title}
       />
       <Input
         type='number'
-        label='Qt.'
-        placeholder='Qt.'
+        label='Quantidade'
+        placeholder='1'
         id='quantity'
         {...register('quantity')}
         error={errors.quantity}
       />
       <Input
         type='number'
-        label='Preço original'
-        placeholder='Preço original'
+        label='Valor Real'
+        placeholder='R$80,00'
         id='originalPrice'
         {...register('originalPrice')}
         error={errors.originalPrice}
       />
       <Input
         type='number'
-        label='Desconto %'
-        placeholder='Desconto %'
+        label='Desconto'
+        placeholder='20%'
         id='discount'
         {...register('discount')}
         error={errors.discount}
       />
-      <button type='submit'>Cadastrar sacola surpresa</button>
-    </form>
+      <button type='submit'>Cadastrar oferta</button>
+    </StyledCreateProductForm>
   );
 };

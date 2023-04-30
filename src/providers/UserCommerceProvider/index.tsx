@@ -1,5 +1,5 @@
-import { createContext, useState } from 'react';
 import { ILoginFormData } from '../../components/Form/LoginForm';
+import { createContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../services/api';
 
@@ -31,9 +31,9 @@ export interface IUserContext {
   loading: boolean;
 }
 
-export const UserContext = createContext({});
+export const UserCommerceContext = createContext({});
 
-export const UserProvider = ({ children }: IUserProviderProps) => {
+export const UserCommerceProvider = ({ children }: IUserProviderProps) => {
   const [commerceUser, setCommerceUser] = useState<ICommerceUser | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -50,15 +50,13 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
 
           api.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
 
-          localStorage.setItem('@TOKENCOMMERCE', accessToken);
+          localStorage.setItem('@TOKENUSERCOMMERCE', accessToken);
           localStorage.setItem(
             '@USERIDCOMMERCE',
             JSON.stringify(userResponse.id)
           );
-          localStorage.setItem(
-            '@USERNAMECOMMERCE',
-            JSON.stringify(userResponse.userName)
-          );
+          localStorage.setItem('@EatSmart:userNameCommerce', userResponse.userName);
+          localStorage.setItem('@EatSmart:userCommerceEmail', userResponse.email);
 
           setCommerceUser(userResponse);
           navigate('/companyHome');
@@ -73,10 +71,10 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   };
 
   return (
-    <UserContext.Provider
+    <UserCommerceContext.Provider
       value={{ login, commerceUser, setCommerceUser, loading }}
     >
       {children}
-    </UserContext.Provider>
+    </UserCommerceContext.Provider>
   );
 };

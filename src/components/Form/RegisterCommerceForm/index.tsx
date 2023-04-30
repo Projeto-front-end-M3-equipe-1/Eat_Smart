@@ -1,7 +1,7 @@
-import { Input } from '../Input';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { registerCommerceFormSchema } from './registerCommerceFormSchema';
+import { Input } from '../Input';
 
 export interface IRegisterUserFormData {
   userName: string;
@@ -66,7 +66,7 @@ export const RegisterCommerceForm = () => {
       <select
         id='typeOfCompany'
         {...register('foodCategory')}
-        error={errors.foodCategory?.message}
+        error={errors.foodCategory?.message} //Verificar tipagem
       >
         <option value='' disabled selected>
           Categorias
