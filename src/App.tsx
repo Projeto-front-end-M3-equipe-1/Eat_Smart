@@ -1,6 +1,6 @@
-import { UserProvider } from "./providers/UserProvider";
-import { RoutesMain } from "./routes";
-import { GlobalStyles } from "./styles/global";
+import { UserProvider } from './providers/UserProvider';
+import { RoutesMain } from './routes';
+import { GlobalStyles } from './styles/global';
 
 const App = () => {
   return (

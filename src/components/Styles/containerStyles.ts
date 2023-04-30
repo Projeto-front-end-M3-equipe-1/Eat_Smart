@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import bag_principal from "../../assets/images/bag_principal.png";
+import styled from 'styled-components';
+import bag_principal from '../../assets/images/bag_principal.png';
 
 export const StyledContainer = styled.body`
   display: flex;
@@ -18,7 +18,7 @@ export const StyledContainer = styled.body`
 `;
 
 export const StyledCartSale = styled.section`
-  font-family: "Poppins";
+  font-family: 'Poppins';
   margin: 30px;
   width: 262px;
   height: 248px;
