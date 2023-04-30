@@ -1,12 +1,17 @@
-import { UserDashboard } from './pages/UserDashboard';
-import { CartProvider } from './providers/CartProvider';
-import { UserProvider } from './providers/UserProvider';
+
+import { UserCommerceProvider } from './providers/UserCommerceProvider';
+
 import { RoutesMain } from './routes';
 import { GlobalStyles } from './styles/global';
 
 const App = () => {
   return (
-
+    <div>
+      <UserCommerceProvider>
+        <RoutesMain />
+      </UserCommerceProvider>
+    </div>
+  );
     <div>
       <UserProvider>
         <RoutesMain />
