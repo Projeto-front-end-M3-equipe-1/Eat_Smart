@@ -1,3 +1,14 @@
+import pubIcon from '../../assets/icons/bares.svg';
+import coffeeIcon from '../../assets/icons/cafeteria.svg';
+import snacksIcon from '../../assets/icons/lanches.svg';
+import marketIcon from '../../assets/icons/mercado.svg';
+import bakeryIcon from '../../assets/icons/padaria.svg';
+import restaurantIcon from '../../assets/icons/restaurantes.svg';
+import {
+  StyledCommerceDashboard,
+  StyledCommerceDashboardMainContainer,
+  StyledCommerceDataContainer,
+} from './style';
 import { Header } from '../../components/Header';
 import { CreateProductForm } from '../../components/Form/CreateProductForm';
 import { ReservedProductsList } from '../../components/ReservedProductsList';
@@ -5,17 +16,18 @@ import { OfferList } from '../../components/OfferList';
 import { useState } from 'react';
 import { EditCommerceProfile } from '../../components/Form/EditCommerceProfile';
 import { Footer } from '../../components/Footer';
-import {
-  StyledCommerceDashboard,
-  StyledCommerceDashboardMainContainer,
-  StyledCommerceDataContainer,
-} from './style';
-import logoCommerce from '../../assets/icons/lanches.svg';
 
 export const CommerceDashboard = () => {
-  const [isEditProfileModalOpen, setIsEditProfileModalOpen] =
-    useState<boolean>(false);
+  const [isEditProfileModalOpen, setIsEditProfileModalOpen] = useState(false);
   const userNameCommerce = localStorage.getItem('@EatSmart:userNameCommerce');
+
+  const closeProfileModalWrapper = () => {
+    setIsEditProfileModalOpen(false);
+  };
+
+  const foodCategory = localStorage
+    .getItem('@EatSmart:userCommerceFoodCategory')
+    ?.toUpperCase();
 
   return (
     <StyledCommerceDashboard>
@@ -24,13 +36,28 @@ export const CommerceDashboard = () => {
         Edit profile
       </button>
       {isEditProfileModalOpen ? (
-        <EditCommerceProfile
-          setIsEditProfileModalOpen={setIsEditProfileModalOpen}
-        />
+        <EditCommerceProfile closeProfileModal={closeProfileModalWrapper} />
       ) : null}
       <StyledCommerceDataContainer>
-        {}
-        <img src={logoCommerce} alt='icon'></img>
+        {foodCategory === 'bares'.toUpperCase() ? (
+          <img src={pubIcon} alt='icon'></img>
+        ) : null}
+        {foodCategory === 'cafeteria' ? (
+          <img src={coffeeIcon} alt='icon'></img>
+        ) : null}
+        {foodCategory === 'lanches'.toUpperCase() ? (
+          <img src={snacksIcon} alt='icon'></img>
+        ) : null}
+        {foodCategory === 'mercado'.toUpperCase() ? (
+          <img src={marketIcon} alt='icon'></img>
+        ) : null}
+        {foodCategory === 'padaria'.toUpperCase() ? (
+          <img src={bakeryIcon} alt='icon'></img>
+        ) : null}
+        {foodCategory === 'restaurante'.toUpperCase() ? (
+          <img src={restaurantIcon} alt='icon'></img>
+        ) : null}
+
         <h2>{userNameCommerce}</h2>
       </StyledCommerceDataContainer>
       <StyledCommerceDashboardMainContainer>

@@ -1,25 +1,14 @@
 import styled from 'styled-components';
 
 export const StyledCommerceDashboard = styled.div`
-  border: 1px solid red;
+  // border: 1px solid red;
   display: flex;
   flex-direction: column;
   width: 100vw;
   align-items: center;
   background-color: #efe9e8;
   font-family: 'Poppins';
-
-  @media (min-width: 375px) {
-  }
-
-  @media (min-width: 425px) {
-  }
-
-  @media (min-width: 768px) {
-  }
-
-  @media (min-width: 1024px) {
-  }
+  overflow-y: hidden;
 `;
 
 export const StyledCommerceDataContainer = styled.div`

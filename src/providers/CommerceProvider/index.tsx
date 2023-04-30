@@ -64,7 +64,7 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
 
   useEffect(() => {
     getAllProductsFromServer();
-  }, [productsList]);
+  }, []);
 
   // *Create product*:
   const createNewProduct = async (

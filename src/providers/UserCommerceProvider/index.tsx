@@ -57,6 +57,7 @@ export const UserCommerceProvider = ({ children }: IUserProviderProps) => {
           );
           localStorage.setItem('@EatSmart:userNameCommerce', userResponse.userName);
           localStorage.setItem('@EatSmart:userCommerceEmail', userResponse.email);
+          localStorage.setItem('@EatSmart:userCommerceFoodCategory', userResponse.foodCategory);
 
           setCommerceUser(userResponse);
           navigate('/companyHome');

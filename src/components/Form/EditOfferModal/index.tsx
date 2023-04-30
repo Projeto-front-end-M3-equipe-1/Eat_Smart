@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useContext } from 'react';
 import { editOfferSchema } from './editOfferSchema';
 import { Input } from '../Input';
+import { StyledEditOfferModal } from './style';
 
 export const EditOfferModal = ({
   offer,
@@ -39,7 +40,7 @@ export const EditOfferModal = ({
   };
 
   return (
-    <div role='dialog'>
+    <StyledEditOfferModal role='dialog'>
       <span>
         <h3>Edite sua oferta</h3>
         <button onClick={() => setIsEditOfferModalOpen(false)}>X</button>
@@ -62,16 +63,6 @@ export const EditOfferModal = ({
           {...register('quantity')}
           error={errors.quantity}
         />
-        {/* <Input
-          type='number'
-          label='Preço original'
-          placeholder={`R$ ${offer.originalPrice.toLocaleString('pt-br', {
-            minimumFractionDigits: 2,
-          })}`}
-          id='originalPrice'
-          {...register('originalPrice')}
-          error={errors.originalPrice}
-        /> */}
         <Input
           type='number'
           label='Desconto'
@@ -82,6 +73,6 @@ export const EditOfferModal = ({
         />
         <button type='submit'>Salvar oferta</button>
       </form>
-    </div>
+    </StyledEditOfferModal>
   );
 };

@@ -6,9 +6,11 @@ import { IRegisterUserFormData } from '../RegisterCommerceForm';
 import { useContext } from 'react';
 import { CommerceContext } from '../../../providers/CommerceProvider';
 
-export const EditCommerceProfile = ({
-  setIsEditProfileModalOpen,
-}: React.Dispatch<React.SetStateAction<boolean>>) => {
+interface ICloseModal {
+  closeProfileModal: () => void;
+}
+
+export const EditCommerceProfile = ({ closeProfileModal }: ICloseModal) => {
   const {
     register,
     handleSubmit,
@@ -25,7 +27,7 @@ export const EditCommerceProfile = ({
     newCommerceProfileData
   ) => {
     editCommerceProfile(newCommerceProfileData);
-    setIsEditProfileModalOpen(false);
+    closeProfileModal();
   };
 
   return (
@@ -72,9 +74,7 @@ export const EditCommerceProfile = ({
         />
         <button type='submit'>Salvar alterações</button>
       </form>
-      <button onClick={() => setIsEditProfileModalOpen(false)}>
-        Voltar para loja
-      </button>
+      <button onClick={() => closeProfileModal()}>Voltar para loja</button>
     </div>
   );
 };
