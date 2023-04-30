@@ -64,6 +64,7 @@ const Styles = () => {
           </StyledTitleWhite>
           <StyledInputContainerLight>
             <label htmlFor=''>Label</label>
+
             <input type='text' placeholder='Input' />
           </StyledInputContainerLight>
           <p>Error</p>
