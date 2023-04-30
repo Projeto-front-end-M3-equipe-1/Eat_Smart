@@ -6,19 +6,15 @@ import { GlobalStyles } from './styles/global';
 
 const App = () => {
   return (
-    // <div>
-    //   <UserProvider>
-    //     <RoutesMain />
-    //   </UserProvider>
-    // </div>
-    <>
-    <GlobalStyles/>
-    <CartProvider>
-      <UserDashboard/>
-    </CartProvider>
-    </>
-  );
 
+    <div>
+      <UserProvider>
+        <RoutesMain />
+      </UserProvider>
+      <GlobalStyles />
+    </div>
+
+  );
 };
 
 export default App;
