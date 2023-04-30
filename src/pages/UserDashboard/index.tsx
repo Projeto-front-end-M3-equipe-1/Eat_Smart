@@ -1,7 +1,6 @@
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { ProductList } from "../../components/ProductList";
-import { offers } from "../../../lixo.tsx";
 import { UserDashboardComponent } from "../../components/UserDashboard/index.tsx";
 import padariaLogo from "../../assets/icons/padaria.svg";
 import lanchesLogo from "../../assets/icons/lanches.svg";
@@ -10,8 +9,11 @@ import restauranteLogo from "../../assets/icons/restaurantes.svg";
 import baresLogo from "../../assets/icons/bares.svg";
 import mercadoLogo from "../../assets/icons/mercado.svg";
 import { StyledUserDashboard } from "../../components/UserDashboard/style.ts";
+import { useContext } from "react";
+import { CartContext } from "../../providers/CartProvider/index.tsx";
 
 export const UserDashboard = () => {
+  const { offers } = useContext(CartContext);
   return (
     <div>
       {/* <Header /> */}
