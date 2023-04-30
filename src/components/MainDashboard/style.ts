@@ -80,4 +80,16 @@ section:last-child{
 section:last-child > img{
     width: 599px;
 }
+
+@media (min-width: 375px) {
+  }
+
+  @media (min-width: 425px) {
+  }
+
+  @media (min-width: 768px) {
+  }
+
+  @media (min-width: 1024px) {
+  }
 `
