@@ -6,12 +6,15 @@ import { useState } from 'react';
 import { EditCommerceProfile } from '../../components/Form/EditCommerceProfile';
 
 export const CommerceDashboard = () => {
-  const [isEditProfileModalOpen, setIsEditProfileModalOpen] = useState(false);
+  const [isEditProfileModalOpen, setIsEditProfileModalOpen] =
+    useState<boolean>(false);
 
   return (
     <div>
       <Header />
-      <button onClick={() => setIsEditProfileModalOpen(true)}>Edit profile</button>
+      <button onClick={() => setIsEditProfileModalOpen(true)}>
+        Edit profile
+      </button>
       {isEditProfileModalOpen ? (
         <EditCommerceProfile
           setIsEditProfileModalOpen={setIsEditProfileModalOpen}

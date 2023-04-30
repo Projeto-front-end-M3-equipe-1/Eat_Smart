@@ -114,7 +114,7 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
           );
           setProductsList([...updateCurrentProduct, response.data]);
 
-          console.log(response); //substituir por toast
+          console.log("Offerta alterada"); //substituir por toast
         });
 
       return responseApi;

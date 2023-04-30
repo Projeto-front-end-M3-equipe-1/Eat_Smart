@@ -17,14 +17,16 @@ export const EditCommerceProfile = ({
     resolver: zodResolver(editCommerceProfileSchema),
   });
 
-  const {editCommerceProfile} = useContext(CommerceContext);
+  const { editCommerceProfile } = useContext(CommerceContext);
+  const userNameCommerce = localStorage.getItem('@USERNAMECOMMERCE');
+  const emailUserCommerce = localStorage.getItem('@EatSmart:userCommerceEmail');
 
   const editCommerceProfileSubmit: SubmitHandler<IRegisterUserFormData> = (
     newCommerceProfileData
   ) => {
-    console.log(newCommerceProfileData);
     editCommerceProfile(newCommerceProfileData);
     // setIsEditProfileModalOpen(false);
+    console.log(newCommerceProfileData);
   };
 
   return (
@@ -40,7 +42,7 @@ export const EditCommerceProfile = ({
         <Input
           type='text'
           label='Nome'
-          placeholder='Nome comercial'
+          placeholder={userNameCommerce?.toString()}
           id='userName'
           {...register('userName')}
           error={errors.userName}
@@ -48,7 +50,7 @@ export const EditCommerceProfile = ({
         <Input
           type='email'
           label='Email'
-          placeholder='Seu email'
+          placeholder={emailUserCommerce?.toString()}
           id='email'
           {...register('email')}
           error={errors.email}
@@ -64,7 +66,7 @@ export const EditCommerceProfile = ({
         <Input
           type='password'
           label='Confirmar Senha'
-          placeholder='Sua senha'
+          placeholder='Confirmar alteração de senha'
           id='confirmPassword'
           {...register('confirmPassword')}
           error={errors.confirmPassword}
