@@ -42,3 +42,4 @@ export const ProductCard = ({ offer }: IOffersCartProps) => {
     </StyledProductCard>
   );
 };
+
