@@ -2,9 +2,16 @@ import { StyledProductCard } from "./style";
 import backGroundCart from "../../../assets/images/image3.svg"
 import heart from "../../../assets/icons/coração.svg"
 import star from "../../../assets/icons/star.svg"
+import { useContext } from "react";
+import { CartContext, IOffer } from "../../../providers/CartProvider";
+
+interface IOffersCartProps {
+  offer: IOffer;
+}
 
 
-export const ProductCard = ({ offer }) => {
+export const ProductCard = ({ offer }: IOffersCartProps) => {
+  const { addItemToCart } = useContext(CartContext);
   const newPrice = offer.originalPrice - (offer.discount / 100) * offer.originalPrice;
 
   return (

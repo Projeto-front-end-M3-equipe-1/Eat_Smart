@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { api } from "../../services/api";
+import { Outlet } from "react-router-dom";
 
 export interface ICartProviderProps {
   children: React.ReactNode;
@@ -12,29 +13,34 @@ export interface IOffer {
   originalPrice: number;
   quantity: number;
   title: string;
-  userId: number
+  userId: number;
 }
 
-interface IOfferContext{
+interface IOfferContext {
   offers: IOffer[];
   removeAllOffersFromCart: () => void;
   addItemToCart: (offer: IOffer) => void;
   removeItemFromCart: (offerId: number) => void;
   searchOffer(search: string): void;
+  searchByCategory(category: string): Promise<void>;
+  isCartModalOpen: boolean;
+  setIsCartModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  listOffersCart: IOffer[];
 }
 
 export const CartContext = createContext({} as IOfferContext);
 
-export const CartProvider = ({ children }: ICartProviderProps) => {
-  const cartLS = localStorage.getItem('@EatSmart:cart')
+export const CartProvider = ({children}: ICartProviderProps) => {
+  const cartLS = localStorage.getItem("@EatSmart:cart");
   const [offers, setOffers] = useState<IOffer[]>([]);
   const [offersFound, setOffersFound] = useState<IOffer[]>([]);
   const [listOffersCart, setListOffersCart] = useState<IOffer[]>(cartLS ? JSON.parse(cartLS) : []);
-  const token = localStorage.getItem('@EatSmart:token');
-  
+  const token = localStorage.getItem("@EatSmart:token");
+  const [isCartModalOpen, setIsCartModalOpen] = useState(false);
+
   async function loadOffers() {
     try {
-      const { data } = await api.get<IOffer[]>('/products', {
+      const { data } = await api.get<IOffer[]>("/products", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -49,8 +55,8 @@ export const CartProvider = ({ children }: ICartProviderProps) => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('@EatSmart:cart', JSON.stringify(listOffersCart));
-  }, [listOffersCart])
+    localStorage.setItem("@EatSmart:cart", JSON.stringify(listOffersCart));
+  }, [listOffersCart]);
 
   function addItemToCart(offer: IOffer) {
     if (listOffersCart.find((currentOffer) => currentOffer.id === offer.id)) {
@@ -61,9 +67,7 @@ export const CartProvider = ({ children }: ICartProviderProps) => {
   }
 
   function removeItemFromCart(offerId: number) {
-    const newOffersListCart = listOffersCart.filter(
-      (offer) => offer.id !== offerId
-    );
+    const newOffersListCart = listOffersCart.filter((offer) => offer.id !== offerId);
     setListOffersCart(newOffersListCart);
   }
 
@@ -78,7 +82,7 @@ export const CartProvider = ({ children }: ICartProviderProps) => {
         company.toLowerCase().includes(search.toLowerCase())
     );
     if (foundOffers.length <= 0) {
-      console.log('Nenhum item encontrado nessa pesquisa');
+      console.log("Nenhum item encontrado nessa pesquisa");
       setOffers(offersFound);
       return;
     } else if (search.length < 1) {
@@ -88,17 +92,38 @@ export const CartProvider = ({ children }: ICartProviderProps) => {
       setOffers(foundOffers);
     }
   }
-
+  async function searchByCategory(category: string) {
+    try {
+      const { data } = await api.get(
+        `/users?foodCategory=${category.toLocaleLowerCase()}&_embed=products`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      let showOffers: IOffer[] = [];
+      data.forEach((element: { products: ConcatArray<IOffer> }) => {
+        showOffers = showOffers.concat(element.products);
+      });
+      setOffers(showOffers);
+    } catch (error) {}
+  }
   return (
-  <CartContext.Provider
-   value={{
-    offers,
-    removeAllOffersFromCart,
-    addItemToCart,
-    removeItemFromCart,
-    searchOffer,
-   }}
-   >
-    {children}
-    </CartContext.Provider>)
+    <CartContext.Provider
+      value={{
+        offers,
+        removeAllOffersFromCart,
+        addItemToCart,
+        removeItemFromCart,
+        searchOffer,
+        searchByCategory,
+        isCartModalOpen,
+        setIsCartModalOpen,
+        listOffersCart,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
 };
