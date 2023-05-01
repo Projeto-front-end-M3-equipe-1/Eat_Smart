@@ -11,19 +11,23 @@ export const LoginModal = () => {
     console.log(typeNav);
 
     if (type === 'user' && typeNav === 'register') {
+      localStorage.setItem('@handle:typUser', 'userRegister');
       navigate('/register');
     }
 
     if (type === 'user' && typeNav === 'login') {
+      localStorage.setItem('@handle:typUser', 'userLogin');
       navigate('/login');
     }
 
     if (type === 'company' && typeNav === 'register') {
+      localStorage.setItem('@handle:typUser', 'companyRegister');
       navigate('/signup');
     }
 
     if (type === 'company' && typeNav === 'login') {
-      navigate('/sigin');
+      localStorage.setItem('@handle:typUser', 'companyLogin');
+      navigate('/signin');
     }
   };
 

@@ -50,8 +50,6 @@ export const UserContext = createContext({} as IUserContext);
 export const UserProvider = ({ children }: IUserProviderProps) => {
   const navigate = useNavigate();
   const [user, setUser] = useState<IUser | null>(null);
-  const [isModalOpenLogin, setIsModalOpenLogin] = useState(false);
-  const [isModalOpenRegister, setIsModalOpenRegister] = useState(false);
 
   /*   useEffect(() => {
     const userToken = localStorage.getItem('@user:token');
@@ -82,22 +80,44 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     formData: TLoginFormSchema,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
-    try {
-      setLoading(true);
-      const { data } = await api.post<IUserLoginResponse>('/login', formData);
-      localStorage.setItem('@user:token', data.accessToken);
-      localStorage.setItem('@user:id', JSON.stringify(data.user.id));
-      setUser(data.user);
-      navigate('/shop');
-    } catch (error) {
-      console.log(error);
-      toast.error('Oops! Algo deu errado tente novamente');
-    } finally {
-      setLoading(false);
+    const typeofRoute = localStorage.getItem('@handle:typUser');
+
+    if (typeofRoute === 'userLogin') {
+      try {
+        setLoading(true);
+        const { data } = await api.post<IUserLoginResponse>('/login', formData);
+        localStorage.setItem('@user:token', data.accessToken);
+        localStorage.setItem('@user:id', JSON.stringify(data.user.id));
+        setUser(data.user);
+        navigate('/userHome');
+      } catch (error) {
+        console.log(error);
+        toast.error('Oops! Algo deu errado tente novamente');
+      } finally {
+        setLoading(false);
+      }
+    }
+    if (typeofRoute === 'companyLogin') {
+      try {
+        setLoading(true);
+        const { data } = await api.post<IUserLoginResponse>(
+          '/signin',
+          formData
+        );
+        localStorage.setItem('@user:token', data.accessToken);
+        localStorage.setItem('@user:id', JSON.stringify(data.user.id));
+        setUser(data.user);
+        navigate('/companyHome');
+      } catch (error) {
+        console.log(error);
+        toast.error('Oops! Algo deu errado tente novamente');
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
-  /*  const newUserRegister = async (
+  const newUserRegister = async (
     formData: TLoginFormSchema,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
@@ -110,7 +130,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     } finally {
       setLoading(false);
     }
-  }; */
+  };
 
   const logout = () => {
     localStorage.removeItem('@user:id');
@@ -123,12 +143,8 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       value={{
         user,
         signIn,
-        /*  newUserRegister, */
+        newUserRegister,
         logout,
-        isModalOpenLogin,
-        setIsModalOpenLogin,
-        isModalOpenRegister,
-        setIsModalOpenRegister,
       }}
     >
       {children}
