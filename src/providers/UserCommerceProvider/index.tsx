@@ -98,9 +98,9 @@ export const UserCommerceProvider = ({ children }: IUserProviderProps) => {
           );
           localStorage.setItem('@EatSmart:userNameCommerce', userResponse.userName);
           localStorage.setItem('@EatSmart:userCommerceEmail', userResponse.email);
-          localStorage.getItem('@EatSmart:userCommerceFoodCategory', userResponse.foodCategory);
 
-          setCommerceUser(userResponse);
+          localStorage.setItem('@EatSmart:userCommerceFoodCategory', userResponse.foodCategory);
+          
           navigate('/companyHome');
         });
 

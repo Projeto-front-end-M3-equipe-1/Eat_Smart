@@ -5,6 +5,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useContext } from 'react';
 import { editOfferSchema } from './editOfferSchema';
 import { Input } from '../Input';
+import { StyledEditOfferModal } from './style';
+import cartIcon from '../../../assets/icons/cart.svg';
+import heartIcon from '../../../assets/icons/coração.svg';
+import closeIcon from '../../../assets/icons/close.svg';
 
 export const EditOfferModal = ({
   offer,
@@ -39,13 +43,16 @@ export const EditOfferModal = ({
   };
 
   return (
-    <div role='dialog'>
-      <span>
-        <h3>Edite sua oferta</h3>
-        <button onClick={() => setIsEditOfferModalOpen(false)}>X</button>
-      </span>
-
+    <StyledEditOfferModal role='dialog'>
+      <nav>
+        <img src={cartIcon} alt='cart-icon' />
+        <img src={heartIcon} alt='heart-icon' />
+        <button onClick={() => setIsEditOfferModalOpen(false)}>
+          <img src={closeIcon} alt='close-icon' />
+        </button>
+      </nav>
       <form onSubmit={handleSubmit(editOfferSubmit)}>
+        <h3>Edite sua oferta</h3>
         <Input
           type='text'
           label='Preferências'
@@ -62,16 +69,6 @@ export const EditOfferModal = ({
           {...register('quantity')}
           error={errors.quantity}
         />
-        {/* <Input
-          type='number'
-          label='Preço original'
-          placeholder={`R$ ${offer.originalPrice.toLocaleString('pt-br', {
-            minimumFractionDigits: 2,
-          })}`}
-          id='originalPrice'
-          {...register('originalPrice')}
-          error={errors.originalPrice}
-        /> */}
         <Input
           type='number'
           label='Desconto'
@@ -82,6 +79,11 @@ export const EditOfferModal = ({
         />
         <button type='submit'>Salvar oferta</button>
       </form>
-    </div>
+      <span>
+        <button type='button' onClick={() => setIsEditOfferModalOpen(false)}>
+          Voltar para Loja
+        </button>
+      </span>
+    </StyledEditOfferModal>
   );
 };

@@ -5,14 +5,15 @@ export const StyledCreateProductForm = styled.form`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  background-color: #ffffff;
-  border: 2px solid #056365;
+  background-color: ${({ theme }) => theme.colors.white};
+  border: 2px solid ${({ theme }) => theme.colors.greenPrimary};
   border-radius: 1rem;
   gap: 1rem;
+  margin-bottom: 1rem;
 
   header,
   div {
-    border: 1px solid red;
+    // border: 1px solid red;
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -23,7 +24,6 @@ export const StyledCreateProductForm = styled.form`
       font-size: 1.125rem;
       font-weight: 600;
       color: #2e2e2e;
-      border-bottom: 1px solid #000000; 
     }
 
     label {
@@ -34,31 +34,45 @@ export const StyledCreateProductForm = styled.form`
 
     div {
       width: 100%;
-      flex-direction: column-reverse;
+      flex-direction: column;
     }
 
     input {
-      height: 2.8125rem;
+      width: auto;
       border: 2px solid #989898;
-      background-color: #ffffff;
+      background-color: ${({ theme }) => theme.colors.white};
       border-radius: 1rem;
-      padding-left: 1rem;
-      color: #333333;
+      color: ${({ theme }) => theme.colors.gray600};
       font-size: 0.875rem;
       font-weight: 400;
+    }
+
+    h2 {
+      height: 1rem;
+      margin: 0rem;
+      font-size: 0.625rem;
+      border: transparent;
+      color: rgb(5, 99, 101);
+      font-weight: 500;
+      border-radius: 0;
     }
   }
 
   button {
     height: 2.8125rem;
     width: 90%;
-    border: 1px solid #056365;
-    background-color: #056365;
+    border: 1px solid ${({ theme }) => theme.colors.backgroundDark};
+    background-color: ${({ theme }) => theme.colors.backgroundDark};
     border-radius: 1rem;
-    color: #ffffff;
+    color: ${({ theme }) => theme.colors.white};
     font-size: 1rem;
     font-weight: 700;
     line-height: 1.5rem;
     margin-bottom: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    width: 95%;
+    margin-top: 1rem;
   }
 `;
