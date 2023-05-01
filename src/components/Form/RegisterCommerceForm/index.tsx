@@ -1,8 +1,9 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { registerCommerceFormSchema } from './registerCommerceFormSchema';
+import { SchemaFormRegister, TRegisterFormSchema } from './SchemaFormRegister';
 import { Input } from '../Input';
-import { UserCommerceContext } from '../../../providers/UserCommerceProvider';
+import { useState, useContext } from 'react';
+import { UserContext } from './../../../providers/UserContext/UserContext';
 
 export interface IRegisterUserFormData {
   userName: string;
@@ -13,30 +14,29 @@ export interface IRegisterUserFormData {
 }
 
 export const RegisterCommerceForm = () => {
-  const [ laoding, setLoading] = useState(false);
-  const [IRegisterUserFormData ] = useContext(UserCommerceContext);
+  const [loading, setLoading] = useState(false);
+  const { newUserRegister } = useContext(UserContext);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<IRegisterUserFormData>({
-    resolver: zodResolver(registerCommerceFormSchema),
+    resolver: zodResolver(SchemaFormRegister),
   });
 
-  const registerUserFormSubmit: SubmitHandler<IRegisterUserFormData> = (
-    registerCommerceFormData
-  ) => {
-    console.log(registerCommerceFormData);
+  const submit: SubmitHandler<TRegisterFormSchema> = (Formdata) => {
+    newUserRegister(Formdata, setLoading);
     // Executar função de request de Cadastro/Comércio, recebendo registerCommerceFormData como parâmetro
   };
 
   return (
-    <form onSubmit={handleSubmit(registerUserFormSubmit)}>
+    <form onSubmit={handleSubmit(submit)}>
       <Input
         type='text'
         label='Nome'
         placeholder='Nome'
         id='userName'
+        disabled={loading}
         {...register('userName')}
         error={errors.userName}
       />
@@ -45,6 +45,7 @@ export const RegisterCommerceForm = () => {
         label='Email'
         placeholder='Email'
         id='email'
+        disabled={loading}
         {...register('email')}
         error={errors.email}
       />
@@ -54,6 +55,7 @@ export const RegisterCommerceForm = () => {
         placeholder='Senha'
         id='password'
         {...register('password')}
+        disabled={loading}
         error={errors.password}
       />
       <Input
@@ -61,19 +63,13 @@ export const RegisterCommerceForm = () => {
         label='Confirmar senha'
         placeholder='Confirmar senha'
         id='confirmPassword'
+        disabled={loading}
         {...register('confirmPassword')}
         error={errors.confirmPassword}
       />
-      {/* Checar se validação do select no schema está correta*/}
       <label htmlFor='typeOfCompany'>Selecionar setor alimentício</label>
-      <select
-        id='typeOfCompany'
-        {...register('foodCategory')}
-        error={errors.foodCategory?.message} //Verificar tipagem
-      >
-        <option value='' disabled selected>
-          Categorias
-        </option>
+      <select id='typeOfCompany' {...register('foodCategory')}>
+        <option value=''>Categorias</option>
         <option value='Padaria'>Padaria</option>
         <option value='Lanches'>Lanches</option>
         <option value='Cafeteria'>Cafeteria</option>
@@ -81,10 +77,11 @@ export const RegisterCommerceForm = () => {
         <option value='Bares'>Bares</option>
         <option value='Mercado'>Mercado</option>
       </select>
+      <p>
+        {errors.foodCategory?.message ? errors.foodCategory?.message : null}
+      </p>
 
-      <button type='submit' disabled>
-        Cadastrar
-      </button>
+      <button type='submit'>Cadastrar</button>
     </form>
   );
 };

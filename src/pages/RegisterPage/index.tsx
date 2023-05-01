@@ -1,28 +1,48 @@
-import { Header } from '../../components/Header';
 import { RegisterCommerceForm } from '../../components/Form/RegisterCommerceForm';
 import { RegisterUserForm } from '../../components/Form/RegisterUserForm';
 import { Link } from 'react-router-dom';
 
 export const RegisterPage = () => {
-  return (
-    <div>
-      <Header />
+  const typeofRoute = localStorage.getItem('@handle:typUser');
+
+  if (typeofRoute === 'userRegister') {
+    return (
       <div>
-        {/* Lógica: Se estabelecimento, renderizar formulario de registro para este perfil */}
-        <RegisterCommerceForm />
-        {/* Lógica: Se consumidor, renderizar formulario de registro para este perfil */}
-        <RegisterUserForm />
+        <div>
+          {/* Lógica: Se consumidor, renderizar formulario de registro para este perfil */}
+          <RegisterUserForm />
+        </div>
+        <div>
+          <p>Fatos, coisas bonitinhas</p>
+        </div>
+        <div>
+          <p>Já é cadastrado?</p>
+          <button>
+            <Link to='/login' />
+            Login
+          </button>
+        </div>
       </div>
+    );
+  }
+  if (typeofRoute === 'companyRegister') {
+    return (
       <div>
-        <p>Fatos, coisas bonitinhas</p>
+        <div>
+          {/* Lógica: Se estabelecimento, renderizar formulario de registro para este perfil */}
+          <RegisterCommerceForm />
+        </div>
+        <div>
+          <p>Fatos, coisas bonitinhas</p>
+        </div>
+        <div>
+          <p>Já é cadastrado?</p>
+          <button>
+            <Link to='/signup' />
+            Login
+          </button>
+        </div>
       </div>
-      <div>
-        <p>Já é cadastrado?</p>
-        <button>
-          <Link to='/login' />
-          Login
-        </button>
-      </div>
-    </div>
-  );
+    );
+  }
 };

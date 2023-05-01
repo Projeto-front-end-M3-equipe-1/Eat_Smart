@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from 'react';
 import { api } from '../../services/api';
 import { useNavigate } from 'react-router-dom';
 import { TLoginFormSchema } from '../../components/Form/LoginForm/loginFormSchema';
-/* import { TRegisterFormInfo } from '../components/Form/RegisterForm/SchemaFormRegister'; */
+import { TRegisterFormSchema } from '../../components/Form/RegisterCommerceForm/SchemaFormRegister';
 import { toast } from 'react-toastify';
 
 interface IUserProviderProps {
@@ -10,10 +10,6 @@ interface IUserProviderProps {
 }
 
 interface IUserContext {
-  isModalOpenLogin: boolean;
-  setIsModalOpenLogin: React.Dispatch<React.SetStateAction<boolean>>;
-  isModalOpenRegister: boolean;
-  setIsModalOpenRegister: React.Dispatch<React.SetStateAction<boolean>>;
   user: IUser | null;
 
   signIn: (
@@ -21,10 +17,10 @@ interface IUserContext {
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
   ) => Promise<void>;
 
-  /*    newUserRegister: (
-    formData: TRegisterFormInfo,
+  newUserRegister: (
+    formData: TRegisterFormSchema,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
-  ) => Promise<void>; */
+  ) => Promise<void>;
 
   logout: () => void;
 }
@@ -40,10 +36,10 @@ interface IUserLoginResponse {
   user: IUser;
 }
 
-/* interface IUserRegisterResponse {
+interface IUserRegisterResponse {
   accessToken: string;
   user: IUser;
-} */
+}
 
 export const UserContext = createContext({} as IUserContext);
 
@@ -51,7 +47,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   const navigate = useNavigate();
   const [user, setUser] = useState<IUser | null>(null);
 
-  /*   useEffect(() => {
+  useEffect(() => {
     const userToken = localStorage.getItem('@user:token');
     const UserId = localStorage.getItem('@user:id');
 
@@ -74,14 +70,13 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     if (userToken && UserId) {
       userAutoLogin();
     }
-  }, []); */
+  }, []);
 
   const signIn = async (
     formData: TLoginFormSchema,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
     const typeofRoute = localStorage.getItem('@handle:typUser');
-
     if (typeofRoute === 'userLogin') {
       try {
         setLoading(true);
@@ -121,14 +116,35 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     formData: TLoginFormSchema,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
-    try {
-      setLoading(true);
-      await api.post<IUserRegisterResponse>('/users', formData);
-      toast.success('Cadastro realizado com sucesso');
-    } catch (error) {
-      toast.error('Oops! Algo deu errado tente novamente');
-    } finally {
-      setLoading(false);
+    console.log(formData);
+
+    const typeofRoute = localStorage.getItem('@handle:typUser');
+    if (typeofRoute === 'userRegister') {
+      try {
+        const confirmUser = { ...formData, isCompany: false };
+        setLoading(true);
+        await api.post<IUserRegisterResponse>('/register', confirmUser);
+        toast.success('Cadastro realizado com sucesso');
+        console.log(formData);
+        console.log('foi user');
+      } catch (error) {
+        toast.error('Oops! Algo deu errado tente novamente');
+      } finally {
+        setLoading(false);
+      }
+    }
+    if (typeofRoute === 'companyRegister') {
+      try {
+        const confirmUser = { ...formData, isCompany: true };
+        setLoading(true);
+        await api.post<IUserRegisterResponse>('/signup', confirmUser);
+        toast.success('Cadastro realizado com sucesso');
+        console.log('foi empresa');
+      } catch (error) {
+        toast.error('Oops! Algo deu errado tente novamente');
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
