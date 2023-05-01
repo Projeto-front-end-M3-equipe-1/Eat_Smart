@@ -9,7 +9,6 @@ import { StyledEditOfferModal } from './style';
 import cartIcon from '../../../assets/icons/cart.svg';
 import heartIcon from '../../../assets/icons/coração.svg';
 import closeIcon from '../../../assets/icons/close.svg';
-import { StyledInputContainerLight } from '../../../styles/form';
 
 export const EditOfferModal = ({
   offer,
@@ -45,53 +44,46 @@ export const EditOfferModal = ({
 
   return (
     <StyledEditOfferModal role='dialog'>
+      <nav>
+        <img src={cartIcon} alt='cart-icon' />
+        <img src={heartIcon} alt='heart-icon' />
+        <button onClick={() => setIsEditOfferModalOpen(false)}>
+          <img src={closeIcon} alt='close-icon' />
+        </button>
+      </nav>
       <form onSubmit={handleSubmit(editOfferSubmit)}>
-        <nav>
-          <img src={cartIcon} alt='cart-icon' />
-          <img src={heartIcon} alt='heart-icon' />
-          <button onClick={() => setIsEditOfferModalOpen(false)}>
-            <img src={closeIcon} alt='close-icon' />
-          </button>
-        </nav>
-        <main>
-          <h3>Edite sua oferta</h3>
-
-          <StyledInputContainerLight>
-            <Input
-              type='text'
-              label='Preferências'
-              placeholder={offer.title}
-              id='title'
-              {...register('title')}
-              error={errors.title}
-            />
-          </StyledInputContainerLight>
-          <StyledInputContainerLight>
-            <Input
-              type='number'
-              label='Quantidade'
-              placeholder={offer.quantity.toString()}
-              id='quantity'
-              {...register('quantity')}
-              error={errors.quantity}
-            />
-          </StyledInputContainerLight>
-          <StyledInputContainerLight>
-            <Input
-              type='number'
-              label='Desconto'
-              placeholder={`${offer.discount}%`}
-              id='discount'
-              {...register('discount')}
-              error={errors.discount}
-            />
-          </StyledInputContainerLight>
-        </main>
+        <h3>Edite sua oferta</h3>
+        <Input
+          type='text'
+          label='Preferências'
+          placeholder={offer.title}
+          id='title'
+          {...register('title')}
+          error={errors.title}
+        />
+        <Input
+          type='number'
+          label='Quantidade'
+          placeholder={offer.quantity.toString()}
+          id='quantity'
+          {...register('quantity')}
+          error={errors.quantity}
+        />
+        <Input
+          type='number'
+          label='Desconto'
+          placeholder={`${offer.discount}%`}
+          id='discount'
+          {...register('discount')}
+          error={errors.discount}
+        />
         <button type='submit'>Salvar oferta</button>
+      </form>
+      <span>
         <button type='button' onClick={() => setIsEditOfferModalOpen(false)}>
           Voltar para Loja
         </button>
-      </form>
+      </span>
     </StyledEditOfferModal>
   );
 };

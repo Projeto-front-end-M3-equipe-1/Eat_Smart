@@ -41,7 +41,7 @@ export const EditCommerceProfile = ({ closeProfileModal }: ICloseModal) => {
         <img src={cartIcon} alt='cart-icon'></img>
         <img src={favoriteIcon} alt='heart-icon'></img>
         <button onClick={() => closeProfileModal()}>
-          <img src={xIcon} alt='close-icon'></img>{<img src={x}/>}
+          <img src={xIcon} alt='close-icon'></img>
         </button>
       </nav>
       <form onSubmit={handleSubmit(editCommerceProfileSubmit)}>

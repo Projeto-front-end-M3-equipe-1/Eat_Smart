@@ -13,7 +13,7 @@ export const StyledCreateProductForm = styled.form`
 
   header,
   div {
-    border: 1px solid red;
+    // border: 1px solid red;
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -24,7 +24,6 @@ export const StyledCreateProductForm = styled.form`
       font-size: 1.125rem;
       font-weight: 600;
       color: #2e2e2e;
-      border-bottom: 1px solid #000000;
     }
 
     label {
@@ -48,10 +47,10 @@ export const StyledCreateProductForm = styled.form`
       font-weight: 400;
     }
 
-    h2{
+    h2 {
       height: 1rem;
       margin: 0rem;
-      font-size:0.625rem;
+      font-size: 0.625rem;
       border: transparent;
       color: rgb(5, 99, 101);
       font-weight: 500;
@@ -73,6 +72,7 @@ export const StyledCreateProductForm = styled.form`
   }
 
   @media (min-width: 768px) {
-    width: 250px;
+    width: 95%;
+    margin-top: 1rem;
   }
 `;

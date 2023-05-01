@@ -5,6 +5,7 @@ export const StyledCommerceDashboard = styled.div`
   display: flex;
   flex-direction: column;
   width: 100vw;
+  height: 100vh;
   align-items: center;
   background-color: #efe9e8;
   font-family: 'Poppins';
@@ -39,6 +40,10 @@ export const StyledCommerceLogoContainer = styled.div`
     font-weight: 700;
     color: #056365;
   }
+
+  @media (min-width: 768px) {
+    width: 90%;
+  }
 `;
 
 export const StyledCommerceDashboardMainContainer = styled.main`
@@ -71,11 +76,14 @@ export const StyledCommerceDashboardMainContainer = styled.main`
   }
 
   @media (min-width: 768px) {
-    flex-direction: row;
+    width: 80%;
+    height: 80vh;
     flex-wrap: wrap;
+    gap: 1rem;
 
     section{
-      width: 100%;
+      width: 50%;
     }
+
   }
 `;

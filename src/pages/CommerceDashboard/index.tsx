@@ -71,12 +71,12 @@ export const CommerceDashboard = () => {
           <CreateProductForm />
         </section>
         <section>
-          {/* <h2>Ofertas cadastradas</h2> */}
-          <OfferList />
-        </section>
-        <section>
           {/* <h2>Reservas</h2> */}
           <ReservedProductsList />
+        </section>
+        <section>
+          {/* <h2>Ofertas cadastradas</h2> */}
+          <OfferList />
         </section>
       </StyledCommerceDashboardMainContainer>
       <Footer />
