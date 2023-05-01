@@ -11,13 +11,10 @@ export const StyledButtonCSS = css<IStyledButtonProps>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   font-family: ${({ theme }) => theme.fonts.primaryPoppins};
   font-weight: 700;
   font-size: 1rem;
-
   border-radius: 16px;
-
   transition: 0.4s;
 
   ${({ $buttonSize }) => {
@@ -49,6 +46,7 @@ export const StyledButtonCSS = css<IStyledButtonProps>`
         return css`
           color: ${theme.colors.greenPrimary};
           background: ${theme.colors.greenSecondary};
+          border: solid 1px ${theme.colors.greenPrimary};
           &:hover {
             opacity: 0.5;
           }
