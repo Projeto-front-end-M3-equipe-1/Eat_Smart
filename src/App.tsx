@@ -1,25 +1,16 @@
-
+import { CartProvider } from './providers/CartProvider';
 import { UserCommerceProvider } from './providers/UserCommerceProvider';
 
 import { RoutesMain } from './routes';
-import { GlobalStyles } from './styles/global';
 
 const App = () => {
   return (
-    <div>
-      <UserCommerceProvider>
+    <UserCommerceProvider>
+      <CartProvider>
         <RoutesMain />
-      </UserCommerceProvider>
-    </div>
+      </CartProvider>
+    </UserCommerceProvider>
   );
-    <div>
-      <UserProvider>
-        <RoutesMain />
-      </UserProvider>
-      <GlobalStyles />
-    </div>
-
-  
 };
 
 export default App;
