@@ -2,8 +2,12 @@ import { Input } from '../Input';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { loginFormSchema } from './loginFormSchema';
-import { useContext } from 'react';
+import { useContext, useState} from 'react';
 
+<<<<<<< HEAD
+=======
+import { UserCommerceContext } from '../../../providers/UserCommerceProvider'
+>>>>>>> 3e57697c78a06b7999227fbe36c679df10bfa72c
 import {
   StyledFormUserDark,
   StyledInputContainerDark,
@@ -18,6 +22,8 @@ export interface ILoginFormData {
 }
 
 export const LoginForm = () => {
+   const [loading, setLoading] = useState(false);
+   const { login } = useContext(UserCommerceContext);
   const {
     register,
     handleSubmit,
@@ -26,7 +32,6 @@ export const LoginForm = () => {
     resolver: zodResolver(loginFormSchema),
   });
 
-  const { login, loading } = useContext(UserCommerceContext); //Verificar tipagem
 
   const loginFormSubmit: SubmitHandler<ILoginFormData> = (loginFormData) => {
     login(loginFormData);

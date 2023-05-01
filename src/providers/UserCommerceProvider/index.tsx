@@ -1,5 +1,5 @@
 import { ILoginFormData } from '../../components/Form/LoginForm';
-import { createContext, useState } from 'react';
+import { createContext,useEffect,  useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../services/api';
 
@@ -23,7 +23,20 @@ export interface ILoginResponse {
   accessToken: string;
   user: ICommerceUser;
 }
+// interface para registro puxando o user do icommerceUser
+export interface IUserRegisterResponse {
+  acessToken: string;
+  user:IcommerceUser;
+}
 
+
+export interface IAxiosError {
+ message: string;
+ response?:{
+  data: string;
+ };
+
+}
 export interface IUserContext {
   login: (loginFormData: ILoginFormData) => Promise<void>;
   commerceUser: ICommerceUser | null;
@@ -36,6 +49,34 @@ export const UserCommerceContext = createContext({});
 export const UserCommerceProvider = ({ children }: IUserProviderProps) => {
   const [commerceUser, setCommerceUser] = useState<ICommerceUser | null>(null);
   const [loading, setLoading] = useState(false);
+
+
+   // criando auto login  
+
+    useEffect(()=> {
+      const token = localStorage.getItem("@TOKENUSERCOMMERCE"); 
+      const userId = localStorage.getItem("@USERIDCOMMERCE");
+
+      const userAutoLogin = async () => {
+        try {
+          const { data } = await api.get<ICommerceUser>(`/users/${userId}`,{
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          setCommerceUser(data);
+          navigate("/") // dashboard
+        } catch (error) {
+          const Ierror = error as IAxiosError;
+          console.log(Ierror);
+          localStorage.removeItem("@TOKENUSERCOMMERCE") // alterar para correto
+          localStorage.removeItem("@USERIDCOMMERCE") // alterar para correto;
+        }
+      };
+      if ( token && userId) {
+        userAutoLogin();
+      }
+    }, []);
 
   const navigate = useNavigate();
 
@@ -57,8 +98,13 @@ export const UserCommerceProvider = ({ children }: IUserProviderProps) => {
           );
           localStorage.setItem('@EatSmart:userNameCommerce', userResponse.userName);
           localStorage.setItem('@EatSmart:userCommerceEmail', userResponse.email);
+<<<<<<< HEAD
           localStorage.setItem('@EatSmart:userCommerceFoodCategory', userResponse.foodCategory);
 
+=======
+          localStorage.getItem('@EatSmart:userCommerceFoodCategory', userResponse.foodCategory);
+          
+>>>>>>> 3e57697c78a06b7999227fbe36c679df10bfa72c
           setCommerceUser(userResponse);
           navigate('/companyHome');
         });
@@ -69,11 +115,38 @@ export const UserCommerceProvider = ({ children }: IUserProviderProps) => {
     } finally {
       setLoading(false);
     }
+  };  
+   // registrar 
+
+    const userRegister = async (
+      formData:registerCommerceFormSchema,
+      setLoading: React.Dispatch<React.SetStateAction<boolean>>
+    ): Promise<void>=> {
+      try{
+        setLoading(true);
+        await api.post<IUserRegisterResponse>("/users", formData);
+        console.log("Cadastro efetuado com Sucesso");
+        navigate("/");
+      } catch (error){
+        const Ierror = error as IAxiosError;
+        console.log(Ierror);
+      }finally{
+        setLoading(false)
+      }
+    }
+
+    // logout :
+
+  const userLogout = () => {
+    localStorage.removeItem("@TOKENUSERCOMMERCE");
+    localStorage.removeItem("@USERIDCOMMERCE");// VERIFICAR 
+    setCommerceUser(null);
+    navigate("/")
   };
 
   return (
     <UserCommerceContext.Provider
-      value={{ login, commerceUser, setCommerceUser, loading }}
+      value={{ login, commerceUser, setCommerceUser, loading, userRegister, userLogout }}
     >
       {children}
     </UserCommerceContext.Provider>
