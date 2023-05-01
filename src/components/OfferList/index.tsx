@@ -29,10 +29,10 @@ export const OfferList = () => {
           <OfferCard key={offer.id} offer={offer} />
         ))}
       </ul>
-      <div>
+      <span>
         <p>Total</p>
         <small>R$ {total}</small>
-      </div>
+      </span>
       <button onClick={removeAllOffers}>Remover ofertas</button>
     </StyledOffersContainer>
   );

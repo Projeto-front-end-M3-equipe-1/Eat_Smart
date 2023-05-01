@@ -98,8 +98,13 @@ export const UserCommerceProvider = ({ children }: IUserProviderProps) => {
           );
           localStorage.setItem('@EatSmart:userNameCommerce', userResponse.userName);
           localStorage.setItem('@EatSmart:userCommerceEmail', userResponse.email);
+<<<<<<< HEAD
+          localStorage.setItem('@EatSmart:userCommerceFoodCategory', userResponse.foodCategory);
+
+=======
           localStorage.getItem('@EatSmart:userCommerceFoodCategory', userResponse.foodCategory);
           
+>>>>>>> 3e57697c78a06b7999227fbe36c679df10bfa72c
           setCommerceUser(userResponse);
           navigate('/companyHome');
         });

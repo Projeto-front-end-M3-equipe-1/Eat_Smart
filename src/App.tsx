@@ -8,8 +8,13 @@ const App = () => {
     <UserCommerceProvider>
       <CartProvider>
         <RoutesMain />
+<<<<<<< HEAD
+      </UserCommerceProvider>
+    </div>
+=======
       </CartProvider>
     </UserCommerceProvider>
+>>>>>>> 3e57697c78a06b7999227fbe36c679df10bfa72c
   );
 };
 

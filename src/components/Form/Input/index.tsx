@@ -17,7 +17,7 @@ export const Input = forwardRef(
           {label ? <label htmlFor={id}>{label}</label> : null}
           <input ref={ref} id={id} {...rest} />
         </div>
-        {error ? <StyledParagraph>erro</StyledParagraph> : null}
+        {error ? <StyledParagraph>{error.message}</StyledParagraph> : null}
       </div>
     );
   }

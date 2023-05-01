@@ -5,30 +5,28 @@ export const StyledCommerceDashboard = styled.div`
   display: flex;
   flex-direction: column;
   width: 100vw;
+  height: 100vh;
   align-items: center;
   background-color: #efe9e8;
   font-family: 'Poppins';
-
-  @media (min-width: 375px) {
-  }
-
-  @media (min-width: 425px) {
-  }
-
-  @media (min-width: 768px) {
-  }
-
-  @media (min-width: 1024px) {
-  }
+  overflow-x: hidden;
 `;
 
 export const StyledCommerceDataContainer = styled.div`
   border: 1px solid red;
   display: flex;
-  align-items: center;
   width: 90%;
-  gap: 1rem;
+  justify-content: center;
   margin-top: 1rem;
+`;
+
+export const StyledCommerceLogoContainer = styled.div`
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+  margin-left: 1rem;
 
   img {
     width: 2.125rem;
@@ -42,15 +40,19 @@ export const StyledCommerceDataContainer = styled.div`
     font-weight: 700;
     color: #056365;
   }
+
+  @media (min-width: 768px) {
+    width: 90%;
+  }
 `;
 
 export const StyledCommerceDashboardMainContainer = styled.main`
   border: 1px solid red;
   display: flex;
   flex-direction: column;
-  width: 90vw;
   align-items: center;
   margin-top: 1rem;
+  width: 90%;
 
   section {
     display: flex;
@@ -71,5 +73,17 @@ export const StyledCommerceDashboardMainContainer = styled.main`
       font-weight: 600;
       line-height: 2.0625rem;
     }
+  }
+
+  @media (min-width: 768px) {
+    width: 80%;
+    height: 80vh;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    section{
+      width: 50%;
+    }
+
   }
 `;
