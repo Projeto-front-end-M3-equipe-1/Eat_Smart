@@ -9,6 +9,7 @@ export const StyledCreateProductForm = styled.form`
   border: 2px solid ${({ theme }) => theme.colors.greenPrimary};
   border-radius: 1rem;
   gap: 1rem;
+  margin-bottom: 1rem;
 
   header,
   div {
@@ -69,5 +70,9 @@ export const StyledCreateProductForm = styled.form`
     font-weight: 700;
     line-height: 1.5rem;
     margin-bottom: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    width: 250px;
   }
 `;

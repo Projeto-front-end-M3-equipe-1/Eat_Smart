@@ -57,4 +57,8 @@ export const StyledOffersContainer = styled.div`
     font-weight: 700;
     margin: 0.5rem 1rem 1rem 1rem;
   }
+
+  @media (min-width: 768px) {
+    width: 250px;
+  }
 `;

@@ -42,11 +42,15 @@ export const StyledOfferCard = styled.li`
             font-size: 0.875rem;
             font-weight: 600;
             color: #2e2e2e;
+          }
 
-            strong{
-              color: rgb(5, 99, 101);
-              font-weight: 500;
-            }
+          h4 > strong {
+            color: rgb(5, 99, 101);
+            font-weight: 500;
+          }
+
+          p> strong{
+            color: #FF543D;
           }
         }
       }

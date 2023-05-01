@@ -69,4 +69,13 @@ export const StyledCommerceDashboardMainContainer = styled.main`
       line-height: 2.0625rem;
     }
   }
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    section{
+      width: 100%;
+    }
+  }
 `;

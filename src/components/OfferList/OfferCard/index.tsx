@@ -31,14 +31,14 @@ export const OfferCard = ({ offer }: IOfferProductCard) => {
                 {offer.quantity}
               </h4>
               <p>
-                R${' '}
+                <strong>R$ </strong>
                 {newPrice.toLocaleString('pt-br', { minimumFractionDigits: 2 })}
               </p>
             </span>
           </div>
           <div>
             <p>
-              R${' '}
+              R$
               {offer.originalPrice.toLocaleString('pt-br', {
                 minimumFractionDigits: 2,
               })}
