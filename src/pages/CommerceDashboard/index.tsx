@@ -8,6 +8,7 @@ import {
   StyledCommerceDashboard,
   StyledCommerceDashboardMainContainer,
   StyledCommerceDataContainer,
+  StyledCommerceLogoContainer,
 } from './style';
 import { Header } from '../../components/Header';
 import { CreateProductForm } from '../../components/Form/CreateProductForm';
@@ -35,30 +36,34 @@ export const CommerceDashboard = () => {
       <button onClick={() => setIsEditProfileModalOpen(true)}>
         Edit profile
       </button>
+
       {isEditProfileModalOpen ? (
         <EditCommerceProfile closeProfileModal={closeProfileModalWrapper} />
       ) : null}
-      <StyledCommerceDataContainer>
-        {foodCategory === 'bares'.toUpperCase() ? (
-          <img src={pubIcon} alt='icon'></img>
-        ) : null}
-        {foodCategory === 'cafeteria' ? (
-          <img src={coffeeIcon} alt='icon'></img>
-        ) : null}
-        {foodCategory === 'lanches'.toUpperCase() ? (
-          <img src={snacksIcon} alt='icon'></img>
-        ) : null}
-        {foodCategory === 'mercado'.toUpperCase() ? (
-          <img src={marketIcon} alt='icon'></img>
-        ) : null}
-        {foodCategory === 'padaria'.toUpperCase() ? (
-          <img src={bakeryIcon} alt='icon'></img>
-        ) : null}
-        {foodCategory === 'restaurante'.toUpperCase() ? (
-          <img src={restaurantIcon} alt='icon'></img>
-        ) : null}
 
-        <h2>{userNameCommerce}</h2>
+      <StyledCommerceDataContainer>
+        <StyledCommerceLogoContainer>
+          {foodCategory === 'bares'.toUpperCase() ? (
+            <img src={pubIcon} alt='icon'></img>
+          ) : null}
+          {foodCategory === 'cafeteria' ? (
+            <img src={coffeeIcon} alt='icon'></img>
+          ) : null}
+          {foodCategory === 'lanches'.toUpperCase() ? (
+            <img src={snacksIcon} alt='icon'></img>
+          ) : null}
+          {foodCategory === 'mercado'.toUpperCase() ? (
+            <img src={marketIcon} alt='icon'></img>
+          ) : null}
+          {foodCategory === 'padaria'.toUpperCase() ? (
+            <img src={bakeryIcon} alt='icon'></img>
+          ) : null}
+          {foodCategory === 'restaurante'.toUpperCase() ? (
+            <img src={restaurantIcon} alt='icon'></img>
+          ) : null}
+
+          <h2>{userNameCommerce}</h2>
+        </StyledCommerceLogoContainer>
       </StyledCommerceDataContainer>
       <StyledCommerceDashboardMainContainer>
         <section>

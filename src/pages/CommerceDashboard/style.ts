@@ -14,10 +14,18 @@ export const StyledCommerceDashboard = styled.div`
 export const StyledCommerceDataContainer = styled.div`
   border: 1px solid red;
   display: flex;
-  align-items: center;
   width: 90%;
-  gap: 1rem;
+  justify-content: center;
   margin-top: 1rem;
+`;
+
+export const StyledCommerceLogoContainer = styled.div`
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+  margin-left: 1rem;
 
   img {
     width: 2.125rem;

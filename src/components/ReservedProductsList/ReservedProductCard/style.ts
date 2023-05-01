@@ -15,7 +15,7 @@ export const StyledReserveCard = styled.li`
 
     img {
       width: 3.625rem;
-      height: 2.625rem;
+      height: 3.625rem;
       object-fit: cover;
     }
   }
