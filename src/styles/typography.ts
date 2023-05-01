@@ -27,7 +27,7 @@ interface IStyledParagraphProps {
 }
 
 export const StyledTitleGreen = styled(BaseTitle)<IStyledTitleProps>`
-  width: 100%;
+  /*   width: 100%; */
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.fonts.primaryPoppins};
   line-height: 1.6;
@@ -44,7 +44,7 @@ export const StyledTitleGreen = styled(BaseTitle)<IStyledTitleProps>`
       case 'logo':
         return css`
           font-size: 2.25rem;
-          font-weight: 700;
+          font-weight: 800;
         `;
 
       case 'titleForm':
