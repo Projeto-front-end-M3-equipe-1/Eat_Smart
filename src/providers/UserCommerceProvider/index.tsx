@@ -99,7 +99,7 @@ export const UserCommerceProvider = ({ children }: IUserProviderProps) => {
           localStorage.setItem('@EatSmart:userNameCommerce', userResponse.userName);
           localStorage.setItem('@EatSmart:userCommerceEmail', userResponse.email);
           localStorage.getItem('@EatSmart:userCommerceFoodCategory', userResponse.foodCategory);
-          
+
           setCommerceUser(userResponse);
           navigate('/companyHome');
         });
@@ -119,7 +119,7 @@ export const UserCommerceProvider = ({ children }: IUserProviderProps) => {
     ): Promise<void>=> {
       try{
         setLoading(true);
-        await api.post<IUserRegisterResponse>("/users", formData);
+        await api.post<IUserRegisterResponse>("/register", formData);
         console.log("Cadastro efetuado com Sucesso");
         navigate("/");
       } catch (error){

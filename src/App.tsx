@@ -1,14 +1,14 @@
-
+import { CartProvider } from './providers/CartProvider';
 import { UserCommerceProvider } from './providers/UserCommerceProvider';
 
 import { RoutesMain } from './routes';
-import { GlobalStyles } from './styles/global';
 
 const App = () => {
   return (
-    <div>
-      <UserCommerceProvider>
+    <UserCommerceProvider>
+      <CartProvider>
         <RoutesMain />
+<<<<<<< HEAD
       </UserCommerceProvider>
     </div>
   );
@@ -20,6 +20,11 @@ const App = () => {
     </div>
 
   
+=======
+      </CartProvider>
+    </UserCommerceProvider>
+  );
+>>>>>>> 50d8108019a112fcfb88b955c46db58f70c74ab1
 };
 
 export default App;
