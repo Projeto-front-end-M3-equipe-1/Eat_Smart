@@ -2,6 +2,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { registerCommerceFormSchema } from './registerCommerceFormSchema';
 import { Input } from '../Input';
+import { UserCommerceContext } from '../../../providers/UserCommerceProvider';
 
 export interface IRegisterUserFormData {
   userName: string;
@@ -12,6 +13,8 @@ export interface IRegisterUserFormData {
 }
 
 export const RegisterCommerceForm = () => {
+  const [ laoding, setLoading] = useState(false);
+  const [IRegisterUserFormData ] = useContext(UserCommerceContext);
   const {
     register,
     handleSubmit,
