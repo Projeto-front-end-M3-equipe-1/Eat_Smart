@@ -38,6 +38,7 @@ export const StyledButtonCSS = css<IStyledButtonProps>`
         return css`
           color: ${theme.colors.white};
           background: ${theme.colors.greenPrimary};
+          border: 1px solid ${theme.colors.greenPrimary};
           &:hover {
             opacity: 0.5;
           }

@@ -12,14 +12,13 @@ export const MainDashboardComponent = () => {
 
   return (
     <>
+      {isModalOpenLogin ? <LoginModal /> : null}
+      {isModalOpenRegister ? <LoginModal /> : null}
       <StyledMainDashboardHeader>
         <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
           Eat<span>Smart</span>
         </StyledTitleGreen>
         <div>
-          {isModalOpenLogin ? <LoginModal /> : null}
-          {isModalOpenRegister ? <LoginModal /> : null}
-
           <StyledButton
             $buttonSize='default'
             $buttonStyle='buttonGreenLight'
