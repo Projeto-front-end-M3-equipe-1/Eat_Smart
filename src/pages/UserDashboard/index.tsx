@@ -12,6 +12,7 @@ import { StyledUserDashboard } from "../../components/UserDashboard/style.ts";
 import { useContext } from "react";
 import { CartContext } from "../../providers/CartProvider/index.tsx";
 import { CartModal } from "../../components/CartModal/index.tsx";
+import { UserDashboardOption } from "../../components/UserDashboard/Option/index.tsx";
 
 export const UserDashboard = () => {
   const { offers, searchByCategory, isCartModalOpen } = useContext(CartContext);
@@ -34,13 +35,13 @@ export const UserDashboard = () => {
           </nav>
           <form>
             <select onChange={(event) => searchByCategory(event.target.value)}>
-              <option value='' >Categorias</option>
-              <option value='padaria' >Padaria</option>
-              <option value='lanches' >Lanches</option>
-              <option value='cafeteria' >Cafeteria</option>
-              <option value='restaurante' >Restaurante</option>
-              <option value='bares' >Bares</option>
-              <option value='mercado' >Mercado</option>
+              <UserDashboardOption value={''} innerText={'Categorias'} />
+              <UserDashboardOption value={'padaria'} innerText={'Padaria'} />
+              <UserDashboardOption value={'lanches'} innerText={'Lanches'} />
+              <UserDashboardOption value={'cafeteria'} innerText={'Cafeteria'} />
+              <UserDashboardOption value={'restaurante'} innerText={'Restaurante'} />
+              <UserDashboardOption value={'bares'} innerText={'Bares'} />
+              <UserDashboardOption value={'mercado'} innerText={'Mercado'} />
             </select>
           </form>
         </section>

@@ -17,7 +17,7 @@ section:first-child > nav{
 }
 
 section:first-child > form > select{
-    display: none;
+    /* display: none; */
 }
 
 section:last-child{

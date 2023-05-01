@@ -4,13 +4,15 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { loginFormSchema } from './loginFormSchema';
 import { useContext, useState} from 'react';
 
+<<<<<<< HEAD
+=======
+import { UserCommerceContext } from '../../../providers/UserCommerceProvider'
+>>>>>>> 5e92851e94802cde87a7fa787cacf3cb863a7875
 import {
   StyledFormUserDark,
   StyledInputContainerDark,
 } from '../../../styles/form';
 import { StyledTitleGreen } from '../../../styles/typography';
-import { UserCommerceContext } from '../../../providers/UserCommerceProvider';
-
 
 export interface ILoginFormData {
   email: string;

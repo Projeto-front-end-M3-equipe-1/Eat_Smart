@@ -1,10 +1,23 @@
+<<<<<<< HEAD
 import { useContext } from 'react';
 import { CartContext, IOffer } from '../../../providers/CartProvider';
 import { CartProductCard } from './CartProductCard';
+=======
+import { useContext } from "react";
+import { CartContext } from "../../../providers/CartProvider";
+import { CartProductCard } from "./CartProductCard";
+import { StyledCartProductList } from "./style";
+import trash from "../../../assets/icons/lixoGrande.svg"
+>>>>>>> 5e92851e94802cde87a7fa787cacf3cb863a7875
 
-export const CartProductList = () => {
+interface ISumDiscountProps {
+  sumDiscount: number;
+}
+
+export const CartProductList = ({ sumDiscount }: ISumDiscountProps) => {
   const { listOffersCart, removeAllOffersFromCart } = useContext(CartContext);
 
+<<<<<<< HEAD
   let newList: number[] = [];
 
   listOffersCart.forEach((offer) => {
@@ -16,8 +29,10 @@ export const CartProductList = () => {
     return previousValue + currentItem;
   }, 0);
 
+=======
+>>>>>>> 5e92851e94802cde87a7fa787cacf3cb863a7875
   return (
-    <div>
+    <StyledCartProductList>
       <ul>
         {listOffersCart.map((currentOffer) => {
           return (
@@ -28,8 +43,8 @@ export const CartProductList = () => {
           );
         })}
       </ul>
-
       <div>
+<<<<<<< HEAD
         <p>
           <strong>
             Total:{' '}
@@ -45,5 +60,21 @@ export const CartProductList = () => {
 
       <button type='button'>Finalizar compra</button>
     </div>
+=======
+        <p>Total:</p>
+        <small>
+          {sumDiscount.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </small>
+      </div>
+      <div>
+        <img src={trash} alt="" />
+        <button onClick={() => removeAllOffersFromCart()}>Remover todos os itens</button>
+        <button type="button">Finalizar compra</button>
+      </div>
+    </StyledCartProductList>
+>>>>>>> 5e92851e94802cde87a7fa787cacf3cb863a7875
   );
 };
