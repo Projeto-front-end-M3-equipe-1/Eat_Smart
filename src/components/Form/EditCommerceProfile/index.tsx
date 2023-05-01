@@ -5,6 +5,10 @@ import { Input } from '../Input';
 import { IRegisterUserFormData } from '../RegisterCommerceForm';
 import { useContext } from 'react';
 import { CommerceContext } from '../../../providers/CommerceProvider';
+import { StyledEditCommerceProfileModal } from './style';
+import cartIcon from '../../../assets/icons/cart.svg';
+import favoriteIcon from '../../../assets/icons/coração.svg';
+import xIcon from '../../../assets/icons/close.svg';
 
 interface ICloseModal {
   closeProfileModal: () => void;
@@ -31,12 +35,13 @@ export const EditCommerceProfile = ({ closeProfileModal }: ICloseModal) => {
   };
 
   return (
-    <div role='dialog'>
+    <StyledEditCommerceProfileModal role='dialog'>
       <header>
-        <img src='' alt=''></img>
-        <img src='' alt=''></img>
-        <img src='' alt=''></img>
-        <img src='' alt=''></img>
+        <img src={cartIcon} alt='cart-icon'></img>
+        <img src={favoriteIcon} alt='heart-icon'></img>
+        <button onClick={() => closeProfileModal()}>
+          <img src={xIcon} alt='close-icon'></img>
+        </button>
       </header>
       <h3>Edite seu perfil</h3>
       <form onSubmit={handleSubmit(editCommerceProfileSubmit)}>
@@ -75,6 +80,6 @@ export const EditCommerceProfile = ({ closeProfileModal }: ICloseModal) => {
         <button type='submit'>Salvar alterações</button>
       </form>
       <button onClick={() => closeProfileModal()}>Voltar para loja</button>
-    </div>
+    </StyledEditCommerceProfileModal>
   );
 };

@@ -9,7 +9,7 @@ export const StyledReserveCard = styled.li`
   margin-bottom: 1rem;
   border-bottom: 1px solid #000000;
 
-  div:nth-child(1) {
+  div:nth-of-type(1) {
     border: 1px solid red;
     display: flex;
 
@@ -20,7 +20,7 @@ export const StyledReserveCard = styled.li`
     }
   }
 
-  div:nth-child(2) {
+  div:nth-of-type(2){
     border: 1px solid red;
     width: 100%;
     display: flex;

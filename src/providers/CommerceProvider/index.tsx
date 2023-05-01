@@ -88,7 +88,7 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
         .then((response) => {
           setProductsList([...productsList, response.data]);
 
-          console.log('Sacola surpresa cadastrada'); //substituir por toast
+          console.log('Oferta cadastrada'); //substituir por toast
         });
 
       return responseApi;
@@ -117,7 +117,7 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
           );
           setProductsList([...updateCurrentProduct, response.data]);
 
-          console.log('Offerta alterada'); //substituir por toast
+          console.log('Oferta alterada'); //substituir por toast
         });
 
       return responseApi;

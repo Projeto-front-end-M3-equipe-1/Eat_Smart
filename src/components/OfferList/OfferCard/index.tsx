@@ -25,7 +25,11 @@ export const OfferCard = ({ offer }: IOfferProductCard) => {
         <section>
           <div>
             <span>
-              <h4>{offer.title}</h4>
+              <h4>
+                {offer.title}
+                <strong> - </strong>
+                {offer.quantity}
+              </h4>
               <p>
                 R${' '}
                 {newPrice.toLocaleString('pt-br', { minimumFractionDigits: 2 })}

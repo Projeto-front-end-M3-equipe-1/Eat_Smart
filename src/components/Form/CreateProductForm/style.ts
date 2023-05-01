@@ -42,10 +42,19 @@ export const StyledCreateProductForm = styled.form`
       border: 2px solid #989898;
       background-color: ${({ theme }) => theme.colors.white};
       border-radius: 1rem;
-      // padding-left: 1rem;
       color: ${({ theme }) => theme.colors.gray600};
       font-size: 0.875rem;
       font-weight: 400;
+    }
+
+    h2{
+      height: 1rem;
+      margin: 0rem;
+      font-size:0.625rem;
+      border: transparent;
+      color: rgb(5, 99, 101);
+      font-weight: 500;
+      border-radius: 0;
     }
   }
 

@@ -25,7 +25,7 @@ export const StyledOfferCard = styled.li`
       display: flex;
       flex-direction: column;
 
-      div:nth-child(1) {
+      div:nth-of-type(1) {
         display: flex;
         width: 100%;
         justify-content: space-between;
@@ -42,11 +42,16 @@ export const StyledOfferCard = styled.li`
             font-size: 0.875rem;
             font-weight: 600;
             color: #2e2e2e;
+
+            strong{
+              color: rgb(5, 99, 101);
+              font-weight: 500;
+            }
           }
         }
       }
 
-      div:nth-child(2) {
+      div:last-child {
         border: 1px solid red;
         display: flex;
         width: 100%;

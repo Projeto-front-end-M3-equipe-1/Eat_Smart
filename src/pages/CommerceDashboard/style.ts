@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const StyledCommerceDashboard = styled.div`
-  // border: 1px solid red;
+  border: 1px solid red;
   display: flex;
   flex-direction: column;
   width: 100vw;
   align-items: center;
   background-color: #efe9e8;
   font-family: 'Poppins';
-  overflow-y: hidden;
+  overflow-x: hidden;
 `;
 
 export const StyledCommerceDataContainer = styled.div`
