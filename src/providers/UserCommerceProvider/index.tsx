@@ -25,7 +25,7 @@ export interface ILoginResponse {
 }
 // interface para registro puxando o user do icommerceUser
 export interface IUserRegisterResponse {
-  acessToken: string;
+  accessToken: string;
   user:ICommerceUser;
 }
 
@@ -65,7 +65,7 @@ export const UserCommerceProvider = ({ children }: IUserProviderProps) => {
             },
           });
           setCommerceUser(data);
-          navigate("/") // dashboard
+          // navigate("/") // dashboard
         } catch (error) {
           const Ierror = error as IAxiosError;
           console.log(Ierror);
