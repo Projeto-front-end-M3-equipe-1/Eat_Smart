@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledUserDashboard = styled.main`
 background-color: #EFE9E8;
-height: 800px;
+height: 100%;
 
 section:first-child{
     margin-left: 14px;
@@ -13,6 +13,11 @@ section:first-child > h1{
 }
 
 section:first-child > nav{
+    /* display: none; */
+}
+
+section:first-child > form > select{
+    display: none;
 }
 
 section:last-child{

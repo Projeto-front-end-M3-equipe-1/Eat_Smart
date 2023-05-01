@@ -3,7 +3,14 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { loginFormSchema } from './loginFormSchema';
 import { useContext } from 'react';
+
 import { UserContext } from '../../../providers/UserProvider';
+import {
+  StyledFormUserDark,
+  StyledInputContainerDark,
+} from '../../../styles/form';
+import { StyledTitleGreen } from '../../../styles/typography';
+
 
 export interface ILoginFormData {
   email: string;
@@ -19,22 +26,27 @@ export const LoginForm = () => {
     resolver: zodResolver(loginFormSchema),
   });
 
-  const { login, loading } = useContext(UserContext);
+  const { login, loading } = useContext(UserCommerceContext); //Verificar tipagem
 
   const loginFormSubmit: SubmitHandler<ILoginFormData> = (loginFormData) => {
     login(loginFormData);
   };
 
   return (
-    <form onSubmit={handleSubmit(loginFormSubmit)}>
-      <Input
-        type='email'
-        label='Email'
-        placeholder='Email'
-        id='email'
-        {...register('email')}
-        error={errors.email}
-      />
+    <StyledFormUserDark onSubmit={handleSubmit(loginFormSubmit)}>
+      <StyledTitleGreen tag='h1' $fontSize='titleForm'>
+        Title
+      </StyledTitleGreen>
+      <StyledInputContainerDark>
+        <Input
+          type='email'
+          label='Email'
+          placeholder='Email'
+          id='email'
+          {...register('email')}
+          error={errors.email}
+        />
+      </StyledInputContainerDark>
       <Input
         type='password'
         label='Senha'
@@ -46,6 +58,6 @@ export const LoginForm = () => {
       <button type='submit' disabled={loading}>
         {loading ? 'Entrando' : 'Login'}
       </button>
-    </form>
+    </StyledFormUserDark>
   );
 };
