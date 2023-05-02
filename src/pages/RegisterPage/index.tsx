@@ -99,4 +99,5 @@ export const RegisterPage = () => {
       </StyledColorBackground>
     );
   }
+  return null;
 };
