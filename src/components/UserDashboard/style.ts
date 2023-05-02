@@ -106,7 +106,8 @@ export const StyledUserDashboard = styled.main`
       overflow-x: auto;
     }
 
-    section:first-child > nav > figure {
+    section:first-child > nav > button {
+      border: 1px solid red;
       display: flex;
       flex-direction: column;
       width: 160px;
@@ -114,11 +115,12 @@ export const StyledUserDashboard = styled.main`
       background-color: ${({ theme }) => theme.colors.white}};
       justify-content: center;
       align-items: center;
-      object-fit: cover;
+      padding: 0;
+      margin: 0;
     }
 
     section:first-child > nav > img {
-      
+      object-fit: cover;
     }
   }
 
