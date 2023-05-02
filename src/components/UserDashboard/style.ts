@@ -57,25 +57,35 @@ export const StyledUserDashboard = styled.main`
     font-weight: 600;
     padding: 0rem 1rem;
     outline: none;
-    // overflow-x: hidden;
     webkit-appearance: none;
   }
 
   section:last-child {
-    // margin-left: 14px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 
   section:last-child > h1 {
+    border: 1px solid red;
+    padding-left: 1rem;
     font-family: 'Poppins', sans-serif;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 700;
+    line-height: 2.25rem;
     color: #2e2e2e;
   }
 
   section:last-child > div {
+    display: flex;
+    align-items: center;
   }
 
   section:last-child > div > h2 {
+    margin: 0 0 1rem 1rem;
+    display: flex;
+    color: #2e2e2e;
+    font-size: 1rem;
   }
 
   @media (min-width: 375px) {
