@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const registerCommerceFormSchema = z
+export const SchemaFormRegister = z
   .object({
     userName: z
       .string()
@@ -24,9 +24,11 @@ export const registerCommerceFormSchema = z
       .regex(/(?=.*?[0-9])/, 'Necessário conter ao menos um número')
       .regex(/(?=.*?[\W])/, 'Necessário conter ao menos um caracter especial'),
     confirmPassword: z.string().nonempty('Por favor, confirme sua senha'),
-    foodCategory: z.string().nonempty('Selecione o setor alimentício'),
+    foodCategory: z.string().min(1, 'Selecione o setor alimentício'),
   })
   .refine(({ password, confirmPassword }) => confirmPassword === password, {
     message: 'As senhas não correspondem. Por favor, tente novamente.',
     path: ['confirmPassword'],
   });
+
+export type TRegisterFormSchema = z.infer<typeof SchemaFormRegister>;

@@ -1,6 +1,7 @@
 import { FieldError } from 'react-hook-form';
 import { ForwardedRef, InputHTMLAttributes, forwardRef } from 'react';
 import { StyledParagraph } from '../../../styles/typography';
+import { StyledInputContainerDark } from '../../../styles/form';
 
 export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -12,13 +13,11 @@ export const Input = forwardRef(
     ref: ForwardedRef<HTMLInputElement>
   ) => {
     return (
-      <div>
-        <div>
-          {label ? <label htmlFor={id}>{label}</label> : null}
-          <input ref={ref} id={id} {...rest} />
-        </div>
-        {error ? <StyledParagraph>{error.message}</StyledParagraph> : null}
-      </div>
+      <StyledInputContainerDark>
+        {label ? <label htmlFor={id}>{label}</label> : null}
+        <input ref={ref} id={id} {...rest} />
+        {error ? <p>{error.message}</p> : null}
+      </StyledInputContainerDark>
     );
   }
 );

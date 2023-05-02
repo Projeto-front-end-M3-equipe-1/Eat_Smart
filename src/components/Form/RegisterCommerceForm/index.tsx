@@ -1,8 +1,13 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { registerCommerceFormSchema } from './registerCommerceFormSchema';
+import { SchemaFormRegister, TRegisterFormSchema } from './SchemaFormRegister';
 import { Input } from '../Input';
-import { UserCommerceContext } from '../../../providers/UserCommerceProvider';
+import { useState, useContext } from 'react';
+import { UserContext } from './../../../providers/UserContext/UserContext';
+import { StyledFormUserDark } from '../../../styles/form';
+import { StyledInputContainerDark } from './../../../styles/form';
+import { StyledButton } from '../../../styles/button';
+import { StyledTitleGreen } from '../../../styles/typography';
 
 export interface IRegisterUserFormData {
   userName: string;
@@ -13,31 +18,33 @@ export interface IRegisterUserFormData {
 }
 
 export const RegisterCommerceForm = () => {
-  const [ laoding, setLoading] = useState(false);
-  const [IRegisterUserFormData ] = useContext(UserCommerceContext);
-  
+
+  const [loading, setLoading] = useState(false);
+  const { newUserRegister } = useContext(UserContext);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<IRegisterUserFormData>({
-    resolver: zodResolver(registerCommerceFormSchema),
+    resolver: zodResolver(SchemaFormRegister),
   });
 
-  const registerUserFormSubmit: SubmitHandler<IRegisterUserFormData> = (
-    registerCommerceFormData
-  ) => {
-    console.log(registerCommerceFormData);
-    // Executar função de request de Cadastro/Comércio, recebendo registerCommerceFormData como parâmetro
+  const submit: SubmitHandler<TRegisterFormSchema> = (Formdata) => {
+    newUserRegister(Formdata, setLoading);
   };
 
   return (
-    <form onSubmit={handleSubmit(registerUserFormSubmit)}>
+    <StyledFormUserDark onSubmit={handleSubmit(submit)}>
+      <StyledTitleGreen tag='h1' $fontSize='titleForm' textAlign='center'>
+        Conte-nos sobre o seu negócio:
+      </StyledTitleGreen>
       <Input
         type='text'
         label='Nome'
         placeholder='Nome'
         id='userName'
+        disabled={loading}
         {...register('userName')}
         error={errors.userName}
       />
@@ -46,6 +53,7 @@ export const RegisterCommerceForm = () => {
         label='Email'
         placeholder='Email'
         id='email'
+        disabled={loading}
         {...register('email')}
         error={errors.email}
       />
@@ -55,6 +63,7 @@ export const RegisterCommerceForm = () => {
         placeholder='Senha'
         id='password'
         {...register('password')}
+        disabled={loading}
         error={errors.password}
       />
       <Input
@@ -62,30 +71,33 @@ export const RegisterCommerceForm = () => {
         label='Confirmar senha'
         placeholder='Confirmar senha'
         id='confirmPassword'
+        disabled={loading}
         {...register('confirmPassword')}
         error={errors.confirmPassword}
       />
-      {/* Checar se validação do select no schema está correta*/}
-      <label htmlFor='typeOfCompany'>Selecionar setor alimentício</label>
-      <select
-        id='typeOfCompany'
-        {...register('foodCategory')}
-        error={errors.foodCategory?.message} //Verificar tipagem
-      >
-        <option value='' disabled selected>
-          Categorias
-        </option>
-        <option value='Padaria'>Padaria</option>
-        <option value='Lanches'>Lanches</option>
-        <option value='Cafeteria'>Cafeteria</option>
-        <option value='Restaurante'>Restaurante</option>
-        <option value='Bares'>Bares</option>
-        <option value='Mercado'>Mercado</option>
-      </select>
+      <StyledInputContainerDark>
+        <label htmlFor='typeOfCompany'>Setor alimentício</label>
+        <select id='typeOfCompany' {...register('foodCategory')}>
+          <option value=''>Categorias</option>
+          <option value='Padaria'>Padaria</option>
+          <option value='Lanches'>Lanches</option>
+          <option value='Cafeteria'>Cafeteria</option>
+          <option value='Restaurante'>Restaurante</option>
+          <option value='Bares'>Bares</option>
+          <option value='Mercado'>Mercado</option>
+        </select>
+        <p>
+          {errors.foodCategory?.message ? errors.foodCategory?.message : null}
+        </p>
+      </StyledInputContainerDark>
 
-      <button type='submit' disabled>
+      <StyledButton
+        $buttonSize='default'
+        $buttonStyle='buttonGreenLight'
+        type='submit'
+      >
         Cadastrar
-      </button>
-    </form>
+      </StyledButton>
+    </StyledFormUserDark>
   );
 };

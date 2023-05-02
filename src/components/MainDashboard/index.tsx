@@ -1,30 +1,49 @@
 import logo from '../../assets/images/image1.svg';
-import { StyledMainDashboard, StyledMainDashboardHeader } from './style';
-import { StyledButtonLink } from '../../styles/button';
+import {
+  StyledMainDashboard,
+  StyledMainDashboardHeader,
+} from '../../pages/MainDashboard/style';
+import { StyledButton } from '../../styles/button';
 import { StyledTitleGreen } from '../../styles/typography';
+import { useState } from 'react';
+import { LoginModal } from '../LoginModal';
 
 export const MainDashboardComponent = () => {
+  const [isModalOpenLogin, setIsModalOpenLogin] = useState<boolean>(false);
+  const [isModalOpenRegister, setIsModalOpenRegister] =
+    useState<boolean>(false);
+
   return (
     <>
+      {isModalOpenLogin ? <LoginModal /> : null}
+      {isModalOpenRegister ? <LoginModal /> : null}
       <StyledMainDashboardHeader>
         <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
           Eat<span>Smart</span>
         </StyledTitleGreen>
         <div>
-          <StyledButtonLink
+          <StyledButton
             $buttonSize='default'
             $buttonStyle='buttonGreenLight'
-            to='/register'
+            id='register'
+            onClick={() => {
+              setIsModalOpenRegister(true);
+              localStorage.setItem('@handle:nav', 'register');
+            }}
           >
             Cadastro
-          </StyledButtonLink>
-          <StyledButtonLink
+          </StyledButton>
+          <StyledButton
             $buttonSize='default'
             $buttonStyle='buttonGreenLight'
-            to='/login'
+            id='login'
+            onClick={() => {
+              setIsModalOpenLogin(true);
+              localStorage.setItem('@handle:nav', 'login');
+            }}
           >
             Login
-          </StyledButtonLink>
+          </StyledButton>
         </div>
       </StyledMainDashboardHeader>
       <StyledMainDashboard>

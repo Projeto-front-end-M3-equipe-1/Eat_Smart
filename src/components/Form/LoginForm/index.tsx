@@ -1,66 +1,46 @@
 import { Input } from '../Input';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useContext, useState } from 'react';
+import { UserContext } from '../../../providers/UserContext/UserContext';
+import { LoginFormSchema, TLoginFormSchema } from './loginFormSchema';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { loginFormSchema } from './loginFormSchema';
-import { useContext, useState} from 'react';
 
-<<<<<<< HEAD
-=======
-import { UserCommerceContext } from '../../../providers/UserCommerceProvider'
->>>>>>> 5e92851e94802cde87a7fa787cacf3cb863a7875
-import {
-  StyledFormUserDark,
-  StyledInputContainerDark,
-} from '../../../styles/form';
-import { StyledTitleGreen } from '../../../styles/typography';
-
-export interface ILoginFormData {
-  email: string;
-  password: string;
-}
 
 export const LoginForm = () => {
-   const [loading, setLoading] = useState(false);
-   const { login } = useContext(UserCommerceContext);
+  const [loading, setLoading] = useState(false);
+  const { signIn } = useContext(UserContext);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ILoginFormData>({
-    resolver: zodResolver(loginFormSchema),
-  });
+  } = useForm<TLoginFormSchema>({ resolver: zodResolver(LoginFormSchema) });
 
-
-  const loginFormSubmit: SubmitHandler<ILoginFormData> = (loginFormData) => {
-    login(loginFormData);
+  const submit: SubmitHandler<TLoginFormSchema> = (formData) => {
+    signIn(formData, setLoading);
   };
-
   return (
-    <StyledFormUserDark onSubmit={handleSubmit(loginFormSubmit)}>
-      <StyledTitleGreen tag='h1' $fontSize='titleForm'>
-        Title
-      </StyledTitleGreen>
-      <StyledInputContainerDark>
-        <Input
-          type='email'
-          label='Email'
-          placeholder='Email'
-          id='email'
-          {...register('email')}
-          error={errors.email}
-        />
-      </StyledInputContainerDark>
+    <form onSubmit={handleSubmit(submit)}>
       <Input
+        id='login'
+        type='email'
+        disabled={loading}
+        label={'Email'}
+        {...register('email')}
+      />
+      {errors ? <span>{errors.email?.message}</span> : null}
+      <Input
+        id='senha'
         type='password'
         label='Senha'
-        placeholder='Senha'
-        id='password'
         {...register('password')}
-        error={errors.password}
       />
+      {errors ? <span>{errors.password?.message}</span> : null}
       <button type='submit' disabled={loading}>
-        {loading ? 'Entrando' : 'Login'}
+        {loading ? 'Entrando...' : 'Entrar'}
       </button>
-    </StyledFormUserDark>
+    </form>
   );
 };
+
+export default LoginForm;

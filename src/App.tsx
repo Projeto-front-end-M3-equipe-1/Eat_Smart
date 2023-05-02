@@ -1,6 +1,5 @@
 import { CartProvider } from './providers/CartProvider';
 import { UserCommerceProvider } from './providers/UserCommerceProvider';
-
 import { RoutesMain } from './routes';
 
 const App = () => {
