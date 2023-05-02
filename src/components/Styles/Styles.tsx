@@ -85,23 +85,24 @@ const Styles = () => {
       </section>
       <StyledCartSale>
         <div>
-          <div className='img'>
+          <section className='img'>
             <span>
               <p className='info'>2 Sacolas</p>
               <i className='fa-solid fa-heart'></i>
             </span>
-            <h3 className='name'>Padaria</h3>
-          </div>
-
-          <h4>Paragrafo</h4>
-          <h5>Horario</h5>
-          <span>
-            <p>
-              <i className='fa-solid fa-star'></i>
-              <small>4.2</small>
-            </p>
-            <p>R$20.00</p>
-          </span>
+            <h1 className='name'>Padaria</h1>
+          </section>
+          <section className='description'>
+            <h4>Paragrafo</h4>
+            <h5>Horario</h5>
+            <span>
+              <p>
+                <i className='fa-solid fa-star'></i>
+                <small>4.2</small>
+              </p>
+              <p>R$20.00</p>
+            </span>
+          </section>
         </div>
       </StyledCartSale>
     </StyledContainer>
