@@ -44,7 +44,7 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
   const getAllProductsFromServer = async () => {
     try {
       setLoading(true);
-      const userToken = localStorage.getItem('@TOKEN');
+      const userToken = localStorage.getItem('@userCompany:token');
 
       const responseApi = await api
         .get<IProduct[]>('/products', {
@@ -71,8 +71,8 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
     productFormData: ICreateProductFormValues
   ) => {
     try {
-      const userToken = localStorage.getItem('@TOKENUSERCOMMERCE');
-      const userId = localStorage.getItem('@USERIDCOMMERCE');
+      const userToken = localStorage.getItem('@userCompany:token');
+      const userId = localStorage.getItem('@userCompany:id');
       const userCommerce = localStorage.getItem('@EatSmart:userNameCommerce');
 
       const productComplete = {
@@ -105,7 +105,7 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
     newOfferFormData: ICreateProductFormValues
   ) => {
     try {
-      const userToken = localStorage.getItem('@TOKENUSERCOMMERCE');
+      const userToken = localStorage.getItem('@userCompany:token');
 
       const responseApi = await api
         .patch<IProduct>(`/products/${offerId}`, newOfferFormData, {
@@ -150,8 +150,8 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
   const editCommerceProfile = async (
     newCommerceProfileData: IRegisterUserFormData
   ) => {
-    const userCommerceId = localStorage.getItem('@USERIDCOMMERCE');
-    const userToken = localStorage.getItem('@TOKENUSERCOMMERCE');
+    const userCommerceId = localStorage.getItem('@userCompany:id');
+    const userToken = localStorage.getItem('@userCompany:token');
 
     try {
       const responseApi = await api

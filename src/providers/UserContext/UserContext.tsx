@@ -28,8 +28,10 @@ interface IUserContext {
 interface IUser {
   email: string;
   name: string;
+  userName: string;
   id: number;
   isCompany?: boolean;
+  foodCategory: string;
 }
 
 interface IUserLoginResponse {
@@ -87,6 +89,9 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         } else {
           localStorage.setItem('@user:token', data.accessToken);
           localStorage.setItem('@user:id', JSON.stringify(data.user.id));
+          localStorage.setItem('@EatSmart:userNameCommerce', data.user.userName);
+          localStorage.setItem('@EatSmart:userCommerceEmail', data.user.email);
+          localStorage.setItem('@EatSmart:userCommerceFoodCategory', data.user.foodCategory);
           setUser(data.user);
           navigate('/userHome');
         }
