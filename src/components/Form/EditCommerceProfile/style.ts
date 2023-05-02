@@ -45,20 +45,21 @@ export const StyledEditCommerceProfileModal = styled.div`
   form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    // align-items: center;
     width: 18.75rem;
     background: #ffffff;
-    padding: 0 1rem;
+    padding: 1rem 1rem;
     gap: 1rem;
 
     h3 {
       font-size: 18px;
       font-weight: 600;
-      margin: 1rem 0 0 1rem;
+      margin: 2rem 0 0 0rem;
       width: 100%;
     }
 
     div {
+      // border: 1px solid red;
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
@@ -79,6 +80,7 @@ export const StyledEditCommerceProfileModal = styled.div`
         border: 1px solid ${({ theme }) => theme.colors.gray300};
         color: ${({ theme }) => theme.colors.gray600};
         background-color: ${({ theme }) => theme.colors.white};
+        padding: 0;
 
         ::placeholder {
           color: ${({ theme }) => theme.colors.gray150};

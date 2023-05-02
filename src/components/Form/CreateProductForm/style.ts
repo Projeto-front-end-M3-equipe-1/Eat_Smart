@@ -30,6 +30,7 @@ export const StyledCreateProductForm = styled.form`
       font-size: 0.875rem;
       line-height: 1.3125rem;
       color: #989898;
+      background-color: none;
     }
 
     div {
