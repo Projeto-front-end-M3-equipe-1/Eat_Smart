@@ -14,7 +14,7 @@ import { CartContext } from '../../providers/CartProvider/index.tsx';
 import { CartModal } from '../../components/CartModal/index.tsx';
 import { UserDashboardOption } from '../../components/UserDashboard/Option/index.tsx';
 import {
-  StyledContainerUserDasdhboard,
+  StyledContainerUserDashboard,
   StyledMainContainerUserDashboard,
 } from './style.ts';
 
@@ -22,7 +22,7 @@ export const UserDashboard = () => {
   const { offers, searchByCategory, isCartModalOpen } = useContext(CartContext);
 
   return (
-    <StyledContainerUserDasdhboard>
+    <StyledContainerUserDashboard>
       <Header />
       <StyledMainContainerUserDashboard>
         <StyledUserDashboard>
@@ -96,6 +96,6 @@ export const UserDashboard = () => {
         </StyledUserDashboard>
       </StyledMainContainerUserDashboard>
       <Footer />
-    </StyledContainerUserDasdhboard>
+    </StyledContainerUserDashboard>
   );
 };

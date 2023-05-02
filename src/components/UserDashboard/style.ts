@@ -90,8 +90,10 @@ export const StyledUserDashboard = styled.main`
   }
 
   @media (min-width: 768px) {
+
     section:first-child > div {
       display: flex;
+      margin-bottom: 0;
     }
 
     section:first-child > form {
@@ -102,27 +104,55 @@ export const StyledUserDashboard = styled.main`
       width: 100%;
       border: 1px solid red;
       display: flex;
-      gap: 1rem;
-      overflow-x: auto;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 0.5em;
     }
 
     section:first-child > nav > button {
-      border: 1px solid red;
       display: flex;
       flex-direction: column;
-      width: 160px;
-      height: 160px;
-      background-color: ${({ theme }) => theme.colors.white}};
-      justify-content: center;
+      width: 10.625rem;
+      height: 8.75rem;
+      background-color: rgb(255, 255, 255);
       align-items: center;
+      justify-content: center;
+      border: 1px solid white;
+      border-radius: 16px;
       padding: 0;
-      margin: 0;
+      box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+        rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
     }
 
     section:first-child > nav > img {
       object-fit: cover;
     }
+
+    section:first-child > nav > button > p {
+      font-size: 1.125rem;
+      font-weight: 400;
+      color: #a098ae;
+    }
   }
+
+  @media (min-width: 768px) {
+
+    section:last-child {
+      margin: 1rem 0;
+    }
+
+    section:last-child > h1{
+      margin-bottom: 0;
+    }
+
+    section:last-child > div{
+      display: flex;
+      border: 2px solid green;
+      height: 50vh;
+    }
+  }
+
+  
 
   @media (min-width: 1024px) {
   }
