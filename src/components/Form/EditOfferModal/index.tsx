@@ -41,43 +41,44 @@ export const EditOfferModal = ({
 
   return (
     <StyledEditOfferModal role='dialog'>
-     
-      <div>
+      <section>
+        <nav>
+          <button type='button' onClick={() => setIsEditOfferModalOpen(false)}>
+            X
+          </button>
+        </nav>
         <form onSubmit={handleSubmit(editOfferSubmit)}>
           <h3>Edite sua oferta</h3>
-            <Input
-              type='text'
-              label='Descrição'
-              placeholder={offer.title}
-              id='title'
-              {...register('title')}
-              error={errors.title}
-            />
-            <Input
-              type='number'
-              label='Quantidade'
-              placeholder={offer.quantity.toString()}
-              id='quantity'
-              {...register('quantity')}
-              error={errors.quantity}
-            />
-            <Input
-              type='number'
-              label='Desconto'
-              placeholder={`${offer.discount}%`}
-              id='discount'
-              {...register('discount')}
-              error={errors.discount}
-            />
+          <Input
+            type='text'
+            label='Descrição'
+            placeholder={offer.title}
+            id='title'
+            {...register('title')}
+            error={errors.title}
+          />
+          <Input
+            type='number'
+            label='Quantidade'
+            placeholder={offer.quantity.toString()}
+            id='quantity'
+            {...register('quantity')}
+            error={errors.quantity}
+          />
+          <Input
+            type='number'
+            label='Desconto'
+            placeholder={`${offer.discount}%`}
+            id='discount'
+            {...register('discount')}
+            error={errors.discount}
+          />
           <button type='submit'>Salvar oferta</button>
         </form>
-       <footer>
-          <button type='button' onClick={() => setIsEditOfferModalOpen(false)}>
-            Voltar para Loja
-          </button>
-          </footer>
-      </div>
-   
+        <button type='button' onClick={() => setIsEditOfferModalOpen(false)}>
+          Voltar para Loja
+        </button>
+      </section>
     </StyledEditOfferModal>
   );
 };
