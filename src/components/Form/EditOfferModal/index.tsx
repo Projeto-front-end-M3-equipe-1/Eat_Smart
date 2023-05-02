@@ -6,7 +6,6 @@ import { useContext } from 'react';
 import { editOfferSchema } from './editOfferSchema';
 import { Input } from '../Input';
 import { StyledEditOfferModal } from './style';
-import { StyledInputContainerLight } from '../../../styles/form';
 
 export const EditOfferModal = ({
   offer,
@@ -46,7 +45,6 @@ export const EditOfferModal = ({
       <div>
         <form onSubmit={handleSubmit(editOfferSubmit)}>
           <h3>Edite sua oferta</h3>
-          {/* <StyledInputContainerLight> */}
             <Input
               type='text'
               label='Descrição'
@@ -55,8 +53,6 @@ export const EditOfferModal = ({
               {...register('title')}
               error={errors.title}
             />
-          {/* </StyledInputContainerLight> */}
-          {/* <StyledInputContainerLight> */}
             <Input
               type='number'
               label='Quantidade'
@@ -65,8 +61,6 @@ export const EditOfferModal = ({
               {...register('quantity')}
               error={errors.quantity}
             />
-          {/* </StyledInputContainerLight> */}
-          {/* <StyledInputContainerLight> */}
             <Input
               type='number'
               label='Desconto'
@@ -75,7 +69,6 @@ export const EditOfferModal = ({
               {...register('discount')}
               error={errors.discount}
             />
-          {/* </StyledInputContainerLight> */}
           <button type='submit'>Salvar oferta</button>
         </form>
        <footer>

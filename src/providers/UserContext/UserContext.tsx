@@ -32,6 +32,7 @@ interface IUser {
   id: number;
   foodCategory: string;
   isCompany?: boolean;
+  foodCategory: string;
 }
 
 interface IUserLoginResponse {
@@ -112,6 +113,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         } else {
           localStorage.setItem('@userCompany:token', data.accessToken);
           localStorage.setItem('@userCompany:id', JSON.stringify(data.user.id));
+<<<<<<< HEAD
           localStorage.setItem(
             '@EatSmart:userNameCommerce',
             data.user.userName
@@ -121,6 +123,11 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
             '@EatSmart:userCommerceFoodCategory',
             data.user.foodCategory
           );
+=======
+          localStorage.setItem('@EatSmart:userNameCommerce', data.user.userName);
+          localStorage.setItem('@EatSmart:userCommerceEmail', data.user.email);
+          localStorage.setItem('@EatSmart:userCommerceFoodCategory', data.user.foodCategory);
+>>>>>>> 41afb206384a6b9131e0297a3fe0100b620cea3f
           setUser(data.user);
           navigate('/companyHome');
         }
