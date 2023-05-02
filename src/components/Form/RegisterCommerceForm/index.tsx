@@ -18,7 +18,6 @@ export interface IRegisterUserFormData {
 }
 
 export const RegisterCommerceForm = () => {
-
   const [loading, setLoading] = useState(false);
   const { newUserRegister } = useContext(UserContext);
 

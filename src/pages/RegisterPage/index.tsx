@@ -4,7 +4,7 @@ import { RegisterUserForm } from '../../components/Form/RegisterUserForm';
 import { StyledButton } from '../../styles/button';
 import companyRegister from '../../assets/images/companyRegister.svg';
 import {
-  StyledColorBackground,
+  /*   StyledColorBackground, */
   StyledFormRegisterCompany,
   StyledRegisterPageHeader,
 } from './style';
@@ -54,22 +54,23 @@ export const RegisterPage = () => {
   }
   if (typeofRoute === 'companyRegister') {
     return (
-      <StyledColorBackground>
-        <StyledFormRegisterCompany>
-          <StyledRegisterPageHeader>
-            <h1>
-              Eat<span>Smart</span>
-            </h1>
-            <StyledButton
-              $buttonSize='default'
-              $buttonStyle='buttonGreenLight'
-              onClick={() => {
-                navigate('/');
-              }}
-            >
-              Home
-            </StyledButton>
-          </StyledRegisterPageHeader>
+      /*       <StyledColorBackground> */
+      <StyledFormRegisterCompany>
+        <StyledRegisterPageHeader>
+          <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
+            Eat<span>Smart</span>
+          </StyledTitleGreen>
+          <StyledButton
+            $buttonSize='default'
+            $buttonStyle='buttonGreenLight'
+            onClick={() => {
+              navigate('/');
+            }}
+          >
+            Home
+          </StyledButton>
+        </StyledRegisterPageHeader>
+        <section className='container__principal'>
           <section>
             <RegisterCommerceForm />
             <div className='container_nav'>
@@ -88,15 +89,15 @@ export const RegisterPage = () => {
             </div>
           </section>
           <section className='container__Img'>
-            <p className='container__desktop'>Logo</p>
             <img
               className='container__desktop'
               src={companyRegister}
               alt='cadastro'
             />
           </section>
-        </StyledFormRegisterCompany>
-      </StyledColorBackground>
+        </section>
+      </StyledFormRegisterCompany>
+      /*     </StyledColorBackground> */
     );
   }
   return null;

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import backgroundImage from '../../assets/images/backgroundCart.svg';
 
 export const StyledCartModalBox = styled.div`
@@ -14,10 +14,9 @@ export const StyledCartModalBox = styled.div`
   background: rgba(51, 51, 51, 0.5);
   z-index: 1001;
 
-
   div {
     width: 360px;
-    background-color: #EFE9E8;
+    background-color: #efe9e8;
   }
 
   header {
@@ -30,7 +29,7 @@ export const StyledCartModalBox = styled.div`
     font-family: 'Poppins', sans-serif;
     font-size: 24px;
     font-weight: 700;
-    color: #2E2E2E;
+    color: #2e2e2e;
   }
 
   div > header > button {
@@ -39,11 +38,11 @@ export const StyledCartModalBox = styled.div`
     font-family: 'Poppins', sans-serif;
     font-size: 24px;
     font-weight: 400;
-    color: #2E2E2E;
+    color: #2e2e2e;
     cursor: pointer;
   }
 
-  div > section{
+  div > section {
     background-image: url(${backgroundImage});
     width: 332px;
     height: 90px;
@@ -52,25 +51,25 @@ export const StyledCartModalBox = styled.div`
     margin-left: 14px;
   }
 
-  div > section > div{
+  div > section > div {
     border-radius: 16px;
     width: 283px;
     height: 53px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: space-around;
     margin-left: 14px;
   }
 
-  div > section > div > p{
+  div > section > div > p {
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
     font-weight: 600;
-    color: #2E2E2E;
+    color: #2e2e2e;
   }
 
-  div > section > div > h1{
+  div > section > div > h1 {
     font-family: 'Poppins', sans-serif;
     font-size: 24px;
     font-weight: 700;
@@ -82,20 +81,21 @@ export const StyledCartModalBox = styled.div`
     margin-left: 14px;
   } */
 
-  .cartList__container{}
+  .cartList__container {
+  }
 
-  .cartList__container > h1{
+  .cartList__container > h1 {
     margin-left: 14px;
   }
 
-  .cartList__container > div{}
+  .cartList__container > div {
+  }
 
-  .cartList__container > div > h2{
+  .cartList__container > div > h2 {
     margin-left: 14px;
   }
 
-  .cartList__container > div > h3{
+  .cartList__container > div > h3 {
     margin-left: 14px;
   }
 `;
-
