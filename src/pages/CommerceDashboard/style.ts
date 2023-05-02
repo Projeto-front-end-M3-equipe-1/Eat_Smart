@@ -77,7 +77,7 @@ export const StyledCommerceDashboardMainContainer = styled.main`
 
   @media (min-width: 768px) {
     width: 80%;
-    height: 80vh;
+    height: 78vh;
     flex-wrap: wrap;
     gap: 1rem;
 

@@ -25,8 +25,7 @@ export interface ILoginResponse {
 }
 // interface para registro puxando o user do icommerceUser
 export interface IUserRegisterResponse {
-  acessToken: string;
-  /*   user:IcommerceUser; */
+  user:ICommerceUser;
 }
 
 export interface IAxiosError {
@@ -54,20 +53,32 @@ export const UserCommerceProvider = ({ children }: IUserProviderProps) => {
     const token = localStorage.getItem('@TOKENUSERCOMMERCE');
     const userId = localStorage.getItem('@USERIDCOMMERCE');
 
-    const userAutoLogin = async () => {
-      try {
-        const { data } = await api.get<ICommerceUser>(`/users/${userId}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        setCommerceUser(data);
-        navigate('/'); // dashboard
-      } catch (error) {
-        const Ierror = error as IAxiosError;
-        console.log(Ierror);
-        localStorage.removeItem('@TOKENUSERCOMMERCE'); // alterar para correto
-        localStorage.removeItem('@USERIDCOMMERCE'); // alterar para correto;
+
+   // criando auto login  
+
+    useEffect(()=> {
+      const token = localStorage.getItem("@TOKENUSERCOMMERCE"); 
+      const userId = localStorage.getItem("@USERIDCOMMERCE");
+
+      const userAutoLogin = async () => {
+        try {
+          const { data } = await api.get<ICommerceUser>(`/users/${userId}`,{
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          setCommerceUser(data);
+          // navigate("/") // dashboard
+        } catch (error) {
+          const Ierror = error as IAxiosError;
+          console.log(Ierror);
+          localStorage.removeItem("@TOKENUSERCOMMERCE") // alterar para correto
+          localStorage.removeItem("@USERIDCOMMERCE") // alterar para correto;
+        }
+      };
+      if ( token && userId) {
+        userAutoLogin();
+
       }
     };
     if (token && userId) {
@@ -93,6 +104,7 @@ export const UserCommerceProvider = ({ children }: IUserProviderProps) => {
             '@USERIDCOMMERCE',
             JSON.stringify(userResponse.id)
           );
+
           localStorage.setItem(
             '@EatSmart:userNameCommerce',
             userResponse.userName
@@ -105,6 +117,7 @@ export const UserCommerceProvider = ({ children }: IUserProviderProps) => {
             '@EatSmart:userCommerceFoodCategory',
             userResponse.foodCategory
           );
+
 
           setCommerceUser(userResponse);
           navigate('/companyHome');

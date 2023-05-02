@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom';
 import { SearchForm } from './SearchForm';
+import { useContext } from 'react';
+import { CartContext } from '../../providers/CartProvider';
 
 export const Header = () => {
+  const { setIsCartModalOpen } = useContext(CartContext);
+
   return (
     <header>
       <img src='Logo' alt='Logo'></img>
@@ -21,7 +25,7 @@ export const Header = () => {
         {/*SearchForm e button de carrinho será renderizado apenas na commerceDashboard */}
         <SearchForm />
         <div>
-          <button type='button'>
+          <button onClick={() => setIsCartModalOpen(true)}  type='button'>
             <img src='Abrir modal carrinho de compras' alt='Abrir modal carrinho de compras'></img>
           </button>
           <div>

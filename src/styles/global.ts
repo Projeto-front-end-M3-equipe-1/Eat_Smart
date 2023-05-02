@@ -24,8 +24,8 @@ time, mark, audio, video, button, input {
 	border: 0;
 	font-size: 100%;
 	vertical-align: baseline;
-  box-sizing: border-box;
-  outline: none;
+  	box-sizing: border-box;
+  	outline: none;
 	
 }
 

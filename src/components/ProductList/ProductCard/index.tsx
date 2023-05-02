@@ -1,7 +1,6 @@
 import { StyledProductCard } from "./style";
 import backGroundCart from "../../../assets/images/image3.svg"
 import heart from "../../../assets/icons/coração.svg"
-import star from "../../../assets/icons/star.svg"
 import { useContext } from "react";
 import { CartContext, IOffer } from "../../../providers/CartProvider";
 
@@ -37,6 +36,7 @@ export const ProductCard = ({ offer }: IOffersCartProps) => {
             style: 'currency',
             currency: 'BRL',
           })}</h3>
+          <button onClick={() => addItemToCart(offer)}>Colocar no carrinho</button>
         </div>
       </div>
     </StyledProductCard>
