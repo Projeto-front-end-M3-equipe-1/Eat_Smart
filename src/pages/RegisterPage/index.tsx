@@ -3,6 +3,12 @@ import { RegisterCommerceForm } from '../../components/Form/RegisterCommerceForm
 import { RegisterUserForm } from '../../components/Form/RegisterUserForm';
 import { StyledButton } from '../../styles/button';
 import companyRegister from '../../assets/images/companyRegister.svg';
+import {
+  StyledColorBackground,
+  StyledFormRegisterCompany,
+  StyledRegisterPageHeader,
+} from './style';
+import { StyledTitleGreen } from '../../styles/typography';
 
 export const RegisterPage = () => {
   const typeofRoute = localStorage.getItem('@handle:typUser');
@@ -48,37 +54,49 @@ export const RegisterPage = () => {
   }
   if (typeofRoute === 'companyRegister') {
     return (
-      <main>
-        <section>
-          <StyledButton
-            $buttonSize='default'
-            $buttonStyle='buttonGreenLight'
-            onClick={() => {
-              navigate('/');
-            }}
-          >
-            Home
-          </StyledButton>
-
-          <RegisterCommerceForm />
-          <div>
-            <p>Já é cadastrado?</p>
+      <StyledColorBackground>
+        <StyledFormRegisterCompany>
+          <StyledRegisterPageHeader>
+            <h1>
+              Eat<span>Smart</span>
+            </h1>
             <StyledButton
               $buttonSize='default'
               $buttonStyle='buttonGreenLight'
               onClick={() => {
-                handleClick();
+                navigate('/');
               }}
             >
-              Login
+              Home
             </StyledButton>
-          </div>
-        </section>
-        <section>
-          <p>Logo</p>
-          <img src={companyRegister} alt='cadastro' />
-        </section>
-      </main>
+          </StyledRegisterPageHeader>
+          <section>
+            <RegisterCommerceForm />
+            <div className='container_nav'>
+              <StyledTitleGreen tag='h1' $fontSize='small'>
+                Já é cadastrado?
+              </StyledTitleGreen>
+              <StyledButton
+                $buttonSize='default'
+                $buttonStyle='buttonGreenLight'
+                onClick={() => {
+                  handleClick();
+                }}
+              >
+                Login
+              </StyledButton>
+            </div>
+          </section>
+          <section className='container__Img'>
+            <p className='container__desktop'>Logo</p>
+            <img
+              className='container__desktop'
+              src={companyRegister}
+              alt='cadastro'
+            />
+          </section>
+        </StyledFormRegisterCompany>
+      </StyledColorBackground>
     );
   }
 };

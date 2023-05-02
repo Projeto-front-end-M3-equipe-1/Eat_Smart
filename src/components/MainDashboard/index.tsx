@@ -1,5 +1,8 @@
 import logo from '../../assets/images/image1.svg';
-import { StyledMainDashboard, StyledMainDashboardHeader } from './style';
+import {
+  StyledMainDashboard,
+  StyledMainDashboardHeader,
+} from '../../pages/MainDashboard/style';
 import { StyledButton } from '../../styles/button';
 import { StyledTitleGreen } from '../../styles/typography';
 import { useState } from 'react';

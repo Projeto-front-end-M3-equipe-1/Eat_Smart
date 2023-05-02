@@ -7,6 +7,7 @@ import { UserContext } from './../../../providers/UserContext/UserContext';
 import { StyledFormUserDark } from '../../../styles/form';
 import { StyledInputContainerDark } from './../../../styles/form';
 import { StyledButton } from '../../../styles/button';
+import { StyledTitleGreen } from '../../../styles/typography';
 
 export interface IRegisterUserFormData {
   userName: string;
@@ -33,6 +34,9 @@ export const RegisterCommerceForm = () => {
 
   return (
     <StyledFormUserDark onSubmit={handleSubmit(submit)}>
+      <StyledTitleGreen tag='h1' $fontSize='titleForm' textAlign='center'>
+        Conte-nos sobre o seu negócio:
+      </StyledTitleGreen>
       <Input
         type='text'
         label='Nome'
@@ -70,7 +74,7 @@ export const RegisterCommerceForm = () => {
         error={errors.confirmPassword}
       />
       <StyledInputContainerDark>
-        <label htmlFor='typeOfCompany'>Selecionar setor alimentício</label>
+        <label htmlFor='typeOfCompany'>Setor alimentício</label>
         <select id='typeOfCompany' {...register('foodCategory')}>
           <option value=''>Categorias</option>
           <option value='Padaria'>Padaria</option>
@@ -80,10 +84,10 @@ export const RegisterCommerceForm = () => {
           <option value='Bares'>Bares</option>
           <option value='Mercado'>Mercado</option>
         </select>
+        <p>
+          {errors.foodCategory?.message ? errors.foodCategory?.message : null}
+        </p>
       </StyledInputContainerDark>
-      <p>
-        {errors.foodCategory?.message ? errors.foodCategory?.message : null}
-      </p>
 
       <StyledButton
         $buttonSize='default'

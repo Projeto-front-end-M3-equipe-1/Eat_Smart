@@ -5,6 +5,7 @@ export const StyledFormUserLight = styled.form`
   flex-direction: column;
   gap: 20px;
   padding: 15px;
+  max-width: 350px;
   background-color: ${({ theme }) => theme.colors.white};
 
   p {
@@ -19,7 +20,7 @@ export const StyledFormUserDark = styled.form`
   flex-direction: column;
   gap: 20px;
   padding: 15px;
-  
+  max-width: 350px;
   background-color: ${({ theme }) => theme.colors.backgroundDark};
 
   p {
@@ -38,10 +39,12 @@ export const StyledInputContainerLight = styled.div`
   border-radius: 0.25rem;
   font-family: ${({ theme }) => theme.fonts.primaryPoppins};
 
-  input {
+  input,
+  select {
     border-radius: 0.25rem;
     height: 100%;
-    width: 100%;
+    display: inline-flex;
+    align-items: center;
     font-size: 0.875rem;
     padding: 0.9375rem;
     border: 1px solid ${({ theme }) => theme.colors.gray300};
@@ -58,7 +61,7 @@ export const StyledInputContainerLight = styled.div`
     height: 1px;
     position: absolute;
     padding: 1px;
-    top: px;
+    top: -1px;
     left: 12px;
     display: flex;
     align-items: center;
@@ -88,10 +91,11 @@ export const StyledInputContainerDark = styled.div`
   border-radius: 0.25rem;
   font-family: ${({ theme }) => theme.fonts.primaryPoppins};
 
-  input {
+  input,
+  select {
     border-radius: 0.25rem;
     height: 100%;
-    width: 100%;
+    display: inline-flex;
     font-size: 0.875rem;
     padding: 0.9375rem;
     border: 2px solid ${({ theme }) => theme.colors.greenSecondary};
@@ -108,7 +112,7 @@ export const StyledInputContainerDark = styled.div`
     height: 1px;
     position: absolute;
     padding: 1px;
-    top: px;
+    top: -1px;
     left: 12px;
     display: flex;
     align-items: center;

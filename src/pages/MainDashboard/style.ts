@@ -120,18 +120,12 @@ export const StyledMainDashboard = styled.main`
     max-height: 721px;
   }
 
-  @media (max-width: 375px) {
-  }
-
-  @media (max-width: 425px) {
-  }
-
   @media (max-width: 768px) {
     background-image: none;
     background-color: ${({ theme }) => theme.colors.greenPrimary};
     width: 100%;
     height: 100%;
-    margin-top: -228px;
+    margin-top: -225px;
     section:first-child > p {
       margin: 10px;
     }
