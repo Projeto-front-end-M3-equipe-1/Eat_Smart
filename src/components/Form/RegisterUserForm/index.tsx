@@ -76,7 +76,7 @@ export const RegisterUserForm = () => {
       />
       <StyledButton
         $buttonSize='default'
-        $buttonStyle='buttonGreenLight'
+        $buttonStyle='buttonGreenDark'
         type='submit'
       >
         Cadastrar

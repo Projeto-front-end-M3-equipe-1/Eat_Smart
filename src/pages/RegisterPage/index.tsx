@@ -6,7 +6,8 @@ import { StyledButton } from '../../styles/button';
 import {
   StyledColorBackground,
   StyledFormRegisterCompany,
-  StyledRegisterPageHeader,
+  StyledRegisterPageHeaderCompany,
+  StyledRegisterPageHeaderUser,
   StyledFormRegisterUser,
 } from './style';
 import { StyledTitleGreen } from '../../styles/typography';
@@ -32,7 +33,7 @@ export const RegisterPage = () => {
     return (
       <StyledColorBackground>
         <StyledFormRegisterUser>
-          <StyledRegisterPageHeader>
+          <StyledRegisterPageHeaderUser>
             <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
               Eat<span>Smart</span>
             </StyledTitleGreen>
@@ -45,7 +46,7 @@ export const RegisterPage = () => {
             >
               Home
             </StyledButton>
-          </StyledRegisterPageHeader>
+          </StyledRegisterPageHeaderUser>
           <section className='container__principal'>
             <section>
               <RegisterUserForm />
@@ -64,7 +65,12 @@ export const RegisterPage = () => {
                 </StyledButton>
               </div>
             </section>
-            <section className='container__desktop'></section>
+            <section className='container__desktop'>
+              <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
+                Salve nosso <br /> <span>Planeta</span>, <br /> antes da <br />{' '}
+                hora de fechar
+              </StyledTitleGreen>
+            </section>
           </section>
         </StyledFormRegisterUser>
       </StyledColorBackground>
@@ -74,7 +80,7 @@ export const RegisterPage = () => {
     return (
       <StyledColorBackground>
         <StyledFormRegisterCompany>
-          <StyledRegisterPageHeader>
+          <StyledRegisterPageHeaderCompany>
             <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
               Eat<span>Smart</span>
             </StyledTitleGreen>
@@ -87,7 +93,7 @@ export const RegisterPage = () => {
             >
               Home
             </StyledButton>
-          </StyledRegisterPageHeader>
+          </StyledRegisterPageHeaderCompany>
           <section className='container__principal'>
             <section>
               <RegisterCommerceForm />
