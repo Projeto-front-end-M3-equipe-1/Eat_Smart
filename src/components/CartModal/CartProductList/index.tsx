@@ -1,3 +1,4 @@
+
 import { useContext } from "react";
 import { CartContext } from "../../../providers/CartProvider";
 import { CartProductCard } from "./CartProductCard";
@@ -11,6 +12,7 @@ interface ISumDiscountProps {
 export const CartProductList = ({ sumDiscount }: ISumDiscountProps) => {
   const { listOffersCart, removeAllOffersFromCart } = useContext(CartContext);
 
+
   let newList: number[] = [];
 
   listOffersCart.forEach((offer) => {
@@ -21,6 +23,7 @@ export const CartProductList = ({ sumDiscount }: ISumDiscountProps) => {
   const sum = newList.reduce((previousValue, currentItem) => {
     return previousValue + currentItem;
   }, 0);
+
 
   return (
     <StyledCartProductList>

@@ -4,7 +4,7 @@ import { OfferCard } from './OfferCard';
 import { StyledOffersContainer } from './style';
 
 export const OfferList = () => {
-  const userId = Number(localStorage.getItem('@USERIDCOMMERCE'));
+  const userId = Number(localStorage.getItem('@userCompany:id'));
   const { productsList, removeAllOffers } = useContext(CommerceContext);
 
   const newListByCommerce = productsList.filter(
