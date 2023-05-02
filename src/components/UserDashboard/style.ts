@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import arrow from '../../assets/icons/arrow.svg';
 
 // background-color: ${({ theme }) => theme.colors.white};
 export const StyledUserDashboard = styled.main`
@@ -50,11 +51,14 @@ export const StyledUserDashboard = styled.main`
     font-family: 'Poppins';
     height: 2.1875rem;
     width: 100%;
+    background: url ${{ arrow }} no-repeat right;
     border: none;
     font-size: 22px;
     font-weight: 600;
     padding: 0rem 1rem;
     outline: none;
+    // overflow-x: hidden;
+    webkit-appearance: none;
   }
 
   section:last-child {
