@@ -1,9 +1,23 @@
 import { LoginForm } from '../../components/Form/LoginForm';
-import { StyledButtonLink } from '../../styles/button';
+import { StyledButton } from '../../styles/button';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginPage = () => {
   const typeofRoute = localStorage.getItem('@handle:typUser');
+  const navigate = useNavigate();
+  const handleClick = (type: string) => {
+    const typeNav = localStorage.getItem('@handle:nav');
+    console.log(typeNav);
 
+    if (type === 'user' && typeNav === 'login') {
+      localStorage.setItem('@handle:typUser', 'userRegister');
+      navigate('/register');
+    }
+    if (type === 'company' && typeNav === 'signin') {
+      localStorage.setItem('@handle:typUser', 'companyRegister');
+      navigate('/signup');
+    }
+  };
   if (typeofRoute === 'userLogin') {
     return (
       <>
@@ -16,13 +30,15 @@ export const LoginPage = () => {
           <div>
             <p>Ainda não é cadastrado?</p>
 
-            <StyledButtonLink
+            <StyledButton
               $buttonSize='default'
               $buttonStyle='buttonGreenLight'
-              to='/register'
+              onClick={() => {
+                handleClick('user');
+              }}
             >
-              Cadastre-se
-            </StyledButtonLink>
+              Cadastre-ses
+            </StyledButton>
           </div>
         </main>
       </>
@@ -40,13 +56,15 @@ export const LoginPage = () => {
           <div>
             <p>Ainda não é cadastrado?</p>
 
-            <StyledButtonLink
+            <StyledButton
               $buttonSize='default'
               $buttonStyle='buttonGreenLight'
-              to='/signup'
+              onClick={() => {
+                handleClick('company');
+              }}
             >
               Cadastre-se
-            </StyledButtonLink>
+            </StyledButton>
           </div>
         </main>
       </>

@@ -70,7 +70,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     if (userToken && UserId) {
       userAutoLogin();
     }
-  }, []);
+  }, [navigate]);
 
   const signIn = async (
     formData: TLoginFormSchema,
@@ -113,7 +113,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   };
 
   const newUserRegister = async (
-    formData: TLoginFormSchema,
+    formData: TRegisterFormSchema,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
     console.log(formData);

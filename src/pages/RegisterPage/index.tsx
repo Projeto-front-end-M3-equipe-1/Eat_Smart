@@ -1,10 +1,25 @@
+import { useNavigate } from 'react-router-dom';
 import { RegisterCommerceForm } from '../../components/Form/RegisterCommerceForm';
 import { RegisterUserForm } from '../../components/Form/RegisterUserForm';
-import { Link } from 'react-router-dom';
+import { StyledButton } from '../../styles/button';
 
 export const RegisterPage = () => {
   const typeofRoute = localStorage.getItem('@handle:typUser');
+  const navigate = useNavigate();
 
+  const handleClick = (type: string) => {
+    const typeNav = localStorage.getItem('@handle:nav');
+    console.log(typeNav);
+
+    if (type === 'user' && typeNav === 'register') {
+      localStorage.setItem('@handle:typUser', 'userLogin');
+      navigate('/login');
+    }
+    if (type === 'company' && typeNav === 'register') {
+      localStorage.setItem('@handle:typUser', 'companyLogin');
+      navigate('/signin');
+    }
+  };
   if (typeofRoute === 'userRegister') {
     return (
       <div>
@@ -17,10 +32,15 @@ export const RegisterPage = () => {
         </div>
         <div>
           <p>Já é cadastrado?</p>
-          <button>
-            <Link to='/login' />
+          <StyledButton
+            $buttonSize='default'
+            $buttonStyle='buttonGreenLight'
+            onClick={() => {
+              handleClick('user');
+            }}
+          >
             Login
-          </button>
+          </StyledButton>
         </div>
       </div>
     );
@@ -37,10 +57,15 @@ export const RegisterPage = () => {
         </div>
         <div>
           <p>Já é cadastrado?</p>
-          <button>
-            <Link to='/signup' />
+          <StyledButton
+            $buttonSize='default'
+            $buttonStyle='buttonGreenLight'
+            onClick={() => {
+              handleClick('company');
+            }}
+          >
             Login
-          </button>
+          </StyledButton>
         </div>
       </div>
     );

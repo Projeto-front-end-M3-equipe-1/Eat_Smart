@@ -26,7 +26,6 @@ export const RegisterCommerceForm = () => {
 
   const submit: SubmitHandler<TRegisterFormSchema> = (Formdata) => {
     newUserRegister(Formdata, setLoading);
-    // Executar função de request de Cadastro/Comércio, recebendo registerCommerceFormData como parâmetro
   };
 
   return (

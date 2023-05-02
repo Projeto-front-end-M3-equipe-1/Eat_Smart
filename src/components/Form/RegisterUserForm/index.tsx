@@ -1,7 +1,12 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { registerUserFormSchema } from './registerUserFormSchema';
+import {
+  SchemaFormUserRegister,
+  TRegisterFormUserSchema,
+} from './registerUserFormSchema';
 import { Input } from '../Input';
+import { useState, useContext } from 'react';
+import { UserContext } from './../../../providers/UserContext/UserContext';
 
 export interface IRegisterUserFormData {
   userName: string;
@@ -11,29 +16,29 @@ export interface IRegisterUserFormData {
 }
 
 export const RegisterUserForm = () => {
+  const [loading, setLoading] = useState(false);
+  const { newUserRegister } = useContext(UserContext);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<IRegisterUserFormData>({
-    resolver: zodResolver(registerUserFormSchema),
+    resolver: zodResolver(SchemaFormUserRegister),
   });
 
-  const registerUserFormSubmit: SubmitHandler<IRegisterUserFormData> = (
-    registerUserFormData
-  ) => {
-    console.log(registerUserFormData);
-    // Executar função de request de Cadastro/User, recebendo registerUserFormData como parâmetro
+  const submit: SubmitHandler<TRegisterFormUserSchema> = (FormData) => {
+    newUserRegister(FormData, setLoading);
   };
 
   return (
-    <form onSubmit={handleSubmit(registerUserFormSubmit)}>
+    <form onSubmit={handleSubmit(submit)}>
       <Input
         type='text'
         label='Nome'
         placeholder='Nome'
         id='userName'
         {...register('userName')}
+        disabled={loading}
         error={errors.userName}
       />
       <Input
@@ -42,6 +47,7 @@ export const RegisterUserForm = () => {
         placeholder='Email'
         id='email'
         {...register('email')}
+        disabled={loading}
         error={errors.email}
       />
       <Input
@@ -50,6 +56,7 @@ export const RegisterUserForm = () => {
         placeholder='Senha'
         id='password'
         {...register('password')}
+        disabled={loading}
         error={errors.password}
       />
       <Input
@@ -57,12 +64,11 @@ export const RegisterUserForm = () => {
         label='Confirmar senha'
         placeholder='Confirmar senha'
         id='confirmPassword'
+        disabled={loading}
         {...register('confirmPassword')}
         error={errors.confirmPassword}
       />
-      <button type='submit' disabled>
-        Cadastrar
-      </button>
+      <button type='submit'>Cadastrar</button>
     </form>
   );
 };
