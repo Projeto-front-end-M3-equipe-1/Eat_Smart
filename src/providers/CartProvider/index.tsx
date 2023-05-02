@@ -92,6 +92,12 @@ export const CartProvider = ({children}: ICartProviderProps) => {
     }
   }
   async function searchByCategory(category: string) {
+
+    if(category === ''){
+      setOffers(offersFound);
+      return
+    }
+
     try {
       const { data } = await api.get(
         `/users?foodCategory=${category.toLocaleLowerCase()}&_embed=products`,

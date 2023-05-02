@@ -17,7 +17,7 @@ export const StyledContainer = styled.body`
   }
 `;
 
-export const StyledCartSale = styled.section`
+export const StyledCartSale = styled.li`
   font-family: 'Poppins';
   margin: 30px;
   width: 262px;
