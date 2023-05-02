@@ -13,7 +13,6 @@ export const StyledCreateProductForm = styled.form`
 
   header,
   div {
-    // border: 1px solid red;
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -26,16 +25,16 @@ export const StyledCreateProductForm = styled.form`
       color: #2e2e2e;
     }
 
-    label {
-      font-size: 0.875rem;
-      line-height: 1.3125rem;
-      color: #989898;
-      background-color: none;
-    }
-
     div {
       width: 100%;
       flex-direction: column;
+    }
+
+    label {
+      font-size: 0.875rem;
+      line-height: 1.3125rem;
+      color: #989898 !important;
+      // background-color: none !important;
     }
 
     input {
@@ -77,3 +76,4 @@ export const StyledCreateProductForm = styled.form`
     margin-top: 1rem;
   }
 `;
+
