@@ -5,18 +5,18 @@ import { StyledButton } from '../../styles/button';
 
 export const RegisterPage = () => {
   const typeofRoute = localStorage.getItem('@handle:typUser');
+  const typeNav = localStorage.getItem('@handle:nav');
   const navigate = useNavigate();
 
-  const handleClick = (type: string) => {
-    const typeNav = localStorage.getItem('@handle:nav');
-    console.log(typeNav);
-
-    if (type === 'user' && typeNav === 'register') {
+  const handleClick = () => {
+    if (typeofRoute === 'userRegister' && typeNav === 'register') {
       localStorage.setItem('@handle:typUser', 'userLogin');
+      localStorage.setItem('@handle:nav', 'login');
       navigate('/login');
     }
-    if (type === 'company' && typeNav === 'register') {
+    if (typeofRoute === 'companyRegister' && typeNav === 'register') {
       localStorage.setItem('@handle:typUser', 'companyLogin');
+      localStorage.setItem('@handle:nav', 'login');
       navigate('/signin');
     }
   };
@@ -36,7 +36,7 @@ export const RegisterPage = () => {
             $buttonSize='default'
             $buttonStyle='buttonGreenLight'
             onClick={() => {
-              handleClick('user');
+              handleClick();
             }}
           >
             Login
@@ -61,7 +61,7 @@ export const RegisterPage = () => {
             $buttonSize='default'
             $buttonStyle='buttonGreenLight'
             onClick={() => {
-              handleClick('company');
+              handleClick();
             }}
           >
             Login

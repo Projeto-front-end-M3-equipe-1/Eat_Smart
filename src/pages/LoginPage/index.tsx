@@ -4,17 +4,17 @@ import { useNavigate } from 'react-router-dom';
 
 export const LoginPage = () => {
   const typeofRoute = localStorage.getItem('@handle:typUser');
+  const typeNav = localStorage.getItem('@handle:nav');
   const navigate = useNavigate();
-  const handleClick = (type: string) => {
-    const typeNav = localStorage.getItem('@handle:nav');
-    console.log(typeNav);
-
-    if (type === 'user' && typeNav === 'login') {
+  const handleClick = () => {
+    if (typeofRoute === 'userLogin' && typeNav === 'login') {
       localStorage.setItem('@handle:typUser', 'userRegister');
+      localStorage.setItem('@handle:nav', 'register');
       navigate('/register');
     }
-    if (type === 'company' && typeNav === 'signin') {
+    if (typeofRoute === 'companyLogin' && typeNav === 'login') {
       localStorage.setItem('@handle:typUser', 'companyRegister');
+      localStorage.setItem('@handle:nav', 'register');
       navigate('/signup');
     }
   };
@@ -34,7 +34,7 @@ export const LoginPage = () => {
               $buttonSize='default'
               $buttonStyle='buttonGreenLight'
               onClick={() => {
-                handleClick('user');
+                handleClick();
               }}
             >
               Cadastre-ses
@@ -60,7 +60,7 @@ export const LoginPage = () => {
               $buttonSize='default'
               $buttonStyle='buttonGreenLight'
               onClick={() => {
-                handleClick('company');
+                handleClick();
               }}
             >
               Cadastre-se

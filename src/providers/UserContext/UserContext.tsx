@@ -125,8 +125,9 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         setLoading(true);
         await api.post<IUserRegisterResponse>('/register', confirmUser);
         toast.success('Cadastro realizado com sucesso');
-        console.log(formData);
-        console.log('foi user');
+        localStorage.setItem('@handle:typUser', 'userLogin');
+        localStorage.setItem('@handle:nav', 'login');
+        navigate('/login');
       } catch (error) {
         toast.error('Oops! Algo deu errado tente novamente');
       } finally {
@@ -139,7 +140,9 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         setLoading(true);
         await api.post<IUserRegisterResponse>('/signup', confirmUser);
         toast.success('Cadastro realizado com sucesso');
-        console.log('foi empresa');
+        localStorage.setItem('@handle:typUser', 'companyLogin');
+        localStorage.setItem('@handle:nav', 'login');
+        navigate('/signin');
       } catch (error) {
         toast.error('Oops! Algo deu errado tente novamente');
       } finally {
