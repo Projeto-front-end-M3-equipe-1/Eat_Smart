@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import arrow from '../../assets/icons/arrow.svg';
 
-// background-color: ${({ theme }) => theme.colors.white};
 export const StyledUserDashboard = styled.main`
   border: 1px solid red;
   background-color: #efe9e8;
@@ -19,9 +18,6 @@ export const StyledUserDashboard = styled.main`
     align-items: center;
     height: 2.9375rem;
     width: 100%;
-    background-color: ${({ theme }) => theme.colors.white};
-    border: 2px solid ${({ theme }) => theme.colors.greenPrimary};
-    border-radius: 0.75rem;
     margin: 1rem 0;
     display: none;
   }
@@ -29,7 +25,6 @@ export const StyledUserDashboard = styled.main`
   section:first-child > div > h1 {
     font-size: 22px;
     font-weight: 600;
-    padding-left: 1rem;
   }
 
   section:first-child > nav {
@@ -64,11 +59,11 @@ export const StyledUserDashboard = styled.main`
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-bottom: 1rem;
   }
 
   section:last-child > h1 {
     border: 1px solid red;
-    padding-left: 1rem;
     font-family: 'Poppins', sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
@@ -95,12 +90,38 @@ export const StyledUserDashboard = styled.main`
   }
 
   @media (min-width: 768px) {
+    section:first-child > div {
+      display: flex;
+    }
+
+    section:first-child > form {
+      display: none;
+    }
+
+    section:first-child > nav {
+      width: 100%;
+      border: 1px solid red;
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+    }
+
+    section:first-child > nav > figure {
+      display: flex;
+      flex-direction: column;
+      width: 160px;
+      height: 160px;
+      background-color: ${({ theme }) => theme.colors.white}};
+      justify-content: center;
+      align-items: center;
+      object-fit: cover;
+    }
+
+    section:first-child > nav > img {
+      
+    }
   }
 
   @media (min-width: 1024px) {
   }
 `;
-
-// section:first-child > form > select {
-//     // display: none;
-//   }
