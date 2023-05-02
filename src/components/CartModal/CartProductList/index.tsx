@@ -1,7 +1,8 @@
-import { useContext } from 'react';
-import { CartContext } from '../../../providers/CartProvider';
-import { CartProductCard } from './CartProductCard';
-import { StyledCartProductList } from './style';
+
+import { useContext } from "react";
+import { CartContext } from "../../../providers/CartProvider";
+import { CartProductCard } from "./CartProductCard";
+import { StyledCartProductList } from "./style";
 import trash from "../../../assets/icons/lixoGrande.svg"
 
 interface ISumDiscountProps {
@@ -10,6 +11,19 @@ interface ISumDiscountProps {
 
 export const CartProductList = ({ sumDiscount }: ISumDiscountProps) => {
   const { listOffersCart, removeAllOffersFromCart } = useContext(CartContext);
+
+
+  let newList: number[] = [];
+
+  listOffersCart.forEach((offer) => {
+    newList = newList.concat(
+      offer.originalPrice - (offer.discount / 100) * offer.originalPrice
+    );
+  });
+  const sum = newList.reduce((previousValue, currentItem) => {
+    return previousValue + currentItem;
+  }, 0);
+
 
   return (
     <StyledCartProductList>
