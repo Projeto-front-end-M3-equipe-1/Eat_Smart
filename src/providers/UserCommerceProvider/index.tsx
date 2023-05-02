@@ -65,7 +65,7 @@ export const UserCommerceProvider = ({ children }: IUserProviderProps) => {
             },
           });
           setCommerceUser(data);
-          navigate("/") // dashboard
+          // navigate("/") // dashboard
         } catch (error) {
           const Ierror = error as IAxiosError;
           console.log(Ierror);
