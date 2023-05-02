@@ -4,6 +4,9 @@ import { SchemaFormRegister, TRegisterFormSchema } from './SchemaFormRegister';
 import { Input } from '../Input';
 import { useState, useContext } from 'react';
 import { UserContext } from './../../../providers/UserContext/UserContext';
+import { StyledFormUserDark } from '../../../styles/form';
+import { StyledInputContainerDark } from './../../../styles/form';
+import { StyledButton } from '../../../styles/button';
 
 export interface IRegisterUserFormData {
   userName: string;
@@ -29,7 +32,7 @@ export const RegisterCommerceForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
+    <StyledFormUserDark onSubmit={handleSubmit(submit)}>
       <Input
         type='text'
         label='Nome'
@@ -66,21 +69,29 @@ export const RegisterCommerceForm = () => {
         {...register('confirmPassword')}
         error={errors.confirmPassword}
       />
-      <label htmlFor='typeOfCompany'>Selecionar setor alimentício</label>
-      <select id='typeOfCompany' {...register('foodCategory')}>
-        <option value=''>Categorias</option>
-        <option value='Padaria'>Padaria</option>
-        <option value='Lanches'>Lanches</option>
-        <option value='Cafeteria'>Cafeteria</option>
-        <option value='Restaurante'>Restaurante</option>
-        <option value='Bares'>Bares</option>
-        <option value='Mercado'>Mercado</option>
-      </select>
+      <StyledInputContainerDark>
+        <label htmlFor='typeOfCompany'>Selecionar setor alimentício</label>
+        <select id='typeOfCompany' {...register('foodCategory')}>
+          <option value=''>Categorias</option>
+          <option value='Padaria'>Padaria</option>
+          <option value='Lanches'>Lanches</option>
+          <option value='Cafeteria'>Cafeteria</option>
+          <option value='Restaurante'>Restaurante</option>
+          <option value='Bares'>Bares</option>
+          <option value='Mercado'>Mercado</option>
+        </select>
+      </StyledInputContainerDark>
       <p>
         {errors.foodCategory?.message ? errors.foodCategory?.message : null}
       </p>
 
-      <button type='submit'>Cadastrar</button>
-    </form>
+      <StyledButton
+        $buttonSize='default'
+        $buttonStyle='buttonGreenLight'
+        type='submit'
+      >
+        Cadastrar
+      </StyledButton>
+    </StyledFormUserDark>
   );
 };

@@ -29,6 +29,7 @@ interface IUser {
   email: string;
   name: string;
   id: number;
+  isCompany?: boolean;
 }
 
 interface IUserLoginResponse {
@@ -61,7 +62,6 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         setUser(data);
         navigate('/shop');
       } catch (error) {
-        console.log(error);
         toast.error('Oops! Algo deu errado tente novamente');
         localStorage.getItem('@user:id');
         localStorage.getItem('@user:token');
@@ -81,10 +81,15 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       try {
         setLoading(true);
         const { data } = await api.post<IUserLoginResponse>('/login', formData);
-        localStorage.setItem('@user:token', data.accessToken);
-        localStorage.setItem('@user:id', JSON.stringify(data.user.id));
-        setUser(data.user);
-        navigate('/userHome');
+        if (data.user.isCompany === true) {
+          toast.error('Você não é uma empresa');
+          navigate('/');
+        } else {
+          localStorage.setItem('@user:token', data.accessToken);
+          localStorage.setItem('@user:id', JSON.stringify(data.user.id));
+          setUser(data.user);
+          navigate('/userHome');
+        }
       } catch (error) {
         console.log(error);
         toast.error('Oops! Algo deu errado tente novamente');
@@ -99,10 +104,15 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
           '/signin',
           formData
         );
-        localStorage.setItem('@user:token', data.accessToken);
-        localStorage.setItem('@user:id', JSON.stringify(data.user.id));
-        setUser(data.user);
-        navigate('/companyHome');
+        if (data.user.isCompany === false) {
+          toast.error('Você não é um consumidor');
+          navigate('/');
+        } else {
+          localStorage.setItem('@user:token', data.accessToken);
+          localStorage.setItem('@user:id', JSON.stringify(data.user.id));
+          setUser(data.user);
+          navigate('/companyHome');
+        }
       } catch (error) {
         console.log(error);
         toast.error('Oops! Algo deu errado tente novamente');
@@ -116,14 +126,15 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     formData: TRegisterFormSchema,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
-    console.log(formData);
-
     const typeofRoute = localStorage.getItem('@handle:typUser');
     if (typeofRoute === 'userRegister') {
       try {
         const confirmUser = { ...formData, isCompany: false };
         setLoading(true);
-        await api.post<IUserRegisterResponse>('/register', confirmUser);
+        const { data } = await api.post<IUserRegisterResponse>(
+          '/register',
+          confirmUser
+        );
         toast.success('Cadastro realizado com sucesso');
         localStorage.setItem('@handle:typUser', 'userLogin');
         localStorage.setItem('@handle:nav', 'login');
