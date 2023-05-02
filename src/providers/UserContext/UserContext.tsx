@@ -146,6 +146,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
           '/register',
           confirmUser
         );
+        console.log(data);
         toast.success('Cadastro realizado com sucesso');
         localStorage.setItem('@handle:typUser', 'userLogin');
         localStorage.setItem('@handle:nav', 'login');

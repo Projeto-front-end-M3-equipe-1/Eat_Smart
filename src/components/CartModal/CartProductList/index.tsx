@@ -11,6 +11,17 @@ interface ISumDiscountProps {
 export const CartProductList = ({ sumDiscount }: ISumDiscountProps) => {
   const { listOffersCart, removeAllOffersFromCart } = useContext(CartContext);
 
+  let newList: number[] = [];
+
+  listOffersCart.forEach((offer) => {
+    newList = newList.concat(
+      offer.originalPrice - (offer.discount / 100) * offer.originalPrice
+    );
+  });
+  const sum = newList.reduce((previousValue, currentItem) => {
+    return previousValue + currentItem;
+  }, 0);
+
   return (
     <StyledCartProductList>
       <ul>

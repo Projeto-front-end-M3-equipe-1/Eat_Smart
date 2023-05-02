@@ -17,18 +17,11 @@ export const RoutesMain = () => {
       <Route path='/userHome' element={<UserDashboard />}></Route>
       <Route path='/styles' element={<Styles />}></Route>
 
-      <Route path='/' element={<MainDashboard />}></Route>
-      <Route path='/login' element={<LoginPage />}></Route>
-      <Route path='/register' element={<RegisterPage />}></Route>
-      <Route path='/userHome' element={<UserDashboard />}></Route>
-      <Route path='/styles' element={<Styles />}></Route>
-
       <Route element={<RoutesProtected />}>
         <Route path='/signin' element={<LoginPage />}></Route>
         <Route path='/signup' element={<RegisterPage />}></Route>
         <Route path='/companyHome' element={<CommerceDashboard />}></Route>
       </Route>
-
       <Route path='*' element={<NotFound />}></Route>
     </Routes>
   );

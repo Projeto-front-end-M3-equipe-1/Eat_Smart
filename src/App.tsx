@@ -1,5 +1,4 @@
 import { CartProvider } from './providers/CartProvider';
-
 import { RoutesMain } from './routes';
 
 const App = () => {
