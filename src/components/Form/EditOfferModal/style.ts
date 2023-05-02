@@ -4,12 +4,12 @@ export const StyledEditOfferModal = styled.div`
 display: flex;
 flex-direction: column;
 align-items: flex-end;
-width: 100%;
+// width: 100vw;
 height: 100vh;
-// position: fixed;
+position: relative;
 z-index: 1001;
-top: 0;
-right: 0;
+// top: 60px;
+// right: -120px;
 
 // background-color: #ffffff;
 // background: rgba(51, 51, 51, 0.5);
@@ -47,7 +47,6 @@ section > nav > button {
 }
 
 section > form {
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   align-items:center;
@@ -103,6 +102,7 @@ section> form > div > input{
         }
 
         :focus{
+          height: 45px;
           color: #000000;
           padding-left: 14px;
         }
