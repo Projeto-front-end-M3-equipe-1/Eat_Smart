@@ -73,6 +73,7 @@ export const StyledEditOfferModal = styled.div`
         height: 3.75rem;
         width: 60vw;
         max-width: 43rem;
+        // border-radius: 1.25rem;
         border-radius: 1.25rem;
       }
     }
