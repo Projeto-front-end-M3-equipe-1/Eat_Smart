@@ -27,9 +27,12 @@ export const StyledFormRegisterCompany = styled.main`
     }
   }
 
-  /*   @media (max-width: 425px) {
+  @media (max-width: 425px) {
+    .container__desktop {
+      display: none;
+    }
   }
-
+  /*
   @media (max-width: 768px) {
     background-image: none;
     background-color: ${({ theme }) => theme.colors.greenPrimary};
