@@ -1,10 +1,9 @@
-import { Input } from '../Input';
+import { InputDark, InputLight } from '../Input';
 import { useContext, useState } from 'react';
 import { UserContext } from '../../../providers/UserContext/UserContext';
 import { LoginFormSchema, TLoginFormSchema } from './loginFormSchema';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-
 
 export const LoginForm = () => {
   const [loading, setLoading] = useState(false);
@@ -21,7 +20,7 @@ export const LoginForm = () => {
   };
   return (
     <form onSubmit={handleSubmit(submit)}>
-      <Input
+      <InputDark
         id='login'
         type='email'
         disabled={loading}
@@ -29,7 +28,7 @@ export const LoginForm = () => {
         {...register('email')}
       />
       {errors ? <span>{errors.email?.message}</span> : null}
-      <Input
+      <InputDark
         id='senha'
         type='password'
         label='Senha'

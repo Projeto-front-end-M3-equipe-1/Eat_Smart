@@ -1,13 +1,15 @@
 import { FieldError } from 'react-hook-form';
 import { ForwardedRef, InputHTMLAttributes, forwardRef } from 'react';
-import { StyledParagraph } from '../../../styles/typography';
-import { StyledInputContainerDark } from '../../../styles/form';
+import {
+  StyledInputContainerDark,
+  StyledInputContainerLight,
+} from '../../../styles/form';
 
 export interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   error?: FieldError;
 }
-export const Input = forwardRef(
+export const InputDark = forwardRef(
   (
     { label, id, error, ...rest }: IInputProps,
     ref: ForwardedRef<HTMLInputElement>
@@ -18,6 +20,36 @@ export const Input = forwardRef(
         <input ref={ref} id={id} {...rest} />
         {error ? <p>{error.message}</p> : null}
       </StyledInputContainerDark>
+    );
+  }
+);
+
+export const InputLight = forwardRef(
+  (
+    { label, id, error, ...rest }: IInputProps,
+    ref: ForwardedRef<HTMLInputElement>
+  ) => {
+    return (
+      <StyledInputContainerLight>
+        {label ? <label htmlFor={id}>{label}</label> : null}
+        <input ref={ref} id={id} {...rest} />
+        {error ? <p>{error.message}</p> : null}
+      </StyledInputContainerLight>
+    );
+  }
+);
+
+export const Input = forwardRef(
+  (
+    { label, id, error, ...rest }: IInputProps,
+    ref: ForwardedRef<HTMLInputElement>
+  ) => {
+    return (
+      <div>
+        {label ? <label htmlFor={id}>{label}</label> : null}
+        <input ref={ref} id={id} {...rest} />
+        {error ? <p>{error.message}</p> : null}
+      </div>
     );
   }
 );

@@ -2,11 +2,12 @@ import { useNavigate } from 'react-router-dom';
 import { RegisterCommerceForm } from '../../components/Form/RegisterCommerceForm';
 import { RegisterUserForm } from '../../components/Form/RegisterUserForm';
 import { StyledButton } from '../../styles/button';
-import companyRegister from '../../assets/images/companyRegister.svg';
+
 import {
-  /*   StyledColorBackground, */
+  StyledColorBackground,
   StyledFormRegisterCompany,
   StyledRegisterPageHeader,
+  StyledFormRegisterUser,
 } from './style';
 import { StyledTitleGreen } from '../../styles/typography';
 
@@ -29,75 +30,86 @@ export const RegisterPage = () => {
   };
   if (typeofRoute === 'userRegister') {
     return (
-      <div>
-        <div>
-          {/* Lógica: Se consumidor, renderizar formulario de registro para este perfil */}
-          <RegisterUserForm />
-        </div>
-        <div>
-          <p>Fatos, coisas bonitinhas</p>
-        </div>
-        <div>
-          <p>Já é cadastrado?</p>
-          <StyledButton
-            $buttonSize='default'
-            $buttonStyle='buttonGreenLight'
-            onClick={() => {
-              handleClick();
-            }}
-          >
-            Login
-          </StyledButton>
-        </div>
-      </div>
+      <StyledColorBackground>
+        <StyledFormRegisterUser>
+          <StyledRegisterPageHeader>
+            <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
+              Eat<span>Smart</span>
+            </StyledTitleGreen>
+            <StyledButton
+              $buttonSize='default'
+              $buttonStyle='buttonGreenLight'
+              onClick={() => {
+                navigate('/');
+              }}
+            >
+              Home
+            </StyledButton>
+          </StyledRegisterPageHeader>
+          <section className='container__principal'>
+            <section>
+              <RegisterUserForm />
+              <div className='container_nav'>
+                <StyledTitleGreen tag='h1' $fontSize='small'>
+                  Já é cadastrado?
+                </StyledTitleGreen>
+                <StyledButton
+                  $buttonSize='default'
+                  $buttonStyle='buttonGreenLight'
+                  onClick={() => {
+                    handleClick();
+                  }}
+                >
+                  Login
+                </StyledButton>
+              </div>
+            </section>
+            <section className='container__desktop'></section>
+          </section>
+        </StyledFormRegisterUser>
+      </StyledColorBackground>
     );
   }
   if (typeofRoute === 'companyRegister') {
     return (
-      /*       <StyledColorBackground> */
-      <StyledFormRegisterCompany>
-        <StyledRegisterPageHeader>
-          <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
-            Eat<span>Smart</span>
-          </StyledTitleGreen>
-          <StyledButton
-            $buttonSize='default'
-            $buttonStyle='buttonGreenLight'
-            onClick={() => {
-              navigate('/');
-            }}
-          >
-            Home
-          </StyledButton>
-        </StyledRegisterPageHeader>
-        <section className='container__principal'>
-          <section>
-            <RegisterCommerceForm />
-            <div className='container_nav'>
-              <StyledTitleGreen tag='h1' $fontSize='small'>
-                Já é cadastrado?
-              </StyledTitleGreen>
-              <StyledButton
-                $buttonSize='default'
-                $buttonStyle='buttonGreenLight'
-                onClick={() => {
-                  handleClick();
-                }}
-              >
-                Login
-              </StyledButton>
-            </div>
+      <StyledColorBackground>
+        <StyledFormRegisterCompany>
+          <StyledRegisterPageHeader>
+            <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
+              Eat<span>Smart</span>
+            </StyledTitleGreen>
+            <StyledButton
+              $buttonSize='default'
+              $buttonStyle='buttonGreenLight'
+              onClick={() => {
+                navigate('/');
+              }}
+            >
+              Home
+            </StyledButton>
+          </StyledRegisterPageHeader>
+          <section className='container__principal'>
+            <section>
+              <RegisterCommerceForm />
+              <div className='container_nav'>
+                <StyledTitleGreen tag='h1' $fontSize='small'>
+                  Já é cadastrado?
+                </StyledTitleGreen>
+                <StyledButton
+                  $buttonSize='default'
+                  $buttonStyle='buttonGreenLight'
+                  onClick={() => {
+                    handleClick();
+                  }}
+                >
+                  Login
+                </StyledButton>
+              </div>
+            </section>
+            <section className='container__desktop'></section>
           </section>
-          <section className='container__Img'>
-            <img
-              className='container__desktop'
-              src={companyRegister}
-              alt='cadastro'
-            />
-          </section>
-        </section>
-      </StyledFormRegisterCompany>
-      /*     </StyledColorBackground> */
+        </StyledFormRegisterCompany>
+      </StyledColorBackground>
     );
   }
   return null;

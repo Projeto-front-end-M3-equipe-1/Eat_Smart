@@ -1,7 +1,7 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SchemaFormRegister, TRegisterFormSchema } from './SchemaFormRegister';
-import { Input } from '../Input';
+import { InputDark, InputLight } from '../Input';
 import { useState, useContext } from 'react';
 import { UserContext } from './../../../providers/UserContext/UserContext';
 import { StyledFormUserDark } from '../../../styles/form';
@@ -38,7 +38,7 @@ export const RegisterCommerceForm = () => {
       <StyledTitleGreen tag='h1' $fontSize='titleForm' textAlign='center'>
         Conte-nos sobre o seu negócio:
       </StyledTitleGreen>
-      <Input
+      <InputDark
         type='text'
         label='Nome'
         placeholder='Nome'
@@ -47,7 +47,7 @@ export const RegisterCommerceForm = () => {
         {...register('userName')}
         error={errors.userName}
       />
-      <Input
+      <InputDark
         type='email'
         label='Email'
         placeholder='Email'
@@ -56,7 +56,7 @@ export const RegisterCommerceForm = () => {
         {...register('email')}
         error={errors.email}
       />
-      <Input
+      <InputDark
         type='password'
         label='Senha'
         placeholder='Senha'
@@ -65,7 +65,7 @@ export const RegisterCommerceForm = () => {
         disabled={loading}
         error={errors.password}
       />
-      <Input
+      <InputDark
         type='password'
         label='Confirmar senha'
         placeholder='Confirmar senha'
