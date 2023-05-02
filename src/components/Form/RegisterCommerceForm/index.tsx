@@ -15,6 +15,7 @@ export interface IRegisterUserFormData {
 export const RegisterCommerceForm = () => {
   const [ laoding, setLoading] = useState(false);
   const [IRegisterUserFormData ] = useContext(UserCommerceContext);
+  
   const {
     register,
     handleSubmit,

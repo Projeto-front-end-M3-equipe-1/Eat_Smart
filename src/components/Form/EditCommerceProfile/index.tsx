@@ -9,7 +9,6 @@ import { StyledEditCommerceProfileModal } from './style';
 import cartIcon from '../../../assets/icons/cart.svg';
 import favoriteIcon from '../../../assets/icons/coração.svg';
 import xIcon from '../../../assets/icons/close.svg';
-import x from '../../../assets/icons/X.svg';
 
 interface ICloseModal {
   closeProfileModal: () => void;

@@ -25,7 +25,11 @@ export interface ILoginResponse {
 }
 // interface para registro puxando o user do icommerceUser
 export interface IUserRegisterResponse {
+<<<<<<< HEAD
+  accessToken: string;
+=======
   acessToken: string;
+>>>>>>> 5e92851e94802cde87a7fa787cacf3cb863a7875
   user:ICommerceUser;
 }
 
@@ -65,7 +69,7 @@ export const UserCommerceProvider = ({ children }: IUserProviderProps) => {
             },
           });
           setCommerceUser(data);
-          navigate("/") // dashboard
+          // navigate("/") // dashboard
         } catch (error) {
           const Ierror = error as IAxiosError;
           console.log(Ierror);
@@ -98,8 +102,13 @@ export const UserCommerceProvider = ({ children }: IUserProviderProps) => {
           );
           localStorage.setItem('@EatSmart:userNameCommerce', userResponse.userName);
           localStorage.setItem('@EatSmart:userCommerceEmail', userResponse.email);
+<<<<<<< HEAD
+          localStorage.setItem('@EatSmart:userCommerceFoodCategory', userResponse.foodCategory);
+
+=======
           localStorage.getItem('@EatSmart:userCommerceFoodCategory', userResponse.foodCategory);
           
+>>>>>>> 5e92851e94802cde87a7fa787cacf3cb863a7875
           setCommerceUser(userResponse);
           navigate('/companyHome');
         });
