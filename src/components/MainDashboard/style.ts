@@ -16,6 +16,7 @@ export const StyledMainDashboardHeader = styled.header`
     color: ${({ theme }) => theme.colors.orangePrimary};
     span {
       color: ${({ theme }) => theme.colors.white};
+      
     }
   }
   div {

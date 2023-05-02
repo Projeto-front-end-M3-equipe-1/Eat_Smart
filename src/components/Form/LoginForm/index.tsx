@@ -4,17 +4,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { loginFormSchema } from './loginFormSchema';
 import { useContext, useState} from 'react';
 
-<<<<<<< HEAD
-=======
-import { UserCommerceContext } from '../../../providers/UserCommerceProvider'
->>>>>>> 3e57697c78a06b7999227fbe36c679df10bfa72c
 import {
   StyledFormUserDark,
   StyledInputContainerDark,
 } from '../../../styles/form';
 import { StyledTitleGreen } from '../../../styles/typography';
 import { UserCommerceContext } from '../../../providers/UserCommerceProvider';
-
+import { StyledButton } from '../../../styles/button';
 
 export interface ILoginFormData {
   email: string;
@@ -40,13 +36,13 @@ export const LoginForm = () => {
   return (
     <StyledFormUserDark onSubmit={handleSubmit(loginFormSubmit)}>
       <StyledTitleGreen tag='h1' $fontSize='titleForm'>
-        Title
+        Faça login na sua conta
       </StyledTitleGreen>
       <StyledInputContainerDark>
         <Input
           type='email'
-          label='Email'
-          placeholder='Email'
+          label='Endereço de Email'
+          placeholder=''
           id='email'
           {...register('email')}
           error={errors.email}
@@ -55,14 +51,19 @@ export const LoginForm = () => {
       <Input
         type='password'
         label='Senha'
-        placeholder='Senha'
+        placeholder=''
         id='password'
         {...register('password')}
         error={errors.password}
       />
-      <button type='submit' disabled={loading}>
+      <StyledButton type='submit' disabled={loading} $buttonStyle='buttonGreenLight' >
+      {loading ? 'Entrando' : 'Login'}
+        
+      </StyledButton>
+
+      {/* <button type='submit' disabled={loading}>
         {loading ? 'Entrando' : 'Login'}
-      </button>
+      </button> */}
     </StyledFormUserDark>
   );
 };
