@@ -12,8 +12,10 @@ export const StyledContainerUserDashboard = styled.div`
   overflow-x: hidden;
 
   /*   header {
+
     
     width: 100%;
+
   } */
 
   footer {

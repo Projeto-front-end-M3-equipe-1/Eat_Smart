@@ -28,7 +28,8 @@ export const StyledUserDashboard = styled.main`
   }
 
   .categories__container > nav {
-    /* display: none; */
+    display: none;
+    
   }
 
   .categories__container > form {
