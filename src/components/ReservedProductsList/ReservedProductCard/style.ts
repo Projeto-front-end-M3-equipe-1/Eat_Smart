@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledReserveCard = styled.li`
-  // border: 1px solid red;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -9,33 +8,30 @@ export const StyledReserveCard = styled.li`
   margin-bottom: 2rem;
   border-bottom: 1px solid #000000;
 
-  div:nth-of-type(1) {
-    // border: 1px solid red;
+  div {
     display: flex;
-
-    img {
-      width: 3.625rem;
-      height: 3.625rem;
-      object-fit: cover;
-    }
   }
 
-  div:nth-of-type(2){
-    // border: 1px solid red;
+  div > img {
+    width: 3.625rem;
+    height: 3.625rem;
+    object-fit: cover;
+  }
+
+  div:nth-of-type(2) {
     width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 1rem;
     padding: 0;
-    
+
     div {
       width: 100%;
       display: flex;
       align-items: center;
       gap: 0.5rem;
       justify-content: space-between;
-      // border: 1px solid red;
 
       p {
         font-size: 0.875rem;
@@ -57,6 +53,7 @@ export const StyledReserveCard = styled.li`
       width: 100%;
       justify-content: space-between;
       height: 1.375rem;
+      margin-bottom: 0.5rem;
 
       p {
         color: #056365;
@@ -73,6 +70,5 @@ export const StyledReserveCard = styled.li`
   }
 
   @media (min-width: 768px) {
-    margin-bottom: 3rem;
   }
 `;

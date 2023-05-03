@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
 
+
 html
 {
   position:fixed;
@@ -26,7 +27,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video, button, input {
+time, mark, audio, video, button, input, body {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -34,7 +35,6 @@ time, mark, audio, video, button, input {
 	vertical-align: baseline;
   	box-sizing: border-box;
   	outline: none;
-	
 }
 
 

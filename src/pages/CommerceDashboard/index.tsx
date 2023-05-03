@@ -9,6 +9,9 @@ import {
   StyledCommerceDashboardMainContainer,
   StyledCommerceDataContainer,
   StyledCommerceLogoContainer,
+  StyledFooterCommerce,
+  StyledHeaderContainer,
+  StyledMainSections,
 } from './style';
 import { Header } from '../../components/Header';
 import { CreateProductForm } from '../../components/Form/CreateProductForm';
@@ -17,6 +20,7 @@ import { OfferList } from '../../components/OfferList';
 import { useState } from 'react';
 import { EditCommerceProfile } from '../../components/Form/EditCommerceProfile';
 import { Footer } from '../../components/Footer';
+import { FooterMobileCommerce } from '../../components/Footer/FooterMobileCommerce';
 
 export const CommerceDashboard = () => {
   const [isEditProfileModalOpen, setIsEditProfileModalOpen] = useState(false);
@@ -32,11 +36,12 @@ export const CommerceDashboard = () => {
 
   return (
     <StyledCommerceDashboard>
-      <Header />
-      <button onClick={() => setIsEditProfileModalOpen(true)}>
-        Edit profile
-      </button>
-
+      <StyledHeaderContainer>
+        <Header />
+        <button onClick={() => setIsEditProfileModalOpen(true)}>
+          Edit profile
+        </button>
+      </StyledHeaderContainer>
       {isEditProfileModalOpen ? (
         <EditCommerceProfile closeProfileModal={closeProfileModalWrapper} />
       ) : null}
@@ -66,20 +71,25 @@ export const CommerceDashboard = () => {
         </StyledCommerceLogoContainer>
       </StyledCommerceDataContainer>
       <StyledCommerceDashboardMainContainer>
-        <section>
-          {/* <h2>Cadastrar nova Oferta</h2> */}
-          <CreateProductForm />
-        </section>
-        <section>
-          {/* <h2>Reservas</h2> */}
-          <ReservedProductsList />
-        </section>
-        <section>
-          {/* <h2>Ofertas cadastradas</h2> */}
-          <OfferList />
-        </section>
+        <StyledMainSections>
+          <section className='product_form'>
+            {/* <h2>Cadastrar nova Oferta</h2> */}
+            <CreateProductForm />
+          </section>
+          <section className='reservations'>
+            {/* <h2>Reservas</h2> */}
+            <ReservedProductsList />
+          </section>
+          <section className='offer_list'>
+            {/* <h2>Ofertas cadastradas</h2> */}
+            <OfferList />
+          </section>
+        </StyledMainSections>
       </StyledCommerceDashboardMainContainer>
-      <Footer />
+      <StyledFooterCommerce>
+        <FooterMobileCommerce />
+        <Footer />
+      </StyledFooterCommerce>
     </StyledCommerceDashboard>
   );
 };
