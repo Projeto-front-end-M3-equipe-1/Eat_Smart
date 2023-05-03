@@ -14,12 +14,12 @@ export const StyledCartModalBoxVini = styled.div`
   background: rgba(51, 51, 51, 0.5);
   z-index: 1001;
 
-  .modalCart__header__container{
+  div {
     width: 360px;
     background-color: #efe9e8;
   }
 
-  .modalCart__header__container > header {
+  header {
     display: flex;
     justify-content: space-between;
     padding: 0 14px 0 14px;
