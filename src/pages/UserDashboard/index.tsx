@@ -18,7 +18,8 @@ import { UserContext } from "../../providers/UserContext/UserContext.tsx";
 import { EditUserProfile } from "../../components/Form/EditUserProfile/index.tsx";
 
 export const UserDashboard = () => {
-  const { offers, searchByCategory, isCartModalOpen, searchOffer } = useContext(CartContext);
+  const { offers, searchByCategory, isCartModalOpen, searchOffer } =
+    useContext(CartContext);
   const { isEditUserProfileModalOpen } = useContext(UserContext);
 
   return (
