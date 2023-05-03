@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const StyledColorBackground = styled.body`
   @media (min-width: 1024px) {
     background-color: black;
+    z-index: -1;
   }
 `;
 
@@ -173,7 +174,7 @@ export const StyledUserPageHeader = styled.header`
     justify-content: space-between;
     align-items: center;
     max-width: 1440px;
-    padding: 1rem 0;
+    padding: 1rem;
     .container__mobile {
       display: none;
     }
@@ -206,6 +207,176 @@ export const StyledUserPageHeader = styled.header`
       }
       section {
         text-align: right;
+      }
+    }
+  }
+`;
+
+export const StyledCompanyPageHeader = styled.header`
+  list-style-type: none;
+  z-index: 1;
+  width: 320px rgb(239, 233, 232);
+  position: fixed;
+  margin: 0 auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1440px;
+  justify-content: space-between;
+  font-family: ${({ theme }) => theme.fonts.primaryPoppins};
+  background-color: rgb(239, 233, 232);
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100%;
+    h1 {
+      color: ${({ theme }) => theme.colors.orangePrimary};
+      padding: 1rem 0;
+      font-size: 24px;
+      margin: 0 1rem;
+      span {
+        color: ${({ theme }) => theme.colors.greenPrimary};
+      }
+    }
+    nav {
+      margin: 0 1rem;
+      button {
+        cursor: pointer;
+        background-color: transparent;
+        i {
+          color: ${({ theme }) => theme.colors.greenPrimary};
+          font-size: 1.275rem;
+          padding: 0.275rem;
+        }
+      }
+    }
+  }
+  section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    form {
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      border-radius: 1rem;
+      height: 2.7rem;
+      width: 90%;
+      max-width: 421px;
+      font-size: 0.875rem;
+      padding: 0.9375rem;
+      color: ${({ theme }) => theme.colors.gray600};
+      background-color: ${({ theme }) => theme.colors.white};
+      input {
+        width: 100%;
+      }
+      button {
+        padding: 0 0.575rem 0 0.275rem;
+        background-color: transparent;
+        i {
+          color: ${({ theme }) => theme.colors.greenPrimary};
+          font-size: 1.5rem;
+
+          ::placeholder {
+            font-size: 0.875rem;
+          }
+        }
+      }
+    }
+  }
+  section {
+    display: flex;
+    align-items: center;
+    h2 {
+      font-size: 1.5rem;
+      color: ${({ theme }) => theme.colors.greenPrimary};
+      width: 100%;
+      padding: 0.2rem 1rem;
+    }
+    img {
+      height: 2.5rem;
+      padding-right: 1rem;
+    }
+  }
+
+  .container__reverse {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+  }
+
+  @media (min-width: 1024px) {
+    z-index: 1;
+    width: 100%;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    padding: 1rem;
+    .container__mobile {
+      display: none;
+    }
+    .container__reverse {
+      display: flex;
+    }
+    h1 {
+      color: ${({ theme }) => theme.colors.orangePrimary};
+      padding: 1rem 0;
+      font-size: 36px;
+      margin: 0 1rem;
+      span {
+        color: ${({ theme }) => theme.colors.greenPrimary};
+      }
+    }
+    li {
+      display: flex;
+      width: 40%;
+      align-items: center;
+      flex-direction: row-reverse;
+
+      div {
+        display: flex;
+        justify-content: flex-end;
+        nav {
+          display: flex;
+          flex-direction: row;
+          margin: 0;
+          i {
+            font-size: 2rem;
+            padding: 0.275rem;
+          }
+        }
+      }
+      section {
+        text-align: right;
+
+        display: flex;
+        align-items: center;
+        h2 {
+          font-size: 36px;
+          color: ${({ theme }) => theme.colors.greenPrimary};
+          width: 100%;
+          padding: 1.275rem 1rem;
+        }
+        img {
+          height: 2.5rem;
+          padding-right: 1rem;
+        }
       }
     }
   }

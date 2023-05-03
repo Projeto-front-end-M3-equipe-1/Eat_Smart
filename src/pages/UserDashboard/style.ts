@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledContainerUserDashboard = styled.div`
-  /* border: 1px solid red; */
   width: 100vw;
   height: 100vh;
   font-family: 'Poppins';
@@ -13,12 +12,13 @@ export const StyledContainerUserDashboard = styled.div`
   overflow-x: hidden;
 
   /*   header {
-    border: 1px solid red;
-    width: 100%;none
+
+    
+    width: 100%;
+
   } */
 
   footer {
-    border: 1px solid red;
     width: 100%;
   }
 
@@ -36,7 +36,7 @@ export const StyledContainerUserDashboard = styled.div`
 
 export const StyledMainContainerUserDashboard = styled.div`
   margin-top: 10rem;
-  border: 1px solid red;
+
   width: 90%;
   height: 80%;
   display: flex;

@@ -1,8 +1,9 @@
 import { SearchForm } from './SearchForm';
 import { useContext } from 'react';
 import { CartContext } from '../../providers/CartProvider';
-import { StyledUserPageHeader } from './style';
+import { StyledCompanyPageHeader, StyledUserPageHeader } from './style';
 import { StyledTitleGreen } from '../../styles/typography';
+import logoCategory from '../../assets/icons/lanches.svg';
 import { UserContext } from '../../providers/UserContext/UserContext';
 
 export const Header = ({ setIsEditProfileModalOpen }) => {
@@ -13,7 +14,11 @@ export const Header = ({ setIsEditProfileModalOpen }) => {
     company && company[0].toUpperCase() + company.substring(1);
 
   const { setIsCartModalOpen } = useContext(CartContext);
-  const { logout, setIsEditUserProfileModalOpen, user:userState } = useContext(UserContext);
+  const {
+    logout,
+    setIsEditUserProfileModalOpen,
+    user: userState,
+  } = useContext(UserContext);
 
   if (user && user) {
     return (
@@ -43,14 +48,16 @@ export const Header = ({ setIsEditProfileModalOpen }) => {
               <button onClick={() => logout()} type='button'>
                 <i className='fa-solid fa-right-from-bracket'></i>
               </button>
-              <button onClick={() => setIsEditUserProfileModalOpen(true)} type='button'>
+              <button
+                onClick={() => setIsEditUserProfileModalOpen(true)}
+                type='button'
+              >
                 <i className='fa-solid fa-gears'></i>
               </button>
             </nav>
           </div>
           <section>
             <SearchForm />
-            console.log(apagar)
           </section>
           <section>
             <h2>Olá, {userState?.userName}</h2>
@@ -61,7 +68,7 @@ export const Header = ({ setIsEditProfileModalOpen }) => {
   }
   if (company && company) {
     return (
-      <StyledUserPageHeader>
+      <StyledCompanyPageHeader>
         <StyledTitleGreen
           className='container__reverse'
           tag='h1'
@@ -93,14 +100,13 @@ export const Header = ({ setIsEditProfileModalOpen }) => {
             </nav>
           </div>
           <section>
-            <SearchForm />
-          </section>
-          <section>
-            <h1></h1>
-            <h2>{companyName}</h2>
+            <h2>
+              <img src={logoCategory} alt='' />
+              {companyName}
+            </h2>
           </section>
         </li>
-      </StyledUserPageHeader>
+      </StyledCompanyPageHeader>
     );
   }
   return null;

@@ -29,7 +29,6 @@ export const StyledOffersContainer = styled.div`
   }
 
   span {
-    // border: 1px solid red;
     height: 2rem;
     display: flex;
     align-items: center;
@@ -66,10 +65,9 @@ export const StyledOffersContainer = styled.div`
     h1 {
       font-size: 24px;
 
-    button {
-      margin-top: 1rem;
+      button {
+        margin-top: 1rem;
+      }
     }
   }
-
-
 `;
