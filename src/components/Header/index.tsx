@@ -4,14 +4,12 @@ import { CartContext } from '../../providers/CartProvider';
 import { StyledUserPageHeader } from './style';
 import { StyledTitleGreen } from '../../styles/typography';
 
-export const Header = () => {
+export const Header = ({ setIsEditProfileModalOpen }) => {
   const user = localStorage.getItem('@EatSmart:userName');
   const company = localStorage.getItem('@EatSmart:userNameCommerce');
   const userName = user && user[0].toUpperCase() + user.substring(1);
-  /*  const companyName =
+  const companyName =
     company && company[0].toUpperCase() + company.substring(1);
- */
-  const category = localStorage.getItem('@EatSmart:userCommerceFoodCategory');
 
   const { setIsCartModalOpen } = useContext(CartContext);
 
@@ -84,7 +82,10 @@ export const Header = () => {
               <button type='button'>
                 <i className='fa-solid fa-right-from-bracket'></i>
               </button>
-              <button type='button'>
+              <button
+                type='button'
+                onClick={() => setIsEditProfileModalOpen(true)}
+              >
                 <i className='fa-solid fa-gears'></i>
               </button>
             </nav>
@@ -94,10 +95,11 @@ export const Header = () => {
           </section>
           <section>
             <h1></h1>
-            <h2>{/*   {category} {companyName} */}</h2>
+            <h2>{companyName}</h2>
           </section>
         </li>
       </StyledUserPageHeader>
     );
   }
+  return null;
 };
