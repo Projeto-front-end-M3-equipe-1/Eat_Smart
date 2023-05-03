@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledContainerUserDashboard = styled.div`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 99vw;
   height: 100vh;
   font-family: 'Poppins';
@@ -35,7 +35,7 @@ export const StyledContainerUserDashboard = styled.div`
 `;
 
 export const StyledMainContainerUserDashboard = styled.div`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 90%;
   height: 80%;
   display: flex;

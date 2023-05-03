@@ -3,13 +3,18 @@ import backgroundImage from '../../assets/images/background.svg';
 
 export const StyledMainDashboardHeader = styled.header`
   z-index: 1;
-  position: relative;
+  width: 100%;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   max-width: 1440px;
-  margin: 0 auto;
+  padding: 1rem;
 
   h1 {
     color: ${({ theme }) => theme.colors.orangePrimary};
@@ -23,6 +28,7 @@ export const StyledMainDashboardHeader = styled.header`
   }
 
   @media (max-width: 768px) {
+    position: absolute;
     display: flex;
     flex-direction: column;
     background-color: ${({ theme }) => theme.colors.greenPrimary};
@@ -37,7 +43,7 @@ export const StyledMainDashboardHeader = styled.header`
   }
 `;
 
-export const StyledMainDashboard = styled.main`
+export const StyledMainDashboard = styled.div`
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -46,7 +52,7 @@ export const StyledMainDashboard = styled.main`
   background-size: cover;
   background-position: center center;
   position: fixed;
-  margin: -114px -8px;
+  margin: 0 auto;
   z-index: -1;
 
   div {
@@ -120,12 +126,22 @@ export const StyledMainDashboard = styled.main`
     max-height: 721px;
   }
 
+  @media (max-width: 375px) {
+  }
+
+  @media (max-width: 425px) {
+  }
+
   @media (max-width: 768px) {
     background-image: none;
     background-color: ${({ theme }) => theme.colors.greenPrimary};
     width: 100%;
     height: 100%;
-    margin-top: -225px;
+
+    section:first-child > h1 {
+      padding-top: 8rem;
+      margin: 10px;
+    }
     section:first-child > p {
       margin: 10px;
     }

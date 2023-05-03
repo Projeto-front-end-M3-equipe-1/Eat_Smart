@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { TLoginFormSchema } from '../../components/Form/LoginForm/loginFormSchema';
 import { TRegisterFormSchema } from '../../components/Form/RegisterCommerceForm/SchemaFormRegister';
 import { toast } from 'react-toastify';
+import { IRegisterUserFormData } from '../../components/Form/RegisterCommerceForm';
 
 interface IUserProviderProps {
   children: React.ReactNode;
@@ -23,6 +24,9 @@ interface IUserContext {
   ) => Promise<void>;
 
   logout: () => void;
+  isEditUserProfileModalOpen: boolean;
+  setIsEditUserProfileModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  editUserProfile: (newUserProfileData: IRegisterUserFormData) => Promise<void>;
 }
 
 interface IUser {
@@ -32,7 +36,6 @@ interface IUser {
   id: number;
   foodCategory: string;
   isCompany?: boolean;
-  foodCategory: string;
 }
 
 interface IUserLoginResponse {
@@ -50,6 +53,7 @@ export const UserContext = createContext({} as IUserContext);
 export const UserProvider = ({ children }: IUserProviderProps) => {
   const navigate = useNavigate();
   const [user, setUser] = useState<IUser | null>(null);
+  const [isEditUserProfileModalOpen, setIsEditUserProfileModalOpen] = useState(false);
 
   useEffect(() => {
     const userToken = localStorage.getItem('@user:token');
@@ -90,6 +94,8 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         } else {
           localStorage.setItem('@user:token', data.accessToken);
           localStorage.setItem('@user:id', JSON.stringify(data.user.id));
+          localStorage.setItem('@EatSmart:userName', data.user.userName);
+          localStorage.setItem('@EatSmart:userEmail', data.user.email);
           setUser(data.user);
           navigate('/userHome');
         }
@@ -114,6 +120,9 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
           localStorage.setItem('@userCompany:token', data.accessToken);
           localStorage.setItem('@userCompany:id', JSON.stringify(data.user.id));
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6b4afb3cfde30e91e5dbf4ac42cdd2cedc39bab6
           localStorage.setItem(
             '@EatSmart:userNameCommerce',
             data.user.userName
@@ -123,11 +132,14 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
             '@EatSmart:userCommerceFoodCategory',
             data.user.foodCategory
           );
+<<<<<<< HEAD
 =======
           localStorage.setItem('@EatSmart:userNameCommerce', data.user.userName);
           localStorage.setItem('@EatSmart:userCommerceEmail', data.user.email);
           localStorage.setItem('@EatSmart:userCommerceFoodCategory', data.user.foodCategory);
 >>>>>>> 41afb206384a6b9131e0297a3fe0100b620cea3f
+=======
+>>>>>>> 6b4afb3cfde30e91e5dbf4ac42cdd2cedc39bab6
           setUser(data.user);
           navigate('/companyHome');
         }
@@ -153,6 +165,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
           '/register',
           confirmUser
         );
+        console.log(data);
         toast.success('Cadastro realizado com sucesso');
         localStorage.setItem('@handle:typUser', 'userLogin');
         localStorage.setItem('@handle:nav', 'login');
@@ -181,6 +194,34 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     }
   };
 
+  const editUserProfile = async (
+    newUserProfileData: IRegisterUserFormData
+  ) => {
+    const userId = localStorage.getItem('@user:id');
+    const userToken = localStorage.getItem('@user:token');
+
+    try {
+      const responseApi = await api
+        .patch<IRegisterUserFormData>(
+          `/users/${userId}`,
+          newUserProfileData,
+          {
+            headers: { Authorization: `Bearer ${userToken}` },
+          }
+        )
+        .then((response) => {
+          console.log(response.data); //substituir por toast
+          console.log('Alterado');
+        });
+
+      return responseApi;
+    } catch (error) {
+      console.log(error);
+    } finally {
+      // setLoading(false);
+    }
+  };
+
   const logout = () => {
     localStorage.removeItem('@user:id');
     localStorage.removeItem('@user:token');
@@ -194,6 +235,9 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         signIn,
         newUserRegister,
         logout,
+        isEditUserProfileModalOpen,
+        setIsEditUserProfileModalOpen,
+        editUserProfile,
       }}
     >
       {children}

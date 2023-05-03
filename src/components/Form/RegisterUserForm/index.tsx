@@ -4,9 +4,12 @@ import {
   SchemaFormUserRegister,
   TRegisterFormUserSchema,
 } from './registerUserFormSchema';
-import { Input } from '../Input';
+import { InputLight } from '../Input';
 import { useState, useContext } from 'react';
 import { UserContext } from './../../../providers/UserContext/UserContext';
+import { StyledFormUserLight } from '../../../styles/form';
+import { StyledTitleWhite } from '../../../styles/typography';
+import { StyledButton } from '../../../styles/button';
 
 export interface IRegisterUserFormData {
   userName: string;
@@ -31,8 +34,11 @@ export const RegisterUserForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
-      <Input
+    <StyledFormUserLight onSubmit={handleSubmit(submit)}>
+      <StyledTitleWhite tag='h1' $fontSize='titleForm' textAlign='center'>
+        Conte-nos sobre o seu negócio:
+      </StyledTitleWhite>
+      <InputLight
         type='text'
         label='Nome'
         placeholder='Nome'
@@ -41,7 +47,7 @@ export const RegisterUserForm = () => {
         disabled={loading}
         error={errors.userName}
       />
-      <Input
+      <InputLight
         type='email'
         label='Email'
         placeholder='Email'
@@ -50,7 +56,7 @@ export const RegisterUserForm = () => {
         disabled={loading}
         error={errors.email}
       />
-      <Input
+      <InputLight
         type='password'
         label='Senha'
         placeholder='Senha'
@@ -59,7 +65,7 @@ export const RegisterUserForm = () => {
         disabled={loading}
         error={errors.password}
       />
-      <Input
+      <InputLight
         type='password'
         label='Confirmar senha'
         placeholder='Confirmar senha'
@@ -68,7 +74,13 @@ export const RegisterUserForm = () => {
         {...register('confirmPassword')}
         error={errors.confirmPassword}
       />
-      <button type='submit'>Cadastrar</button>
-    </form>
+      <StyledButton
+        $buttonSize='default'
+        $buttonStyle='buttonGreenDark'
+        type='submit'
+      >
+        Cadastrar
+      </StyledButton>
+    </StyledFormUserLight>
   );
 };
