@@ -1,6 +1,13 @@
 import { LoginForm } from '../../components/Form/LoginForm';
 import { StyledButton } from '../../styles/button';
 import { useNavigate } from 'react-router-dom';
+import {
+  StyledColorBackground,
+  StyledFormLoginCompany,
+  StyledFormLoginUser,
+  StyledLoginPageHeaderUser,
+} from './style';
+import { StyledTitleGreen } from '../../styles/typography';
 
 export const LoginPage = () => {
   const typeofRoute = localStorage.getItem('@handle:typUser');
@@ -20,54 +27,92 @@ export const LoginPage = () => {
   };
   if (typeofRoute === 'userLogin') {
     return (
-      <>
-        <main>
-          <section>
-            <p>Fatos, coisas bonitinhas</p>
-            <img src='Imagem' alt=''></img>
-          </section>
-          <LoginForm />
-          <div>
-            <p>Ainda não é cadastrado?</p>
-
+      <StyledColorBackground>
+        <StyledFormLoginUser>
+          <StyledLoginPageHeaderUser>
+            <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
+              Eat<span>Smart</span>
+            </StyledTitleGreen>
             <StyledButton
               $buttonSize='default'
               $buttonStyle='buttonGreenLight'
               onClick={() => {
-                handleClick();
+                navigate('/');
               }}
             >
-              Cadastre-ses
+              Home
             </StyledButton>
-          </div>
-        </main>
-      </>
+          </StyledLoginPageHeaderUser>
+          <section className='container__principal'>
+            <section>
+              <LoginForm />
+              <div className='container_nav'>
+                <StyledTitleGreen tag='h1' $fontSize='small'>
+                  Ainda não é cadastrado?
+                </StyledTitleGreen>
+                <StyledButton
+                  $buttonSize='default'
+                  $buttonStyle='buttonGreenLight'
+                  onClick={() => {
+                    handleClick();
+                  }}
+                >
+                  Cadastre-se
+                </StyledButton>
+              </div>
+            </section>
+            <section className='container__desktop'></section>
+          </section>
+        </StyledFormLoginUser>
+      </StyledColorBackground>
     );
   }
   if (typeofRoute === 'companyLogin') {
     return (
-      <>
-        <main>
-          <section>
-            <p>Fatos, coisas bonitinhas</p>
-            <img src='Imagem' alt=''></img>
-          </section>
-          <LoginForm />
-          <div>
-            <p>Ainda não é cadastrado?</p>
-
+      <StyledColorBackground>
+        <StyledFormLoginCompany>
+          <StyledLoginPageHeaderUser>
+            <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
+              Eat<span>Smart</span>
+            </StyledTitleGreen>
             <StyledButton
               $buttonSize='default'
               $buttonStyle='buttonGreenLight'
               onClick={() => {
-                handleClick();
+                navigate('/');
               }}
             >
-              Cadastre-se
+              Home
             </StyledButton>
-          </div>
-        </main>
-      </>
+          </StyledLoginPageHeaderUser>
+          <section className='container__principal'>
+            <section>
+              <LoginForm />
+              <div className='container_nav'>
+                <StyledTitleGreen tag='h1' $fontSize='small'>
+                  Ainda não é cadastrado?
+                </StyledTitleGreen>
+                <StyledButton
+                  $buttonSize='default'
+                  $buttonStyle='buttonGreenLight'
+                  onClick={() => {
+                    handleClick();
+                  }}
+                >
+                  Cadastre-se
+                </StyledButton>
+              </div>
+            </section>
+            <section className='container__desktop'>
+              <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
+                Bom para os <br />
+                <span>Negócios</span>,<br /> Melhor ainda <br /> para o
+                <span> Planeta</span>
+              </StyledTitleGreen>
+            </section>
+          </section>
+        </StyledFormLoginCompany>
+      </StyledColorBackground>
     );
   }
   return null;

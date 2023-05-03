@@ -1,9 +1,8 @@
-
-import { useContext } from "react";
-import { CartContext } from "../../../providers/CartProvider";
-import { CartProductCard } from "./CartProductCard";
-import { StyledCartProductList } from "./style";
-import trash from "../../../assets/icons/lixoGrande.svg"
+import { useContext } from 'react';
+import { CartContext } from '../../../providers/CartProvider';
+import { CartProductCard } from './CartProductCard';
+import { StyledCartProductList } from './style';
+import trash from '../../../assets/icons/lixoGrande.svg';
 
 interface ISumDiscountProps {
   sumDiscount: number;
@@ -11,7 +10,6 @@ interface ISumDiscountProps {
 
 export const CartProductList = ({ sumDiscount }: ISumDiscountProps) => {
   const { listOffersCart, removeAllOffersFromCart } = useContext(CartContext);
-
 
   let newList: number[] = [];
 
@@ -23,7 +21,6 @@ export const CartProductList = ({ sumDiscount }: ISumDiscountProps) => {
   const sum = newList.reduce((previousValue, currentItem) => {
     return previousValue + currentItem;
   }, 0);
-
 
   return (
     <StyledCartProductList>
@@ -40,16 +37,18 @@ export const CartProductList = ({ sumDiscount }: ISumDiscountProps) => {
       <div>
         <p>Total:</p>
         <small>
-          {sumDiscount.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL",
+          {sumDiscount.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
           })}
         </small>
       </div>
       <div>
-        <img src={trash} alt="" />
-        <button onClick={() => removeAllOffersFromCart()}>Remover todos os itens</button>
-        <button type="button">Finalizar compra</button>
+        <img src={trash} alt='' />
+        <button onClick={() => removeAllOffersFromCart()}>
+          Remover todos os itens
+        </button>
+        <button type='button'>Finalizar compra</button>
       </div>
     </StyledCartProductList>
   );

@@ -34,8 +34,8 @@ interface IUser {
   name: string;
   userName: string;
   id: number;
-  isCompany?: boolean;
   foodCategory: string;
+  isCompany?: boolean;
 }
 
 interface IUserLoginResponse {
@@ -119,9 +119,15 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         } else {
           localStorage.setItem('@userCompany:token', data.accessToken);
           localStorage.setItem('@userCompany:id', JSON.stringify(data.user.id));
-          localStorage.setItem('@EatSmart:userNameCommerce', data.user.userName);
+          localStorage.setItem(
+            '@EatSmart:userNameCommerce',
+            data.user.userName
+          );
           localStorage.setItem('@EatSmart:userCommerceEmail', data.user.email);
-          localStorage.setItem('@EatSmart:userCommerceFoodCategory', data.user.foodCategory);
+          localStorage.setItem(
+            '@EatSmart:userCommerceFoodCategory',
+            data.user.foodCategory
+          );
           setUser(data.user);
           navigate('/companyHome');
         }
@@ -147,6 +153,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
           '/register',
           confirmUser
         );
+        console.log(data);
         toast.success('Cadastro realizado com sucesso');
         localStorage.setItem('@handle:typUser', 'userLogin');
         localStorage.setItem('@handle:nav', 'login');
@@ -165,6 +172,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         toast.success('Cadastro realizado com sucesso');
         localStorage.setItem('@handle:typUser', 'companyLogin');
         localStorage.setItem('@handle:nav', 'login');
+
         navigate('/signin');
       } catch (error) {
         toast.error('Oops! Algo deu errado tente novamente');

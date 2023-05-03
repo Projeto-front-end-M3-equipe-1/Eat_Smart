@@ -3,9 +3,9 @@ import { RoutesMain } from './routes';
 
 const App = () => {
   return (
-      <CartProvider>
-        <RoutesMain />
-      </CartProvider>
+    <CartProvider>
+      <RoutesMain />
+    </CartProvider>
   );
 };
 
