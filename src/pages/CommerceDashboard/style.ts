@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledCommerceDashboard = styled.div`
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -15,9 +14,9 @@ export const StyledCommerceDashboard = styled.div`
 export const StyledHeaderContainer = styled.div`
   border: 1px solid red;
   width: 100%;
-  height: 10vh;
+  height: 10%;
   display: flex;
-  display: none;
+  // display: none;
 `;
 
 export const StyledCommerceDataContainer = styled.div`
@@ -33,6 +32,7 @@ export const StyledCommerceLogoContainer = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
+  height: 100%;
   gap: 1rem;
 
   img {
@@ -45,7 +45,11 @@ export const StyledCommerceLogoContainer = styled.div`
   h2 {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #056365;
+    color: rgb(5, 99, 101);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    line-height: 36px;
   }
 
   @media (min-width: 768px) {
@@ -58,9 +62,9 @@ export const StyledCommerceDashboardMainContainer = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1rem;
+  margin: 1rem 0;
   width: 90%;
-  // height: 70vh;
+  height: 70%;
 
   section {
     display: flex;
@@ -84,19 +88,36 @@ export const StyledCommerceDashboardMainContainer = styled.main`
   }
 
   @media (min-width: 768px) {
+    align-items: flex-start;
     width: 80%;
-    height: 76.8vh;
-    flex-wrap: wrap;
+    height: 76vh;
+    // flex-wrap: wrap;
     gap: 1rem;
 
+
     section {
-      width: 50%;
+      width: 45%;
     }
+  }
+`;
+
+export const StyledMainSections = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 `;
 
 export const StyledFooterCommerce = styled.div`
   width: 100%;
+  height: 15%
   margin-top: 1rem;
 
   footer {

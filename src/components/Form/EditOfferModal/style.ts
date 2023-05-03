@@ -6,14 +6,12 @@ flex-direction: column;
 align-items: flex-end;
 width: 99vw;
 height: 100vh;
-position: fixed;
+position: absolute;
 
 z-index: 1000;
-// margin:auto;
 inset: 0;
 
-// position: absolute;
-// top: 0;
+left: 0;
 
 background: rgba(51, 51, 51, 0.5);
 box-shadow: 0px 9px 2px rgba(0, 0, 0, 0.25);
@@ -75,7 +73,7 @@ section> form > div{
 
 section> form > div> label {
   background-color: ${({ theme }) => theme.colors.white};
-  height: 2px;
+  height: 8px;
   position: absolute;
   padding: 3px;
   top: -0.3125rem;

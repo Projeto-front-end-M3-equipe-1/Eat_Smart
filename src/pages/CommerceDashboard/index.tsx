@@ -5,13 +5,13 @@ import marketIcon from '../../assets/icons/mercado.svg';
 import bakeryIcon from '../../assets/icons/padaria.svg';
 import restaurantIcon from '../../assets/icons/restaurantes.svg';
 import {
-  StyledColorBackground,
   StyledCommerceDashboard,
   StyledCommerceDashboardMainContainer,
   StyledCommerceDataContainer,
   StyledCommerceLogoContainer,
   StyledFooterCommerce,
   StyledHeaderContainer,
+  StyledMainSections,
 } from './style';
 import { Header } from '../../components/Header';
 import { CreateProductForm } from '../../components/Form/CreateProductForm';
@@ -71,18 +71,20 @@ export const CommerceDashboard = () => {
         </StyledCommerceLogoContainer>
       </StyledCommerceDataContainer>
       <StyledCommerceDashboardMainContainer>
-        <section>
-          {/* <h2>Cadastrar nova Oferta</h2> */}
-          <CreateProductForm />
-        </section>
-        <section>
-          {/* <h2>Reservas</h2> */}
-          <ReservedProductsList />
-        </section>
-        <section>
-          {/* <h2>Ofertas cadastradas</h2> */}
-          <OfferList />
-        </section>
+        <StyledMainSections>
+          <section className='product_form'>
+            {/* <h2>Cadastrar nova Oferta</h2> */}
+            <CreateProductForm />
+          </section>
+          <section className='reservations'>
+            {/* <h2>Reservas</h2> */}
+            <ReservedProductsList />
+          </section>
+          <section className='offer_list'>
+            {/* <h2>Ofertas cadastradas</h2> */}
+            <OfferList />
+          </section>
+        </StyledMainSections>
       </StyledCommerceDashboardMainContainer>
       <StyledFooterCommerce>
         <FooterMobileCommerce />

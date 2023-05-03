@@ -23,6 +23,8 @@ export const StyledReserveContainer = styled.ul`
 
   @media (min-width: 768px) {
 
+    height: 10.3125rem;
+
     h3 {
       font-size: 24px;
     }

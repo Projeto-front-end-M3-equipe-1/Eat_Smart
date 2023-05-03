@@ -10,7 +10,7 @@ export const StyledFooterMobileUser = styled.footer`
   border: 1px solid #056365;
 
   p {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 700;
     line-height: 1.5rem;
     color: #ffffff;
@@ -18,5 +18,11 @@ export const StyledFooterMobileUser = styled.footer`
 
   p > strong {
     color: #ff543d;
+  }
+
+  @media (min-width: 375px) {
+    p {
+      font-size: 1.5rem;
+    }
   }
 `;

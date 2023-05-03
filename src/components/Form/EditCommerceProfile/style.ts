@@ -9,7 +9,6 @@ export const StyledEditCommerceProfileModal = styled.div`
   position: fixed;
   z-index: 1000;
 
-  // background-color: #ffffff;
   background: rgba(51, 51, 51, 0.5);
   box-shadow: 0px 9px 2px rgba(0, 0, 0, 0.25);
 
