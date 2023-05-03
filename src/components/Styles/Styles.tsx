@@ -1,5 +1,6 @@
 import { StyledButton } from '../../styles/button';
-import { StyledContainer, StyledCartSale } from './containerStyles';
+import { StyledContainer } from './containerStyles';
+import { StyledCartSale } from '../ProductList/ProductCard/style';
 import {
   StyledFormUserDark,
   StyledFormUserLight,

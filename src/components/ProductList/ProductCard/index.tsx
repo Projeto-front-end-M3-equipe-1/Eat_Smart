@@ -1,9 +1,9 @@
-import { StyledProductCard } from './style';
+/* import { StyledProductCard } from './style';
 import backGroundCart from '../../../assets/images/image3.svg';
-import heart from '../../../assets/icons/coração.svg';
+import heart from '../../../assets/icons/coração.svg'; */
 import { useContext } from 'react';
 import { CartContext, IOffer } from '../../../providers/CartProvider';
-import { StyledCartSale } from '../../Styles/containerStyles';
+import { StyledCartSale } from './style';
 
 interface IOffersCartProps {
   offer: IOffer;
@@ -32,7 +32,6 @@ export const ProductCard = ({ offer }: IOffersCartProps) => {
             </button>
           </span>
         </section>
-
         <section className='description'>
           <h4>Oferta: {offer.title}</h4>
           <h5>Horario</h5>

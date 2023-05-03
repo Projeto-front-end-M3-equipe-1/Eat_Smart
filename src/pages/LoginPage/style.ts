@@ -26,7 +26,7 @@ export const StyledLoginPageHeaderCompany = styled.header`
     color: ${({ theme }) => theme.colors.orangePrimary};
     padding: 1rem 0;
     span {
-      color: ${({ theme }) => theme.colors.white};
+      color: ${({ theme }) => theme.colors.greenPrimary};
     }
   }
 
@@ -85,7 +85,7 @@ export const StyledLoginPageHeaderUser = styled.header`
     color: ${({ theme }) => theme.colors.orangePrimary};
     padding: 1rem 0;
     span {
-      color: ${({ theme }) => theme.colors.greenPrimary};
+      color: ${({ theme }) => theme.colors.white};
     }
   }
 
@@ -135,7 +135,7 @@ export const StyledFormLoginUser = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.greenPrimary};
-  margin: 0 auto;
+
   .container__principal {
     padding-top: 170px;
     padding-bottom: 70px;
