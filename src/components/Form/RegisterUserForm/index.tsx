@@ -36,7 +36,7 @@ export const RegisterUserForm = () => {
   return (
     <StyledFormUserLight onSubmit={handleSubmit(submit)}>
       <StyledTitleWhite tag='h1' $fontSize='titleForm' textAlign='center'>
-        Conte-nos sobre o seu negócio:
+        Conte-nos sobre você:
       </StyledTitleWhite>
       <InputLight
         type='text'
