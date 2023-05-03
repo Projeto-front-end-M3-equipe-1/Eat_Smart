@@ -2,9 +2,10 @@ import styled from 'styled-components';
 
 export const StyledProductList = styled.ul`
   display: flex;
-  overflow-x: auto;
+  justify-content: space-between !important;
+  /* overflow-x: auto; */
   list-style: none;
-  padding-left: 0;
+  /* padding-left: 0; */
 
   @media (min-width: 375px) {
   }

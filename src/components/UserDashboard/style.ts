@@ -29,7 +29,7 @@ export const StyledUserDashboard = styled.main`
   }
 
   .categories__container > nav {
-    display: none;
+    /* display: none; */
   }
 
   .categories__container > form {
@@ -62,7 +62,10 @@ export const StyledUserDashboard = styled.main`
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-bottom: 1rem;
+    height: 100%;
+    padding-bottom: 4rem;
+    /* border: 1px solid red; */
+  }
 
   .offers__container > h1 {
     /* border: 1px solid red; */
@@ -76,10 +79,10 @@ export const StyledUserDashboard = styled.main`
   }
 
   .offers__container > div {
-
+    height: 100%;
     display: flex;
     align-items: center;
-  } */
+  }
 
 
   .offers__container > div > h2 {
