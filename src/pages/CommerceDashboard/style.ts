@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledCommerceDashboard = styled.div`
+  border: 1px solid red;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -8,6 +9,7 @@ export const StyledCommerceDashboard = styled.div`
   align-items: center;
   background-color: #efe9e8;
   font-family: 'Poppins';
+  margin: 0 auto;
   overflow-x: hidden;
 `;
 
@@ -93,7 +95,6 @@ export const StyledCommerceDashboardMainContainer = styled.main`
     height: 76vh;
     // flex-wrap: wrap;
     gap: 1rem;
-
 
     section {
       width: 45%;
