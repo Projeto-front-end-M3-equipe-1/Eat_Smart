@@ -45,7 +45,7 @@ export const StyledCreateProductForm = styled.form`
     color: ${({ theme }) => theme.colors.gray600};
   }
 
-  div > input {
+  div > .input_formCreateOffer {
     width: auto;
     height: 45px;
     border: 2px solid #989898;
@@ -89,8 +89,8 @@ export const StyledCreateProductForm = styled.form`
   }
 
   @media (min-width: 768px) {
-    header > h1 {
-      font-size: 1.5rem;
+    .header_formCreate  > h1 {
+      font-size: 22px;
     }
 
     div > div > label {
@@ -98,6 +98,9 @@ export const StyledCreateProductForm = styled.form`
     }
 
     @media (min-width: 1024px) {
+      .header_formCreate  > h1 {
+        font-size: 1.5rem;
+      }
     }
   }
 `;
