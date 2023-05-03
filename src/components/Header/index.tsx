@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { CartContext } from '../../providers/CartProvider';
 import { StyledUserPageHeader } from './style';
 import { StyledTitleGreen } from '../../styles/typography';
+import { UserContext } from '../../providers/UserContext/UserContext';
 
 export const Header = () => {
   const user = localStorage.getItem('@EatSmart:userName');
@@ -14,6 +15,7 @@ export const Header = () => {
   const category = localStorage.getItem('@EatSmart:userCommerceFoodCategory');
 
   const { setIsCartModalOpen } = useContext(CartContext);
+  const { logout } = useContext(UserContext);
 
   if (user && user) {
     return (
@@ -81,7 +83,7 @@ export const Header = () => {
               Eat<span>Smart</span>
             </StyledTitleGreen>
             <nav>
-              <button type='button'>
+              <button onClick={() => logout()} type='button'>
                 <i className='fa-solid fa-right-from-bracket'></i>
               </button>
               <button type='button'>
