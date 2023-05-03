@@ -9,6 +9,8 @@ import {
   StyledCommerceDashboardMainContainer,
   StyledCommerceDataContainer,
   StyledCommerceLogoContainer,
+  StyledFooterCommerce,
+  StyledHeaderContainer,
 } from './style';
 import { Header } from '../../components/Header';
 import { CreateProductForm } from '../../components/Form/CreateProductForm';
@@ -17,6 +19,7 @@ import { OfferList } from '../../components/OfferList';
 import { useState } from 'react';
 import { EditCommerceProfile } from '../../components/Form/EditCommerceProfile';
 import { Footer } from '../../components/Footer';
+import { FooterMobileCommerce } from '../../components/Footer/FooterMobileCommerce';
 
 export const CommerceDashboard = () => {
   const [isEditProfileModalOpen, setIsEditProfileModalOpen] = useState(false);
@@ -32,11 +35,12 @@ export const CommerceDashboard = () => {
 
   return (
     <StyledCommerceDashboard>
-      <Header />
-      <button onClick={() => setIsEditProfileModalOpen(true)}>
-        Edit profile
-      </button>
-
+      <StyledHeaderContainer>
+        <Header />
+        <button onClick={() => setIsEditProfileModalOpen(true)}>
+          Edit profile
+        </button>
+      </StyledHeaderContainer>
       {isEditProfileModalOpen ? (
         <EditCommerceProfile closeProfileModal={closeProfileModalWrapper} />
       ) : null}
@@ -79,7 +83,10 @@ export const CommerceDashboard = () => {
           <OfferList />
         </section>
       </StyledCommerceDashboardMainContainer>
-      <Footer />
+      <StyledFooterCommerce>
+        <FooterMobileCommerce />
+        <Footer />
+      </StyledFooterCommerce>
     </StyledCommerceDashboard>
   );
 };

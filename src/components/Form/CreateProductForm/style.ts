@@ -21,7 +21,7 @@ export const StyledCreateProductForm = styled.form`
     h1 {
       display: flex;
       font-size: 1.125rem;
-      font-weight: 600;
+      font-weight: 700;
       color: #2e2e2e;
     }
 
@@ -72,7 +72,8 @@ export const StyledCreateProductForm = styled.form`
   }
 
   @media (min-width: 768px) {
-    width: 95%;
-    margin-top: 1rem;
+    header > h1 {
+      font-size: 24px;
+    }
   }
 `;

@@ -1,12 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
-
-
 body{
 	margin: 0 auto;
 	height: 100vh;
 	width: 100vw;
+	line-height:0;
 }
 
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -20,7 +19,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video, button, input {
+time, mark, audio, video, button, input, body {
 	margin: 0;
 	padding: 0;
 	border: 0;

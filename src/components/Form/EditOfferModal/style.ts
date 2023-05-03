@@ -21,7 +21,7 @@ box-shadow: 0px 9px 2px rgba(0, 0, 0, 0.25);
 section {
   display: flex;
   flex-direction: column;
-  width: 320px !important;
+  width: 19.375rem !important;
   background-color: #ffffff;
   border-radius: 1.5rem 0rem 0 1.5rem;
   padding: 0 1rem;
@@ -54,15 +54,15 @@ section > form {
   align-items:center;
   gap: 1.5rem;
   background-color: #ffffff;
-  width: 320px;
 }
 
 section > form > h3 {
+  margin-bottom: 0 !important;
+  margin-top: 0.5rem !important;
   padding-left: 1rem;
   font-size: 1.125rem;
   font-weight: 600;
   width: 100%;
-  margin-bottom: 0;
 }
 
 section> form > div{
@@ -106,6 +106,7 @@ section> form > div > input{
         }
 
         :focus{
+          background-color: ${({ theme }) => theme.colors.white};
           border: 1px solid ${({ theme }) => theme.colors.gray300};
           color: #000000;
           padding-left: 14px;
@@ -122,8 +123,7 @@ section> form > div > p{
 }
 
 section> form > button {
-  border: 1px solid red;
-  width: 90%;
+  width: 95%;;
   height: 45px;
   background-color: #056365 !important;
   border: 1px solid #056365 !important;
@@ -136,11 +136,11 @@ section> form > button {
   align-items: center;
 
   padding: 0;
-  margin: 1rem 0 !important;
+  margin: 0 0 1rem 0 !important;
 
 }
 section > button {
-  width: 90%;
+  width: 95%;
   height: 45px;
   align-self: center;
   margin-bottom: 2rem !important;

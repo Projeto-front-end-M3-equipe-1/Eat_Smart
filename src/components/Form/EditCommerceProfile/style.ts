@@ -9,17 +9,17 @@ export const StyledEditCommerceProfileModal = styled.div`
   position: fixed;
   z-index: 1000;
 
-  background-color: #ffffff;
+  // background-color: #ffffff;
   background: rgba(51, 51, 51, 0.5);
   box-shadow: 0px 9px 2px rgba(0, 0, 0, 0.25);
 
   div {
     display: flex;
     flex-direction: column;
-    width: 20rem;
+    width: 19.375rem;
     background-color: #ffffff;
     border-radius: 1.5rem 0rem 1.5rem 1.5rem;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
   }
 
   div > nav {
@@ -29,7 +29,7 @@ export const StyledEditCommerceProfileModal = styled.div`
     height: 2.5rem;
     background-color: #ffffff;
     gap: 1rem;
-    padding-right: 0.5rem;
+    padding-right: 0 0.5rem;
     margin-top: 0.5rem;
   }
 
@@ -47,6 +47,7 @@ export const StyledEditCommerceProfileModal = styled.div`
     height: 1.625rem;
     color: #FFFFFF;
   }
+  
   div > form {
     display: flex;
     flex-direction: column;
@@ -56,6 +57,8 @@ export const StyledEditCommerceProfileModal = styled.div`
   }
 
   div > form > h3 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     padding-left: 2rem;
     font-size: 1.125rem;
     font-weight: 600;
@@ -104,7 +107,7 @@ export const StyledEditCommerceProfileModal = styled.div`
             border: 1px solid ${({ theme }) => theme.colors.gray300};
             color: #000000;
             padding-left: 14px;
-    
+            background-color: ${({ theme }) => theme.colors.white};
           }
         }
   }
@@ -129,7 +132,7 @@ export const StyledEditCommerceProfileModal = styled.div`
     font-weight: 600;
 
     padding: 0;
-    margin: 1rem 0;
+    margin-bottom: 1rem;
 
   }
   div > button {

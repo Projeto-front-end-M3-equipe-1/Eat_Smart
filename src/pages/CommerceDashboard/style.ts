@@ -4,12 +4,20 @@ export const StyledCommerceDashboard = styled.div`
   border: 1px solid red;
   display: flex;
   flex-direction: column;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   align-items: center;
   background-color: #efe9e8;
   font-family: 'Poppins';
   overflow-x: hidden;
+`;
+
+export const StyledHeaderContainer = styled.div`
+  border: 1px solid red;
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  display: none;
 `;
 
 export const StyledCommerceDataContainer = styled.div`
@@ -26,7 +34,6 @@ export const StyledCommerceLogoContainer = styled.div`
   align-items: center;
   width: 100%;
   gap: 1rem;
-  margin-left: 1rem;
 
   img {
     width: 2.125rem;
@@ -53,11 +60,12 @@ export const StyledCommerceDashboardMainContainer = styled.main`
   align-items: center;
   margin-top: 1rem;
   width: 90%;
+  height: 70vh;
 
   section {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 100%;
 
     h2 {
       border: 1px solid red;
@@ -77,13 +85,37 @@ export const StyledCommerceDashboardMainContainer = styled.main`
 
   @media (min-width: 768px) {
     width: 80%;
-    height: 78vh;
+    height: 76.8vh;
     flex-wrap: wrap;
     gap: 1rem;
 
-    section{
+    section {
       width: 50%;
     }
+  }
+`;
 
+export const StyledFooterCommerce = styled.div`
+  width: 100%;
+  margin-top: 1rem;
+
+  footer {
+    display: none;
+  }
+
+  div {
+    display: flex;
+  }
+
+  @media (min-width: 768px) {
+    div {
+      display: none;
+    }
+
+    footer {
+      display: flex;
+      background-color: #056365;
+      gap: 1rem;
+    }
   }
 `;
