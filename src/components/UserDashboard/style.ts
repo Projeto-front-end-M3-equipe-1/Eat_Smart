@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-import arrow from '../../assets/icons/arrow.svg';
+import styled from "styled-components";
+import arrow from "../../assets/icons/arrow.svg";
 
 export const StyledUserDashboard = styled.main`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   background-color: #efe9e8;
   height: 100%;
   width: 100%;
@@ -25,6 +25,7 @@ export const StyledUserDashboard = styled.main`
   section:first-child > div > h1 {
     font-size: 22px;
     font-weight: 600;
+    cursor: pointer;
   }
 
   section:first-child > nav {
@@ -43,7 +44,7 @@ export const StyledUserDashboard = styled.main`
   }
 
   section:first-child > form > select {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     height: 2.1875rem;
     width: 100%;
     background: url ${{ arrow }} no-repeat right;
@@ -63,12 +64,14 @@ export const StyledUserDashboard = styled.main`
   }
 
   section:last-child > h1 {
-    border: 1px solid red;
-    font-family: 'Poppins', sans-serif;
+    /* border: 1px solid red; */
+    font-family: "Poppins", sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 2.25rem;
     color: #2e2e2e;
+    cursor: pointer;
+    width: 100px;
   }
 
   section:last-child > div {
@@ -90,7 +93,6 @@ export const StyledUserDashboard = styled.main`
   }
 
   @media (min-width: 768px) {
-
     section:first-child > div {
       display: flex;
       margin-bottom: 0;
@@ -102,7 +104,7 @@ export const StyledUserDashboard = styled.main`
 
     section:first-child > nav {
       width: 100%;
-      border: 1px solid red;
+      /* border: 1px solid red; */
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -120,8 +122,13 @@ export const StyledUserDashboard = styled.main`
       border: 1px solid white;
       border-radius: 16px;
       padding: 0;
-      box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
-        rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+      box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+      cursor: pointer;
+    }
+
+    section:first-child > nav > button:hover {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
     }
 
     section:first-child > nav > img {
@@ -136,23 +143,20 @@ export const StyledUserDashboard = styled.main`
   }
 
   @media (min-width: 768px) {
-
     section:last-child {
       margin: 1rem 0;
     }
 
-    section:last-child > h1{
+    section:last-child > h1 {
       margin-bottom: 0;
     }
 
-    section:last-child > div{
+    section:last-child > div {
       display: flex;
-      border: 2px solid green;
+      /* border: 2px solid green; */
       height: 50vh;
     }
   }
-
-  
 
   @media (min-width: 1024px) {
   }

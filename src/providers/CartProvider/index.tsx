@@ -1,5 +1,5 @@
-import { createContext, useEffect, useState } from "react";
-import { api } from "../../services/api";
+import { createContext, useEffect, useState } from 'react';
+import { api } from '../../services/api';
 
 export interface ICartProviderProps {
   children: React.ReactNode;
@@ -29,24 +29,28 @@ interface IOfferContext {
 
 export const CartContext = createContext({} as IOfferContext);
 
-export const CartProvider = ({children}: ICartProviderProps) => {
-  const cartLS = localStorage.getItem("@EatSmart:cart");
+export const CartProvider = ({ children }: ICartProviderProps) => {
+  const cartLS = localStorage.getItem('@EatSmart:cart');
   const [offers, setOffers] = useState<IOffer[]>([]);
   const [offersFound, setOffersFound] = useState<IOffer[]>([]);
-  const [listOffersCart, setListOffersCart] = useState<IOffer[]>(cartLS ? JSON.parse(cartLS) : []);
-  const token = localStorage.getItem("@EatSmart:token");
+  const [listOffersCart, setListOffersCart] = useState<IOffer[]>(
+    cartLS ? JSON.parse(cartLS) : []
+  );
+  const token = localStorage.getItem('@EatSmart:token');
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
 
   async function loadOffers() {
     try {
-      const { data } = await api.get<IOffer[]>("/products", {
+      const { data } = await api.get<IOffer[]>('/products', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
       setOffers(data);
       setOffersFound(data);
-    } catch (error) {}
+    } catch (error) {
+      console.log('Aline que colocou so deletar');
+    }
   }
 
   useEffect(() => {
@@ -54,7 +58,7 @@ export const CartProvider = ({children}: ICartProviderProps) => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("@EatSmart:cart", JSON.stringify(listOffersCart));
+    localStorage.setItem('@EatSmart:cart', JSON.stringify(listOffersCart));
   }, [listOffersCart]);
 
   function addItemToCart(offer: IOffer) {
@@ -66,7 +70,9 @@ export const CartProvider = ({children}: ICartProviderProps) => {
   }
 
   function removeItemFromCart(offerId: number) {
-    const newOffersListCart = listOffersCart.filter((offer) => offer.id !== offerId);
+    const newOffersListCart = listOffersCart.filter(
+      (offer) => offer.id !== offerId
+    );
     setListOffersCart(newOffersListCart);
   }
 
@@ -81,7 +87,7 @@ export const CartProvider = ({children}: ICartProviderProps) => {
         company.toLowerCase().includes(search.toLowerCase())
     );
     if (foundOffers.length <= 0) {
-      console.log("Nenhum item encontrado nessa pesquisa");
+      console.log('Nenhum item encontrado nessa pesquisa');
       setOffers(offersFound);
       return;
     } else if (search.length < 1) {
@@ -92,6 +98,12 @@ export const CartProvider = ({children}: ICartProviderProps) => {
     }
   }
   async function searchByCategory(category: string) {
+
+    if(category === ''){
+      setOffers(offersFound);
+      return
+    }
+
     try {
       const { data } = await api.get(
         `/users?foodCategory=${category.toLocaleLowerCase()}&_embed=products`,
@@ -106,7 +118,9 @@ export const CartProvider = ({children}: ICartProviderProps) => {
         showOffers = showOffers.concat(element.products);
       });
       setOffers(showOffers);
-    } catch (error) {}
+    } catch (error) {
+      console.log('Aline que colocou so deletar');
+    }
   }
   return (
     <CartContext.Provider

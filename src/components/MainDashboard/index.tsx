@@ -14,7 +14,7 @@ export const MainDashboardComponent = () => {
     useState<boolean>(false);
 
   return (
-    <>
+    <div>
       {isModalOpenLogin ? <LoginModal /> : null}
       {isModalOpenRegister ? <LoginModal /> : null}
       <StyledMainDashboardHeader>
@@ -67,6 +67,6 @@ export const MainDashboardComponent = () => {
           </section>
         </div>
       </StyledMainDashboard>
-    </>
+    </div>
   );
 };

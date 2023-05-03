@@ -17,9 +17,13 @@ import {
   StyledContainerUserDashboard,
   StyledMainContainerUserDashboard,
 } from './style.ts';
+import { UserContext } from '../../providers/UserContext/UserContext.tsx';
+import { EditUserProfile } from '../../components/Form/EditUserProfile/index.tsx';
 
 export const UserDashboard = () => {
-  const { offers, searchByCategory, isCartModalOpen } = useContext(CartContext);
+  const { offers, searchByCategory, isCartModalOpen, searchOffer } = useContext(CartContext);
+  const { isEditUserProfileModalOpen } = useContext(UserContext);
+
 
   return (
     <StyledContainerUserDashboard>
@@ -27,9 +31,10 @@ export const UserDashboard = () => {
       <StyledMainContainerUserDashboard>
         <StyledUserDashboard>
           {isCartModalOpen ? <CartModal /> : null}
+          {isEditUserProfileModalOpen ? <EditUserProfile /> : null}
           <section>
             <div>
-              <h1>Categorias</h1>
+              <h1 onClick={() => searchByCategory('')}>Categorias</h1>
             </div>
             <nav>
               <UserDashboardComponent
@@ -84,7 +89,7 @@ export const UserDashboard = () => {
             </form>
           </section>
           <section>
-            <h1>Ofertas</h1>
+            <h1 onClick={() => searchOffer('')}>Ofertas</h1>
             <div>
               {offers.length == 0 ? (
                 <h2>Nenhuma oferta cadastrada</h2>

@@ -1,11 +1,19 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
+
+
+html
+{
+  position:fixed;
+  width:100%;
+  height:100%;
+}
+
 body{
 	margin: 0 auto;
-	height: 100vh;
 	width: 100vw;
-	overflow-x: hidden;
+	height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -52,4 +60,5 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
 `;

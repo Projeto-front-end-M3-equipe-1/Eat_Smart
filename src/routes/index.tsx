@@ -7,6 +7,7 @@ import { CommerceDashboard } from '../pages/CommerceDashboard';
 import { UserDashboard } from '../pages/UserDashboard';
 import Styles from '../components/Styles/Styles';
 import { RoutesProtected } from '../components/RoutesProtected';
+
 export const RoutesMain = () => {
   return (
     <Routes>
@@ -15,6 +16,7 @@ export const RoutesMain = () => {
       <Route path='/register' element={<RegisterPage />}></Route>
       <Route path='/userHome' element={<UserDashboard />}></Route>
       <Route path='/styles' element={<Styles />}></Route>
+
       <Route element={<RoutesProtected />}>
         <Route path='/signin' element={<LoginPage />}></Route>
         <Route path='/signup' element={<RegisterPage />}></Route>

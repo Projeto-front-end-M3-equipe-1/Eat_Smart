@@ -3,7 +3,7 @@ import backgroundImage from '../../assets/images/background.svg';
 
 export const StyledMainDashboardHeader = styled.header`
   z-index: 1;
-  position: relative;
+  /*   position: relative; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -45,13 +45,13 @@ export const StyledMainDashboard = styled.main`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  position: fixed;
-  margin: -114px -8px;
+  /* position: fixed; */
+  /*   margin: -114px -8px; */
   z-index: -1;
 
   div {
     display: flex;
-    padding-top: 180px;
+    /* padding-top: 180px; */
     justify-content: space-between;
     margin: 0 auto;
     max-width: 1440px;
