@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import backgroundImage from '../../assets/images/backgroundCart.svg';
+import styled from "styled-components";
+import backgroundImage from "../../assets/images/backgroundCart.svg";
 
-export const StyledCartModalBoxVini = styled.div`
+export const StyledCartModalBox = styled.div`
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -26,7 +26,7 @@ export const StyledCartModalBoxVini = styled.div`
   }
 
   div > header > h1 {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 24px;
     font-weight: 700;
     color: #2e2e2e;
@@ -35,7 +35,7 @@ export const StyledCartModalBoxVini = styled.div`
   div > header > button {
     background-color: transparent;
     border: none;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 24px;
     font-weight: 400;
     color: #2e2e2e;
@@ -63,14 +63,14 @@ export const StyledCartModalBoxVini = styled.div`
   }
 
   div > section > div > p {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 14px;
     font-weight: 600;
     color: #2e2e2e;
   }
 
   div > section > div > h1 {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 24px;
     font-weight: 700;
     color: #056365;

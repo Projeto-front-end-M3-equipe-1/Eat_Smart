@@ -41,10 +41,10 @@ export const StyledCartProductList = styled.div`
     position: relative;
   }
 
-  div:last-child > img{
-   position: absolute;
-   left: 40px;
-   top: 9px;
+  div:last-child > img {
+    position: absolute;
+    left: 40px;
+    top: 9px;
   }
 
   div > button {

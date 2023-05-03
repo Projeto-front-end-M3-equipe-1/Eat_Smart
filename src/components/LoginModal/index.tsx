@@ -6,9 +6,7 @@ import { StyledCartModalBox } from './style';
 export const LoginModal = () => {
   const navigate = useNavigate();
   const handleClick = (type: string) => {
-    console.log(type);
     const typeNav = localStorage.getItem('@handle:nav');
-    console.log(typeNav);
 
     if (type === 'user' && typeNav === 'register') {
       localStorage.setItem('@handle:typUser', 'userRegister');
