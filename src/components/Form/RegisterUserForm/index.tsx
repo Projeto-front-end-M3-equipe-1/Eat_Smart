@@ -1,7 +1,15 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { registerUserFormSchema } from './registerUserFormSchema';
-import { Input } from '../Input';
+import {
+  SchemaFormUserRegister,
+  TRegisterFormUserSchema,
+} from './registerUserFormSchema';
+import { InputLight } from '../Input';
+import { useState, useContext } from 'react';
+import { UserContext } from './../../../providers/UserContext/UserContext';
+import { StyledFormUserLight } from '../../../styles/form';
+import { StyledTitleWhite } from '../../../styles/typography';
+import { StyledButton } from '../../../styles/button';
 
 export interface IRegisterUserFormData {
   userName: string;
@@ -11,58 +19,68 @@ export interface IRegisterUserFormData {
 }
 
 export const RegisterUserForm = () => {
+  const [loading, setLoading] = useState(false);
+  const { newUserRegister } = useContext(UserContext);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<IRegisterUserFormData>({
-    resolver: zodResolver(registerUserFormSchema),
+    resolver: zodResolver(SchemaFormUserRegister),
   });
 
-  const registerUserFormSubmit: SubmitHandler<IRegisterUserFormData> = (
-    registerUserFormData
-  ) => {
-    console.log(registerUserFormData);
-    // Executar função de request de Cadastro/User, recebendo registerUserFormData como parâmetro
+  const submit: SubmitHandler<TRegisterFormUserSchema> = (FormData) => {
+    newUserRegister(FormData, setLoading);
   };
 
   return (
-    <form onSubmit={handleSubmit(registerUserFormSubmit)}>
-      <Input
+    <StyledFormUserLight onSubmit={handleSubmit(submit)}>
+      <StyledTitleWhite tag='h1' $fontSize='titleForm' textAlign='center'>
+        Conte-nos sobre você:
+      </StyledTitleWhite>
+      <InputLight
         type='text'
         label='Nome'
         placeholder='Nome'
         id='userName'
         {...register('userName')}
+        disabled={loading}
         error={errors.userName}
       />
-      <Input
+      <InputLight
         type='email'
         label='Email'
         placeholder='Email'
         id='email'
         {...register('email')}
+        disabled={loading}
         error={errors.email}
       />
-      <Input
+      <InputLight
         type='password'
         label='Senha'
         placeholder='Senha'
         id='password'
         {...register('password')}
+        disabled={loading}
         error={errors.password}
       />
-      <Input
+      <InputLight
         type='password'
         label='Confirmar senha'
         placeholder='Confirmar senha'
         id='confirmPassword'
+        disabled={loading}
         {...register('confirmPassword')}
         error={errors.confirmPassword}
       />
-      <button type='submit' disabled>
+      <StyledButton
+        $buttonSize='default'
+        $buttonStyle='buttonGreenDark'
+        type='submit'
+      >
         Cadastrar
-      </button>
-    </form>
+      </StyledButton>
+    </StyledFormUserLight>
   );
 };

@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from 'react';
 import { api } from '../../services/api';
 import { ICreateProductFormValues } from '../../components/Form/CreateProductForm';
 import { IRegisterUserFormData } from '../../components/Form/RegisterCommerceForm';
+import { toast } from 'react-toastify';
 
 export interface ICommerceProviderProps {
   children: React.ReactNode;
@@ -44,7 +45,7 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
   const getAllProductsFromServer = async () => {
     try {
       setLoading(true);
-      const userToken = localStorage.getItem('@TOKEN');
+      const userToken = localStorage.getItem('@userCompany:token');
 
       const responseApi = await api
         .get<IProduct[]>('/products', {
@@ -56,7 +57,7 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
 
       return responseApi;
     } catch (error) {
-      console.log(error);
+      toast.error('Oops! Algo deu errado, tente novamente');
     } finally {
       setLoading(false);
     }
@@ -66,13 +67,12 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
     getAllProductsFromServer();
   }, []);
 
-  // *Create product*:
   const createNewProduct = async (
     productFormData: ICreateProductFormValues
   ) => {
     try {
-      const userToken = localStorage.getItem('@TOKENUSERCOMMERCE');
-      const userId = localStorage.getItem('@USERIDCOMMERCE');
+      const userToken = localStorage.getItem('@userCompany:token');
+      const userId = localStorage.getItem('@userCompany:id');
       const userCommerce = localStorage.getItem('@EatSmart:userNameCommerce');
 
       const productComplete = {
@@ -88,24 +88,23 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
         .then((response) => {
           setProductsList([...productsList, response.data]);
 
-          console.log('Oferta cadastrada'); //substituir por toast
+          toast.success('Oferta cadastrada');
         });
 
       return responseApi;
     } catch (error) {
-      console.log(error);
+      toast.error('Oops! Algo deu errado, tente novamente');
     } finally {
       setLoading(false);
     }
   };
 
-  // *Edit offer*:
   const editOffer = async (
     offerId: number,
     newOfferFormData: ICreateProductFormValues
   ) => {
     try {
-      const userToken = localStorage.getItem('@TOKENUSERCOMMERCE');
+      const userToken = localStorage.getItem('@userCompany:token');
 
       const responseApi = await api
         .patch<IProduct>(`/products/${offerId}`, newOfferFormData, {
@@ -117,18 +116,17 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
           );
           setProductsList([...updateCurrentProduct, response.data]);
 
-          console.log('Oferta alterada'); //substituir por toast
+          toast.success('Oferta alterada');
         });
 
       return responseApi;
     } catch (error) {
-      console.log(error);
+      toast.error('Oops! Algo deu errado, tente novamente');
     } finally {
       setLoading(false);
     }
   };
 
-  // *Remove offer from registered offers *:
   const removeOfferFromOfferList = async (offerId: number) => {
     const response = await api.delete(`/products/${offerId}`);
 
@@ -138,20 +136,18 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
 
     setProductsList(removeCurrentOffer);
 
-    console.log('Oferta removida'); //substituir por toast
+    toast.success('Oferta removida');
   };
 
-  // *Remove all offers from resgitered offers*:
   const removeAllOffers = () => {
     setProductsList([]);
   };
 
-  // *Edit commerce profile*:
   const editCommerceProfile = async (
     newCommerceProfileData: IRegisterUserFormData
   ) => {
-    const userCommerceId = localStorage.getItem('@USERIDCOMMERCE');
-    const userToken = localStorage.getItem('@TOKENUSERCOMMERCE');
+    const userCommerceId = localStorage.getItem('@userCompany:id');
+    const userToken = localStorage.getItem('@userCompany:token');
 
     try {
       const responseApi = await api
@@ -163,13 +159,12 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
           }
         )
         .then((response) => {
-          console.log(response.data); //substituir por toast
-          console.log('Alterado');
+          toast.success('Dados do perfil alterados');
         });
 
       return responseApi;
     } catch (error) {
-      console.log(error);
+      toast.error('Oops! Algo deu errado, tente novamente');
     } finally {
       setLoading(false);
     }

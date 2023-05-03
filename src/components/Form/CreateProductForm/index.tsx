@@ -5,7 +5,6 @@ import { useContext } from 'react';
 import { CommerceContext } from '../../../providers/CommerceProvider';
 import { Input } from '../Input';
 import { StyledCreateProductForm } from './style';
-import { StyledInputContainerLight } from '../../../styles/form';
 
 export interface ICreateProductFormValues {
   title: string;
@@ -31,7 +30,6 @@ export const CreateProductForm = () => {
   const createProductSubmit: SubmitHandler<ICreateProductFormValues> = (
     productFormData
   ) => {
-    console.log(productFormData);
     createNewProduct(productFormData);
 
     setValue('title', '');
@@ -42,59 +40,52 @@ export const CreateProductForm = () => {
 
   return (
     <StyledCreateProductForm onSubmit={handleSubmit(createProductSubmit)}>
-      <header>
+      <header className='header_formCreate'>
         <h1>Cadastrar nova oferta</h1>
-        <StyledInputContainerLight>
-          <Input
-            label='Horário de Retirada'
-            placeholder='A partir das 22:00'
-            disabled
-            id='retirement'
-          />
-        </StyledInputContainerLight>
       </header>
-      <StyledInputContainerLight>
-        <Input
-          type='text'
-          label='Descrição'
-          placeholder='Vegana, Vegetariana, etc.'
-          id='title'
-          {...register('title')}
-          error={errors.title}
-        />
-      </StyledInputContainerLight>
-      <StyledInputContainerLight>
-        <StyledInputContainerLight>
-          <Input
-            type='number'
-            label='Quantidade'
-            placeholder='1'
-            id='quantity'
-            {...register('quantity')}
-            error={errors.quantity}
-          />
-        </StyledInputContainerLight>
-      </StyledInputContainerLight>
-      <StyledInputContainerLight>
-        <Input
-          type='number'
-          label='Valor Real'
-          placeholder='R$80,00'
-          id='originalPrice'
-          {...register('originalPrice')}
-          error={errors.originalPrice}
-        />
-      </StyledInputContainerLight>
-      <StyledInputContainerLight>
-        <Input
-          type='number'
-          label='Desconto'
-          placeholder='20%'
-          id='discount'
-          {...register('discount')}
-          error={errors.discount}
-        />
-      </StyledInputContainerLight>
+      <Input
+        className='input_formCreateOffer'
+        label='Horário de Retirada'
+        placeholder='A partir das 22:00'
+        disabled
+        id='retirement'
+      />
+      <Input
+        className='input_formCreateOffer'
+        type='text'
+        label='Descrição'
+        placeholder='Macarronada, Such, etc.'
+        id='title'
+        {...register('title')}
+        error={errors.title}
+      />
+      <Input
+        className='input_formCreateOffer'
+        type='number'
+        label='Quantidade'
+        placeholder='1'
+        id='quantity'
+        {...register('quantity')}
+        error={errors.quantity}
+      />
+      <Input
+        className='input_formCreateOffer'
+        type='number'
+        label='Valor Real'
+        placeholder='R$80,00'
+        id='originalPrice'
+        {...register('originalPrice')}
+        error={errors.originalPrice}
+      />
+      <Input
+        className='input_formCreateOffer'
+        type='number'
+        label='Desconto'
+        placeholder='20%'
+        id='discount'
+        {...register('discount')}
+        error={errors.discount}
+      />
       <button type='submit'>Cadastrar oferta</button>
     </StyledCreateProductForm>
   );

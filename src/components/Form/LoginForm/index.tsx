@@ -1,6 +1,10 @@
-import { Input } from '../Input';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { InputDark, InputLight } from '../Input';
+import { useContext, useState } from 'react';
+import { UserContext } from '../../../providers/UserContext/UserContext';
+import { LoginFormSchema, TLoginFormSchema } from './loginFormSchema';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+<<<<<<< HEAD
 import { loginFormSchema } from './loginFormSchema';
 import { useContext, useState} from 'react';
 
@@ -16,22 +20,27 @@ export interface ILoginFormData {
   email: string;
   password: string;
 }
+=======
+import { StyledFormUserDark, StyledFormUserLight } from '../../../styles/form';
+import { StyledTitleGreen, StyledTitleWhite } from '../../../styles/typography';
+import { StyledButton } from '../../../styles/button';
+>>>>>>> d235a65c4032b9bf16b198a37dfb143b83946d24
 
 export const LoginForm = () => {
-   const [loading, setLoading] = useState(false);
-   const { login } = useContext(UserCommerceContext);
+  const typeofRoute = localStorage.getItem('@handle:typUser');
+  const [loading, setLoading] = useState(false);
+  const { signIn } = useContext(UserContext);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ILoginFormData>({
-    resolver: zodResolver(loginFormSchema),
-  });
+  } = useForm<TLoginFormSchema>({ resolver: zodResolver(LoginFormSchema) });
 
-
-  const loginFormSubmit: SubmitHandler<ILoginFormData> = (loginFormData) => {
-    login(loginFormData);
+  const submit: SubmitHandler<TLoginFormSchema> = (formData) => {
+    signIn(formData, setLoading);
   };
+<<<<<<< HEAD
 
   return (
     <StyledFormUserDark onSubmit={handleSubmit(loginFormSubmit)}>
@@ -44,9 +53,22 @@ export const LoginForm = () => {
           label='Endereço de Email'
           placeholder=''
           id='email'
+=======
+  if (typeofRoute === 'companyLogin') {
+    return (
+      <StyledFormUserLight onSubmit={handleSubmit(submit)}>
+        <StyledTitleWhite tag='h1' $fontSize='titleForm' textAlign='center'>
+          Faça login na sua conta
+        </StyledTitleWhite>
+        <InputLight
+          id='login'
+          type='email'
+          disabled={loading}
+          label={'Email'}
+>>>>>>> d235a65c4032b9bf16b198a37dfb143b83946d24
           {...register('email')}
-          error={errors.email}
         />
+<<<<<<< HEAD
       </StyledInputContainerDark>
       <Input
         type='password'
@@ -66,4 +88,62 @@ export const LoginForm = () => {
       </button> */}
     </StyledFormUserDark>
   );
+=======
+        {errors ? <span>{errors.email?.message}</span> : null}
+        <InputLight
+          id='senha'
+          type='password'
+          label='Senha'
+          {...register('password')}
+        />
+        {errors ? <span>{errors.password?.message}</span> : null}
+        <StyledButton
+          $buttonSize='default'
+          $buttonStyle='buttonGreenDark'
+          type='submit'
+          disabled={loading}
+        >
+          {loading ? 'Entrando...' : 'Entrar'}
+        </StyledButton>
+      </StyledFormUserLight>
+    );
+  }
+  if (typeofRoute === 'userLogin') {
+    return (
+      <StyledFormUserDark onSubmit={handleSubmit(submit)}>
+        <StyledTitleGreen tag='h1' $fontSize='titleForm' textAlign='center'>
+          Faça login na sua conta
+        </StyledTitleGreen>
+        <InputDark
+          id='login'
+          type='email'
+          disabled={loading}
+          label={'Email'}
+          placeholder='Digite seu email'
+          {...register('email')}
+        />
+        {errors ? <p>{errors.email?.message}</p> : null}
+        <InputDark
+          id='senha'
+          type='password'
+          label='Senha'
+          placeholder='Digite sua senha'
+          {...register('password')}
+        />
+        {errors ? <p>{errors.password?.message}</p> : null}
+        <StyledButton
+          $buttonSize='default'
+          $buttonStyle='buttonGreenLight'
+          type='submit'
+          disabled={loading}
+        >
+          {loading ? 'Entrando...' : 'Entrar'}
+        </StyledButton>
+      </StyledFormUserDark>
+    );
+  }
+  return null;
+>>>>>>> d235a65c4032b9bf16b198a37dfb143b83946d24
 };
+
+export default LoginForm;

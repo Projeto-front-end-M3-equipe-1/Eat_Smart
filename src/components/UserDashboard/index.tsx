@@ -7,9 +7,9 @@ interface IOffersCartProps {
 
 export const UserDashboardComponent = ({category, srcLogo, searchByCategory}: IOffersCartProps) => {
   return (
-    <figure onClick={() => searchByCategory(category)}>
+    <button onClick={() => searchByCategory(category)}>
       <img src={srcLogo} alt={category} />
       <p>{category}</p>
-    </figure>
+    </button>
   );
 };

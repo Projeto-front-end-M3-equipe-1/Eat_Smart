@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const registerUserFormSchema = z
+export const SchemaFormUserRegister = z
   .object({
     userName: z
       .string()
@@ -29,3 +29,4 @@ export const registerUserFormSchema = z
     message: 'As senhas não correspondem. Por favor, tente novamente.',
     path: ['confirmPassword'],
   });
+export type TRegisterFormUserSchema = z.infer<typeof SchemaFormUserRegister>;
