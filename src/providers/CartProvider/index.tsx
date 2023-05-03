@@ -94,10 +94,9 @@ export const CartProvider = ({ children }: ICartProviderProps) => {
     }
   }
   async function searchByCategory(category: string) {
-
-    if(category === ''){
+    if (category === '') {
       setOffers(offersFound);
-      return
+      return;
     }
 
     try {

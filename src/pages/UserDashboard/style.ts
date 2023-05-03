@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledContainerUserDashboard = styled.div`
-  
   /* border: 1px solid red; */
-  width: 99vw;
+  width: 100vw;
   height: 100vh;
   font-family: 'Poppins';
   display: flex;
@@ -13,10 +12,10 @@ export const StyledContainerUserDashboard = styled.div`
   overflow-y: hidden;
   overflow-x: hidden;
 
-  header {
+  /*   header {
     border: 1px solid red;
-    width: 90%;
-  }
+    width: 100%;
+  } */
 
   footer {
     border: 1px solid red;
@@ -36,7 +35,8 @@ export const StyledContainerUserDashboard = styled.div`
 `;
 
 export const StyledMainContainerUserDashboard = styled.div`
-  /* border: 1px solid red; */
+  margin-top: 10rem;
+  border: 1px solid red;
   width: 90%;
   height: 80%;
   display: flex;
