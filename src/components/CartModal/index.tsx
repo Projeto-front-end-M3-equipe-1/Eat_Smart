@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../../providers/CartProvider";
 import { CartProductList } from "./CartProductList";
 import { StyledCartModalBox } from "../LoginModal/style";
+import { StyledCartModalBoxVini } from "./style";
 
 export const CartModal = () => {
   const { listOffersCart, setIsCartModalOpen } = useContext(CartContext);
@@ -25,7 +26,7 @@ export const CartModal = () => {
 
   return (
     <>
-      <StyledCartModalBox>
+      <StyledCartModalBoxVini>
         <div role="dialog">
           <header>
             <h1>Carrinho de compras</h1>
@@ -56,7 +57,7 @@ export const CartModal = () => {
             </div>
           )}
         </div>
-      </StyledCartModalBox>
+      </StyledCartModalBoxVini>
     </>
   );
 };
