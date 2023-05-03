@@ -44,13 +44,13 @@ export const StyledEditCommerceProfileModal = styled.div`
     border-radius: 6px;
     width: 1.75rem;
     height: 1.625rem;
-    color: #FFFFFF;
+    color: #ffffff;
   }
-  
+
   div > form {
     display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
     gap: 1.5rem;
     background-color: #ffffff;
   }
@@ -64,7 +64,7 @@ export const StyledEditCommerceProfileModal = styled.div`
     width: 100%;
   }
 
-  div> form > div{
+  div > form > div {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -72,7 +72,7 @@ export const StyledEditCommerceProfileModal = styled.div`
     background: transparent;
   }
 
-  div> form > div> label {
+  div > form > div > label {
     background-color: ${({ theme }) => theme.colors.white};
     height: 2px;
     position: absolute;
@@ -87,40 +87,38 @@ export const StyledEditCommerceProfileModal = styled.div`
     transition: top 0.5s, left 0.3s ease-out;
   }
 
-  div> form > div > input{
-          height: 45px;
+  div > form > div > input {
+    height: 45px;
 
-          font-size: 14px;
-          border: 1px solid ${({ theme }) => theme.colors.gray300};
-          color: #989898;
-          background-color: ${({ theme }) => theme.colors.white};
-          border-radius: 0.5rem;
-          padding: 0 0 0 14px;
-  
-          ::placeholder {
-            height: 45px;
-            color: ${({ theme }) => theme.colors.gray150};
-          }
+    font-size: 14px;
+    border: 1px solid ${({ theme }) => theme.colors.gray300};
+    color: #989898;
+    background-color: ${({ theme }) => theme.colors.white};
+    border-radius: 0.5rem;
+    padding: 0 0 0 14px;
 
-          :focus{
-            border: 1px solid ${({ theme }) => theme.colors.gray300};
-            color: #000000;
-            padding-left: 14px;
-            background-color: ${({ theme }) => theme.colors.white};
-          }
-        }
+    ::placeholder {
+      height: 45px;
+      color: ${({ theme }) => theme.colors.gray150};
+    }
+
+    :focus {
+      border: 1px solid ${({ theme }) => theme.colors.gray300};
+      color: #000000;
+      padding-left: 14px;
+      background-color: ${({ theme }) => theme.colors.white};
+    }
   }
 
-  div> form > div > p{
+  div > form > div > p {
     height: 1rem;
     margin: 0;
     font-size: 0.75rem;
     font-weight: 400;
-    color: ${({ theme }) => theme.colors.greenPrimary}
+    color: ${({ theme }) => theme.colors.greenPrimary};
   }
 
-  div> form > button {
-    border: 1px solid red;
+  div > form > button {
     width: 90%;
     height: 45px;
     background-color: #056365;
@@ -132,7 +130,6 @@ export const StyledEditCommerceProfileModal = styled.div`
 
     padding: 0;
     margin-bottom: 1rem;
-
   }
   div > button {
     width: 90%;
@@ -146,7 +143,5 @@ export const StyledEditCommerceProfileModal = styled.div`
     color: #056365;
     font-size: 0.875rem;
     font-weight: 600;
-    
   }
-
 `;

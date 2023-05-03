@@ -42,7 +42,7 @@ export const CreateProductForm = () => {
   return (
     <StyledCreateProductForm onSubmit={handleSubmit(createProductSubmit)}>
       <header>
-        <h1>Cadastrar nova oferta</h1>
+        <h1 className='header_formCreate'>Cadastrar nova oferta</h1>
       </header>
       <Input
         label='Horário de Retirada'

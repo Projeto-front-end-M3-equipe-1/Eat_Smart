@@ -1,8 +1,9 @@
 import { SearchForm } from './SearchForm';
 import { useContext } from 'react';
 import { CartContext } from '../../providers/CartProvider';
-import { StyledUserPageHeader } from './style';
+import { StyledCompanyPageHeader, StyledUserPageHeader } from './style';
 import { StyledTitleGreen } from '../../styles/typography';
+import logoCategory from '../../assets/icons/lanches.svg';
 
 export const Header = ({ setIsEditProfileModalOpen }) => {
   const user = localStorage.getItem('@EatSmart:userName');
@@ -48,7 +49,6 @@ export const Header = ({ setIsEditProfileModalOpen }) => {
           </div>
           <section>
             <SearchForm />
-            console.log(apagar)
           </section>
           <section>
             <h2>Olá, {userName}</h2>
@@ -59,7 +59,7 @@ export const Header = ({ setIsEditProfileModalOpen }) => {
   }
   if (company && company) {
     return (
-      <StyledUserPageHeader>
+      <StyledCompanyPageHeader>
         <StyledTitleGreen
           className='container__reverse'
           tag='h1'
@@ -91,14 +91,13 @@ export const Header = ({ setIsEditProfileModalOpen }) => {
             </nav>
           </div>
           <section>
-            <SearchForm />
-          </section>
-          <section>
-            <h1></h1>
-            <h2>{companyName}</h2>
+            <h2>
+              <img src={logoCategory} alt='' />
+              {companyName}
+            </h2>
           </section>
         </li>
-      </StyledUserPageHeader>
+      </StyledCompanyPageHeader>
     );
   }
   return null;

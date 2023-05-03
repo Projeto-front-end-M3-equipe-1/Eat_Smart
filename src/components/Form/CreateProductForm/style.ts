@@ -10,8 +10,9 @@ export const StyledCreateProductForm = styled.form`
   border-radius: 1rem;
   gap: 1.25rem;
   margin-bottom: 1rem;
+  margin-top: 7rem;
 
- .header_formCreate {
+  .header_formCreate {
     margin: 1rem 0 0.5rem 0;
     width: 90%;
     display: flex;
@@ -21,7 +22,7 @@ export const StyledCreateProductForm = styled.form`
   .header_formCreate > h1 {
     line-height: 2.25rem;
     display: flex;
-    font-size: 1.125rem;
+    font-size: 1.375rem;
     font-weight: 700;
     color: #2e2e2e;
   }

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledCommerceDashboard = styled.div`
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -10,11 +9,11 @@ export const StyledCommerceDashboard = styled.div`
   background-color: #efe9e8;
   font-family: 'Poppins';
   margin: 0 auto;
+  /* position: absolute */
   overflow-x: hidden;
 `;
 
 export const StyledHeaderContainer = styled.div`
-  border: 1px solid red;
   width: 100%;
   height: 10%;
   display: flex;
@@ -22,7 +21,6 @@ export const StyledHeaderContainer = styled.div`
 `;
 
 export const StyledCommerceDataContainer = styled.div`
-  border: 1px solid red;
   display: flex;
   width: 90%;
   justify-content: center;
@@ -30,7 +28,6 @@ export const StyledCommerceDataContainer = styled.div`
 `;
 
 export const StyledCommerceLogoContainer = styled.div`
-  border: 1px solid red;
   display: flex;
   align-items: center;
   width: 100%;
@@ -60,7 +57,6 @@ export const StyledCommerceLogoContainer = styled.div`
 `;
 
 export const StyledCommerceDashboardMainContainer = styled.main`
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,7 +70,6 @@ export const StyledCommerceDashboardMainContainer = styled.main`
     width: 100%;
 
     h2 {
-      border: 1px solid red;
       display: flex;
       align-items: center;
       height: 3.0625rem;
@@ -118,7 +113,7 @@ export const StyledMainSections = styled.div`
 
 export const StyledFooterCommerce = styled.div`
   width: 100%;
-  height: 15%
+  height: 15%;
   margin-top: 1rem;
 
   footer {

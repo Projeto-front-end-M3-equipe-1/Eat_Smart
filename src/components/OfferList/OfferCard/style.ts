@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledOfferCard = styled.li`
-  // border: 1px solid red;
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid #000000;
@@ -18,7 +17,6 @@ export const StyledOfferCard = styled.li`
       width: 3.625rem;
       height: 3.625rem;
       border-radius: 0.125rem;
-      // border: 1px solid red;
     }
 
     section {
@@ -57,7 +55,6 @@ export const StyledOfferCard = styled.li`
       }
 
       div:last-child {
-        // border: 1px solid red;
         display: flex;
         width: 100%;
         height: 1.25rem;

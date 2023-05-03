@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledOffersContainer = styled.div`
-  // border: 1px solid red;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -11,7 +10,6 @@ export const StyledOffersContainer = styled.div`
   margin-top: 1rem;
 
   h1 {
-    // border: 1px solid red;
     display: flex;
     font-size: 1.125rem;
     font-weight: 700;
@@ -32,7 +30,6 @@ export const StyledOffersContainer = styled.div`
   }
 
   span {
-    // border: 1px solid red;
     height: 2rem;
     display: flex;
     align-items: center;
@@ -70,10 +67,9 @@ export const StyledOffersContainer = styled.div`
     h1 {
       font-size: 24px;
 
-    button {
-      margin-top: 1rem;
+      button {
+        margin-top: 1rem;
+      }
     }
   }
-
-
 `;

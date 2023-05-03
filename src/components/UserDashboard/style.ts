@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import arrow from '../../assets/icons/arrow.svg';
 
 export const StyledUserDashboard = styled.main`
-  /* border: 1px solid red; */
   background-color: #efe9e8;
   height: 100%;
   width: 100%;
@@ -63,12 +62,9 @@ export const StyledUserDashboard = styled.main`
     width: 100%;
     height: 100%;
     padding-bottom: 4rem;
-    /* border: 1px solid red; */
-
   }
 
   .offers__container > h1 {
-    /* border: 1px solid red; */
     font-family: 'Poppins', sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
@@ -79,8 +75,6 @@ export const StyledUserDashboard = styled.main`
   }
 
   .offers__container > div {
-
-
     height: 100%;
     display: flex;
     align-items: center;
@@ -111,7 +105,7 @@ export const StyledUserDashboard = styled.main`
 
     .categories__container > nav {
       width: 100%;
-      /* border: 1px solid red; */
+
       display: flex;
       flex-direction: row;
       justify-content: space-between;
