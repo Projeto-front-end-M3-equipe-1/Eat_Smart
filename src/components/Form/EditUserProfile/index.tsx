@@ -5,8 +5,6 @@ import { Input } from "../Input";
 import { IRegisterUserFormData } from "../RegisterCommerceForm";
 import { useContext } from "react";
 import { StyledEditUserProfileModal } from "./style";
-import cartIcon from "../../../assets/icons/cart.svg";
-import favoriteIcon from "../../../assets/icons/coração.svg";
 import xIcon from "../../../assets/icons/close.svg";
 import { UserContext } from "../../../providers/UserContext/UserContext";
 
@@ -31,8 +29,6 @@ export const EditUserProfile = ({}) => {
   return (
     <StyledEditUserProfileModal role="dialog">
       <nav>
-        <img src={cartIcon} alt="cart-icon"></img>
-        <img src={favoriteIcon} alt="heart-icon"></img>
         <button onClick={() => setIsEditUserProfileModalOpen(false)}>
           <img src={xIcon} alt="close-icon"></img>
         </button>
