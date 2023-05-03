@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import arrow from "../../assets/icons/arrow.svg";
+import styled from 'styled-components';
+import arrow from '../../assets/icons/arrow.svg';
 
 export const StyledUserDashboard = styled.main`
   /* border: 1px solid red; */
@@ -18,7 +18,7 @@ export const StyledUserDashboard = styled.main`
     align-items: center;
     height: 2.9375rem;
     width: 100%;
-    margin: 1rem 0;
+    /*  margin: 1rem 0; */
     display: none;
   }
 
@@ -43,8 +43,10 @@ export const StyledUserDashboard = styled.main`
     border-radius: 0.75rem;
   }
 
+
   .categories__container > form > select {
     font-family: "Poppins";
+
     height: 2.1875rem;
     width: 100%;
     background: url ${{ arrow }} no-repeat right;
@@ -53,16 +55,14 @@ export const StyledUserDashboard = styled.main`
     font-weight: 600;
     padding: 0rem 1rem;
     outline: none;
-    webkit-appearance: none;
+    /*   -webkit-backdrop-filter: none; */
   }
-
+  
   .offers__container{
     display: flex;
     flex-direction: column;
     width: 100%;
     margin-bottom: 1rem;
-    /* border: 1px solid red; */
-  }
 
   .offers__container > h1 {
     /* border: 1px solid red; */
@@ -76,16 +76,18 @@ export const StyledUserDashboard = styled.main`
   }
 
   .offers__container > div {
+
     display: flex;
     align-items: center;
-  }
+  } */
+
 
   .offers__container > div > h2 {
     margin: 0 0 1rem 1rem;
     display: flex;
     color: #2e2e2e;
     font-size: 1rem;
-  }
+  } */
 
   @media (min-width: 375px) {
   }
@@ -123,7 +125,8 @@ export const StyledUserDashboard = styled.main`
       border: 1px solid white;
       border-radius: 16px;
       padding: 0;
-      box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+      box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+        rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
       cursor: pointer;
     }
 
@@ -144,17 +147,18 @@ export const StyledUserDashboard = styled.main`
   }
 
   @media (min-width: 768px) {
+
     .offers__container {
       margin: 1rem 0;
     }
 
     .offers__container > h1 {
+
       margin-bottom: 0;
-    }
+    } */
 
     .offers__container > div {
       display: flex;
-      /* border: 2px solid green; */
       height: 50vh;
     }
   }

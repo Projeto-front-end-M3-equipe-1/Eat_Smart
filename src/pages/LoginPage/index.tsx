@@ -5,6 +5,7 @@ import {
   StyledColorBackground,
   StyledFormLoginCompany,
   StyledFormLoginUser,
+  StyledLoginPageHeaderCompany,
   StyledLoginPageHeaderUser,
 } from './style';
 import { StyledTitleGreen } from '../../styles/typography';
@@ -71,7 +72,7 @@ export const LoginPage = () => {
     return (
       <StyledColorBackground>
         <StyledFormLoginCompany>
-          <StyledLoginPageHeaderUser>
+          <StyledLoginPageHeaderCompany>
             <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
               Eat<span>Smart</span>
             </StyledTitleGreen>
@@ -84,7 +85,7 @@ export const LoginPage = () => {
             >
               Home
             </StyledButton>
-          </StyledLoginPageHeaderUser>
+          </StyledLoginPageHeaderCompany>
           <section className='container__principal'>
             <section>
               <LoginForm />

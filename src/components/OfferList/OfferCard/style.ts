@@ -50,8 +50,8 @@ export const StyledOfferCard = styled.li`
             font-weight: 500;
           }
 
-          p> strong{
-            color: #FF543D;
+          p > strong {
+            color: #ff543d;
           }
         }
       }
@@ -95,7 +95,7 @@ export const StyledOfferCard = styled.li`
     }
   }
 
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     width: 100%;
   }
 `;
