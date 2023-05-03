@@ -16,7 +16,7 @@ export const StyledEditCommerceProfileModal = styled.div`
   div {
     display: flex;
     flex-direction: column;
-    width: 22.5rem;
+    width: 20rem;
     background-color: #ffffff;
     border-radius: 1.5rem 0rem 1.5rem 1.5rem;
     padding: 0 1rem;
@@ -93,17 +93,18 @@ export const StyledEditCommerceProfileModal = styled.div`
           color: #989898;
           background-color: ${({ theme }) => theme.colors.white};
           border-radius: 0.5rem;
-          padding: 0;
+          padding: 0 0 0 14px;
   
           ::placeholder {
             height: 45px;
             color: ${({ theme }) => theme.colors.gray150};
-            padding-left: 14px;
           }
 
           :focus{
+            border: 1px solid ${({ theme }) => theme.colors.gray300};
             color: #000000;
             padding-left: 14px;
+    
           }
         }
   }

@@ -4,22 +4,24 @@ export const StyledEditOfferModal = styled.div`
 display: flex;
 flex-direction: column;
 align-items: flex-end;
-// width: 100vw;
+width: 99vw;
 height: 100vh;
-position: relative;
-z-index: 1001;
-// top: 60px;
-// right: -120px;
+position: fixed;
 
-// background-color: #ffffff;
-// background: rgba(51, 51, 51, 0.5);
-// box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+z-index: 1000;
+// margin:auto;
+inset: 0;
+
+// position: absolute;
+// top: 0;
+
+background: rgba(51, 51, 51, 0.5);
+box-shadow: 0px 9px 2px rgba(0, 0, 0, 0.25);
 
 section {
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
-  width: 22.5rem;
+  width: 320px !important;
   background-color: #ffffff;
   border-radius: 1.5rem 0rem 0 1.5rem;
   padding: 0 1rem;
@@ -52,10 +54,11 @@ section > form {
   align-items:center;
   gap: 1.5rem;
   background-color: #ffffff;
+  width: 320px;
 }
 
 section > form > h3 {
-  padding-left: 2rem;
+  padding-left: 1rem;
   font-size: 1.125rem;
   font-weight: 600;
   width: 100%;
@@ -66,7 +69,7 @@ section> form > div{
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 90%;
+  width: 100%;
   background: transparent;
 }
 
@@ -76,7 +79,7 @@ section> form > div> label {
   position: absolute;
   padding: 3px;
   top: -0.3125rem;
-  left: 1.25rem;
+  left: 1rem;
   display: flex;
   align-items: center;
   font-size: 0.75rem;
@@ -87,22 +90,23 @@ section> form > div> label {
 
 section> form > div > input{
         height: 45px;
+        width: 90%;
 
         font-size: 14px;
         border: 1px solid ${({ theme }) => theme.colors.gray300};
         color: #989898;
         background-color: ${({ theme }) => theme.colors.white};
         border-radius: 0.5rem;
-        padding: 0;
+        padding: 0 0 0 14px;
 
         ::placeholder {
           height: 45px;
           color: ${({ theme }) => theme.colors.gray150};
-          padding-left: 14px;
+          
         }
 
         :focus{
-          height: 45px;
+          border: 1px solid ${({ theme }) => theme.colors.gray300};
           color: #000000;
           padding-left: 14px;
         }
