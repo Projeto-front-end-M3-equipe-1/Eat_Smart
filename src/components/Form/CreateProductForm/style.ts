@@ -9,7 +9,6 @@ export const StyledCreateProductForm = styled.form`
   border: 2px solid ${({ theme }) => theme.colors.greenPrimary};
   border-radius: 1rem;
   gap: 1.25rem;
-  margin-bottom: 1rem;
 
  .header_formCreate {
     margin: 1rem 0 0.5rem 0;
@@ -54,6 +53,7 @@ export const StyledCreateProductForm = styled.form`
     color: ${({ theme }) => theme.colors.gray600};
     font-size: 0.875rem;
     font-weight: 400;
+    padding-left: 14px;
 
     ::placeholder {
       height: 45px;
@@ -64,6 +64,7 @@ export const StyledCreateProductForm = styled.form`
       background-color: ${({ theme }) => theme.colors.white};
       border: 2px solid ${({ theme }) => theme.colors.gray300};
       color: #000000;
+      padding-left: 14px;
     }
   }
 
@@ -89,6 +90,8 @@ export const StyledCreateProductForm = styled.form`
   }
 
   @media (min-width: 768px) {
+    // height: 50vh;
+
     .header_formCreate  > h1 {
       font-size: 22px;
     }

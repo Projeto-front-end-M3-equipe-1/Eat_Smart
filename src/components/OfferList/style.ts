@@ -1,17 +1,14 @@
 import styled from 'styled-components';
 
 export const StyledOffersContainer = styled.div`
-  // border: 1px solid red;
   display: flex;
   flex-direction: column;
-  width: 100%;
   background-color: #ffffff;
   border: 2px solid #056365;
   border-radius: 1rem;
   margin-top: 1rem;
 
   h1 {
-    // border: 1px solid red;
     display: flex;
     font-size: 1.125rem;
     font-weight: 700;
@@ -60,11 +57,10 @@ export const StyledOffersContainer = styled.div`
   }
 
   @media (min-width: 768px) {
-    width: 95%;
     margin-top: 0;
 
     ul {
-      height: 490px;
+      // height: 490px;
     }
 
     h1 {
