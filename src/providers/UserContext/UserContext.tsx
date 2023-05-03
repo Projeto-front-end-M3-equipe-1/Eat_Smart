@@ -61,14 +61,15 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
 
     const userAutoLogin = async () => {
       try {
-        const { data } = await api.get<IUser>(`/users/:${UserId}`, {
+        const { data } = await api.get<IUser>(`/users/${UserId}`, {
           headers: {
             Authorization: `Bearer ${userToken}`,
           },
         });
         setUser(data);
-        navigate('/shop');
+        navigate('/userHome');
       } catch (error) {
+        console.log(error)
         toast.error('Oops! Algo deu errado tente novamente');
         localStorage.getItem('@user:id');
         localStorage.getItem('@user:token');

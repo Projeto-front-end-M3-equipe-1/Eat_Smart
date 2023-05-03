@@ -36,20 +36,16 @@ export const CartProvider = ({ children }: ICartProviderProps) => {
   const [listOffersCart, setListOffersCart] = useState<IOffer[]>(
     cartLS ? JSON.parse(cartLS) : []
   );
-  const token = localStorage.getItem('@EatSmart:token');
+  const token = localStorage.getItem('@user:token');
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
 
   async function loadOffers() {
     try {
-      const { data } = await api.get<IOffer[]>('/products', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const { data } = await api.get<IOffer[]>('/products');
       setOffers(data);
       setOffersFound(data);
     } catch (error) {
-      console.log('Aline que colocou so deletar');
+      console.log(error);
     }
   }
 
