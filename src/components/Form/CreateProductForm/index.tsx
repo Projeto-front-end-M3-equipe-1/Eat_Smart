@@ -46,7 +46,7 @@ export const CreateProductForm = () => {
         <h1>Cadastrar nova oferta</h1>
         <StyledInputContainerLight>
           <Input
-            label='Horário de Retirada'
+            label='Horário de Retirada' className=''
             placeholder='A partir das 22:00'
             disabled
             id='retirement'

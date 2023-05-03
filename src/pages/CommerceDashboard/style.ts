@@ -60,7 +60,7 @@ export const StyledCommerceDashboardMainContainer = styled.main`
   align-items: center;
   margin-top: 1rem;
   width: 90%;
-  height: 70vh;
+  // height: 70vh;
 
   section {
     display: flex;

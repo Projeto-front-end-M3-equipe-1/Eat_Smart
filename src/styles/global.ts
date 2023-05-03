@@ -5,7 +5,7 @@ body{
 	margin: 0 auto;
 	height: 100vh;
 	width: 100vw;
-	line-height:0;
+	overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -27,7 +27,6 @@ time, mark, audio, video, button, input, body {
 	vertical-align: baseline;
   	box-sizing: border-box;
   	outline: none;
-	
 }
 
 

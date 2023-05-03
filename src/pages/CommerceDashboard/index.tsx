@@ -5,6 +5,7 @@ import marketIcon from '../../assets/icons/mercado.svg';
 import bakeryIcon from '../../assets/icons/padaria.svg';
 import restaurantIcon from '../../assets/icons/restaurantes.svg';
 import {
+  StyledColorBackground,
   StyledCommerceDashboard,
   StyledCommerceDashboardMainContainer,
   StyledCommerceDataContainer,
