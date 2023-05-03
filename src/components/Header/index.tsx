@@ -50,6 +50,7 @@ export const Header = () => {
           </div>
           <section>
             <SearchForm />
+            console.log(apagar)
           </section>
           <section>
             <h2>Olá, {userName}</h2>
@@ -92,6 +93,7 @@ export const Header = () => {
             <SearchForm />
           </section>
           <section>
+            <h1></h1>
             <h2>{/*   {category} {companyName} */}</h2>
           </section>
         </li>
