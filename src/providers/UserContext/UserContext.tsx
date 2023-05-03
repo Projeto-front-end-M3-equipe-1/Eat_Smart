@@ -54,7 +54,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   const navigate = useNavigate();
   const [user, setUser] = useState<IUser | null>(null);
   const [isEditUserProfileModalOpen, setIsEditUserProfileModalOpen] = useState<boolean>(false);
-
+  
   useEffect(() => {
     const userToken = localStorage.getItem("@user:token");
     const UserId = localStorage.getItem("@user:id");
@@ -183,16 +183,14 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   const editUserProfile = async (newUserProfileData: IRegisterUserFormData) => {
     const userId = localStorage.getItem("@user:id");
     const userToken = localStorage.getItem("@user:token");
-    console.log(newUserProfileData)
     try {
       const { data } = await api
-      .patch<IRegisterUserFormData>(`/users/${userId}`, newUserProfileData, {
+      .patch<IUser>(`/users/${userId}`, newUserProfileData, {
         headers: { Authorization: `Bearer ${userToken}` },
       })
-      console.log(data)
-      // setUser(data?.user)
+      setUser(data)
+      toast.success("Cadastro editado com sucesso");
     } catch (error) {
-      console.log(error)
       toast.error("Oops! Algo deu errado tente novamente");
     }
   };

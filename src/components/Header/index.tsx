@@ -14,8 +14,7 @@ export const Header = ({ setIsEditProfileModalOpen }) => {
 
   const { setIsCartModalOpen } = useContext(CartContext);
 
-  const { logout, setIsEditUserProfileModalOpen } = useContext(UserContext);
-
+  const { logout, setIsEditUserProfileModalOpen, user:userState } = useContext(UserContext);
 
   if (user && user) {
     return (
@@ -55,8 +54,7 @@ export const Header = ({ setIsEditProfileModalOpen }) => {
             console.log(apagar)
           </section>
           <section>
-            <h2>Olá, {userName}</h2>
-            <h1></h1>
+            <h2>Olá, {userState?.userName}</h2>
           </section>
         </li>
       </StyledUserPageHeader>
