@@ -119,27 +119,9 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         } else {
           localStorage.setItem('@userCompany:token', data.accessToken);
           localStorage.setItem('@userCompany:id', JSON.stringify(data.user.id));
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6b4afb3cfde30e91e5dbf4ac42cdd2cedc39bab6
-          localStorage.setItem(
-            '@EatSmart:userNameCommerce',
-            data.user.userName
-          );
-          localStorage.setItem('@EatSmart:userCommerceEmail', data.user.email);
-          localStorage.setItem(
-            '@EatSmart:userCommerceFoodCategory',
-            data.user.foodCategory
-          );
-<<<<<<< HEAD
-=======
           localStorage.setItem('@EatSmart:userNameCommerce', data.user.userName);
           localStorage.setItem('@EatSmart:userCommerceEmail', data.user.email);
           localStorage.setItem('@EatSmart:userCommerceFoodCategory', data.user.foodCategory);
->>>>>>> 41afb206384a6b9131e0297a3fe0100b620cea3f
-=======
->>>>>>> 6b4afb3cfde30e91e5dbf4ac42cdd2cedc39bab6
           setUser(data.user);
           navigate('/companyHome');
         }
