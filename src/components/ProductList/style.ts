@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledProductList = styled.ul`
   display: flex;
-  gap: 1.25rem;
+  gap: 2.25rem;
   overflow-x: auto;
   list-style: none;
   padding-left: 0;
@@ -15,7 +15,7 @@ export const StyledProductList = styled.ul`
 
   @media (min-width: 768px) {
     margin-top: 1rem;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;

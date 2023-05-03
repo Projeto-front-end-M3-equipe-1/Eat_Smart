@@ -17,7 +17,7 @@ export const StyledContainer = styled.body`
   }
 `;
 
-export const StyledCartSale = styled.section`
+export const StyledCartSale = styled.li`
   font-family: 'Poppins';
   margin: 30px;
   width: 262px;
@@ -37,15 +37,18 @@ export const StyledCartSale = styled.section`
       background-image: url(${bag_principal});
       background-repeat: no-repeat;
       width: 250px;
-      height: 162px;
+      height: 160px;
       border-radius: 16px;
       padding-top: 15px;
-
+      h1 {
+        margin-top: -15px;
+      }
       span {
         display: flex;
         justify-content: space-between;
         align-items: center;
         .info {
+          margin-top: 5px;
           padding: 5px;
           color: white;
           width: 113px;
@@ -57,51 +60,58 @@ export const StyledCartSale = styled.section`
         i {
           color: ${({ theme }) => theme.colors.orangePrimary};
           font-size: 22px;
-          margin-right: 8px;
+          margin-right: 15px;
         }
       }
 
       .name {
-        margin: 20% 5%;
+        margin: 0 0 0 5%;
         color: white;
+        font-size: 26px;
         font-weight: 700;
       }
     }
   }
 
-  h4 {
-    padding-top: 15px;
-    color: ${({ theme }) => theme.colors.gray600};
-    font-size: 14px;
-    font-weight: 600;
-    padding-left: 5%;
-  }
-  h5 {
-    padding: 15px 0 20px 0;
-    color: ${({ theme }) => theme.colors.gray600};
-    font-size: 12px;
-    font-weight: 500;
-    padding-left: 5%;
-  }
-  span {
-    display: flex;
-    justify-content: space-between;
-    i {
-      color: ${({ theme }) => theme.colors.orangePrimary};
+  .description {
+    height: 100px;
+    h4 {
+      width: 100%;
+      margin: 0;
+      color: ${({ theme }) => theme.colors.gray600};
       font-size: 14px;
-      margin-right: 8px;
+      font-weight: 600;
+      padding-left: 10%;
     }
-    small {
-      padding-left: -5%;
+    h5 {
+      width: 100%;
+      margin: 0;
+      color: ${({ theme }) => theme.colors.gray600};
       font-size: 12px;
       font-weight: 500;
+      padding-left: 10%;
     }
-  }
-  p {
-    padding-left: 5%;
-    color: ${({ theme }) => theme.colors.greenPrimary};
-    font-size: 16px;
-    font-weight: 700;
-    margin-right: 8px;
+    span {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      i {
+        color: ${({ theme }) => theme.colors.orangePrimary};
+        font-size: 14px;
+        margin-right: 8px;
+      }
+      small {
+        padding-left: -5%;
+        font-size: 12px;
+        font-weight: 500;
+      }
+    }
+    p {
+      padding-left: 5%;
+      color: ${({ theme }) => theme.colors.greenPrimary};
+      font-size: 16px;
+      font-weight: 700;
+      margin-right: 8px;
+    }
   }
 `;

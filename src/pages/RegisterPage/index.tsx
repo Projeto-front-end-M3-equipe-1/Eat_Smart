@@ -2,11 +2,13 @@ import { useNavigate } from 'react-router-dom';
 import { RegisterCommerceForm } from '../../components/Form/RegisterCommerceForm';
 import { RegisterUserForm } from '../../components/Form/RegisterUserForm';
 import { StyledButton } from '../../styles/button';
-import companyRegister from '../../assets/images/companyRegister.svg';
+
 import {
   StyledColorBackground,
   StyledFormRegisterCompany,
-  StyledRegisterPageHeader,
+  StyledRegisterPageHeaderCompany,
+  StyledRegisterPageHeaderUser,
+  StyledFormRegisterUser,
 } from './style';
 import { StyledTitleGreen } from '../../styles/typography';
 
@@ -29,37 +31,12 @@ export const RegisterPage = () => {
   };
   if (typeofRoute === 'userRegister') {
     return (
-      <div>
-        <div>
-          {/* Lógica: Se consumidor, renderizar formulario de registro para este perfil */}
-          <RegisterUserForm />
-        </div>
-        <div>
-          <p>Fatos, coisas bonitinhas</p>
-        </div>
-        <div>
-          <p>Já é cadastrado?</p>
-          <StyledButton
-            $buttonSize='default'
-            $buttonStyle='buttonGreenLight'
-            onClick={() => {
-              handleClick();
-            }}
-          >
-            Login
-          </StyledButton>
-        </div>
-      </div>
-    );
-  }
-  if (typeofRoute === 'companyRegister') {
-    return (
       <StyledColorBackground>
-        <StyledFormRegisterCompany>
-          <StyledRegisterPageHeader>
-            <h1>
+        <StyledFormRegisterUser>
+          <StyledRegisterPageHeaderUser>
+            <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
               Eat<span>Smart</span>
-            </h1>
+            </StyledTitleGreen>
             <StyledButton
               $buttonSize='default'
               $buttonStyle='buttonGreenLight'
@@ -69,31 +46,73 @@ export const RegisterPage = () => {
             >
               Home
             </StyledButton>
-          </StyledRegisterPageHeader>
-          <section>
-            <RegisterCommerceForm />
-            <div className='container_nav'>
-              <StyledTitleGreen tag='h1' $fontSize='small'>
-                Já é cadastrado?
+          </StyledRegisterPageHeaderUser>
+          <section className='container__principal'>
+            <section>
+              <RegisterUserForm />
+              <div className='container_nav'>
+                <StyledTitleGreen tag='h1' $fontSize='small'>
+                  Já é cadastrado?
+                </StyledTitleGreen>
+                <StyledButton
+                  $buttonSize='default'
+                  $buttonStyle='buttonGreenLight'
+                  onClick={() => {
+                    handleClick();
+                  }}
+                >
+                  Login
+                </StyledButton>
+              </div>
+            </section>
+            <section className='container__desktop'>
+              <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
+                Salve nosso <br /> <span>Planeta</span>, <br /> antes da <br />{' '}
+                hora de fechar
               </StyledTitleGreen>
-              <StyledButton
-                $buttonSize='default'
-                $buttonStyle='buttonGreenLight'
-                onClick={() => {
-                  handleClick();
-                }}
-              >
-                Login
-              </StyledButton>
-            </div>
+            </section>
           </section>
-          <section className='container__Img'>
-            <p className='container__desktop'>Logo</p>
-            <img
-              className='container__desktop'
-              src={companyRegister}
-              alt='cadastro'
-            />
+        </StyledFormRegisterUser>
+      </StyledColorBackground>
+    );
+  }
+  if (typeofRoute === 'companyRegister') {
+    return (
+      <StyledColorBackground>
+        <StyledFormRegisterCompany>
+          <StyledRegisterPageHeaderCompany>
+            <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
+              Eat<span>Smart</span>
+            </StyledTitleGreen>
+            <StyledButton
+              $buttonSize='default'
+              $buttonStyle='buttonGreenLight'
+              onClick={() => {
+                navigate('/');
+              }}
+            >
+              Home
+            </StyledButton>
+          </StyledRegisterPageHeaderCompany>
+          <section className='container__principal'>
+            <section>
+              <RegisterCommerceForm />
+              <div className='container_nav'>
+                <StyledTitleGreen tag='h1' $fontSize='small'>
+                  Já é cadastrado?
+                </StyledTitleGreen>
+                <StyledButton
+                  $buttonSize='default'
+                  $buttonStyle='buttonGreenLight'
+                  onClick={() => {
+                    handleClick();
+                  }}
+                >
+                  Login
+                </StyledButton>
+              </div>
+            </section>
+            <section className='container__desktop'></section>
           </section>
         </StyledFormRegisterCompany>
       </StyledColorBackground>

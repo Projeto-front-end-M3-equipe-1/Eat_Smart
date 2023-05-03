@@ -5,8 +5,8 @@ export const StyledCartModalBox = styled.div`
   position: fixed;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  margin-left: -30px;
+  justify-content: flex-end;
+  margin-left: 60px;
   width: 100%;
   height: 100vh;
   z-index: 1001;
@@ -14,7 +14,7 @@ export const StyledCartModalBox = styled.div`
   div {
     animation: ${AnimationFadeIn} 1s ease 0s 1 alternate backwards;
     width: 100%;
-    margin-top: -50%;
+    margin-top: 200px;
     max-width: 500px;
     background-color: #f1ede7;
     display: flex;

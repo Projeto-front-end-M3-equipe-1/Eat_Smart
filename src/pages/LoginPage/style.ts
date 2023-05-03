@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 import userRegister from '../../assets/images/userRegister.svg';
-import companyRegister from '../../assets/images/companyRegister.svg';
 export const StyledColorBackground = styled.body`
   @media (min-width: 1024px) {
     background-color: black;
   }
 `;
 
-export const StyledFormRegisterCompany = styled.div`
+export const StyledFormLoginUser = styled.div`
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -26,6 +25,7 @@ export const StyledFormRegisterCompany = styled.div`
     flex-direction: column;
     gap: 1rem;
     align-items: center;
+
     button {
       width: 90%;
       max-width: 95%;
@@ -60,8 +60,8 @@ export const StyledFormRegisterCompany = styled.div`
         justify-content: center;
         align-items: center;
         button {
-          width: 300px;
-          max-width: 300px;
+          width: 330px;
+          max-width: 330px;
           margin: 0;
         }
       }
@@ -69,7 +69,7 @@ export const StyledFormRegisterCompany = styled.div`
     .container__desktop {
       margin: 0;
       display: block;
-      background-image: url(${companyRegister});
+      background-image: url(${userRegister});
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center center;
@@ -78,7 +78,7 @@ export const StyledFormRegisterCompany = styled.div`
   }
 `;
 
-export const StyledRegisterPageHeaderCompany = styled.header`
+export const StyledLoginPageHeaderCompany = styled.header`
   z-index: 1;
   width: 100%;
   position: absolute;
@@ -137,7 +137,7 @@ export const StyledRegisterPageHeaderCompany = styled.header`
   }
 `;
 
-export const StyledRegisterPageHeaderUser = styled.header`
+export const StyledLoginPageHeaderUser = styled.header`
   z-index: 1;
   width: 100%;
   position: absolute;
@@ -156,7 +156,7 @@ export const StyledRegisterPageHeaderUser = styled.header`
     color: ${({ theme }) => theme.colors.orangePrimary};
     padding: 1rem 0;
     span {
-      color: ${({ theme }) => theme.colors.greenPrimary};
+      color: ${({ theme }) => theme.colors.white};
     }
   }
 
@@ -175,7 +175,8 @@ export const StyledRegisterPageHeaderUser = styled.header`
   }
   @media (min-width: 768px) {
     display: flex;
-    padding: 1rem;
+    padding: 1rem 2rem;
+    margin: 0 auto;
     flex-direction: row;
   }
 
@@ -196,7 +197,7 @@ export const StyledRegisterPageHeaderUser = styled.header`
   }
 `;
 
-export const StyledFormRegisterUser = styled.div`
+export const StyledFormLoginCompany = styled.div`
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -252,8 +253,8 @@ export const StyledFormRegisterUser = styled.div`
         justify-content: center;
         align-items: center;
         button {
-          width: 300px;
-          max-width: 300px;
+          width: 330px;
+          max-width: 330px;
           margin: 0;
         }
       }
