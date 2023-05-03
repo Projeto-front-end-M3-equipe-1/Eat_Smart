@@ -14,7 +14,7 @@ export const StyledContainerUserDashboard = styled.div`
 
   /*   header {
     border: 1px solid red;
-    width: 100%;
+    width: 100%;none
   } */
 
   footer {
