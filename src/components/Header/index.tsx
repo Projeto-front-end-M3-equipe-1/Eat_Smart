@@ -4,6 +4,7 @@ import { CartContext } from '../../providers/CartProvider';
 import { StyledCompanyPageHeader, StyledUserPageHeader } from './style';
 import { StyledTitleGreen } from '../../styles/typography';
 import logoCategory from '../../assets/icons/lanches.svg';
+import { UserContext } from '../../providers/UserContext/UserContext';
 
 export const Header = ({ setIsEditProfileModalOpen }) => {
   const user = localStorage.getItem('@EatSmart:userName');
@@ -13,6 +14,12 @@ export const Header = ({ setIsEditProfileModalOpen }) => {
     company && company[0].toUpperCase() + company.substring(1);
 
   const { setIsCartModalOpen } = useContext(CartContext);
+
+  const {
+    logout,
+    setIsEditUserProfileModalOpen,
+    user: userState,
+  } = useContext(UserContext);
 
   if (user && user) {
     return (
@@ -39,10 +46,13 @@ export const Header = ({ setIsEditProfileModalOpen }) => {
               <button onClick={() => setIsCartModalOpen(true)} type='button'>
                 <i className='fa-solid fa-cart-shopping'></i>
               </button>
-              <button type='button'>
+              <button onClick={() => logout()} type='button'>
                 <i className='fa-solid fa-right-from-bracket'></i>
               </button>
-              <button type='button'>
+              <button
+                onClick={() => setIsEditUserProfileModalOpen(true)}
+                type='button'
+              >
                 <i className='fa-solid fa-gears'></i>
               </button>
             </nav>
@@ -51,7 +61,7 @@ export const Header = ({ setIsEditProfileModalOpen }) => {
             <SearchForm />
           </section>
           <section>
-            <h2>Olá, {userName}</h2>
+            <h2>Olá, {userState?.userName}</h2>
           </section>
         </li>
       </StyledUserPageHeader>

@@ -46,7 +46,7 @@ export const StyledCreateProductForm = styled.form`
     color: ${({ theme }) => theme.colors.gray600};
   }
 
-  div > input {
+  div > .input_formCreateOffer {
     width: auto;
     height: 45px;
     border: 2px solid #989898;
@@ -55,6 +55,7 @@ export const StyledCreateProductForm = styled.form`
     color: ${({ theme }) => theme.colors.gray600};
     font-size: 0.875rem;
     font-weight: 400;
+    padding-left: 14px;
 
     ::placeholder {
       height: 45px;
@@ -65,6 +66,7 @@ export const StyledCreateProductForm = styled.form`
       background-color: ${({ theme }) => theme.colors.white};
       border: 2px solid ${({ theme }) => theme.colors.gray300};
       color: #000000;
+      padding-left: 14px;
     }
   }
 

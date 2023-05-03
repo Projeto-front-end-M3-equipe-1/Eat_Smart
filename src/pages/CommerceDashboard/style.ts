@@ -86,13 +86,11 @@ export const StyledCommerceDashboardMainContainer = styled.main`
 
   @media (min-width: 768px) {
     align-items: flex-start;
-    width: 80%;
+    width: 80vw;
     height: 76vh;
-    // flex-wrap: wrap;
-    gap: 1rem;
 
     section {
-      width: 45%;
+      width: 39.5vw;
     }
   }
 `;
@@ -107,7 +105,7 @@ export const StyledMainSections = styled.div`
     display: flex;
     width: 100%;
     flex-wrap: wrap;
-    gap: 1rem;
+    align-content: space-between;
   }
 `;
 

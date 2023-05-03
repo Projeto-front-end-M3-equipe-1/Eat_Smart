@@ -69,16 +69,13 @@ export const CommerceDashboard = () => {
       </StyledCommerceDataContainer>
       <StyledCommerceDashboardMainContainer>
         <StyledMainSections>
-          <section>
-            {/* <h2>Cadastrar nova Oferta</h2> */}
+          <section className='section_createOffer'>
             <CreateProductForm />
           </section>
-          <section>
-            {/* <h2>Reservas</h2> */}
+          <section className='section_reservations'>
             <ReservedProductsList />
           </section>
-          <section>
-            {/* <h2>Ofertas cadastradas</h2> */}
+          <section className='section_registeredOffers'>
             <OfferList />
           </section>
         </StyledMainSections>

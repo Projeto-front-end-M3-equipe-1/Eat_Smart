@@ -12,7 +12,7 @@ export const StyledEditCommerceProfileModal = styled.div`
   background: rgba(51, 51, 51, 0.5);
   box-shadow: 0px 9px 2px rgba(0, 0, 0, 0.25);
 
-  div {
+  .container_editProfile {
     display: flex;
     flex-direction: column;
     width: 19.375rem;
@@ -21,7 +21,7 @@ export const StyledEditCommerceProfileModal = styled.div`
     padding: 0 0.5rem;
   }
 
-  div > nav {
+  .container_editProfile > nav {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -30,15 +30,16 @@ export const StyledEditCommerceProfileModal = styled.div`
     gap: 1rem;
     padding-right: 0 0.5rem;
     margin-top: 0.5rem;
+    margin-right: 0.5rem;
   }
 
-  div > nav > img {
+  .container_editProfile > nav > img {
     object-fit: contain;
     width: 1.75rem;
     height: 1.75rem;
   }
 
-  div > nav > button {
+  .container_editProfile > nav > button {
     background-color: ${({ theme }) => theme.colors.orangePrimary};
     border: 1px solid ${({ theme }) => theme.colors.orangePrimary};
     border-radius: 6px;
@@ -55,7 +56,7 @@ export const StyledEditCommerceProfileModal = styled.div`
     background-color: #ffffff;
   }
 
-  div > form > h3 {
+  .container_editProfile > form > h3 {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     padding-left: 2rem;
@@ -131,7 +132,8 @@ export const StyledEditCommerceProfileModal = styled.div`
     padding: 0;
     margin-bottom: 1rem;
   }
-  div > button {
+
+  .container_editProfile > button {
     width: 90%;
     height: 45px;
     align-self: center;
