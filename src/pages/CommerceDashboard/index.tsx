@@ -38,6 +38,7 @@ export const CommerceDashboard = () => {
     <StyledCommerceDashboard>
       <StyledHeaderContainer>
         <Header/>
+        {'tipar Header'}
         <button onClick={() => setIsEditProfileModalOpen(true)}>
           Edit profile
         </button>
