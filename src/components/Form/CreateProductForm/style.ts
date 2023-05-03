@@ -11,14 +11,14 @@ export const StyledCreateProductForm = styled.form`
   gap: 1.25rem;
   margin-bottom: 1rem;
 
-  header {
+ .header_formCreate {
     margin: 1rem 0 0.5rem 0;
     width: 90%;
     display: flex;
     flex-direction: column;
   }
 
-  header > h1 {
+  .header_formCreate > h1 {
     line-height: 2.25rem;
     display: flex;
     font-size: 1.125rem;
@@ -47,6 +47,7 @@ export const StyledCreateProductForm = styled.form`
 
   div > input {
     width: auto;
+    height: 45px;
     border: 2px solid #989898;
     background-color: ${({ theme }) => theme.colors.white};
     border-radius: 1rem;
