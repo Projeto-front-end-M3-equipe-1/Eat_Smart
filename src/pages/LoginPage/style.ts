@@ -1,80 +1,9 @@
 import styled from 'styled-components';
 import userRegister from '../../assets/images/userRegister.svg';
+
 export const StyledColorBackground = styled.body`
   @media (min-width: 1024px) {
     background-color: black;
-  }
-`;
-
-export const StyledFormLoginUser = styled.div`
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  margin: 0 auto;
-  z-index: -1;
-  flex-direction: column;
-  align-items: center;
-  background-color: ${({ theme }) => theme.colors.greenPrimary};
-  margin: 0 auto;
-  .container__principal {
-    padding-top: 170px;
-    padding-bottom: 70px;
-  }
-  .container_nav {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-
-    button {
-      width: 90%;
-      max-width: 95%;
-    }
-  }
-  .container__desktop {
-    display: none;
-  }
-
-  @media (min-width: 425px) {
-    align-items: center;
-    .container__desktop {
-      display: none;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    max-width: 1440px;
-    .container__principal {
-      width: 100%;
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: space-between;
-      max-width: 1440px;
-
-      padding-top: 0px;
-
-      section {
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        button {
-          width: 330px;
-          max-width: 330px;
-          margin: 0;
-        }
-      }
-    }
-    .container__desktop {
-      margin: 0;
-      display: block;
-      background-image: url(${userRegister});
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center center;
-      height: 100vh;
-    }
   }
 `;
 
@@ -156,7 +85,7 @@ export const StyledLoginPageHeaderUser = styled.header`
     color: ${({ theme }) => theme.colors.orangePrimary};
     padding: 1rem 0;
     span {
-      color: ${({ theme }) => theme.colors.white};
+      color: ${({ theme }) => theme.colors.greenPrimary};
     }
   }
 
@@ -197,6 +126,80 @@ export const StyledLoginPageHeaderUser = styled.header`
   }
 `;
 
+export const StyledFormLoginUser = styled.div`
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  z-index: -1;
+  flex-direction: column;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.greenPrimary};
+  margin: 0 auto;
+  .container__principal {
+    padding-top: 170px;
+    padding-bottom: 70px;
+    max-width: 320px;
+    width: 320px;
+  }
+  .container_nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+
+    button {
+      width: 90%;
+      max-width: 95%;
+    }
+  }
+  .container__desktop {
+    display: none;
+  }
+
+  @media (min-width: 425px) {
+    align-items: center;
+    .container__desktop {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 1440px;
+    .container__principal {
+      width: 100%;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      max-width: 1440px;
+
+      padding-top: 0px;
+
+      section {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        button {
+          width: 330px;
+          max-width: 330px;
+          margin: 0;
+        }
+      }
+    }
+    .container__desktop {
+      margin: 0;
+      display: block;
+      background-image: url(${userRegister});
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      height: 100vh;
+    }
+  }
+`;
+
 export const StyledFormLoginCompany = styled.div`
   display: flex;
   width: 100vw;
@@ -210,6 +213,8 @@ export const StyledFormLoginCompany = styled.div`
   .container__principal {
     padding-top: 170px;
     padding-bottom: 70px;
+    width: 320px;
+    max-width: 320px;
   }
   .container_nav {
     display: flex;

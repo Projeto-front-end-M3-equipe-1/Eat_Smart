@@ -84,14 +84,23 @@ const Styles = () => {
         </StyledFormUserLight>
       </section>
       <StyledCartSale>
-        <div>
+        <div className='container__cart'>
           <section className='img'>
-            <span>
+            <div>
               <p className='info'>2 Sacolas</p>
               <i className='fa-solid fa-heart'></i>
-            </span>
+            </div>
             <h1 className='name'>Padaria</h1>
+            <span className='container_icons'>
+              <button className='icon__buy'>
+                <i className='fa-solid fa-cart-shopping'></i>
+              </button>
+              <button className='icon__fav'>
+                <i className='fa-solid fa-heart'></i>
+              </button>
+            </span>
           </section>
+
           <section className='description'>
             <h4>Paragrafo</h4>
             <h5>Horario</h5>
