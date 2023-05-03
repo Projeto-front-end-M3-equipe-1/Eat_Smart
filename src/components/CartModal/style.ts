@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import backgroundImage from '../../assets/images/backgroundCart.svg';
 
-export const StyledCartModalBox = styled.div`
+export const StyledCartModalBoxVini = styled.div`
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -14,12 +14,12 @@ export const StyledCartModalBox = styled.div`
   background: rgba(51, 51, 51, 0.5);
   z-index: 1001;
 
-  div {
+  .modalCart__header__container{
     width: 360px;
     background-color: #efe9e8;
   }
 
-  header {
+  .modalCart__header__container > header {
     display: flex;
     justify-content: space-between;
     padding: 0 14px 0 14px;

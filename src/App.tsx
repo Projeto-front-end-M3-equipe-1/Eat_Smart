@@ -5,10 +5,10 @@ import { GlobalStyles } from './styles/global';
 const App = () => {
   return (
     <>
-    <GlobalStyles/>
-    <CartProvider>
-      <RoutesMain />
-    </CartProvider>
+      <GlobalStyles />
+      <CartProvider>
+        <RoutesMain />
+      </CartProvider>
     </>
   );
 };
