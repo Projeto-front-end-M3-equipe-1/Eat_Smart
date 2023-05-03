@@ -59,6 +59,7 @@ export const StyledCartSale = styled.section`
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-top: -2px;
         .info {
           padding: 5px;
           color: white;
@@ -129,13 +130,14 @@ export const StyledCartSale = styled.section`
     width: 100%;
     h4 {
       width: 100%;
-      margin: 1rem 0 0 0;
+
       color: ${({ theme }) => theme.colors.gray600};
       font-size: 14px;
       font-weight: 600;
       padding-left: 15px;
     }
     h5 {
+      margin: 1rem 0 0 0;
       width: 100%;
       color: ${({ theme }) => theme.colors.gray600};
       font-size: 12px;
@@ -143,6 +145,7 @@ export const StyledCartSale = styled.section`
       padding-left: 15px;
     }
     span {
+      margin: 1rem 0 0 0;
       width: 87%;
       display: flex;
       flex-direction: row;
