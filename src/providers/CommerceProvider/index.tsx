@@ -128,7 +128,11 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
   };
 
   const removeOfferFromOfferList = async (offerId: number) => {
-    const response = await api.delete(`/products/${offerId}`);
+    const userToken = localStorage.getItem('@userCompany:token');
+
+    const response = await api.delete(`/products/${offerId}`, {
+      headers: { Authorization: `Bearer ${userToken}` },
+    });
 
     const removeCurrentOffer = productsList.filter(
       (currentOffer) => currentOffer.id !== offerId

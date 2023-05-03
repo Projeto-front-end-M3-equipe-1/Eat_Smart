@@ -13,6 +13,7 @@ export const Header = ({ setIsEditProfileModalOpen }) => {
     company && company[0].toUpperCase() + company.substring(1);
 
   const { setIsCartModalOpen } = useContext(CartContext);
+  const { logout } = useContext(UserContext);
 
   const { logout, setIsEditUserProfileModalOpen, user:userState } = useContext(UserContext);
 
@@ -82,7 +83,7 @@ export const Header = ({ setIsEditProfileModalOpen }) => {
               Eat<span>Smart</span>
             </StyledTitleGreen>
             <nav>
-              <button type='button'>
+              <button onClick={() => logout()} type='button'>
                 <i className='fa-solid fa-right-from-bracket'></i>
               </button>
               <button
