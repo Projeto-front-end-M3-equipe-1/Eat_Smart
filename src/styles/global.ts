@@ -2,18 +2,11 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
 
-
-html
-{
-  position:fixed;
-  width:100%;
-  height:100%;
-}
-
 body{
 	margin: 0 auto;
 	width: 100vw;
 	height: 100vh;
+	overflow x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
