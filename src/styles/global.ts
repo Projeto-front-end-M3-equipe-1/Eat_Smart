@@ -2,21 +2,11 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
 
-html
-{
-  @media (min-width: 1024px) {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-  }
-
-  
-}
-
 body{
 	margin: 0 auto;
 	width: 100vw;
 	height: 100vh;
+	overflow x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -30,7 +20,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video, button, input {
+time, mark, audio, video, button, input, body {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -38,7 +28,6 @@ time, mark, audio, video, button, input {
 	vertical-align: baseline;
   	box-sizing: border-box;
   	outline: none;
-	
 }
 
 

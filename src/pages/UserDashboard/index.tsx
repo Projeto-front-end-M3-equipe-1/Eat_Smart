@@ -17,96 +17,90 @@ import {
   StyledContainerUserDashboard,
   StyledMainContainerUserDashboard,
 } from './style.ts';
+import { UserContext } from '../../providers/UserContext/UserContext.tsx';
+import { EditUserProfile } from '../../components/Form/EditUserProfile/index.tsx';
 
 export const UserDashboard = () => {
-  const { offers, searchByCategory, isCartModalOpen } = useContext(CartContext);
+  const { offers, searchByCategory, isCartModalOpen, searchOffer } =
+    useContext(CartContext);
+  const { isEditUserProfileModalOpen } = useContext(UserContext);
 
   return (
-    <>
+    <StyledContainerUserDashboard>
       <Header />
-      <StyledContainerUserDashboard>
-        <StyledMainContainerUserDashboard>
-          <StyledUserDashboard>
-            {isCartModalOpen ? <CartModal /> : null}
-            <section>
-              <div>
-                <h1>Categorias</h1>
-              </div>
-              <nav>
-                <UserDashboardComponent
-                  searchByCategory={searchByCategory}
-                  category={'Padaria'}
-                  srcLogo={padariaLogo}
+      <StyledMainContainerUserDashboard>
+        <StyledUserDashboard>
+          {isCartModalOpen ? <CartModal /> : null}
+          {isEditUserProfileModalOpen ? <EditUserProfile /> : null}
+          <section className='categories__container'>
+            <div>
+              <h1 onClick={() => searchByCategory('')}>Categorias</h1>
+            </div>
+            <nav>
+              <UserDashboardComponent
+                searchByCategory={searchByCategory}
+                category={'Padaria'}
+                srcLogo={padariaLogo}
+              />
+              <UserDashboardComponent
+                searchByCategory={searchByCategory}
+                category={'Lanches'}
+                srcLogo={lanchesLogo}
+              />
+              <UserDashboardComponent
+                searchByCategory={searchByCategory}
+                category={'Cafeteria'}
+                srcLogo={cafeteriaLogo}
+              />
+              <UserDashboardComponent
+                searchByCategory={searchByCategory}
+                category={'Restaurante'}
+                srcLogo={restauranteLogo}
+              />
+              <UserDashboardComponent
+                searchByCategory={searchByCategory}
+                category={'Bares'}
+                srcLogo={baresLogo}
+              />
+              <UserDashboardComponent
+                searchByCategory={searchByCategory}
+                category={'Mercado'}
+                srcLogo={mercadoLogo}
+              />
+            </nav>
+            <form>
+              <select
+                onChange={(event) => searchByCategory(event.target.value)}
+              >
+                <UserDashboardOption value={''} innerText={'Categorias'} />
+                <UserDashboardOption value={'padaria'} innerText={'Padaria'} />
+                <UserDashboardOption value={'lanches'} innerText={'Lanches'} />
+                <UserDashboardOption
+                  value={'cafeteria'}
+                  innerText={'Cafeteria'}
                 />
-                <UserDashboardComponent
-                  searchByCategory={searchByCategory}
-                  category={'Lanches'}
-                  srcLogo={lanchesLogo}
+                <UserDashboardOption
+                  value={'restaurante'}
+                  innerText={'Restaurante'}
                 />
-                <UserDashboardComponent
-                  searchByCategory={searchByCategory}
-                  category={'Cafeteria'}
-                  srcLogo={cafeteriaLogo}
-                />
-                <UserDashboardComponent
-                  searchByCategory={searchByCategory}
-                  category={'Restaurante'}
-                  srcLogo={restauranteLogo}
-                />
-                <UserDashboardComponent
-                  searchByCategory={searchByCategory}
-                  category={'Bares'}
-                  srcLogo={baresLogo}
-                />
-                <UserDashboardComponent
-                  searchByCategory={searchByCategory}
-                  category={'Mercado'}
-                  srcLogo={mercadoLogo}
-                />
-              </nav>
-              <form>
-                <select
-                  onChange={(event) => searchByCategory(event.target.value)}
-                >
-                  <UserDashboardOption value={''} innerText={'Categorias'} />
-                  <UserDashboardOption
-                    value={'padaria'}
-                    innerText={'Padaria'}
-                  />
-                  <UserDashboardOption
-                    value={'lanches'}
-                    innerText={'Lanches'}
-                  />
-                  <UserDashboardOption
-                    value={'cafeteria'}
-                    innerText={'Cafeteria'}
-                  />
-                  <UserDashboardOption
-                    value={'restaurante'}
-                    innerText={'Restaurante'}
-                  />
-                  <UserDashboardOption value={'bares'} innerText={'Bares'} />
-                  <UserDashboardOption
-                    value={'mercado'}
-                    innerText={'Mercado'}
-                  />
-                </select>
-              </form>
-            </section>
-            <section>
-              <h1>Ofertas</h1>
-              <div>
-                {offers.length == 0 ? (
-                  <h2>Nenhuma oferta cadastrada</h2>
-                ) : (
-                  <ProductList offers={offers} />
-                )}
-              </div>
-            </section>
-          </StyledUserDashboard>
-        </StyledMainContainerUserDashboard>
-        <Footer />
-      </StyledContainerUserDashboard>
-    </>
+                <UserDashboardOption value={'bares'} innerText={'Bares'} />
+                <UserDashboardOption value={'mercado'} innerText={'Mercado'} />
+              </select>
+            </form>
+          </section>
+          <section className='offers__container'>
+            <h1 onClick={() => searchOffer('')}>Ofertas</h1>
+            <div>
+              {offers.length == 0 ? (
+                <h2>Nenhuma oferta cadastrada</h2>
+              ) : (
+                <ProductList offers={offers} />
+              )}
+            </div>
+          </section>
+        </StyledUserDashboard>
+      </StyledMainContainerUserDashboard>
+      <Footer />
+    </StyledContainerUserDashboard>
   );
 };

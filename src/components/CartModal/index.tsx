@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../../providers/CartProvider";
 import { CartProductList } from "./CartProductList";
-import { StyledCartModalBox } from "./style";
+import { StyledCartModalBox } from "../LoginModal/style";
 
 export const CartModal = () => {
   const { listOffersCart, setIsCartModalOpen } = useContext(CartContext);

@@ -14,12 +14,11 @@ export const StyledOffersContainer = styled.div`
     // border: 1px solid red;
     display: flex;
     font-size: 1.125rem;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 2.0625rem;
     color: #2e2e2e;
-    margin: 1rem 0rem 0rem 1rem;
-    padding-bottom: 1rem; 
-    width: 90%;
+    margin: 1rem;
+    padding-bottom: 1rem;
     border-bottom: 1px solid #000000;
   }
 
@@ -62,13 +61,19 @@ export const StyledOffersContainer = styled.div`
 
   @media (min-width: 768px) {
     width: 95%;
+    margin-top: 0;
 
-    ul{
+    ul {
       height: 490px;
     }
 
-    button{
+    h1 {
+      font-size: 24px;
+
+    button {
       margin-top: 1rem;
     }
   }
+
+
 `;
