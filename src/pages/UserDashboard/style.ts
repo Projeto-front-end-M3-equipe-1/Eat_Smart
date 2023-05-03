@@ -35,7 +35,7 @@ export const StyledContainerUserDashboard = styled.div`
 `;
 
 export const StyledMainContainerUserDashboard = styled.div`
-  margin-top: 8rem;
+  margin-top: 10rem;
   border: 1px solid red;
   width: 90%;
   height: 80%;

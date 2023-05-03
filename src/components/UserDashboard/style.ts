@@ -43,9 +43,8 @@ export const StyledUserDashboard = styled.main`
     border-radius: 0.75rem;
   }
 
-
   .categories__container > form > select {
-    font-family: "Poppins";
+    font-family: 'Poppins';
 
     height: 2.1875rem;
     width: 100%;
@@ -57,16 +56,17 @@ export const StyledUserDashboard = styled.main`
     outline: none;
     /*   -webkit-backdrop-filter: none; */
   }
-  
-  .offers__container{
+
+  .offers__container {
     display: flex;
     flex-direction: column;
     width: 100%;
     margin-bottom: 1rem;
+  }
 
   .offers__container > h1 {
     /* border: 1px solid red; */
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 2.25rem;
@@ -76,18 +76,15 @@ export const StyledUserDashboard = styled.main`
   }
 
   .offers__container > div {
-
     display: flex;
     align-items: center;
-  } */
-
-
-  .offers__container > div > h2 {
+  }
+  */ .offers__container > div > h2 {
     margin: 0 0 1rem 1rem;
     display: flex;
     color: #2e2e2e;
     font-size: 1rem;
-  } */
+  }
 
   @media (min-width: 375px) {
   }
@@ -147,17 +144,14 @@ export const StyledUserDashboard = styled.main`
   }
 
   @media (min-width: 768px) {
-
     .offers__container {
       margin: 1rem 0;
     }
 
     .offers__container > h1 {
-
       margin-bottom: 0;
-    } */
-
-    .offers__container > div {
+    }
+    */ .offers__container > div {
       display: flex;
       height: 50vh;
     }

@@ -186,14 +186,14 @@ export const StyledCartSale = styled.section`
     }
     .container_icons {
       position: absolute;
-      margin-top: -15px;
+      margin-top: -87px;
       width: 100%;
       height: 275px;
       border-radius: 16px;
       background: linear-gradient(
         180deg,
         rgb(255, 84, 61, 0.4) 58%,
-        rgba(255, 255, 255, 0) 50%
+        rgba(255, 255, 255, 0) 0%
       );
 
       border-radius: 16px;
