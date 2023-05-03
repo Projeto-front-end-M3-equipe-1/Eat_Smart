@@ -90,7 +90,6 @@ export const StyledCreateProductForm = styled.form`
   }
 
   @media (min-width: 768px) {
-    // height: 50vh;
 
     .header_formCreate  > h1 {
       font-size: 22px;

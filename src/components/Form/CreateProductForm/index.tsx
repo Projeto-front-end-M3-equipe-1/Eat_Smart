@@ -30,7 +30,6 @@ export const CreateProductForm = () => {
   const createProductSubmit: SubmitHandler<ICreateProductFormValues> = (
     productFormData
   ) => {
-    console.log(productFormData);
     createNewProduct(productFormData);
 
     setValue('title', '');
