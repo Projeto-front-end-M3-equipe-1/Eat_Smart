@@ -4,6 +4,7 @@ import { GlobalStyles } from './styles/global';
 const App = () => {
   return (
     <>
+      {'apagar'}
       <GlobalStyles />
       <CartProvider>
         <RoutesMain />
