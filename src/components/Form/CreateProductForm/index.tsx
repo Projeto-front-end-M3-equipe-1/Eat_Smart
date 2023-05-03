@@ -46,7 +46,6 @@ export const CreateProductForm = () => {
       </header>
       <Input
         label='Horário de Retirada'
-        className=''
         placeholder='A partir das 22:00'
         disabled
         id='retirement'
