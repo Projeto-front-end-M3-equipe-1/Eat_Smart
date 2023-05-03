@@ -58,6 +58,7 @@ export const Header = () => {
           </section>
           <section>
             <h2>Olá, {userName}</h2>
+            <h1></h1>
           </section>
         </li>
       </StyledUserPageHeader>
