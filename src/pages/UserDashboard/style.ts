@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledContainerUserDashboard = styled.div`
+  
   /* border: 1px solid red; */
   width: 99vw;
   height: 100vh;

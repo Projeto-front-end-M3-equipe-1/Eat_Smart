@@ -32,7 +32,7 @@ export const UserDashboard = () => {
         <StyledUserDashboard>
           {isCartModalOpen ? <CartModal /> : null}
           {isEditUserProfileModalOpen ? <EditUserProfile /> : null}
-          <section>
+          <section className='categories__container'>
             <div>
               <h1 onClick={() => searchByCategory('')}>Categorias</h1>
             </div>
@@ -88,7 +88,7 @@ export const UserDashboard = () => {
               </select>
             </form>
           </section>
-          <section>
+          <section className='offers__container'>
             <h1 onClick={() => searchOffer('')}>Ofertas</h1>
             <div>
               {offers.length == 0 ? (

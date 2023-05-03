@@ -7,13 +7,13 @@ export const StyledUserDashboard = styled.main`
   height: 100%;
   width: 100%;
 
-  section:first-child {
+  .categories__container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
 
-  section:first-child > div {
+  .categories__container > div {
     display: flex;
     align-items: center;
     height: 2.9375rem;
@@ -22,17 +22,17 @@ export const StyledUserDashboard = styled.main`
     display: none;
   }
 
-  section:first-child > div > h1 {
+  .categories__container > div > h1 {
     font-size: 22px;
     font-weight: 600;
     cursor: pointer;
   }
 
-  section:first-child > nav {
+  .categories__container > nav {
     display: none;
   }
 
-  section:first-child > form {
+  .categories__container > form {
     display: flex;
     align-items: center;
     height: 2.9375rem;
@@ -43,7 +43,7 @@ export const StyledUserDashboard = styled.main`
     border-radius: 0.75rem;
   }
 
-  section:first-child > form > select {
+  .categories__container > form > select {
     font-family: "Poppins";
     height: 2.1875rem;
     width: 100%;
@@ -56,14 +56,15 @@ export const StyledUserDashboard = styled.main`
     webkit-appearance: none;
   }
 
-  section:last-child {
+  .offers__container{
     display: flex;
     flex-direction: column;
     width: 100%;
     margin-bottom: 1rem;
+    /* border: 1px solid red; */
   }
 
-  section:last-child > h1 {
+  .offers__container > h1 {
     /* border: 1px solid red; */
     font-family: "Poppins", sans-serif;
     font-size: 1.5rem;
@@ -74,12 +75,12 @@ export const StyledUserDashboard = styled.main`
     width: 100px;
   }
 
-  section:last-child > div {
+  .offers__container > div {
     display: flex;
     align-items: center;
   }
 
-  section:last-child > div > h2 {
+  .offers__container > div > h2 {
     margin: 0 0 1rem 1rem;
     display: flex;
     color: #2e2e2e;
@@ -93,16 +94,16 @@ export const StyledUserDashboard = styled.main`
   }
 
   @media (min-width: 768px) {
-    section:first-child > div {
+    .categories__container > div {
       display: flex;
       margin-bottom: 0;
     }
 
-    section:first-child > form {
+    .categories__container > form {
       display: none;
     }
 
-    section:first-child > nav {
+    .categories__container > nav {
       width: 100%;
       /* border: 1px solid red; */
       display: flex;
@@ -111,7 +112,7 @@ export const StyledUserDashboard = styled.main`
       gap: 0.5em;
     }
 
-    section:first-child > nav > button {
+    .categories__container > nav > button {
       display: flex;
       flex-direction: column;
       width: 10.625rem;
@@ -126,16 +127,16 @@ export const StyledUserDashboard = styled.main`
       cursor: pointer;
     }
 
-    section:first-child > nav > button:hover {
+    .categories__container > nav > button:hover {
       -webkit-transform: scale(1.1);
       transform: scale(1.1);
     }
 
-    section:first-child > nav > img {
+    .categories__container > nav > img {
       object-fit: cover;
     }
 
-    section:first-child > nav > button > p {
+    .categories__container > nav > button > p {
       font-size: 1.125rem;
       font-weight: 400;
       color: #a098ae;
@@ -143,15 +144,15 @@ export const StyledUserDashboard = styled.main`
   }
 
   @media (min-width: 768px) {
-    section:last-child {
+    .offers__container {
       margin: 1rem 0;
     }
 
-    section:last-child > h1 {
+    .offers__container > h1 {
       margin-bottom: 0;
     }
 
-    section:last-child > div {
+    .offers__container > div {
       display: flex;
       /* border: 2px solid green; */
       height: 50vh;
