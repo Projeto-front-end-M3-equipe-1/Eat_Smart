@@ -35,7 +35,7 @@ export const EditCommerceProfile = ({ closeProfileModal }: ICloseModal) => {
 
   return (
     <StyledEditCommerceProfileModal role='dialog'>
-      <div>
+      <div className='container_editProfile'>
         <nav>
           <img src={cartIcon} alt='cart-icon'></img>
           <img src={favoriteIcon} alt='heart-icon'></img>

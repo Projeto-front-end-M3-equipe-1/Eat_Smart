@@ -30,7 +30,6 @@ export const CreateProductForm = () => {
   const createProductSubmit: SubmitHandler<ICreateProductFormValues> = (
     productFormData
   ) => {
-    console.log(productFormData);
     createNewProduct(productFormData);
 
     setValue('title', '');
@@ -41,16 +40,18 @@ export const CreateProductForm = () => {
 
   return (
     <StyledCreateProductForm onSubmit={handleSubmit(createProductSubmit)}>
-      <header>
+      <header className='header_formCreate'>
         <h1>Cadastrar nova oferta</h1>
       </header>
       <Input
+        className='input_formCreateOffer'
         label='Horário de Retirada'
         placeholder='A partir das 22:00'
         disabled
         id='retirement'
       />
       <Input
+        className='input_formCreateOffer'
         type='text'
         label='Descrição'
         placeholder='Macarronada, Such, etc.'
@@ -59,6 +60,7 @@ export const CreateProductForm = () => {
         error={errors.title}
       />
       <Input
+        className='input_formCreateOffer'
         type='number'
         label='Quantidade'
         placeholder='1'
@@ -67,6 +69,7 @@ export const CreateProductForm = () => {
         error={errors.quantity}
       />
       <Input
+        className='input_formCreateOffer'
         type='number'
         label='Valor Real'
         placeholder='R$80,00'
@@ -75,6 +78,7 @@ export const CreateProductForm = () => {
         error={errors.originalPrice}
       />
       <Input
+        className='input_formCreateOffer'
         type='number'
         label='Desconto'
         placeholder='20%'
