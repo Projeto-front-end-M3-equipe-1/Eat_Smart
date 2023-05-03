@@ -1,15 +1,22 @@
 import styled from 'styled-components';
 
 export const StyledCommerceDashboard = styled.div`
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   align-items: center;
   background-color: #efe9e8;
   font-family: 'Poppins';
   overflow-x: hidden;
+`;
+
+export const StyledHeaderContainer = styled.div`
+  border: 1px solid red;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  // display: none;
 `;
 
 export const StyledCommerceDataContainer = styled.div`
@@ -25,8 +32,8 @@ export const StyledCommerceLogoContainer = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
+  height: 100%;
   gap: 1rem;
-  margin-left: 1rem;
 
   img {
     width: 2.125rem;
@@ -38,7 +45,11 @@ export const StyledCommerceLogoContainer = styled.div`
   h2 {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #056365;
+    color: rgb(5, 99, 101);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    line-height: 36px;
   }
 
   @media (min-width: 768px) {
@@ -51,13 +62,14 @@ export const StyledCommerceDashboardMainContainer = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1rem;
+  margin: 1rem 0;
   width: 90%;
+  height: 70%;
 
   section {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 100%;
 
     h2 {
       border: 1px solid red;
@@ -76,14 +88,55 @@ export const StyledCommerceDashboardMainContainer = styled.main`
   }
 
   @media (min-width: 768px) {
+    align-items: flex-start;
     width: 80%;
-    height: 78vh;
-    flex-wrap: wrap;
+    height: 76vh;
+    // flex-wrap: wrap;
     gap: 1rem;
 
-    section{
-      width: 50%;
+
+    section {
+      width: 45%;
+    }
+  }
+`;
+
+export const StyledMainSections = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+`;
+
+export const StyledFooterCommerce = styled.div`
+  width: 100%;
+  height: 15%
+  margin-top: 1rem;
+
+  footer {
+    display: none;
+  }
+
+  div {
+    display: flex;
+  }
+
+  @media (min-width: 768px) {
+    div {
+      display: none;
     }
 
+    footer {
+      display: flex;
+      background-color: #056365;
+      gap: 1rem;
+    }
   }
 `;

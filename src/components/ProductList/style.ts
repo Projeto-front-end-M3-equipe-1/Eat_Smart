@@ -14,7 +14,7 @@ export const StyledProductList = styled.ul`
 
   @media (min-width: 768px) {
     margin-top: 1rem;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     flex-direction: row;
     justify-content: flex-start;

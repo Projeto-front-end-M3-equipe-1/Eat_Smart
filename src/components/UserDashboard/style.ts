@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import arrow from '../../assets/icons/arrow.svg';
 
 export const StyledUserDashboard = styled.main`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   background-color: #efe9e8;
   height: 100%;
   width: 100%;
@@ -25,6 +25,7 @@ export const StyledUserDashboard = styled.main`
   section:first-child > div > h1 {
     font-size: 22px;
     font-weight: 600;
+    cursor: pointer;
   }
 
   section:first-child > nav {
@@ -101,7 +102,7 @@ export const StyledUserDashboard = styled.main`
 
     section:first-child > nav {
       width: 100%;
-      border: 1px solid red;
+      /* border: 1px solid red; */
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -121,6 +122,12 @@ export const StyledUserDashboard = styled.main`
       padding: 0;
       box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
         rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+      cursor: pointer;
+    }
+
+    section:first-child > nav > button:hover {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
     }
 
     section:first-child > nav > img {
