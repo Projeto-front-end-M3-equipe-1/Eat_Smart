@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SchemaFormUserRegister, TRegisterFormUserSchema } from "./registerUserFormSchema";
 import { InputLight } from "../Input";
 import { useState, useContext } from "react";
-import { UserContext } from "./../../../providers/UserContext/UserContext";
+import { IUserRegister, UserContext } from "./../../../providers/UserContext/UserContext";
 import { StyledFormUserLight } from "../../../styles/form";
 import { StyledTitleWhite } from "../../../styles/typography";
 import { StyledButton } from "../../../styles/button";
@@ -22,11 +22,11 @@ export const RegisterUserForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IRegisterUserFormData>({
+  } = useForm<IUserRegister>({
     resolver: zodResolver(SchemaFormUserRegister),
   });
 
-  const submit: SubmitHandler<TRegisterFormUserSchema> = (formData) => {
+  const submit: SubmitHandler<IUserRegister> = (formData) => {
     newUserRegister(formData, setLoading);
   };
 
