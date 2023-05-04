@@ -57,6 +57,7 @@ export const StyledInputContainerLight = styled.div`
       color: ${({ theme }) => theme.colors.gray150};
     }
   }
+
   p,
   span {
     font-family: ${({ theme }) => theme.fonts.primaryPoppins};

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import arrow from "../../assets/icons/arrow.svg";
+import styled from 'styled-components';
+import arrow from '../../assets/icons/arrow.svg';
 
 export const StyledUserDashboard = styled.main`
   background-color: rgb(241, 237, 231);
@@ -47,7 +47,7 @@ export const StyledUserDashboard = styled.main`
   }
 
   .categories__container > form > select {
-    font-family: "Poppins";
+    font-family: 'Poppins';
     height: 2.1875rem;
     width: 100%;
     background: url ${{ arrow }} no-repeat right;
@@ -56,6 +56,11 @@ export const StyledUserDashboard = styled.main`
     font-weight: 600;
     padding: 0rem 1rem;
     outline: none;
+  }
+
+  .categories__container > form > select > option {
+    background: transparent;
+    border: none;
   }
 
   .offers__container {
@@ -68,7 +73,7 @@ export const StyledUserDashboard = styled.main`
 
   .offers__container > h1 {
     padding: 0;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 2.25rem;
@@ -120,7 +125,8 @@ export const StyledUserDashboard = styled.main`
       border: 1px solid white;
       border-radius: 16px;
       padding: 0;
-      box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+      box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+        rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
       cursor: pointer;
     }
 
