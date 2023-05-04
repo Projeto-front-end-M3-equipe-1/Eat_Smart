@@ -6,14 +6,9 @@ import { IRegisterUserFormData } from '../RegisterCommerceForm';
 import { useContext } from 'react';
 import { CommerceContext } from '../../../providers/CommerceProvider';
 import { StyledEditCommerceProfileModal } from './style';
-import cartIcon from '../../../assets/icons/cart.svg';
 import favoriteIcon from '../../../assets/icons/coração.svg';
 
-interface ICloseModal {
-  closeProfileModal: () => void;
-}
-
-export const EditCommerceProfile = ({ closeProfileModal }: ICloseModal) => {
+export const EditCommerceProfile = () => {
   const {
     register,
     handleSubmit,
@@ -22,7 +17,7 @@ export const EditCommerceProfile = ({ closeProfileModal }: ICloseModal) => {
     resolver: zodResolver(editCommerceProfileSchema),
   });
 
-  const { editCommerceProfile } = useContext(CommerceContext);
+  const { editCommerceProfile, setIsEditProfileModalOpen } = useContext(CommerceContext);
   const userNameCommerce = localStorage.getItem('@EatSmart:userNameCommerce');
   const emailUserCommerce = localStorage.getItem('@EatSmart:userCommerceEmail');
 
@@ -30,16 +25,15 @@ export const EditCommerceProfile = ({ closeProfileModal }: ICloseModal) => {
     newCommerceProfileData
   ) => {
     editCommerceProfile(newCommerceProfileData);
-    closeProfileModal();
+    setIsEditProfileModalOpen(false);
   };
 
   return (
     <StyledEditCommerceProfileModal role='dialog'>
       <div className='container_editProfile'>
         <nav>
-          <img src={cartIcon} alt='cart-icon'></img>
           <img src={favoriteIcon} alt='heart-icon'></img>
-          <button onClick={() => closeProfileModal()}>X</button>
+          <button onClick={() => setIsEditProfileModalOpen(false)}>X</button>
         </nav>
         <form onSubmit={handleSubmit(editCommerceProfileSubmit)}>
           <h3>Edite seu perfil</h3>
@@ -77,7 +71,9 @@ export const EditCommerceProfile = ({ closeProfileModal }: ICloseModal) => {
           />
           <button type='submit'>Salvar alterações</button>
         </form>
-        <button onClick={() => closeProfileModal()}>Voltar para loja</button>
+        <button onClick={() => setIsEditProfileModalOpen(false)}>
+          Voltar para loja
+        </button>
       </div>
     </StyledEditCommerceProfileModal>
   );

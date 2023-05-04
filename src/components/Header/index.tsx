@@ -1,3 +1,10 @@
+import pubIcon from '../../assets/icons/bares.svg';
+import coffeeIcon from '../../assets/icons/cafeteria.svg';
+import snacksIcon from '../../assets/icons/lanches.svg';
+import marketIcon from '../../assets/icons/mercado.svg';
+import bakeryIcon from '../../assets/icons/padaria.svg';
+import restaurantIcon from '../../assets/icons/restaurantes.svg';
+
 import { SearchForm } from './SearchForm';
 import { useContext } from 'react';
 import { CartContext } from '../../providers/CartProvider';
@@ -6,12 +13,19 @@ import { StyledTitleGreen } from '../../styles/typography';
 import logoCategory from '../../assets/icons/lanches.svg';
 import { UserContext } from '../../providers/UserContext/UserContext';
 
+interface IOpenModal {
+  setIsEditProfileModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-export const Header = ({ setIsEditProfileModalOpen }) => {
+export const Header = ({ setIsEditProfileModalOpen }: IOpenModal) => {
   const user = localStorage.getItem('@EatSmart:userName');
   const company = localStorage.getItem('@EatSmart:userNameCommerce');
   const userName = user && user[0].toUpperCase() + user.substring(1);
-  const companyName = company && company[0].toUpperCase() + company.substring(1);
+  const companyName =
+    company && company[0].toUpperCase() + company.substring(1);
+  const foodCategory = localStorage
+    .getItem('@EatSmart:userCommerceFoodCategory')
+    ?.toUpperCase();
 
   const { setIsCartModalOpen } = useContext(CartContext);
   const {
@@ -19,7 +33,6 @@ export const Header = ({ setIsEditProfileModalOpen }) => {
     setIsEditUserProfileModalOpen,
     user: userState,
   } = useContext(UserContext);
-
 
   if (user && user) {
     return (
@@ -60,9 +73,29 @@ export const Header = ({ setIsEditProfileModalOpen }) => {
           <section>
             <SearchForm />
           </section>
-          <section>
-            <h2>Olá, {userName}</h2>
-          </section>
+         
+            { <section>
+          {foodCategory === 'bares'.toUpperCase() ? (
+            <img src={pubIcon} alt='icon'></img>
+          ) : null}
+          {foodCategory === 'cafeteria' ? (
+            <img src={coffeeIcon} alt='icon'></img>
+          ) : null}
+          {foodCategory === 'lanches'.toUpperCase() ? (
+            <img src={snacksIcon} alt='icon'></img>
+          ) : null}
+          {foodCategory === 'mercado'.toUpperCase() ? (
+            <img src={marketIcon} alt='icon'></img>
+          ) : null}
+          {foodCategory === 'padaria'.toUpperCase() ? (
+            <img src={bakeryIcon} alt='icon'></img>
+          ) : null}
+          {foodCategory === 'restaurante'.toUpperCase() ? (
+            <img src={restaurantIcon} alt='icon'></img>
+          ) : null}
+
+          <h2>Olá, {userName}</h2>
+          </section>}
         </li>
       </StyledUserPageHeader>
     );
