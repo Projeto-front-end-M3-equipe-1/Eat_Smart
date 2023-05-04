@@ -38,6 +38,15 @@ export interface IUser {
   isCompany?: boolean;
 }
 
+export interface IUserRegister {
+  email: string;
+  userName: string;
+  password: string;
+  confirmPassword: string;
+  isCompany?: boolean;
+  foodCategory: string;
+}
+
 interface IUserLoginResponse {
   accessToken: string;
   user: IUser;
@@ -140,12 +149,15 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   };
 
   const newUserRegister = async (
-    formData: TRegisterFormSchema,
+    formData: IUserRegister,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
+    console.log(formData)
     const typeofRoute = localStorage.getItem("@handle:typUser");
     if (typeofRoute === "userRegister") {
       try {
+        const confirmUser = { ...formData, isCompany: false };
+        await api.post<IUserRegisterResponse>("/register", confirmUser);
         setLoading(true);
         toast.success("Cadastro realizado com sucesso");
         localStorage.setItem("@handle:typUser", "userLogin");
