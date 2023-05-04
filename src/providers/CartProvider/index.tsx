@@ -1,6 +1,6 @@
-import { createContext, useEffect, useState } from "react";
-import { api } from "../../services/api";
-import { toast } from "react-toastify";
+import { createContext, useEffect, useState } from 'react';
+import { api } from '../../services/api';
+import { toast } from 'react-toastify';
 
 export interface ICartProviderProps {
   children: React.ReactNode;
@@ -31,16 +31,18 @@ interface IOfferContext {
 export const CartContext = createContext({} as IOfferContext);
 
 export const CartProvider = ({ children }: ICartProviderProps) => {
-  const cartLS = localStorage.getItem("@EatSmart:cart");
+  const cartLS = localStorage.getItem('@EatSmart:cart');
   const [offers, setOffers] = useState<IOffer[]>([]);
   const [offersFound, setOffersFound] = useState<IOffer[]>([]);
-  const [listOffersCart, setListOffersCart] = useState<IOffer[]>(cartLS ? JSON.parse(cartLS) : []);
-  const token = localStorage.getItem("@user:token");
+  const [listOffersCart, setListOffersCart] = useState<IOffer[]>(
+    cartLS ? JSON.parse(cartLS) : []
+  );
+  const token = localStorage.getItem('@user:token');
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
 
   async function loadOffers() {
     try {
-      const { data } = await api.get<IOffer[]>("/products");
+      const { data } = await api.get<IOffer[]>('/products');
       setOffers(data);
       setOffersFound(data);
     } catch (error) {}
@@ -51,7 +53,7 @@ export const CartProvider = ({ children }: ICartProviderProps) => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("@EatSmart:cart", JSON.stringify(listOffersCart));
+    localStorage.setItem('@EatSmart:cart', JSON.stringify(listOffersCart));
   }, [listOffersCart]);
 
   function addItemToCart(offer: IOffer) {
@@ -63,7 +65,9 @@ export const CartProvider = ({ children }: ICartProviderProps) => {
   }
 
   function removeItemFromCart(offerId: number) {
-    const newOffersListCart = listOffersCart.filter((offer) => offer.id !== offerId);
+    const newOffersListCart = listOffersCart.filter(
+      (offer) => offer.id !== offerId
+    );
     setListOffersCart(newOffersListCart);
   }
 
@@ -78,7 +82,7 @@ export const CartProvider = ({ children }: ICartProviderProps) => {
         company.toLowerCase().includes(search.toLowerCase())
     );
     if (foundOffers.length <= 0) {
-      toast.error("Nenhum item encontrado nessa pesquisa");
+      toast.error('Nenhum item encontrado nessa pesquisa', { autoClose: 2000 });
       setOffers(offersFound);
       return;
     } else if (search.length < 1) {
@@ -89,7 +93,7 @@ export const CartProvider = ({ children }: ICartProviderProps) => {
     }
   }
   async function searchByCategory(category: string) {
-    if (category === "") {
+    if (category === '') {
       setOffers(offersFound);
       return;
     }

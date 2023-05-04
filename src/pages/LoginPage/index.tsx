@@ -1,59 +1,56 @@
-import { LoginForm } from "../../components/Form/LoginForm";
-import { StyledButton } from "../../styles/button";
-import { useNavigate } from "react-router-dom";
+import { LoginForm } from '../../components/Form/LoginForm';
+import { StyledButton } from '../../styles/button';
+import { useNavigate, useLocation } from 'react-router-dom';
 import {
   StyledColorBackground,
   StyledFormLoginCompany,
   StyledFormLoginUser,
   StyledLoginPageHeaderCompany,
   StyledLoginPageHeaderUser,
-} from "./style";
-import { StyledTitleGreen } from "../../styles/typography";
+} from './style';
+import { StyledTitleGreen } from '../../styles/typography';
 
 export const LoginPage = () => {
-  const typeofRoute = localStorage.getItem("@handle:typUser");
-  const typeNav = localStorage.getItem("@handle:nav");
   const navigate = useNavigate();
+  const route = useLocation();
+  const location = `${route.pathname}`;
+  console.log(route.pathname);
   const handleClick = () => {
-    if (typeofRoute === "userLogin" && typeNav === "login") {
-      localStorage.setItem("@handle:typUser", "userRegister");
-      localStorage.setItem("@handle:nav", "register");
-      navigate("/register");
+    if (location === '/login') {
+      navigate('/register');
     }
-    if (typeofRoute === "companyLogin" && typeNav === "login") {
-      localStorage.setItem("@handle:typUser", "companyRegister");
-      localStorage.setItem("@handle:nav", "register");
-      navigate("/signup");
+    if (location === '/signin') {
+      navigate('/signup');
     }
   };
-  if (typeofRoute === "userLogin") {
+  if (location === '/login') {
     return (
       <StyledColorBackground>
         <StyledFormLoginUser>
           <StyledLoginPageHeaderUser>
-            <StyledTitleGreen tag="h1" $fontSize="logo" textAlign="center">
+            <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
               Eat<span>Smart</span>
             </StyledTitleGreen>
             <StyledButton
-              $buttonSize="default"
-              $buttonStyle="buttonGreenLight"
+              $buttonSize='default'
+              $buttonStyle='buttonGreenLight'
               onClick={() => {
-                navigate("/");
+                navigate('/');
               }}
             >
               Home
             </StyledButton>
           </StyledLoginPageHeaderUser>
-          <section className="container__principal">
+          <section className='container__principal'>
             <section>
               <LoginForm />
-              <div className="container_nav">
-                <StyledTitleGreen tag="h1" $fontSize="small">
+              <div className='container_nav'>
+                <StyledTitleGreen tag='h1' $fontSize='small'>
                   Ainda não é cadastrado?
                 </StyledTitleGreen>
                 <StyledButton
-                  $buttonSize="default"
-                  $buttonStyle="buttonGreenLight"
+                  $buttonSize='default'
+                  $buttonStyle='buttonGreenLight'
                   onClick={() => {
                     handleClick();
                   }}
@@ -62,40 +59,40 @@ export const LoginPage = () => {
                 </StyledButton>
               </div>
             </section>
-            <section className="container__desktop"></section>
+            <section className='container__desktop'></section>
           </section>
         </StyledFormLoginUser>
       </StyledColorBackground>
     );
   }
-  if (typeofRoute === "companyLogin") {
+  if (location === '/signin') {
     return (
       <StyledColorBackground>
         <StyledFormLoginCompany>
           <StyledLoginPageHeaderCompany>
-            <StyledTitleGreen tag="h1" $fontSize="logo" textAlign="center">
+            <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
               Eat<span>Smart</span>
             </StyledTitleGreen>
             <StyledButton
-              $buttonSize="default"
-              $buttonStyle="buttonGreenLight"
+              $buttonSize='default'
+              $buttonStyle='buttonGreenLight'
               onClick={() => {
-                navigate("/");
+                navigate('/');
               }}
             >
               Home
             </StyledButton>
           </StyledLoginPageHeaderCompany>
-          <section className="container__principal">
+          <section className='container__principal'>
             <section>
               <LoginForm />
-              <div className="container_nav">
-                <StyledTitleGreen tag="h1" $fontSize="small">
+              <div className='container_nav'>
+                <StyledTitleGreen tag='h1' $fontSize='small'>
                   Ainda não é cadastrado?
                 </StyledTitleGreen>
                 <StyledButton
-                  $buttonSize="default"
-                  $buttonStyle="buttonGreenLight"
+                  $buttonSize='default'
+                  $buttonStyle='buttonGreenLight'
                   onClick={() => {
                     handleClick();
                   }}
@@ -104,10 +101,11 @@ export const LoginPage = () => {
                 </StyledButton>
               </div>
             </section>
-            <section className="container__desktop">
-              <StyledTitleGreen tag="h1" $fontSize="logo" textAlign="center">
+            <section className='container__desktop'>
+              <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
                 Bom para os <br />
-                <span>Negócios</span>,<br /> Melhor ainda <br /> para o<span> Planeta</span>
+                <span>Negócios</span>,<br /> Melhor ainda <br /> para o
+                <span> Planeta</span>
               </StyledTitleGreen>
             </section>
           </section>
