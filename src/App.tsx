@@ -2,7 +2,7 @@ import { CartProvider } from './providers/CartProvider';
 import { RoutesMain } from './routes';
 import { GlobalStyles } from './styles/global';
 import { ToastContainer } from 'react-toastify';
-import "react-toastify/dist/ReactToastify.css";
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
