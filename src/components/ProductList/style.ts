@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledProductList = styled.ul`
   display: flex;
-  justify-content: space-around;
   overflow-x: auto;
   list-style: none;
+  justify-content: flex-start;
 
   @media (min-width: 768px) {
     display: flex;

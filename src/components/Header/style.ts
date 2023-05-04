@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledColorBackground = styled.body`
   @media (min-width: 1024px) {
@@ -148,7 +148,7 @@ export const StyledUserPageHeader = styled.header`
     }
   }
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: ${({ theme }) => theme.colors.greenPrimary};
     width: 100%;
     padding: 1.275rem 1rem;
@@ -161,6 +161,9 @@ export const StyledUserPageHeader = styled.header`
   @media (min-width: 768px) {
     form {
       min-width: 421px;
+    }
+    h2 {
+      font-size: 1.5rem;
     }
   }
 
