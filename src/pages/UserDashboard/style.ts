@@ -21,6 +21,8 @@ export const StyledContainerUserDashboard = styled.div`
   }
 
   @media (min-width: 768px) {
+    padding-bottom: 150px;
+
     header {
       width: 80%;
       height: 10%;
@@ -33,13 +35,14 @@ export const StyledContainerUserDashboard = styled.div`
 `;
 
 export const StyledMainContainerUserDashboard = styled.div`
-  margin-top: 10rem;
+
   width: 90%;
   height: 80%;
   display: flex;
   flex-direction: column;
 
   @media (min-width: 768px) {
+    margin-top: 10rem;
     width: 80%;
     height: 80%;
   }
