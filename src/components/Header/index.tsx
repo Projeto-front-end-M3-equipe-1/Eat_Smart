@@ -1,22 +1,24 @@
 import { SearchForm } from './SearchForm';
 import { useContext } from 'react';
 import { CartContext } from '../../providers/CartProvider';
-import { StyledUserPageHeader } from './style';
+import { StyledCompanyPageHeader, StyledUserPageHeader } from './style';
 import { StyledTitleGreen } from '../../styles/typography';
+import logoCategory from '../../assets/icons/lanches.svg';
 import { UserContext } from '../../providers/UserContext/UserContext';
 
-export const Header = ({setIsEditProfileModalOpen}) => {
+
+export const Header = ({ setIsEditProfileModalOpen }) => {
   const user = localStorage.getItem('@EatSmart:userName');
   const company = localStorage.getItem('@EatSmart:userNameCommerce');
   const userName = user && user[0].toUpperCase() + user.substring(1);
- 
-  /*  const companyName =
-    company && company[0].toUpperCase() + company.substring(1);
- */
-  const category = localStorage.getItem('@EatSmart:userCommerceFoodCategory');
+  const companyName = company && company[0].toUpperCase() + company.substring(1);
 
   const { setIsCartModalOpen } = useContext(CartContext);
-  const { logout } = useContext(UserContext);
+  const {
+    logout,
+    setIsEditUserProfileModalOpen,
+    user: userState,
+  } = useContext(UserContext);
 
 
   if (user && user) {
@@ -44,20 +46,22 @@ export const Header = ({setIsEditProfileModalOpen}) => {
               <button onClick={() => setIsCartModalOpen(true)} type='button'>
                 <i className='fa-solid fa-cart-shopping'></i>
               </button>
-              <button type='button'>
+              <button onClick={() => logout()} type='button'>
                 <i className='fa-solid fa-right-from-bracket'></i>
               </button>
-              <button type='button'>
+              <button
+                onClick={() => setIsEditUserProfileModalOpen(true)}
+                type='button'
+              >
                 <i className='fa-solid fa-gears'></i>
               </button>
             </nav>
           </div>
           <section>
             <SearchForm />
-            console.log(apagar)
           </section>
           <section>
-            <h2>Olá, {userName}</h2>
+            <h2>Olá, {userState?.userName}</h2>
           </section>
         </li>
       </StyledUserPageHeader>
@@ -65,7 +69,7 @@ export const Header = ({setIsEditProfileModalOpen}) => {
   }
   if (company && company) {
     return (
-      <StyledUserPageHeader>
+      <StyledCompanyPageHeader>
         <StyledTitleGreen
           className='container__reverse'
           tag='h1'
@@ -88,21 +92,25 @@ export const Header = ({setIsEditProfileModalOpen}) => {
               <button onClick={() => logout()} type='button'>
                 <i className='fa-solid fa-right-from-bracket'></i>
               </button>
-              <button onClick={() => setIsEditProfileModalOpen(true)} type='button'>
-                Edit profile
+
+              <button
+                type='button'
+                onClick={() => setIsEditProfileModalOpen(true)}
+              >
+                <i className='fa-solid fa-gears'></i>
               </button>
               <i className='fa-solid fa-gears'></i>
             </nav>
           </div>
           <section>
-            <SearchForm />
-          </section>
-          <section>
-            <h1></h1>
-            <h2>{/*   {category} {companyName} */}</h2>
+            <h2>
+              <img src={logoCategory} alt='' />
+              {companyName}
+            </h2>
           </section>
         </li>
-      </StyledUserPageHeader>
+      </StyledCompanyPageHeader>
     );
   }
+  return null;
 };

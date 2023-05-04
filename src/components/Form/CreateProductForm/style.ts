@@ -9,8 +9,10 @@ export const StyledCreateProductForm = styled.form`
   border: 2px solid ${({ theme }) => theme.colors.greenPrimary};
   border-radius: 1rem;
   gap: 1.25rem;
+  margin-bottom: 1rem;
+  margin-top: 7rem;
 
- .header_formCreate {
+  .header_formCreate {
     margin: 1rem 0 0.5rem 0;
     width: 90%;
     display: flex;
@@ -20,7 +22,7 @@ export const StyledCreateProductForm = styled.form`
   .header_formCreate > h1 {
     line-height: 2.25rem;
     display: flex;
-    font-size: 1.125rem;
+    font-size: 1.375rem;
     font-weight: 700;
     color: #2e2e2e;
   }
@@ -90,9 +92,8 @@ export const StyledCreateProductForm = styled.form`
   }
 
   @media (min-width: 768px) {
-
-    .header_formCreate  > h1 {
-      font-size: 22px;
+    header > h1 {
+      font-size: 1.5rem;
     }
 
     div > div > label {
@@ -100,9 +101,6 @@ export const StyledCreateProductForm = styled.form`
     }
 
     @media (min-width: 1024px) {
-      .header_formCreate  > h1 {
-        font-size: 1.5rem;
-      }
     }
   }
 `;

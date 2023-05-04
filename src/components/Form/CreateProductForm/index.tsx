@@ -40,8 +40,8 @@ export const CreateProductForm = () => {
 
   return (
     <StyledCreateProductForm onSubmit={handleSubmit(createProductSubmit)}>
-      <header className='header_formCreate'>
-        <h1>Cadastrar nova oferta</h1>
+      <header>
+        <h1 className='header_formCreate'>Cadastrar nova oferta</h1>
       </header>
       <Input
         className='input_formCreateOffer'

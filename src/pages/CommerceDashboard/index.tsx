@@ -1,16 +1,16 @@
-import pubIcon from '../../assets/icons/bares.svg';
+/* import pubIcon from '../../assets/icons/bares.svg';
 import coffeeIcon from '../../assets/icons/cafeteria.svg';
 import snacksIcon from '../../assets/icons/lanches.svg';
 import marketIcon from '../../assets/icons/mercado.svg';
 import bakeryIcon from '../../assets/icons/padaria.svg';
-import restaurantIcon from '../../assets/icons/restaurantes.svg';
+import restaurantIcon from '../../assets/icons/restaurantes.svg'; */
 import {
   StyledCommerceDashboard,
   StyledCommerceDashboardMainContainer,
   StyledCommerceDataContainer,
-  StyledCommerceLogoContainer,
+  /*   StyledCommerceLogoContainer, */
   StyledFooterCommerce,
-  StyledHeaderContainer,
+  /*   StyledHeaderContainer, */
   StyledMainSections,
 } from './style';
 import { Header } from '../../components/Header';
@@ -23,7 +23,8 @@ import { Footer } from '../../components/Footer';
 import { FooterMobileCommerce } from '../../components/Footer/FooterMobileCommerce';
 
 export const CommerceDashboard = () => {
-  const [isEditProfileModalOpen, setIsEditProfileModalOpen] = useState(false);
+  const [isEditProfileModalOpen, setIsEditProfileModalOpen] =
+    useState<boolean>(false);
   const userNameCommerce = localStorage.getItem('@EatSmart:userNameCommerce');
 
   const closeProfileModalWrapper = () => {
@@ -36,18 +37,20 @@ export const CommerceDashboard = () => {
 
   return (
     <StyledCommerceDashboard>
+
       <StyledHeaderContainer>
         <Header setIsEditProfileModalOpen={setIsEditProfileModalOpen}/>
         {/* <button onClick={() => setIsEditProfileModalOpen(true)}>
           Edit profile
         </button> */}
       </StyledHeaderContainer>
+
       {isEditProfileModalOpen ? (
         <EditCommerceProfile closeProfileModal={closeProfileModalWrapper} />
       ) : null}
 
       <StyledCommerceDataContainer>
-        <StyledCommerceLogoContainer>
+        {/*    <StyledCommerceLogoContainer>
           {foodCategory === 'bares'.toUpperCase() ? (
             <img src={pubIcon} alt='icon'></img>
           ) : null}
@@ -68,7 +71,7 @@ export const CommerceDashboard = () => {
           ) : null}
 
           <h2>{userNameCommerce}</h2>
-        </StyledCommerceLogoContainer>
+        </StyledCommerceLogoContainer> */}
       </StyledCommerceDataContainer>
       <StyledCommerceDashboardMainContainer>
         <StyledMainSections>
