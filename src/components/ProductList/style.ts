@@ -5,6 +5,17 @@ export const StyledProductList = styled.ul`
   justify-content: space-around;
   overflow-x: auto;
   list-style: none;
+  ::-webkit-scrollbar {
+    width: 9px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F5F5F5;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #056365;
+    border-radius: 20px;
+    border: 3px solid #056365;
+  }
 
   @media (min-width: 768px) {
     display: flex;
