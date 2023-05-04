@@ -22,6 +22,8 @@ export interface IProductsContext {
   setProductsList: React.Dispatch<React.SetStateAction<IProduct[]>>;
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  isEditProfileModalOpen: boolean;
+  setIsEditProfileModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   createNewProduct: (
     productFormData: ICreateProductFormValues
   ) => Promise<void>;
@@ -41,6 +43,7 @@ export const CommerceContext = createContext({} as IProductsContext);
 export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
   const [productsList, setProductsList] = useState<IProduct[]>([]);
   const [loading, setLoading] = useState(false);
+  const [isEditProfileModalOpen, setIsEditProfileModalOpen] = useState(false);
 
   const getAllProductsFromServer = async () => {
     try {
@@ -181,6 +184,8 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
         setProductsList,
         loading,
         setLoading,
+        isEditProfileModalOpen,
+        setIsEditProfileModalOpen,
         createNewProduct,
         editOffer,
         removeOfferFromOfferList,
