@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { AnimationFadeIn } from "../../../styles/animations";
+import styled from 'styled-components';
+import { AnimationFadeIn } from '../../../styles/animations';
 
 export const StyledEditCommerceProfileModal = styled.div`
   display: flex;
@@ -33,12 +33,6 @@ export const StyledEditCommerceProfileModal = styled.div`
     padding-right: 0 0.5rem;
     margin-top: 0.5rem;
     margin-right: 0.5rem;
-  }
-
-  .container_editProfile > nav > img {
-    object-fit: contain;
-    width: 1.75rem;
-    height: 1.75rem;
   }
 
   .container_editProfile > nav > button {
