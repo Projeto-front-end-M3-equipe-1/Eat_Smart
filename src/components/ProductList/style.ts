@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const StyledProductList = styled.ul`
   display: flex;
-  justify-content: space-between !important;
-  /* overflow-x: auto; */
+  justify-content: space-around;
+  overflow-x: auto;
   list-style: none;
   /* padding-left: 0; */
 
@@ -14,7 +14,7 @@ export const StyledProductList = styled.ul`
   }
 
   @media (min-width: 768px) {
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     /* border: 1px solid black; */
     display: flex;
     flex-direction: row;

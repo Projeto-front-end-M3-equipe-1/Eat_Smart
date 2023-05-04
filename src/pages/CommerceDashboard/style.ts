@@ -141,6 +141,9 @@ export const StyledFooterCommerce = styled.div`
       background-color: #056365;
       gap: 1rem;
       bottom: 0;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
       position: fixed;
     }
   }

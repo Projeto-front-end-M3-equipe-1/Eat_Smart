@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const StyledContainerUserDashboard = styled.div`
   width: 100vw;
   height: 100vh;
-
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -40,7 +39,6 @@ export const StyledContainerUserDashboard = styled.div`
 
 export const StyledMainContainerUserDashboard = styled.div`
   margin-top: 10rem;
-
   width: 90%;
   height: 80%;
   display: flex;

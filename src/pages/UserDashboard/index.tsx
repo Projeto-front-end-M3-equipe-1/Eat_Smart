@@ -19,6 +19,8 @@ import {
 } from './style.ts';
 import { UserContext } from '../../providers/UserContext/UserContext.tsx';
 import { EditUserProfile } from '../../components/Form/EditUserProfile/index.tsx';
+import { FooterMobileCommerce } from '../../components/Footer/FooterMobileCommerce/index.tsx';
+import { StyledFooterCommerce } from '../CommerceDashboard/style.ts';
 
 export const UserDashboard = () => {
   const { offers, searchByCategory, isCartModalOpen, searchOffer } =
@@ -112,7 +114,10 @@ export const UserDashboard = () => {
           </StyledUserDashboard>
         </StyledMainContainerUserDashboard>
       </StyledContainerUserDashboard>
-      <Footer />
+      <StyledFooterCommerce>
+        <FooterMobileCommerce />
+        <Footer />
+      </StyledFooterCommerce>
     </>
   );
 };
