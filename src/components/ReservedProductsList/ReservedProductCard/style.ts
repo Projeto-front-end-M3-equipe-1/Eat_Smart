@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledReserveCard = styled.li`
   display: flex;
@@ -67,8 +67,5 @@ export const StyledReserveCard = styled.li`
         color: #000000;
       }
     }
-  }
-
-  @media (min-width: 768px) {
   }
 `;

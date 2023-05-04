@@ -8,7 +8,7 @@ import { StyledEditUserProfileModal } from "./style";
 import xIcon from "../../../assets/icons/close.svg";
 import { UserContext } from "../../../providers/UserContext/UserContext";
 
-export const EditUserProfile = ({}) => {
+export const EditUserProfile = () => {
   const {
     register,
     handleSubmit,

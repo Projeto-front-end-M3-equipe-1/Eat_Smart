@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import userRegister from '../../assets/images/userRegister.svg';
-import companyRegister from '../../assets/images/companyRegister.svg';
+import styled from "styled-components";
+import companyRegister from "../../assets/images/companyRegister.svg";
+
 export const StyledColorBackground = styled.body`
   @media (min-width: 1024px) {
     background-color: black;
@@ -50,7 +50,6 @@ export const StyledFormRegisterCompany = styled.div`
       flex-direction: row-reverse;
       justify-content: space-between;
       max-width: 1440px;
-
       padding-top: 0px;
 
       section {
@@ -267,7 +266,6 @@ export const StyledFormRegisterUser = styled.div`
         margin-right: 30%;
         width: 80%;
         text-align: right;
-
         span {
           color: ${({ theme }) => theme.colors.orangePrimary};
         }

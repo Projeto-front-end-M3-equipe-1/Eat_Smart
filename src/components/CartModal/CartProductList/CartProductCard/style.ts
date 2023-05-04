@@ -5,9 +5,6 @@ export const StyledCartProductCard = styled.li`
 
   position: relative;
 
-  img:first-child {
-  }
-
   h1 {
     font-family: "Poppins", sans-serif;
     font-size: 16px;

@@ -1,4 +1,4 @@
-import { StyledFooterMobileCommerce } from './style';
+import { StyledFooterMobileCommerce } from "./style";
 
 export const FooterMobileCommerce = () => {
   return (

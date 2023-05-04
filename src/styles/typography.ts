@@ -1,33 +1,26 @@
-import styled, { css } from 'styled-components';
-import BaseTitle from './components/BaseTitle';
+import styled, { css } from "styled-components";
+import BaseTitle from "./components/BaseTitle";
 
 interface IStyledTitleProps {
   $fontSize:
-    | 'principal'
-    | 'logo'
-    | 'titleForm'
-    | 'textInput'
-    | 'textLabel'
-    | 'textButton'
-    | 'small'
-    | 'category'
-    | 'titleSections';
-  textAlign?: 'center' | 'left' | 'right';
+    | "principal"
+    | "logo"
+    | "titleForm"
+    | "textInput"
+    | "textLabel"
+    | "textButton"
+    | "small"
+    | "category"
+    | "titleSections";
+  textAlign?: "center" | "left" | "right";
 }
 
 interface IStyledParagraphProps {
-  fontColor?:
-    | 'greenDark'
-    | 'black'
-    | 'grayDark'
-    | 'grayLight'
-    | 'orange'
-    | 'white';
-  textAlign?: 'center' | 'left' | 'right';
+  fontColor?: "greenDark" | "black" | "grayDark" | "grayLight" | "orange" | "white";
+  textAlign?: "center" | "left" | "right";
 }
 
 export const StyledTitleGreen = styled(BaseTitle)<IStyledTitleProps>`
-  /*   width: 100%; */
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.fonts.primaryPoppins};
   line-height: 1.6;
@@ -36,49 +29,49 @@ export const StyledTitleGreen = styled(BaseTitle)<IStyledTitleProps>`
 
   ${({ $fontSize }) => {
     switch ($fontSize) {
-      case 'principal':
+      case "principal":
         return css`
           font-size: 3.025rem;
           font-weight: 700;
         `;
-      case 'logo':
+      case "logo":
         return css`
           font-size: 2.25rem;
           font-weight: 800;
         `;
 
-      case 'titleForm':
+      case "titleForm":
         return css`
           font-size: 1.125rem;
           font-weight: 600;
         `;
-      case 'textLabel':
+      case "textLabel":
         return css`
           font-size: 0.875rem;
           font-weight: 400;
         `;
-      case 'textButton':
+      case "textButton":
         return css`
           font-size: 0.75rem;
           font-weight: 400;
         `;
-      case 'small':
+      case "small":
         return css`
           font-size: 0.75rem;
           font-weight: 400;
         `;
-      case 'titleSections':
+      case "titleSections":
         return css`
           font-size: 1.5rem;
           font-weight: 400;
         `;
 
-      case 'category':
+      case "category":
         return css`
           font-size: 1.125rem;
           font-weight: 400;
         `;
-      case 'textInput':
+      case "textInput":
       default:
         return css`
           font-size: 0.875rem;
@@ -97,49 +90,49 @@ export const StyledTitleWhite = styled(BaseTitle)<IStyledTitleProps>`
 
   ${({ $fontSize }) => {
     switch ($fontSize) {
-      case 'principal':
+      case "principal":
         return css`
           font-size: 3.025rem;
           font-weight: 700;
         `;
-      case 'logo':
+      case "logo":
         return css`
           font-size: 2.25rem;
           font-weight: 700;
         `;
 
-      case 'titleForm':
+      case "titleForm":
         return css`
           font-size: 1.125rem;
           font-weight: 600;
         `;
-      case 'textLabel':
+      case "textLabel":
         return css`
           font-size: 0.875rem;
           font-weight: 400;
         `;
-      case 'textButton':
+      case "textButton":
         return css`
           font-size: 0.75rem;
           font-weight: 400;
         `;
-      case 'small':
+      case "small":
         return css`
           font-size: 0.75rem;
           font-weight: 400;
         `;
-      case 'titleSections':
+      case "titleSections":
         return css`
           font-size: 1.5rem;
           font-weight: 400;
         `;
 
-      case 'category':
+      case "category":
         return css`
           font-size: 1.125rem;
           font-weight: 400;
         `;
-      case 'textInput':
+      case "textInput":
       default:
         return css`
           font-size: 0.875rem;
@@ -159,27 +152,27 @@ export const StyledParagraph = styled.h2<IStyledParagraphProps>`
 
   ${({ fontColor, theme }) => {
     switch (fontColor) {
-      case 'greenDark':
+      case "greenDark":
         return css`
           color: ${theme.colors.greenPrimary};
         `;
-      case 'black':
+      case "black":
         return css`
           color: black;
         `;
-      case 'grayDark':
+      case "grayDark":
         return css`
           color: ${theme.colors.gray600};
         `;
-      case 'grayLight':
+      case "grayLight":
         return css`
           color: ${theme.colors.gray300};
         `;
-      case 'orange':
+      case "orange":
         return css`
           color: ${theme.colors.orangePrimary};
         `;
-      case 'white':
+      case "white":
         return css`
           color: white;
         `;

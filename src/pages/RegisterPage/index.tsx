@@ -1,7 +1,7 @@
-import { useNavigate } from 'react-router-dom';
-import { RegisterCommerceForm } from '../../components/Form/RegisterCommerceForm';
-import { RegisterUserForm } from '../../components/Form/RegisterUserForm';
-import { StyledButton } from '../../styles/button';
+import { useNavigate } from "react-router-dom";
+import { RegisterCommerceForm } from "../../components/Form/RegisterCommerceForm";
+import { RegisterUserForm } from "../../components/Form/RegisterUserForm";
+import { StyledButton } from "../../styles/button";
 
 import {
   StyledColorBackground,
@@ -9,54 +9,54 @@ import {
   StyledRegisterPageHeaderCompany,
   StyledRegisterPageHeaderUser,
   StyledFormRegisterUser,
-} from './style';
-import { StyledTitleGreen } from '../../styles/typography';
+} from "./style";
+import { StyledTitleGreen } from "../../styles/typography";
 
 export const RegisterPage = () => {
-  const typeofRoute = localStorage.getItem('@handle:typUser');
-  const typeNav = localStorage.getItem('@handle:nav');
+  const typeofRoute = localStorage.getItem("@handle:typUser");
+  const typeNav = localStorage.getItem("@handle:nav");
   const navigate = useNavigate();
 
   const handleClick = () => {
-    if (typeofRoute === 'userRegister' && typeNav === 'register') {
-      localStorage.setItem('@handle:typUser', 'userLogin');
-      localStorage.setItem('@handle:nav', 'login');
-      navigate('/login');
+    if (typeofRoute === "userRegister" && typeNav === "register") {
+      localStorage.setItem("@handle:typUser", "userLogin");
+      localStorage.setItem("@handle:nav", "login");
+      navigate("/login");
     }
-    if (typeofRoute === 'companyRegister' && typeNav === 'register') {
-      localStorage.setItem('@handle:typUser', 'companyLogin');
-      localStorage.setItem('@handle:nav', 'login');
-      navigate('/signin');
+    if (typeofRoute === "companyRegister" && typeNav === "register") {
+      localStorage.setItem("@handle:typUser", "companyLogin");
+      localStorage.setItem("@handle:nav", "login");
+      navigate("/signin");
     }
   };
-  if (typeofRoute === 'userRegister') {
+  if (typeofRoute === "userRegister") {
     return (
       <StyledColorBackground>
         <StyledFormRegisterUser>
           <StyledRegisterPageHeaderUser>
-            <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
+            <StyledTitleGreen tag="h1" $fontSize="logo" textAlign="center">
               Eat<span>Smart</span>
             </StyledTitleGreen>
             <StyledButton
-              $buttonSize='default'
-              $buttonStyle='buttonGreenLight'
+              $buttonSize="default"
+              $buttonStyle="buttonGreenLight"
               onClick={() => {
-                navigate('/');
+                navigate("/");
               }}
             >
               Home
             </StyledButton>
           </StyledRegisterPageHeaderUser>
-          <section className='container__principal'>
+          <section className="container__principal">
             <section>
               <RegisterUserForm />
-              <div className='container_nav'>
-                <StyledTitleGreen tag='h1' $fontSize='small'>
+              <div className="container_nav">
+                <StyledTitleGreen tag="h1" $fontSize="small">
                   Já é cadastrado?
                 </StyledTitleGreen>
                 <StyledButton
-                  $buttonSize='default'
-                  $buttonStyle='buttonGreenLight'
+                  $buttonSize="default"
+                  $buttonStyle="buttonGreenLight"
                   onClick={() => {
                     handleClick();
                   }}
@@ -65,10 +65,9 @@ export const RegisterPage = () => {
                 </StyledButton>
               </div>
             </section>
-            <section className='container__desktop'>
-              <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
-                Salve nosso <br /> <span>Planeta</span>, <br /> antes da <br />{' '}
-                hora de fechar
+            <section className="container__desktop">
+              <StyledTitleGreen tag="h1" $fontSize="logo" textAlign="center">
+                Salve nosso <br /> <span>Planeta</span>, <br /> antes da <br /> hora de fechar
               </StyledTitleGreen>
             </section>
           </section>
@@ -76,34 +75,34 @@ export const RegisterPage = () => {
       </StyledColorBackground>
     );
   }
-  if (typeofRoute === 'companyRegister') {
+  if (typeofRoute === "companyRegister") {
     return (
       <StyledColorBackground>
         <StyledFormRegisterCompany>
           <StyledRegisterPageHeaderCompany>
-            <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
+            <StyledTitleGreen tag="h1" $fontSize="logo" textAlign="center">
               Eat<span>Smart</span>
             </StyledTitleGreen>
             <StyledButton
-              $buttonSize='default'
-              $buttonStyle='buttonGreenLight'
+              $buttonSize="default"
+              $buttonStyle="buttonGreenLight"
               onClick={() => {
-                navigate('/');
+                navigate("/");
               }}
             >
               Home
             </StyledButton>
           </StyledRegisterPageHeaderCompany>
-          <section className='container__principal'>
+          <section className="container__principal">
             <section>
               <RegisterCommerceForm />
-              <div className='container_nav'>
-                <StyledTitleGreen tag='h1' $fontSize='small'>
+              <div className="container_nav">
+                <StyledTitleGreen tag="h1" $fontSize="small">
                   Já é cadastrado?
                 </StyledTitleGreen>
                 <StyledButton
-                  $buttonSize='default'
-                  $buttonStyle='buttonGreenLight'
+                  $buttonSize="default"
+                  $buttonStyle="buttonGreenLight"
                   onClick={() => {
                     handleClick();
                   }}
@@ -112,7 +111,7 @@ export const RegisterPage = () => {
                 </StyledButton>
               </div>
             </section>
-            <section className='container__desktop'></section>
+            <section className="container__desktop"></section>
           </section>
         </StyledFormRegisterCompany>
       </StyledColorBackground>

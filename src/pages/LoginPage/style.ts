@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import userRegister from '../../assets/images/userRegister.svg';
+import styled from "styled-components";
+import userRegister from "../../assets/images/userRegister.svg";
 
 export const StyledColorBackground = styled.body`
   @media (min-width: 1024px) {
@@ -173,7 +173,6 @@ export const StyledFormLoginUser = styled.div`
       flex-direction: row-reverse;
       justify-content: space-between;
       max-width: 1440px;
-
       padding-top: 0px;
 
       section {
@@ -241,10 +240,6 @@ export const StyledFormLoginCompany = styled.div`
     .container__desktop {
       display: none;
     }
-
-    /* .container_nav {
-      max-width: 290px;
-    } */
   }
 
   @media (min-width: 1024px) {
@@ -255,7 +250,6 @@ export const StyledFormLoginCompany = styled.div`
       flex-direction: row;
       justify-content: space-between;
       max-width: 1440px;
-
       padding-top: 0px;
 
       section {

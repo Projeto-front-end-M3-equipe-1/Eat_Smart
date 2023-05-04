@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledCreateProductForm = styled.form`
   display: flex;
@@ -85,9 +85,6 @@ export const StyledCreateProductForm = styled.form`
 
     div > div > label {
       background: transparent !important;
-    }
-
-    @media (min-width: 1024px) {
     }
   }
 `;

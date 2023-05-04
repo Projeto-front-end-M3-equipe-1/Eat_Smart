@@ -1,4 +1,4 @@
-import { StyledCategoryOptionBySelect } from './style';
+import { StyledCategoryOptionBySelect } from "./style";
 
 interface IOptionProps {
   value: string;
@@ -6,9 +6,5 @@ interface IOptionProps {
 }
 
 export const UserDashboardOption = ({ value, innerText }: IOptionProps) => {
-  return (
-    <StyledCategoryOptionBySelect value={value}>
-      {innerText}
-    </StyledCategoryOptionBySelect>
-  );
+  return <StyledCategoryOptionBySelect value={value}>{innerText}</StyledCategoryOptionBySelect>;
 };

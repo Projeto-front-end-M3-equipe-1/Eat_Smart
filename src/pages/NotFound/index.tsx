@@ -114,7 +114,9 @@ export const NotFound = () => {
         </g>
       </svg>
       <p id="errorText">O-o-oh! Page not found.</p>
-      <Link id="errorLink" to="/">Go Home</Link>
+      <Link id="errorLink" to="/">
+        Go Home
+      </Link>
     </StyledMainPageNotFound>
   );
 };

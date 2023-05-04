@@ -1,18 +1,17 @@
-import { useContext, useState } from 'react';
-import { CommerceContext, IProduct } from '../../../providers/CommerceProvider';
-import { EditOfferModal } from '../../Form/EditOfferModal';
-import { StyledOfferCard } from './style';
-import bag from '../../../assets/icons/bag.svg';
-import edit from '../../../assets/icons/edit.svg';
-import trash from '../../../assets/icons/trash.svg';
+import { useContext, useState } from "react";
+import { CommerceContext, IProduct } from "../../../providers/CommerceProvider";
+import { EditOfferModal } from "../../Form/EditOfferModal";
+import { StyledOfferCard } from "./style";
+import bag from "../../../assets/icons/bag.svg";
+import edit from "../../../assets/icons/edit.svg";
+import trash from "../../../assets/icons/trash.svg";
 
 export interface IOfferProductCard {
   offer: IProduct;
 }
 
 export const OfferCard = ({ offer }: IOfferProductCard) => {
-  const newPrice =
-    offer.originalPrice - (offer.discount / 100) * offer.originalPrice;
+  const newPrice = offer.originalPrice - (offer.discount / 100) * offer.originalPrice;
 
   const { removeOfferFromOfferList } = useContext(CommerceContext);
 
@@ -21,7 +20,7 @@ export const OfferCard = ({ offer }: IOfferProductCard) => {
   return (
     <StyledOfferCard>
       <div>
-        <img src={bag} alt=''></img>
+        <img src={bag} alt=""></img>
         <section>
           <div>
             <span>
@@ -32,30 +31,27 @@ export const OfferCard = ({ offer }: IOfferProductCard) => {
               </h4>
               <p>
                 <strong>R$ </strong>
-                {newPrice.toLocaleString('pt-br', { minimumFractionDigits: 2 })}
+                {newPrice.toLocaleString("pt-br", { minimumFractionDigits: 2 })}
               </p>
             </span>
           </div>
           <div>
             <p>
               R$
-              {offer.originalPrice.toLocaleString('pt-br', {
+              {offer.originalPrice.toLocaleString("pt-br", {
                 minimumFractionDigits: 2,
               })}
             </p>
             <div>
               <button onClick={() => setIsEditOfferModalOpen(true)}>
-                <img src={edit} alt='pen-icon' />
+                <img src={edit} alt="pen-icon" />
               </button>
               {isEditOfferModalOpen ? (
-                <EditOfferModal
-                  offer={offer}
-                  setIsEditOfferModalOpen={setIsEditOfferModalOpen}
-                />
+                <EditOfferModal offer={offer} setIsEditOfferModalOpen={setIsEditOfferModalOpen} />
               ) : null}
 
               <button onClick={() => removeOfferFromOfferList(offer.id)}>
-                <img src={trash} alt='trash-icon' />
+                <img src={trash} alt="trash-icon" />
               </button>
             </div>
           </div>

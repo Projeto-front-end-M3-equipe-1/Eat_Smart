@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledOffersContainer = styled.div`
   display: flex;
@@ -57,10 +57,6 @@ export const StyledOffersContainer = styled.div`
 
   @media (min-width: 768px) {
     margin-top: 0;
-
-    ul {
-      // height: 490px;
-    }
 
     h1 {
       font-size: 24px;

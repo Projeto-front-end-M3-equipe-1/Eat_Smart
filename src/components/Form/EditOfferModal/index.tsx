@@ -1,11 +1,11 @@
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { ICreateProductFormValues } from '../CreateProductForm';
-import { CommerceContext, IProduct } from '../../../providers/CommerceProvider';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useContext } from 'react';
-import { editOfferSchema } from './editOfferSchema';
-import { Input } from '../Input';
-import { StyledEditOfferModal } from './style';
+import { SubmitHandler, useForm } from "react-hook-form";
+import { ICreateProductFormValues } from "../CreateProductForm";
+import { CommerceContext, IProduct } from "../../../providers/CommerceProvider";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useContext } from "react";
+import { editOfferSchema } from "./editOfferSchema";
+import { Input } from "../Input";
+import { StyledEditOfferModal } from "./style";
 
 export const EditOfferModal = ({
   offer,
@@ -25,11 +25,9 @@ export const EditOfferModal = ({
   const { editOffer } = useContext(CommerceContext);
   const offerId = offer.id;
 
-  const editOfferSubmit: SubmitHandler<ICreateProductFormValues> = (
-    newOfferFormData
-  ) => {
+  const editOfferSubmit: SubmitHandler<ICreateProductFormValues> = (newOfferFormData) => {
     for (const key in newOfferFormData) {
-      if (newOfferFormData[key as keyof ICreateProductFormValues] === '') {
+      if (newOfferFormData[key as keyof ICreateProductFormValues] === "") {
         newOfferFormData[key as keyof ICreateProductFormValues] = offer[
           key as keyof IProduct
         ] as string;
@@ -40,42 +38,42 @@ export const EditOfferModal = ({
   };
 
   return (
-    <StyledEditOfferModal role='dialog'>
+    <StyledEditOfferModal role="dialog">
       <section>
         <nav>
-          <button type='button' onClick={() => setIsEditOfferModalOpen(false)}>
+          <button type="button" onClick={() => setIsEditOfferModalOpen(false)}>
             X
           </button>
         </nav>
         <form onSubmit={handleSubmit(editOfferSubmit)}>
           <h3>Edite sua oferta</h3>
           <Input
-            type='text'
-            label='Descrição'
+            type="text"
+            label="Descrição"
             placeholder={offer.title}
-            id='title'
-            {...register('title')}
+            id="title"
+            {...register("title")}
             error={errors.title}
           />
           <Input
-            type='number'
-            label='Quantidade'
+            type="number"
+            label="Quantidade"
             placeholder={offer.quantity.toString()}
-            id='quantity'
-            {...register('quantity')}
+            id="quantity"
+            {...register("quantity")}
             error={errors.quantity}
           />
           <Input
-            type='number'
-            label='Desconto'
+            type="number"
+            label="Desconto"
             placeholder={`${offer.discount}%`}
-            id='discount'
-            {...register('discount')}
+            id="discount"
+            {...register("discount")}
             error={errors.discount}
           />
-          <button type='submit'>Salvar oferta</button>
+          <button type="submit">Salvar oferta</button>
         </form>
-        <button type='button' onClick={() => setIsEditOfferModalOpen(false)}>
+        <button type="button" onClick={() => setIsEditOfferModalOpen(false)}>
           Voltar para Loja
         </button>
       </section>

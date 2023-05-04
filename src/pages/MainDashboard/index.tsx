@@ -1,4 +1,4 @@
-import { MainDashboardComponent } from '../../components/MainDashboard';
+import { MainDashboardComponent } from "../../components/MainDashboard";
 
 export const MainDashboard = () => {
   return (

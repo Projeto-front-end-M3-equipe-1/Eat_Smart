@@ -5,20 +5,19 @@ import {
   StyledFooterCommerce,
   StyledHeaderContainer,
   StyledMainSections,
-} from './style';
-import { Header } from '../../components/Header';
-import { CreateProductForm } from '../../components/Form/CreateProductForm';
-import { ReservedProductsList } from '../../components/ReservedProductsList';
-import { OfferList } from '../../components/OfferList';
-import { useContext } from 'react';
-import { EditCommerceProfile } from '../../components/Form/EditCommerceProfile';
-import { Footer } from '../../components/Footer';
-import { FooterMobileCommerce } from '../../components/Footer/FooterMobileCommerce';
-import { CommerceContext } from '../../providers/CommerceProvider';
+} from "./style";
+import { Header } from "../../components/Header";
+import { CreateProductForm } from "../../components/Form/CreateProductForm";
+import { ReservedProductsList } from "../../components/ReservedProductsList";
+import { OfferList } from "../../components/OfferList";
+import { useContext } from "react";
+import { EditCommerceProfile } from "../../components/Form/EditCommerceProfile";
+import { Footer } from "../../components/Footer";
+import { FooterMobileCommerce } from "../../components/Footer/FooterMobileCommerce";
+import { CommerceContext } from "../../providers/CommerceProvider";
 
 export const CommerceDashboard = () => {
-  const { isEditProfileModalOpen, setIsEditProfileModalOpen } =
-    useContext(CommerceContext);
+  const { isEditProfileModalOpen, setIsEditProfileModalOpen } = useContext(CommerceContext);
 
   return (
     <StyledCommerceDashboard>

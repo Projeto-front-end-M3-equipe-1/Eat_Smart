@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-import bag_principal from '../../assets/images/bag_principal.png';
+import styled from "styled-components";
 
 export const StyledContainer = styled.body`
   display: flex;

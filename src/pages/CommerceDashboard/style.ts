@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledCommerceDashboard = styled.div`
   display: flex;
@@ -7,9 +7,8 @@ export const StyledCommerceDashboard = styled.div`
   height: 100vh;
   align-items: center;
   background-color: #efe9e8;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   margin: 0 auto;
-
   overflow-x: hidden;
 `;
 
@@ -17,7 +16,6 @@ export const StyledHeaderContainer = styled.div`
   width: 100%;
   height: 10%;
   display: flex;
-  // display: none;
 `;
 
 export const StyledCommerceDataContainer = styled.div`

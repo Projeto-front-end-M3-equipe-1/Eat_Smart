@@ -4,8 +4,11 @@ interface IOffersCartProps {
   searchByCategory(category: string): Promise<void>;
 }
 
-
-export const UserDashboardComponent = ({category, srcLogo, searchByCategory}: IOffersCartProps) => {
+export const UserDashboardComponent = ({
+  category,
+  srcLogo,
+  searchByCategory,
+}: IOffersCartProps) => {
   return (
     <button onClick={() => searchByCategory(category)}>
       <img src={srcLogo} alt={category} />
