@@ -12,7 +12,7 @@ export const StyledCartProductList = styled.div`
     gap: 10px;
   }
 
-  div {
+  .container__total {
     width: 95%;
     max-height: 100px;
     box-sizing: border-box;

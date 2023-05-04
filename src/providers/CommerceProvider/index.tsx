@@ -1,9 +1,9 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { api } from "../../services/api";
-import { ICreateProductFormValues } from "../../components/Form/CreateProductForm";
-import { IRegisterUserFormData } from "../../components/Form/RegisterCommerceForm";
-import { toast } from "react-toastify";
-import { UserContext } from "../UserContext/UserContext";
+import { createContext, useContext, useEffect, useState } from 'react';
+import { api } from '../../services/api';
+import { ICreateProductFormValues } from '../../components/Form/CreateProductForm';
+import { IRegisterUserFormData } from '../../components/Form/RegisterCommerceForm';
+import { toast } from 'react-toastify';
+import { UserContext } from '../UserContext/UserContext';
 
 export interface ICommerceProviderProps {
   children: React.ReactNode;
@@ -35,11 +35,18 @@ export interface IProductsContext {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   isEditProfileModalOpen: boolean;
   setIsEditProfileModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  createNewProduct: (productFormData: ICreateProductFormValues) => Promise<void>;
-  editOffer: (productId: number, productFormData: ICreateProductFormValues) => Promise<void>;
+  createNewProduct: (
+    productFormData: ICreateProductFormValues
+  ) => Promise<void>;
+  editOffer: (
+    productId: number,
+    productFormData: ICreateProductFormValues
+  ) => Promise<void>;
   removeOfferFromOfferList: (productId: number) => void;
   removeAllOffers: () => void;
-  editCommerceProfile: (newCommerceProfileData: IRegisterUserFormData) => Promise<void>;
+  editCommerceProfile: (
+    newCommerceProfileData: IRegisterUserFormData
+  ) => Promise<void>;
 }
 
 export const CommerceContext = createContext({} as IProductsContext);
@@ -53,10 +60,10 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
   const getAllProductsFromServer = async () => {
     try {
       setLoading(true);
-      const userToken = localStorage.getItem("@userCompany:token");
+      const userToken = localStorage.getItem('@userCompany:token');
 
       const responseApi = await api
-        .get<IProduct[]>("/products", {
+        .get<IProduct[]>('/products', {
           headers: { Authorization: `Bearer ${userToken}` },
         })
         .then((response) => {
@@ -65,7 +72,9 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
 
       return responseApi;
     } catch (error) {
-      toast.error("Oops! Algo deu errado, tente novamente");
+      toast.error('Oops! Algo deu errado, tente novamente', {
+        autoClose: 2000,
+      });
     } finally {
       setLoading(false);
     }
@@ -75,11 +84,13 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
     getAllProductsFromServer();
   }, []);
 
-  const createNewProduct = async (productFormData: ICreateProductFormValues) => {
+  const createNewProduct = async (
+    productFormData: ICreateProductFormValues
+  ) => {
     try {
-      const userToken = localStorage.getItem("@userCompany:token");
-      const userId = localStorage.getItem("@userCompany:id");
-      const userCommerce = localStorage.getItem("@EatSmart:userNameCommerce");
+      const userToken = localStorage.getItem('@userCompany:token');
+      const userId = localStorage.getItem('@userCompany:id');
+      const userCommerce = localStorage.getItem('@EatSmart:userNameCommerce');
 
       const productComplete = {
         ...productFormData,
@@ -93,74 +104,101 @@ export const CommerceProvider = ({ children }: ICommerceProviderProps) => {
         })
         .then((response) => {
           setProductsList([...productsList, response.data]);
-          toast.success("Oferta cadastrada");
+          toast.success('Oferta cadastrada', {
+            autoClose: 2000,
+          });
         });
 
       return responseApi;
     } catch (error) {
-      toast.error("Oops! Algo deu errado, tente novamente");
+      toast.error('Oops! Algo deu errado, tente novamente', {
+        autoClose: 2000,
+      });
     } finally {
       setLoading(false);
     }
   };
 
-  const editOffer = async (offerId: number, newOfferFormData: ICreateProductFormValues) => {
+  const editOffer = async (
+    offerId: number,
+    newOfferFormData: ICreateProductFormValues
+  ) => {
     try {
-      const userToken = localStorage.getItem("@userCompany:token");
+      const userToken = localStorage.getItem('@userCompany:token');
 
       const responseApi = await api
         .patch<IProduct>(`/products/${offerId}`, newOfferFormData, {
           headers: { Authorization: `Bearer ${userToken}` },
         })
         .then((response) => {
-          const updateCurrentProduct = productsList.filter((product) => product.id !== offerId);
+          const updateCurrentProduct = productsList.filter(
+            (product) => product.id !== offerId
+          );
           setProductsList([...updateCurrentProduct, response.data]);
-          toast.success("Oferta alterada");
+          toast.success('Oferta alterada', {
+            autoClose: 2000,
+          });
         });
 
       return responseApi;
     } catch (error) {
-      toast.error("Oops! Algo deu errado, tente novamente");
+      toast.error('Oops! Algo deu errado, tente novamente', {
+        autoClose: 2000,
+      });
     } finally {
       setLoading(false);
     }
   };
 
   const removeOfferFromOfferList = async (offerId: number) => {
-    const userToken = localStorage.getItem("@userCompany:token");
+    const userToken = localStorage.getItem('@userCompany:token');
 
     await api.delete(`/products/${offerId}`, {
       headers: { Authorization: `Bearer ${userToken}` },
     });
 
-    const removeCurrentOffer = productsList.filter((currentOffer) => currentOffer.id !== offerId);
+    const removeCurrentOffer = productsList.filter(
+      (currentOffer) => currentOffer.id !== offerId
+    );
 
     setProductsList(removeCurrentOffer);
 
-    toast.success("Oferta removida");
+    toast.success('Oferta removida', {
+      autoClose: 2000,
+    });
   };
 
   const removeAllOffers = () => {
     setProductsList([]);
   };
 
-  const editCommerceProfile = async (newCommerceProfileData: IRegisterUserFormData) => {
-    const userCommerceId = localStorage.getItem("@userCompany:id");
-    const userToken = localStorage.getItem("@userCompany:token");
+  const editCommerceProfile = async (
+    newCommerceProfileData: IRegisterUserFormData
+  ) => {
+    const userCommerceId = localStorage.getItem('@userCompany:id');
+    const userToken = localStorage.getItem('@userCompany:token');
 
     try {
       const responseApi = await api
-        .patch<IUserCompany>(`/users/${userCommerceId}`, newCommerceProfileData, {
-          headers: { Authorization: `Bearer ${userToken}` },
-        })
+        .patch<IUserCompany>(
+          `/users/${userCommerceId}`,
+          newCommerceProfileData,
+          {
+            headers: { Authorization: `Bearer ${userToken}` },
+          }
+        )
         .then((response) => {
           setUser(response.data);
-          toast.success("Dados do perfil alterados");
+          toast.success('Dados do perfil alterados', {
+            autoClose: 2000,
+          });
         });
 
       return responseApi;
     } catch (error) {
-      toast.error("Oops! Algo deu errado, tente novamente");
+      toast.error('Oops! Algo deu errado, tente novamente', {
+        autoClose: 2000,
+      });
     } finally {
       setLoading(false);
     }

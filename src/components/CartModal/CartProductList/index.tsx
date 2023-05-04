@@ -24,7 +24,7 @@ export const CartProductList = ({ sumDiscount }: ISumDiscountProps) => {
           return <CartProductCard key={currentOffer.id} currentOffer={currentOffer} />;
         })}
       </ul>
-      <div>
+      <div className="container__total">
         <p>Total:</p>
         <small>
           {sumDiscount.toLocaleString("pt-BR", {
