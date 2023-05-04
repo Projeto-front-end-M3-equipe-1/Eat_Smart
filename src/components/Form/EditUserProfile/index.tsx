@@ -5,10 +5,6 @@ import { Input } from '../Input';
 import { IRegisterUserFormData } from '../RegisterCommerceForm';
 import { useContext } from 'react';
 import { StyledEditUserProfileModal } from './style';
-<<<<<<< HEAD
-=======
-import xIcon from '../../../assets/icons/close.svg';
->>>>>>> develop
 import { UserContext } from '../../../providers/UserContext/UserContext';
 
 export const EditUserProfile = () => {
