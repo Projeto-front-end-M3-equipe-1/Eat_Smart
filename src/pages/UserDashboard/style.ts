@@ -15,7 +15,6 @@ export const StyledContainerUserDashboard = styled.div`
   align-items: center;
   overflow-y: hidden;
   overflow-x: hidden;
-  padding-bottom: 150px;
 
   footer {
     width: 100%;
@@ -34,7 +33,6 @@ export const StyledContainerUserDashboard = styled.div`
 `;
 
 export const StyledMainContainerUserDashboard = styled.div`
-  margin-top: 10rem;
   width: 90%;
   height: 80%;
   display: flex;
