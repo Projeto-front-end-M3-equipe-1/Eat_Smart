@@ -10,6 +10,7 @@ import {
   StyledCommerceDataContainer,
   /*   StyledCommerceLogoContainer, */
   StyledFooterCommerce,
+  StyledHeaderContainer,
   /*   StyledHeaderContainer, */
   StyledMainSections,
 } from './style';
@@ -37,9 +38,8 @@ export const CommerceDashboard = () => {
 
   return (
     <StyledCommerceDashboard>
-
       <StyledHeaderContainer>
-        <Header setIsEditProfileModalOpen={setIsEditProfileModalOpen}/>
+        <Header setIsEditProfileModalOpen={setIsEditProfileModalOpen} />
         {/* <button onClick={() => setIsEditProfileModalOpen(true)}>
           Edit profile
         </button> */}
