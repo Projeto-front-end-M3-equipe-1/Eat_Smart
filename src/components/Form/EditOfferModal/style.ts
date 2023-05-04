@@ -1,26 +1,32 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { AnimationFadeIn } from '../../../styles/animations';
 
 export const StyledEditOfferModal = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  width: 99vw;
+  align-items: flex-end !important;
+  align-items: end;
+  width: 100%;
   height: 100vh;
-  position: absolute;
-  z-index: 1000;
-  inset: 0;
   left: 0;
-
+  bottom: 0;
+  top: 0;
+  right: 0;
+  position: fixed;
+  z-index: 1000;
   background: rgba(51, 51, 51, 0.5);
   box-shadow: 0px 9px 2px rgba(0, 0, 0, 0.25);
 
-  section {
+  .container_editProfile {
+    animation: ${AnimationFadeIn} 1s ease 0s 1 alternate backwards;
     display: flex;
     flex-direction: column;
-    width: 19.375rem !important;
+    justify-content: flex-start;
+    width: 19.375rem;
+    height: 100%;
     background-color: #ffffff;
-    border-radius: 1.5rem 0rem 0 1.5rem;
-    padding: 0 1rem;
+    border-radius: 1.5rem 0rem 0rem 1.5rem;
+    padding: 0 0.5rem;
   }
 
   section > nav {
@@ -31,6 +37,7 @@ export const StyledEditOfferModal = styled.div`
     background-color: #ffffff;
     gap: 1rem;
     margin-top: 0.5rem;
+    width: 100%;
   }
 
   section > nav > button {
@@ -48,13 +55,15 @@ export const StyledEditOfferModal = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
     gap: 1.5rem;
     background-color: #ffffff;
+    top: 0;
   }
 
   section > form > h3 {
-    margin-bottom: 0 !important;
-    margin-top: 0.5rem !important;
+    margin-bottom: 0;
+    margin-top: 0.5rem;
     padding-left: 1rem;
     font-size: 1.125rem;
     font-weight: 600;
