@@ -7,6 +7,7 @@ import { CommerceDashboard } from '../pages/CommerceDashboard';
 import { UserDashboard } from '../pages/UserDashboard';
 import Styles from '../components/Styles/Styles';
 import { RoutesProtected } from '../components/RoutesProtected';
+import { CommerceProvider } from '../providers/CommerceProvider';
 
 export const RoutesMain = () => {
   return (
@@ -19,7 +20,7 @@ export const RoutesMain = () => {
       <Route path='/styles' element={<Styles />}></Route>
 
       <Route element={<RoutesProtected />}>
-        <Route path='/companyHome' element={<CommerceDashboard />} />
+        <Route path='/companyHome' element={<CommerceProvider><CommerceDashboard /></CommerceProvider>} />
         <Route path='/userHome' element={<UserDashboard />} />
       </Route>
 

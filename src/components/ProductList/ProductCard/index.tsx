@@ -34,7 +34,7 @@ export const ProductCard = ({ offer }: IOffersCartProps) => {
         </section>
         <section className='description'>
           <h4>Oferta: {offer.title}</h4>
-          <h5>Horario</h5>
+          <h5>Retirar hoje até às 22:00h</h5>
           <span>
             <p>
               <i className='fa-solid fa-star'></i>
