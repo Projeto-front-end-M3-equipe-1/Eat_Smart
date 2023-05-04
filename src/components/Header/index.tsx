@@ -6,12 +6,12 @@ import { StyledTitleGreen } from '../../styles/typography';
 import logoCategory from '../../assets/icons/lanches.svg';
 import { UserContext } from '../../providers/UserContext/UserContext';
 
+
 export const Header = ({ setIsEditProfileModalOpen }) => {
   const user = localStorage.getItem('@EatSmart:userName');
   const company = localStorage.getItem('@EatSmart:userNameCommerce');
   const userName = user && user[0].toUpperCase() + user.substring(1);
-  const companyName =
-    company && company[0].toUpperCase() + company.substring(1);
+  const companyName = company && company[0].toUpperCase() + company.substring(1);
 
   const { setIsCartModalOpen } = useContext(CartContext);
   const {
@@ -19,6 +19,7 @@ export const Header = ({ setIsEditProfileModalOpen }) => {
     setIsEditUserProfileModalOpen,
     user: userState,
   } = useContext(UserContext);
+
 
   if (user && user) {
     return (
@@ -91,12 +92,14 @@ export const Header = ({ setIsEditProfileModalOpen }) => {
               <button onClick={() => logout()} type='button'>
                 <i className='fa-solid fa-right-from-bracket'></i>
               </button>
+
               <button
                 type='button'
                 onClick={() => setIsEditProfileModalOpen(true)}
               >
                 <i className='fa-solid fa-gears'></i>
               </button>
+              <i className='fa-solid fa-gears'></i>
             </nav>
           </div>
           <section>

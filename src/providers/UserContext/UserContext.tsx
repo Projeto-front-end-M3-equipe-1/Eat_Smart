@@ -146,9 +146,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     const typeofRoute = localStorage.getItem("@handle:typUser");
     if (typeofRoute === "userRegister") {
       try {
-        const confirmUser = { ...formData, isCompany: false };
         setLoading(true);
-        const { data } = await api.post<IUserRegisterResponse>("/register", confirmUser);
         toast.success("Cadastro realizado com sucesso");
         localStorage.setItem("@handle:typUser", "userLogin");
         localStorage.setItem("@handle:nav", "login");
