@@ -21,7 +21,7 @@ import { CartModal } from "../../components/CartModal/index.tsx";
 
 export const UserDashboard = () => {
   const { offers, searchByCategory, isCartModalOpen, searchOffer } = useContext(CartContext);
-  const [isEditProfileModalOpen, setIsEditProfileModalOpen] = useState(false);
+  const [, setIsEditProfileModalOpen] = useState(false);
   const { isEditUserProfileModalOpen } = useContext(UserContext);
 
   return (
