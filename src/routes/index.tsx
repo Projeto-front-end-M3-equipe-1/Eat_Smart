@@ -20,7 +20,7 @@ export const RoutesMain = () => {
       <Route path='/styles' element={<Styles />}></Route>
 
       <Route element={<RoutesProtected />}>
-        <Route path='/companyHome' element={<CommerceProvider><CommerceDashboard/></CommerceProvider>} />
+        <Route path='/companyHome' element={<CommerceProvider><CommerceDashboard /></CommerceProvider>} />
         <Route path='/userHome' element={<UserDashboard />} />
       </Route>
 
@@ -28,4 +28,3 @@ export const RoutesMain = () => {
     </Routes>
   );
 };
-

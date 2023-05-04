@@ -114,7 +114,6 @@ export const CartProvider = ({ children }: ICartProviderProps) => {
       });
       setOffers(showOffers);
     } catch (error) {
-      console.log('Aline que colocou so deletar');
     }
   }
   return (
