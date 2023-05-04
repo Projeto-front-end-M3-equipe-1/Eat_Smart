@@ -30,7 +30,6 @@ export const EditUserProfile = () => {
 
   return (
     <StyledEditUserProfileModal role='dialog'>
-<<<<<<< HEAD
       <div className='container_editProfile'>
         <nav>
           <button onClick={() => setIsEditUserProfileModalOpen(false)}>
@@ -73,50 +72,6 @@ export const EditUserProfile = () => {
           />
           <button type='submit'>Salvar alterações</button>
         </form>
-=======
-      <nav>
-        <button onClick={() => setIsEditUserProfileModalOpen(false)}>
-          <img src={xIcon} alt='close-icon'></img>
-        </button>
-      </nav>
-      <form onSubmit={handleSubmit(editUserProfileSubmit)}>
-        <h3>Edite seu perfil</h3>
-        <Input
-          type='text'
-          label='Nome'
-          placeholder={userName?.toString()}
-          id='userName'
-          {...register('userName')}
-          error={errors.userName}
-        />
-        <Input
-          type='email'
-          label='Email'
-          placeholder={emailUser?.toString()}
-          id='email'
-          {...register('email')}
-          error={errors.email}
-        />
-        <Input
-          type='password'
-          label='Senha'
-          placeholder='Sua senha'
-          id='password'
-          {...register('password')}
-          error={errors.password}
-        />
-        <Input
-          type='password'
-          label='Confirmar Senha'
-          placeholder='Confirmar alteração de senha'
-          id='confirmPassword'
-          {...register('confirmPassword')}
-          error={errors.confirmPassword}
-        />
-        <button type='submit'>Salvar alterações</button>
-      </form>
-      <span>
->>>>>>> develop
         <button>Voltar para o perfil</button>
       </div>
     </StyledEditUserProfileModal>
