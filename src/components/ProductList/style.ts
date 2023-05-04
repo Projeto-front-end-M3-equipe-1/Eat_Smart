@@ -4,9 +4,6 @@ export const StyledProductList = styled.ul`
   display: flex;
   overflow-x: auto;
   list-style: none;
-<<<<<<< HEAD
-  justify-content: flex-start;
-=======
   ::-webkit-scrollbar {
     width: 9px;
   }
@@ -18,7 +15,6 @@ export const StyledProductList = styled.ul`
     border-radius: 20px;
     border: 3px solid #056365;
   }
->>>>>>> 159cac2495f4c3724c8a94626e5d8385f07c95e7
 
   @media (min-width: 768px) {
     display: flex;
