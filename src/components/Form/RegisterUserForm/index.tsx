@@ -1,6 +1,6 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { SchemaFormUserRegister, TRegisterFormUserSchema } from "./registerUserFormSchema";
+import { SchemaFormUserRegister } from "./registerUserFormSchema";
 import { InputLight } from "../Input";
 import { useState, useContext } from "react";
 import { IUserRegister, UserContext } from "./../../../providers/UserContext/UserContext";
