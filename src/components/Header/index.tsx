@@ -5,10 +5,11 @@ import { StyledUserPageHeader } from './style';
 import { StyledTitleGreen } from '../../styles/typography';
 import { UserContext } from '../../providers/UserContext/UserContext';
 
-export const Header = () => {
+export const Header = ({setIsEditProfileModalOpen}) => {
   const user = localStorage.getItem('@EatSmart:userName');
   const company = localStorage.getItem('@EatSmart:userNameCommerce');
   const userName = user && user[0].toUpperCase() + user.substring(1);
+ 
   /*  const companyName =
     company && company[0].toUpperCase() + company.substring(1);
  */
@@ -16,6 +17,7 @@ export const Header = () => {
 
   const { setIsCartModalOpen } = useContext(CartContext);
   const { logout } = useContext(UserContext);
+
 
   if (user && user) {
     return (
@@ -86,9 +88,10 @@ export const Header = () => {
               <button onClick={() => logout()} type='button'>
                 <i className='fa-solid fa-right-from-bracket'></i>
               </button>
-              <button type='button'>
-                <i className='fa-solid fa-gears'></i>
+              <button onClick={() => setIsEditProfileModalOpen(true)} type='button'>
+                Edit profile
               </button>
+              <i className='fa-solid fa-gears'></i>
             </nav>
           </div>
           <section>
