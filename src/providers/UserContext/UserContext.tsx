@@ -1,10 +1,10 @@
-import { createContext, useState, useEffect } from "react";
-import { api } from "../../services/api";
-import { useNavigate } from "react-router-dom";
-import { TLoginFormSchema } from "../../components/Form/LoginForm/loginFormSchema";
-import { TRegisterFormSchema } from "../../components/Form/RegisterCommerceForm/SchemaFormRegister";
-import { toast } from "react-toastify";
-import { IRegisterUserFormData } from "../../components/Form/RegisterCommerceForm";
+import { createContext, useState, useEffect } from 'react';
+import { api } from '../../services/api';
+import { useNavigate } from 'react-router-dom';
+import { TLoginFormSchema } from '../../components/Form/LoginForm/loginFormSchema';
+import { TRegisterFormSchema } from '../../components/Form/RegisterCommerceForm/SchemaFormRegister';
+import { toast } from 'react-toastify';
+import { IRegisterUserFormData } from '../../components/Form/RegisterCommerceForm';
 
 interface IUserProviderProps {
   children: React.ReactNode;
@@ -62,11 +62,12 @@ export const UserContext = createContext({} as IUserContext);
 export const UserProvider = ({ children }: IUserProviderProps) => {
   const navigate = useNavigate();
   const [user, setUser] = useState<IUser | null>(null);
-  const [isEditUserProfileModalOpen, setIsEditUserProfileModalOpen] = useState<boolean>(false);
+  const [isEditUserProfileModalOpen, setIsEditUserProfileModalOpen] =
+    useState<boolean>(false);
 
   useEffect(() => {
-    const userToken = localStorage.getItem("@user:token");
-    const UserId = localStorage.getItem("@user:id");
+    const userToken = localStorage.getItem('@user:token');
+    const UserId = localStorage.getItem('@user:id');
 
     const userAutoLogin = async () => {
       try {
@@ -76,24 +77,26 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
           },
         });
         setUser(data);
-        navigate("/userHome");
+        navigate('/userHome');
       } catch (error) {
-        toast.error("Oops! Algo deu errado tente novamente");
+        toast.error('Oops! Algo deu errado tente novamente', {
+          autoClose: 2000,
+        });
         const keysToRemove = [
-          "@user:token",
-          "@EatSmart:cart",
-          "@user:id",
-          "@EatSmart:userName",
-          "@EatSmart:userEmail",
-          "@userCompany:token",
-          "@userCompany:id",
-          "@EatSmart:userNameCommerce",
-          "@EatSmart:userCommerceEmail",
-          "@EatSmart:userCommerceFoodCategory",
-          "@handle:typUser",
-          "@handle:nav",
-          "@handle:typUser",
-          "@handle:nav",
+          '@user:token',
+          '@EatSmart:cart',
+          '@user:id',
+          '@EatSmart:userName',
+          '@EatSmart:userEmail',
+          '@userCompany:token',
+          '@userCompany:id',
+          '@EatSmart:userNameCommerce',
+          '@EatSmart:userCommerceEmail',
+          '@EatSmart:userCommerceFoodCategory',
+          '@handle:typUser',
+          '@handle:nav',
+          '@handle:typUser',
+          '@handle:nav',
         ];
         keysToRemove.forEach((key) => localStorage.removeItem(key));
       }
@@ -107,56 +110,77 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     formData: TLoginFormSchema,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
-    const typeofRoute = localStorage.getItem("@handle:typUser");
-    if (typeofRoute === "userLogin") {
+    const typeofRoute = localStorage.getItem('@handle:typUser');
+    if (typeofRoute === 'userLogin') {
       try {
         setLoading(true);
-        const { data } = await api.post<IUserLoginResponse>("/login", formData);
+        const { data } = await api.post<IUserLoginResponse>('/login', formData);
         if (data.user.isCompany === true) {
-          toast.error("Você não é uma empresa");
+          toast.error('Você não é uma empresa', {
+            autoClose: 2000,
+          });
           setTimeout(() => {
-            navigate("/");
+            navigate('/');
           }, 2000);
         } else {
-          localStorage.setItem("@user:token", data.accessToken);
-          localStorage.setItem("@user:id", JSON.stringify(data.user.id));
-          localStorage.setItem("@EatSmart:userName", data.user.userName);
-          localStorage.setItem("@EatSmart:userEmail", data.user.email);
+          localStorage.setItem('@user:token', data.accessToken);
+          localStorage.setItem('@user:id', JSON.stringify(data.user.id));
+          localStorage.setItem('@EatSmart:userName', data.user.userName);
+          localStorage.setItem('@EatSmart:userEmail', data.user.email);
           setUser(data.user);
-          toast.success("Login realizado com sucesso");
+          toast.success('Login realizado com sucesso', {
+            autoClose: 2000,
+          });
           setTimeout(() => {
-            navigate("/userHome");
+            navigate('/userHome');
           }, 2000);
         }
       } catch (error) {
-        toast.error("Oops! Algo deu errado tente novamente");
+        toast.error('Oops! Algo deu errado tente novamente', {
+          autoClose: 2000,
+        });
       } finally {
         setLoading(false);
       }
     }
-    if (typeofRoute === "companyLogin") {
+    if (typeofRoute === 'companyLogin') {
       try {
         setLoading(true);
-        const { data } = await api.post<IUserLoginResponse>("/signin", formData);
+        const { data } = await api.post<IUserLoginResponse>(
+          '/signin',
+          formData
+        );
         if (data.user.isCompany === false) {
-          toast.error("Você não é um consumidor");
+          toast.error('Você não é um consumidor', {
+            autoClose: 2000,
+          });
           setTimeout(() => {
-            navigate("/");
+            navigate('/');
           }, 2000);
         } else {
-          localStorage.setItem("@userCompany:token", data.accessToken);
-          localStorage.setItem("@userCompany:id", JSON.stringify(data.user.id));
-          localStorage.setItem("@EatSmart:userNameCommerce", data.user.userName);
-          localStorage.setItem("@EatSmart:userCommerceEmail", data.user.email);
-          localStorage.setItem("@EatSmart:userCommerceFoodCategory", data.user.foodCategory);
+          localStorage.setItem('@userCompany:token', data.accessToken);
+          localStorage.setItem('@userCompany:id', JSON.stringify(data.user.id));
+          localStorage.setItem(
+            '@EatSmart:userNameCommerce',
+            data.user.userName
+          );
+          localStorage.setItem('@EatSmart:userCommerceEmail', data.user.email);
+          localStorage.setItem(
+            '@EatSmart:userCommerceFoodCategory',
+            data.user.foodCategory
+          );
           setUser(data.user);
-          toast.success("Login realizado com sucesso");
+          toast.success('Login realizado com sucesso', {
+            autoClose: 2000,
+          });
           setTimeout(() => {
-            navigate("/companyHome");
+            navigate('/companyHome');
           }, 2000);
         }
       } catch (error) {
-        toast.error("Oops! Algo deu errado tente novamente");
+        toast.error('Oops! Algo deu errado tente novamente', {
+          autoClose: 2000,
+        });
       } finally {
         setLoading(false);
       }
@@ -167,37 +191,45 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     formData: IUserRegister,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
-    const typeofRoute = localStorage.getItem("@handle:typUser");
-    if (typeofRoute === "userRegister") {
+    const typeofRoute = localStorage.getItem('@handle:typUser');
+    if (typeofRoute === 'userRegister') {
       try {
         const confirmUser = { ...formData, isCompany: false };
-        await api.post<IUserRegisterResponse>("/register", confirmUser);
+        await api.post<IUserRegisterResponse>('/register', confirmUser);
         setLoading(true);
-        toast.success("Cadastro realizado com sucesso");
-        localStorage.setItem("@handle:typUser", "userLogin");
-        localStorage.setItem("@handle:nav", "login");
+        toast.success('Cadastro realizado com sucesso', {
+          autoClose: 2000,
+        });
+        localStorage.setItem('@handle:typUser', 'userLogin');
+        localStorage.setItem('@handle:nav', 'login');
         setTimeout(() => {
-          navigate("/login");
+          navigate('/login');
         }, 2000);
       } catch (error) {
-        toast.error("Oops! Algo deu errado tente novamente");
+        toast.error('Oops! Algo deu errado tente novamente', {
+          autoClose: 2000,
+        });
       } finally {
         setLoading(false);
       }
     }
-    if (typeofRoute === "companyRegister") {
+    if (typeofRoute === 'companyRegister') {
       try {
         const confirmUser = { ...formData, isCompany: true };
         setLoading(true);
-        await api.post<IUserRegisterResponse>("/signup", confirmUser);
-        toast.success("Cadastro realizado com sucesso");
-        localStorage.setItem("@handle:typUser", "companyLogin");
-        localStorage.setItem("@handle:nav", "login");
+        await api.post<IUserRegisterResponse>('/signup', confirmUser);
+        toast.success('Cadastro realizado com sucesso', {
+          autoClose: 2000,
+        });
+        localStorage.setItem('@handle:typUser', 'companyLogin');
+        localStorage.setItem('@handle:nav', 'login');
         setTimeout(() => {
-          navigate("/signin");
+          navigate('/signin');
         }, 2000);
       } catch (error) {
-        toast.error("Oops! Algo deu errado tente novamente");
+        toast.error('Oops! Algo deu errado tente novamente', {
+          autoClose: 2000,
+        });
       } finally {
         setLoading(false);
       }
@@ -205,41 +237,51 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   };
 
   const editUserProfile = async (newUserProfileData: IRegisterUserFormData) => {
-    const userId = localStorage.getItem("@user:id");
-    const userToken = localStorage.getItem("@user:token");
+    const userId = localStorage.getItem('@user:id');
+    const userToken = localStorage.getItem('@user:token');
     try {
-      const { data } = await api.patch<IUser>(`/users/${userId}`, newUserProfileData, {
-        headers: { Authorization: `Bearer ${userToken}` },
-      });
+      const { data } = await api.patch<IUser>(
+        `/users/${userId}`,
+        newUserProfileData,
+        {
+          headers: { Authorization: `Bearer ${userToken}` },
+        }
+      );
       setUser(data);
-      toast.success("Cadastro editado com sucesso");
+      toast.success('Cadastro editado com sucesso', {
+        autoClose: 2000,
+      });
     } catch (error) {
-      toast.error("Oops! Algo deu errado tente novamente");
+      toast.error('Oops! Algo deu errado tente novamente', {
+        autoClose: 2000,
+      });
     }
   };
 
   const logout = () => {
     const keysToRemove = [
-      "@user:token",
-      "@EatSmart:cart",
-      "@user:id",
-      "@EatSmart:userName",
-      "@EatSmart:userEmail",
-      "@userCompany:token",
-      "@userCompany:id",
-      "@EatSmart:userNameCommerce",
-      "@EatSmart:userCommerceEmail",
-      "@EatSmart:userCommerceFoodCategory",
-      "@handle:typUser",
-      "@handle:nav",
-      "@handle:typUser",
-      "@handle:nav",
+      '@user:token',
+      '@EatSmart:cart',
+      '@user:id',
+      '@EatSmart:userName',
+      '@EatSmart:userEmail',
+      '@userCompany:token',
+      '@userCompany:id',
+      '@EatSmart:userNameCommerce',
+      '@EatSmart:userCommerceEmail',
+      '@EatSmart:userCommerceFoodCategory',
+      '@handle:typUser',
+      '@handle:nav',
+      '@handle:typUser',
+      '@handle:nav',
     ];
     keysToRemove.forEach((key) => localStorage.removeItem(key));
-    toast.success("Logout realizado com sucesso");
+    toast.success('Logout realizado com sucesso', {
+      autoClose: 2000,
+    });
     setTimeout(() => {
       setUser(null);
-      navigate("/");
+      navigate('/');
     }, 2000);
   };
 

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledOffersContainer = styled.div`
   display: flex;
@@ -53,6 +53,11 @@ export const StyledOffersContainer = styled.div`
     font-size: 1rem;
     font-weight: 700;
     margin: 0.5rem 1rem 1rem 1rem;
+
+    :hover {
+      background: #71cb9f;
+      border: 1px solid #71cb9f;
+    }
   }
 
   @media (min-width: 768px) {

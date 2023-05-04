@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledCreateProductForm = styled.form`
   display: flex;
@@ -76,6 +76,11 @@ export const StyledCreateProductForm = styled.form`
     font-weight: 700;
     line-height: 1.5rem;
     margin-bottom: 1.5rem;
+
+    :hover {
+      background: #71cb9f;
+      border: 1px solid #71cb9f;
+    }
   }
 
   @media (min-width: 768px) {
