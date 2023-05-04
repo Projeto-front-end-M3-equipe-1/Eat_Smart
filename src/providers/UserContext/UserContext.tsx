@@ -152,7 +152,6 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     formData: IUserRegister,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
-    console.log(formData)
     const typeofRoute = localStorage.getItem("@handle:typUser");
     if (typeofRoute === "userRegister") {
       try {
