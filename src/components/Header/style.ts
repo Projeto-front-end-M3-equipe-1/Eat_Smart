@@ -109,6 +109,9 @@ export const StyledUserPageHeader = styled.header`
       }
     }
   }
+  li {
+    width: 100%;
+  }
   section {
     display: flex;
     justify-content: center;
@@ -215,12 +218,14 @@ export const StyledUserPageHeader = styled.header`
 export const StyledCompanyPageHeader = styled.header`
   list-style-type: none;
   z-index: 1;
+  height: 140px;
   width: 320px rgb(239, 233, 232);
   position: fixed;
   margin: 0 auto;
   margin-right: auto;
   left: 0;
   right: 0;
+  top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -228,6 +233,7 @@ export const StyledCompanyPageHeader = styled.header`
   justify-content: space-between;
   font-family: ${({ theme }) => theme.fonts.primaryPoppins};
   background-color: rgb(239, 233, 232);
+  box-shadow: 0px 10px 10px -3px rgba(168, 168, 168, 0.67);
 
   div {
     display: flex;
@@ -256,6 +262,9 @@ export const StyledCompanyPageHeader = styled.header`
         }
       }
     }
+  }
+  li {
+    width: 100%;
   }
   section {
     display: flex;

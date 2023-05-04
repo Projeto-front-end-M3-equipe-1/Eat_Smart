@@ -10,19 +10,18 @@ export const StyledCreateProductForm = styled.form`
   border-radius: 1rem;
   gap: 1.25rem;
   margin-bottom: 1rem;
-  margin-top: 7rem;
 
   .header_formCreate {
     margin: 1rem 0 0.5rem 0;
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    font-size: 1.375rem;
   }
 
   .header_formCreate > h1 {
     line-height: 2.25rem;
     display: flex;
-    font-size: 1.375rem;
     font-weight: 700;
     color: #2e2e2e;
   }
@@ -34,19 +33,7 @@ export const StyledCreateProductForm = styled.form`
     gap: 0.375rem;
   }
 
-  div > label {
-    height: 5px;
-    left: 1rem;
-
-    position: absolute;
-    font-size: 0.875rem;
-    line-height: 1.3125rem;
-
-    background-color: ${({ theme }) => theme.colors.white} !important;
-    color: ${({ theme }) => theme.colors.gray600};
-  }
-
-  div > .input_formCreateOffer {
+  .input_formCreateOffer {
     width: auto;
     height: 45px;
     border: 2px solid #989898;

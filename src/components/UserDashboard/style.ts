@@ -17,7 +17,7 @@ export const StyledUserDashboard = styled.main`
     align-items: center;
     height: 2.9375rem;
     width: 100%;
-    /*  margin: 1rem 0; */
+    margin: 1rem 0;
     display: none;
   }
 
@@ -28,7 +28,7 @@ export const StyledUserDashboard = styled.main`
   }
 
   .categories__container > nav {
-    /* display: none; */
+    display: none;
   }
 
   .categories__container > form {
@@ -53,7 +53,7 @@ export const StyledUserDashboard = styled.main`
     font-weight: 600;
     padding: 0rem 1rem;
     outline: none;
-    /*   -webkit-backdrop-filter: none; */
+    -webkit-backdrop-filter: none;
   }
 
   .offers__container {

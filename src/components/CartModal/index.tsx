@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import backgroundImage from "../../assets/images/backgroundCart.svg";
+import styled from 'styled-components';
+import backgroundImage from '../../assets/images/backgroundCart.svg';
+import { AnimationFadeIn } from '../../styles/animations';
 
 export const StyledCartModalBox = styled.div`
   position: fixed;
@@ -15,6 +16,7 @@ export const StyledCartModalBox = styled.div`
   z-index: 1001;
 
   div {
+    animation: ${AnimationFadeIn} 1s ease 0s 1 alternate backwards;
     width: 360px;
     background-color: #efe9e8;
   }
@@ -26,7 +28,7 @@ export const StyledCartModalBox = styled.div`
   }
 
   div > header > h1 {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 24px;
     font-weight: 700;
     color: #2e2e2e;
@@ -35,7 +37,7 @@ export const StyledCartModalBox = styled.div`
   div > header > button {
     background-color: transparent;
     border: none;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 24px;
     font-weight: 400;
     color: #2e2e2e;
@@ -63,14 +65,14 @@ export const StyledCartModalBox = styled.div`
   }
 
   div > section > div > p {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 14px;
     font-weight: 600;
     color: #2e2e2e;
   }
 
   div > section > div > h1 {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 24px;
     font-weight: 700;
     color: #056365;
