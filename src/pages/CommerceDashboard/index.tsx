@@ -37,7 +37,13 @@ export const CommerceDashboard = () => {
 
   return (
     <StyledCommerceDashboard>
-      <Header setIsEditProfileModalOpen={setIsEditProfileModalOpen} />
+
+      <StyledHeaderContainer>
+        <Header setIsEditProfileModalOpen={setIsEditProfileModalOpen}/>
+        {/* <button onClick={() => setIsEditProfileModalOpen(true)}>
+          Edit profile
+        </button> */}
+      </StyledHeaderContainer>
 
       {isEditProfileModalOpen ? (
         <EditCommerceProfile closeProfileModal={closeProfileModalWrapper} />
