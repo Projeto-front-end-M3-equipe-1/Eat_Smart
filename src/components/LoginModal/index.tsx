@@ -2,12 +2,15 @@ import { StyledTitleWhite } from '../../styles/typography';
 import { StyledButton } from '../../styles/button';
 import { useNavigate } from 'react-router-dom';
 import { StyledCartModalBox } from './style';
+import { useLocation } from 'react-router-dom';
 
 export const LoginModal = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location);
   const handleClick = (type: string) => {
     const typeNav = localStorage.getItem('@handle:nav');
-
+    console.log(typeNav);
     if (type === 'user' && typeNav === 'register') {
       localStorage.setItem('@handle:typUser', 'userRegister');
       navigate('/register');
@@ -32,9 +35,13 @@ export const LoginModal = () => {
   return (
     <StyledCartModalBox>
       <div>
-        <StyledTitleWhite tag='h1' $fontSize='logo' textAlign='center'>
-          Você é?
-        </StyledTitleWhite>
+        <nav>
+          <button>X</button>
+          <StyledTitleWhite tag='h1' $fontSize='logo' textAlign='center'>
+            Você é?
+          </StyledTitleWhite>
+        </nav>
+
         <span>
           <StyledButton
             id='company'

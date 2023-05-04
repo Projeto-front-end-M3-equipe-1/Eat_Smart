@@ -22,10 +22,26 @@ export const StyledCartModalBox = styled.div`
     border-radius: 16px;
     align-items: center;
     padding: 1rem;
-
-    h2 {
-      color: ${({ theme }) => theme.colors.white};
+    nav {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      button {
+        background-color: ${({ theme }) => theme.colors.greenPrimary};
+        color: ${({ theme }) => theme.colors.white};
+        font-weight: 700;
+        width: 2rem;
+        height: 2rem;
+        align-items: right;
+        margin: 0;
+        border-radius: 1rem 0 1rem 0;
+      }
+      h2 {
+        color: ${({ theme }) => theme.colors.white};
+        padding-top: -1rem;
+      }
     }
+
     button {
       margin: 10px;
     }
