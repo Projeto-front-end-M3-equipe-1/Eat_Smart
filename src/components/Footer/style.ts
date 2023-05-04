@@ -5,7 +5,6 @@ export const StyledFooter = styled.footer`
   background-color: ${({ theme }) => theme.colors.greenPrimary};
   background-image: url(${ellipse});
   background-repeat: no-repeat;
-
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
@@ -43,7 +42,6 @@ export const StyledFooter = styled.footer`
     font-weight: 400;
     line-height: 1.5rem;
     padding-bottom: 1rem;
-  
   }
 
   .faq_container > p {
@@ -81,8 +79,6 @@ export const StyledFooter = styled.footer`
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-}
   }
 
   .footerMiddle__container > p > strong {
@@ -97,10 +93,11 @@ export const StyledFooter = styled.footer`
     background-repeat: no-repeat;
   }
 
-
-  @media (min-width:1024px) {
-
+  @media (min-width: 1024px) {
+    display: flex;
     padding-left: 182px;
+    margin: #f1ede7;
+    max-width: 1440px;
 
     .faq_container {
       font-size: 0.875rem;
@@ -113,8 +110,8 @@ export const StyledFooter = styled.footer`
       cursor: pointer;
     }
 
-    footerMiddle__container{
-      width: 100%;
+    .footerMiddle__container {
+      width: 1440px;
     }
 
     .footerMiddle__container > h1 {
@@ -124,9 +121,9 @@ export const StyledFooter = styled.footer`
       color: ${({ theme }) => theme.colors.white};
     }
 
-  
     .footerMiddle__container > p {
       width: 100%;
+      margin-top: 4rem;
       color: ${({ theme }) => theme.colors.white};
       font-size: 0.625rem;
       font-weight: 400;
@@ -139,7 +136,5 @@ export const StyledFooter = styled.footer`
       color: ${({ theme }) => theme.colors.orangePrimary};
       align-items: center;
     }
-
-
   }
 `;

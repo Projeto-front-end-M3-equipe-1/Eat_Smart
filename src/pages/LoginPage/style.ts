@@ -107,6 +107,7 @@ export const StyledLoginPageHeaderUser = styled.header`
     padding: 1rem 2rem;
     margin: 0 auto;
     flex-direction: row;
+    width: 100%;
   }
 
   @media (min-width: 1024px) {
@@ -221,12 +222,14 @@ export const StyledFormLoginCompany = styled.div`
     gap: 1rem;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    max-width: 290px;
+    margin: 0 auto;
     h1 {
       color: ${({ theme }) => theme.colors.gray600};
     }
     button {
-      width: 90%;
-      max-width: 95%;
+      width: 290px;
     }
   }
   .container__desktop {
@@ -238,6 +241,10 @@ export const StyledFormLoginCompany = styled.div`
     .container__desktop {
       display: none;
     }
+
+    /* .container_nav {
+      max-width: 290px;
+    } */
   }
 
   @media (min-width: 1024px) {
@@ -258,7 +265,7 @@ export const StyledFormLoginCompany = styled.div`
         justify-content: center;
         align-items: center;
         button {
-          width: 330px;
+          width: 100%;
           max-width: 330px;
           margin: 0;
         }

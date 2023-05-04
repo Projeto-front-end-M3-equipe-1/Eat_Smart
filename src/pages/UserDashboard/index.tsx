@@ -9,22 +9,25 @@ import restauranteLogo from "../../assets/icons/restaurantes.svg";
 import baresLogo from "../../assets/icons/bares.svg";
 import mercadoLogo from "../../assets/icons/mercado.svg";
 import { StyledUserDashboard } from "../../components/UserDashboard/style.ts";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../providers/CartProvider/index.tsx";
-import { CartModal } from "../../components/CartModal/index.tsx";
+/* import { CartModal } from "../../components/CartModal/index.tsx"; */
 import { UserDashboardOption } from "../../components/UserDashboard/Option/index.tsx";
 import { StyledContainerUserDashboard, StyledMainContainerUserDashboard } from "./style.ts";
 import { UserContext } from "../../providers/UserContext/UserContext.tsx";
 import { EditUserProfile } from "../../components/Form/EditUserProfile/index.tsx";
+import { FooterMobileCommerce } from "../../components/Footer/FooterMobileCommerce/index.tsx";
+import { StyledFooterCommerce } from "../CommerceDashboard/style.ts";
+import { CartModal } from "../../components/CartModal/index.tsx";
 
 export const UserDashboard = () => {
-  const { offers, searchByCategory, isCartModalOpen, searchOffer } =
-    useContext(CartContext);
+  const { offers, searchByCategory, isCartModalOpen, searchOffer } = useContext(CartContext);
+  const [isEditProfileModalOpen, setIsEditProfileModalOpen] = useState(false);
   const { isEditUserProfileModalOpen } = useContext(UserContext);
 
   return (
     <>
-      <Header />
+      <Header setIsEditProfileModalOpen={setIsEditProfileModalOpen} />
       {isCartModalOpen ? <CartModal /> : null}
       {isEditUserProfileModalOpen ? <EditUserProfile /> : null}
       <StyledContainerUserDashboard>
@@ -91,7 +94,10 @@ export const UserDashboard = () => {
           </StyledUserDashboard>
         </StyledMainContainerUserDashboard>
       </StyledContainerUserDashboard>
-      <Footer />
+      <StyledFooterCommerce>
+        <FooterMobileCommerce />
+        <Footer />
+      </StyledFooterCommerce>
     </>
   );
 };

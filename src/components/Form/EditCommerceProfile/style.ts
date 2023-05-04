@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { AnimationFadeIn } from '../../../styles/animations';
 
 export const StyledEditCommerceProfileModal = styled.div`
   display: flex;
@@ -13,9 +14,11 @@ export const StyledEditCommerceProfileModal = styled.div`
   box-shadow: 0px 9px 2px rgba(0, 0, 0, 0.25);
 
   .container_editProfile {
+    animation: ${AnimationFadeIn} 1s ease 0s 1 alternate backwards;
     display: flex;
     flex-direction: column;
     width: 19.375rem;
+    height: 100%;
     background-color: #ffffff;
     border-radius: 1.5rem 0rem 1.5rem 1.5rem;
     padding: 0 0.5rem;

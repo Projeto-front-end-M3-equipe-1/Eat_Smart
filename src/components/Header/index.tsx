@@ -61,7 +61,7 @@ export const Header = ({ setIsEditProfileModalOpen }) => {
             <SearchForm />
           </section>
           <section>
-            <h2>Olá, {userState?.userName}</h2>
+            <h2>Olá, {userName}</h2>
           </section>
         </li>
       </StyledUserPageHeader>

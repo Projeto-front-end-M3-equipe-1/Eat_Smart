@@ -45,11 +45,11 @@ export const Input = forwardRef(
     ref: ForwardedRef<HTMLInputElement>
   ) => {
     return (
-      <div>
+      <StyledInputContainerLight>
         {label ? <label htmlFor={id}>{label}</label> : null}
         <input ref={ref} id={id} {...rest} />
         {error ? <p>{error.message}</p> : null}
-      </div>
+      </StyledInputContainerLight>
     );
   }
 );

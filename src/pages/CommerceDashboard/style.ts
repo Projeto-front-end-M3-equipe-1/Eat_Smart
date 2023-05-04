@@ -4,12 +4,12 @@ export const StyledCommerceDashboard = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   align-items: center;
   background-color: #efe9e8;
   font-family: 'Poppins';
   margin: 0 auto;
-  /* position: absolute */
+
   overflow-x: hidden;
 `;
 
@@ -63,6 +63,7 @@ export const StyledCommerceDashboardMainContainer = styled.main`
   margin: 1rem 0;
   width: 90%;
   height: 70%;
+  max-width: 1440px;
 
   section {
     display: flex;
@@ -85,27 +86,34 @@ export const StyledCommerceDashboardMainContainer = styled.main`
   }
 
   @media (min-width: 768px) {
-    align-items: flex-start;
-    width: 80vw;
-    height: 76vh;
+    flex-direction: row;
+    max-width: 1440px;
+    height: auto;
 
     section {
-      width: 39.5vw;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-direction: row;
+      gap: 1rem;
+      h6 {
+        margin-top: 9rem;
+        width: 100%;
+      }
     }
   }
 `;
 
-export const StyledMainSections = styled.div`
+export const StyledMainSections = styled.section`
   display: flex;
-  flex-direction: column;
   height: 100%;
   width: 100%;
 
   @media (min-width: 768px) {
     display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    align-content: space-between;
+    flex-direction: row;
+    height: auto;
+    width: auto;
   }
 `;
 
@@ -113,6 +121,7 @@ export const StyledFooterCommerce = styled.div`
   width: 100%;
   height: 15%;
   margin-top: 1rem;
+  max-width: 1440px;
 
   footer {
     display: none;
@@ -131,6 +140,11 @@ export const StyledFooterCommerce = styled.div`
       display: flex;
       background-color: #056365;
       gap: 1rem;
+      bottom: 0;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      position: fixed;
     }
   }
 `;
