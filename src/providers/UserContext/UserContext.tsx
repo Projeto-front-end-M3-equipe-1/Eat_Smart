@@ -79,8 +79,23 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         navigate("/userHome");
       } catch (error) {
         toast.error("Oops! Algo deu errado tente novamente");
-        localStorage.getItem("@user:id");
-        localStorage.getItem("@user:token");
+        const keysToRemove = [
+          "@user:token",
+          "@EatSmart:cart",
+          "@user:id",
+          "@EatSmart:userName",
+          "@EatSmart:userEmail",
+          "@userCompany:token",
+          "@userCompany:id",
+          "@EatSmart:userNameCommerce",
+          "@EatSmart:userCommerceEmail",
+          "@EatSmart:userCommerceFoodCategory",
+          "@handle:typUser",
+          "@handle:nav",
+          "@handle:typUser",
+          "@handle:nav",
+        ];
+        keysToRemove.forEach((key) => localStorage.removeItem(key));
       }
     };
     if (userToken && UserId) {
