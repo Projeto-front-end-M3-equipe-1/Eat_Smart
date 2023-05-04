@@ -8,6 +8,8 @@ export const StyledFooterMobileUser = styled.footer`
   align-items: center;
   background-color: #056365;
   border: 1px solid #056365;
+  position: fixed;
+  bottom: 0;
 
   p {
     font-size: 1rem;

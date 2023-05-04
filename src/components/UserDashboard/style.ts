@@ -75,6 +75,7 @@ export const StyledUserDashboard = styled.main`
     color: #2e2e2e;
     cursor: pointer;
     width: 100px;
+    margin-top: 1rem;
   }
 
   .offers__container > div {

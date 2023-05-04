@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import ellipse from "../../assets/icons/ellipse.svg";
+import styled from 'styled-components';
+import ellipse from '../../assets/icons/ellipse.svg';
 
 export const StyledFooter = styled.footer`
   background-color: ${({ theme }) => theme.colors.greenPrimary};
@@ -9,23 +9,29 @@ export const StyledFooter = styled.footer`
   justify-content: space-between;
   box-sizing: border-box;
   padding-left: 2rem;
+  height: 15%;
 
   .infos_container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 1rem;
+    justify-content: center;
+    gap: 4rem;
     width: 200px;
-    padding: 1.875rem 0 0.625rem 0;
+    flex-wrap: wrap;
   }
 
   .infos_container > img {
     width: 100px;
+    margin-top: 1rem;
   }
 
   .infos_container > .img_container {
     display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
     justify-content: space-between;
+    width: 25px;
+    height: 25px;
   }
 
   .infos_container > .img_container > img {
@@ -37,11 +43,11 @@ export const StyledFooter = styled.footer`
     flex-direction: column;
     max-height: 150px;
     color: ${({ theme }) => theme.colors.white};
-    gap: 0.5rem;
     font-size: 0.75rem;
     font-weight: 400;
     line-height: 1.5rem;
     padding-bottom: 1rem;
+    margin-top: 1rem;
   }
 
   .faq_container > p {
@@ -53,7 +59,6 @@ export const StyledFooter = styled.footer`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
     width: 21.875rem;
   }
 
@@ -63,6 +68,7 @@ export const StyledFooter = styled.footer`
     line-height: 1.5rem;
     font-size: 0.875rem;
     color: ${({ theme }) => theme.colors.white};
+    margin-top: 1rem;
   }
 
   .footerMiddle__container > h1 > small {
@@ -93,6 +99,11 @@ export const StyledFooter = styled.footer`
     background-repeat: no-repeat;
   }
 
+  figure > img {
+    height: 17vh;
+    object-fit: cover;
+  }
+
   @media (min-width: 1024px) {
     display: flex;
     padding-left: 182px;
@@ -100,7 +111,7 @@ export const StyledFooter = styled.footer`
     max-width: 1440px;
 
     .faq_container {
-      font-size: 0.875rem;
+      font-size: 10px;
       font-weight: 400;
       line-height: 1.5rem;
       padding-bottom: 1rem;
@@ -115,7 +126,8 @@ export const StyledFooter = styled.footer`
     }
 
     .footerMiddle__container > h1 {
-      font-size: 1.5rem;
+      margin-top: 1rem;
+      font-size: 1.75rem;
       font-weight: 700;
       line-height: 1.5rem;
       color: ${({ theme }) => theme.colors.white};
