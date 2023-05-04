@@ -2,9 +2,11 @@ import styled from 'styled-components';
 import arrow from '../../assets/icons/arrow.svg';
 
 export const StyledUserDashboard = styled.main`
-  background-color: #efe9e8;
+  background-color: rgb(241, 237, 231);
   height: 100%;
   width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
 
   .categories__container {
     display: flex;
@@ -17,19 +19,20 @@ export const StyledUserDashboard = styled.main`
     align-items: center;
     height: 2.9375rem;
     width: 100%;
-    /*  margin: 1rem 0; */
+    margin: 1rem 0;
+    padding: 1rem 0;
     display: none;
   }
 
   .categories__container > div > h1 {
-    font-size: 22px;
+    font-size: 36px;
+    margin: 1rem 1.8rem;
     font-weight: 600;
     cursor: pointer;
   }
 
   .categories__container > nav {
     display: none;
-    
   }
 
   .categories__container > form {
@@ -45,7 +48,6 @@ export const StyledUserDashboard = styled.main`
 
   .categories__container > form > select {
     font-family: 'Poppins';
-
     height: 2.1875rem;
     width: 100%;
     background: url ${{ arrow }} no-repeat right;
@@ -54,7 +56,6 @@ export const StyledUserDashboard = styled.main`
     font-weight: 600;
     padding: 0rem 1rem;
     outline: none;
-    /*   -webkit-backdrop-filter: none; */
   }
 
   .offers__container {
@@ -66,6 +67,7 @@ export const StyledUserDashboard = styled.main`
   }
 
   .offers__container > h1 {
+    padding: 0;
     font-family: 'Poppins', sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
@@ -76,7 +78,7 @@ export const StyledUserDashboard = styled.main`
   }
 
   .offers__container > div {
-    height: 100%;
+    height: 36rem;
     display: flex;
     align-items: center;
   }
@@ -106,7 +108,6 @@ export const StyledUserDashboard = styled.main`
 
     .categories__container > nav {
       width: 100%;
-
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -151,7 +152,9 @@ export const StyledUserDashboard = styled.main`
     }
 
     .offers__container > h1 {
-      margin-bottom: 0;
+      font-size: 36px;
+      margin: 2rem 1.8rem;
+      font-weight: 600;
     }
     */ .offers__container > div {
       display: flex;
@@ -160,5 +163,10 @@ export const StyledUserDashboard = styled.main`
   }
 
   @media (min-width: 1024px) {
+    .categories__container > nav {
+      font-size: 1.125rem;
+      font-weight: 400;
+      color: #a098ae;
+    }
   }
 `;

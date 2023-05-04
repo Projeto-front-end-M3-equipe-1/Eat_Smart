@@ -1,3 +1,4 @@
+
 import { useContext } from "react";
 import { CartContext } from "../../providers/CartProvider";
 import { CartProductList } from "./CartProductList";
@@ -60,3 +61,4 @@ export const CartModal = () => {
     </>
   );
 };
+
