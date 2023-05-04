@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import backgroundImage from '../../assets/images/background.svg';
+import styled from "styled-components";
+import backgroundImage from "../../assets/images/background.svg";
 
 export const StyledMainDashboardHeader = styled.header`
   z-index: 1;
@@ -109,7 +109,6 @@ export const StyledMainDashboard = styled.div`
     line-height: 24px;
     color: #ffffff;
     max-width: 535px;
-
     text-align: center;
   }
 
@@ -124,12 +123,6 @@ export const StyledMainDashboard = styled.div`
   section:last-child > img {
     width: 599px;
     max-height: 721px;
-  }
-
-  @media (max-width: 375px) {
-  }
-
-  @media (max-width: 425px) {
   }
 
   @media (max-width: 768px) {

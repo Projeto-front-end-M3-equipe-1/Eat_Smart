@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledCategoryOptionBySelect = styled.option`
   height: 2.5rem;

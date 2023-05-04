@@ -11,7 +11,6 @@ import mercadoLogo from "../../assets/icons/mercado.svg";
 import { StyledUserDashboard } from "../../components/UserDashboard/style.ts";
 import { useContext, useState } from "react";
 import { CartContext } from "../../providers/CartProvider/index.tsx";
-/* import { CartModal } from "../../components/CartModal/index.tsx"; */
 import { UserDashboardOption } from "../../components/UserDashboard/Option/index.tsx";
 import { StyledContainerUserDashboard, StyledMainContainerUserDashboard } from "./style.ts";
 import { UserContext } from "../../providers/UserContext/UserContext.tsx";

@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import ellipse from '../../assets/icons/ellipse.svg';
+import styled from "styled-components";
+import ellipse from "../../assets/icons/ellipse.svg";
 
 export const StyledFooter = styled.footer`
   background-color: ${({ theme }) => theme.colors.greenPrimary};

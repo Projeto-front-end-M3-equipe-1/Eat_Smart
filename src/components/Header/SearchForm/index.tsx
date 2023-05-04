@@ -1,6 +1,6 @@
-import { useContext } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { CartContext } from '../../../providers/CartProvider';
+import { useContext } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { CartContext } from "../../../providers/CartProvider";
 
 type TSearchFormValues = {
   search: string;
@@ -17,13 +17,13 @@ export const SearchForm = () => {
   return (
     <form onSubmit={handleSubmit(submit)}>
       <input
-        {...register('search')}
-        type='text'
-        placeholder='O que você está procurando...'
-        id='search'
+        {...register("search")}
+        type="text"
+        placeholder="O que você está procurando..."
+        id="search"
       />
-      <button type='submit'>
-        <i className='fa-solid fa-magnifying-glass'></i>
+      <button type="submit">
+        <i className="fa-solid fa-magnifying-glass"></i>
       </button>
     </form>
   );

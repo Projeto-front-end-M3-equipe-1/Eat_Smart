@@ -1,9 +1,8 @@
-import styled from 'styled-components';
-import backgroundImage from '../../assets/images/background.svg';
+import styled from "styled-components";
+import backgroundImage from "../../assets/images/background.svg";
 
 export const StyledMainDashboardHeader = styled.header`
   z-index: 1;
-  /*   position: relative; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -45,13 +44,10 @@ export const StyledMainDashboard = styled.main`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  /* position: fixed; */
-  /*   margin: -114px -8px; */
   z-index: -1;
 
   div {
     display: flex;
-    /* padding-top: 180px; */
     justify-content: space-between;
     margin: 0 auto;
     max-width: 1440px;
@@ -103,7 +99,6 @@ export const StyledMainDashboard = styled.main`
     line-height: 24px;
     color: #ffffff;
     max-width: 535px;
-
     text-align: center;
   }
 
@@ -118,12 +113,6 @@ export const StyledMainDashboard = styled.main`
   section:last-child > img {
     width: 599px;
     max-height: 721px;
-  }
-
-  @media (max-width: 375px) {
-  }
-
-  @media (max-width: 425px) {
   }
 
   @media (max-width: 768px) {

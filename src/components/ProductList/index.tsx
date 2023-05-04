@@ -1,6 +1,6 @@
-import { IOffer } from '../../providers/CartProvider';
-import { ProductCard } from './ProductCard';
-import { StyledProductList } from './style';
+import { IOffer } from "../../providers/CartProvider";
+import { ProductCard } from "./ProductCard";
+import { StyledProductList } from "./style";
 
 interface IOffersListProps {
   offers: IOffer[];

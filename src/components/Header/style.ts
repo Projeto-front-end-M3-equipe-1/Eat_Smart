@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledColorBackground = styled.body`
   @media (min-width: 1024px) {
@@ -318,9 +318,6 @@ export const StyledCompanyPageHeader = styled.header`
 
   .container__reverse {
     display: none;
-  }
-
-  @media (min-width: 768px) {
   }
 
   @media (min-width: 1024px) {

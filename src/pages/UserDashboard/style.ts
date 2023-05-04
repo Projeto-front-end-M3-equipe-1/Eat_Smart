@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledContainerUserDashboard = styled.div`
   width: 100vw;
@@ -8,20 +8,13 @@ export const StyledContainerUserDashboard = styled.div`
   margin-right: auto;
   left: 0;
   right: 0;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   display: flex;
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.BackgroundLight};
   align-items: center;
   overflow-y: hidden;
   overflow-x: hidden;
-
-  /*   header {
-
-    
-    width: 100%;
-
-  } */
 
   footer {
     width: 100%;

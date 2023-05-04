@@ -1,9 +1,9 @@
-import styled from 'styled-components';
-import bag_principal from '../../../assets/images/bag_principal.png';
+import styled from "styled-components";
+import bag_principal from "../../../assets/images/bag_principal.png";
 
 export const StyledCartSale = styled.li`
   display: flex;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   margin: 30px;
   width: 262px;
   height: 248px;
@@ -83,11 +83,7 @@ export const StyledCartSale = styled.li`
       width: 100%;
       height: 275px;
       border-radius: 16px;
-      background: linear-gradient(
-        180deg,
-        rgb(255, 84, 61, 0.4) 58%,
-        rgba(255, 255, 255, 0) 0%
-      );
+      background: linear-gradient(180deg, rgb(255, 84, 61, 0.4) 58%, rgba(255, 255, 255, 0) 0%);
 
       border-radius: 16px;
       button {

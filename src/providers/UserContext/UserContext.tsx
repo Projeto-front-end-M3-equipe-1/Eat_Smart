@@ -27,11 +27,11 @@ interface IUserContext {
   isEditUserProfileModalOpen: boolean;
   setIsEditUserProfileModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   editUserProfile: (newUserProfileData: IRegisterUserFormData) => Promise<void>;
+  setUser: React.Dispatch<React.SetStateAction<IUser | null>>;
 }
 
-interface IUser {
+export interface IUser {
   email: string;
-  name: string;
   userName: string;
   id: number;
   foodCategory: string;
@@ -54,7 +54,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   const navigate = useNavigate();
   const [user, setUser] = useState<IUser | null>(null);
   const [isEditUserProfileModalOpen, setIsEditUserProfileModalOpen] = useState<boolean>(false);
-  
+
   useEffect(() => {
     const userToken = localStorage.getItem("@user:token");
     const UserId = localStorage.getItem("@user:id");
@@ -77,7 +77,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     if (userToken && UserId) {
       userAutoLogin();
     }
-  }, [navigate]);
+  }, []);
 
   const signIn = async (
     formData: TLoginFormSchema,
@@ -182,11 +182,10 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     const userId = localStorage.getItem("@user:id");
     const userToken = localStorage.getItem("@user:token");
     try {
-      const { data } = await api
-      .patch<IUser>(`/users/${userId}`, newUserProfileData, {
+      const { data } = await api.patch<IUser>(`/users/${userId}`, newUserProfileData, {
         headers: { Authorization: `Bearer ${userToken}` },
-      })
-      setUser(data)
+      });
+      setUser(data);
       toast.success("Cadastro editado com sucesso");
     } catch (error) {
       toast.error("Oops! Algo deu errado tente novamente");
@@ -228,6 +227,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         isEditUserProfileModalOpen,
         setIsEditUserProfileModalOpen,
         editUserProfile,
+        setUser,
       }}
     >
       {children}

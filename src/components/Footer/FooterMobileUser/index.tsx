@@ -1,11 +1,11 @@
-import { StyledFooterMobileUser } from './style';
+import { StyledFooterMobileUser } from "./style";
 
 export const FooterMobileUser = () => {
-    return (
-        <StyledFooterMobileUser>
-            <p>
-                Apetite por <strong>BOAS</strong> ações
-            </p>
-        </StyledFooterMobileUser>
-    );
+  return (
+    <StyledFooterMobileUser>
+      <p>
+        Apetite por <strong>BOAS</strong> ações
+      </p>
+    </StyledFooterMobileUser>
+  );
 };

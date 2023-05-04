@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
-import styled, { css } from 'styled-components';
+import { Link } from "react-router-dom";
+import styled, { css } from "styled-components";
 
 interface IStyledButtonProps {
-  $buttonSize: 'default' | 'medium';
-  $buttonStyle: 'buttonGreenDark' | 'buttonGreenLight' | 'buttonOrange';
+  $buttonSize: "default" | "medium";
+  $buttonStyle: "buttonGreenDark" | "buttonGreenLight" | "buttonOrange";
 }
 
 export const StyledButtonCSS = css<IStyledButtonProps>`
@@ -19,12 +19,12 @@ export const StyledButtonCSS = css<IStyledButtonProps>`
 
   ${({ $buttonSize }) => {
     switch ($buttonSize) {
-      case 'default':
+      case "default":
         return css`
           padding: 0 30px;
           height: 45px;
         `;
-      case 'medium':
+      case "medium":
         return css`
           padding: 0 20px;
           height: 40px;
@@ -34,7 +34,7 @@ export const StyledButtonCSS = css<IStyledButtonProps>`
 
   ${({ theme, $buttonStyle }) => {
     switch ($buttonStyle) {
-      case 'buttonGreenDark':
+      case "buttonGreenDark":
         return css`
           color: ${theme.colors.white};
           background: ${theme.colors.greenPrimary};
@@ -43,7 +43,7 @@ export const StyledButtonCSS = css<IStyledButtonProps>`
             opacity: 0.5;
           }
         `;
-      case 'buttonGreenLight':
+      case "buttonGreenLight":
         return css`
           color: ${theme.colors.greenPrimary};
           background: ${theme.colors.greenSecondary};
@@ -52,7 +52,7 @@ export const StyledButtonCSS = css<IStyledButtonProps>`
             opacity: 0.5;
           }
         `;
-      case 'buttonOrange':
+      case "buttonOrange":
         return css`
           color: ${theme.colors.white};
           background: ${theme.colors.orangePrimary};

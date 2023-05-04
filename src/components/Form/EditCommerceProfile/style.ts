@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { AnimationFadeIn } from '../../../styles/animations';
+import styled from "styled-components";
+import { AnimationFadeIn } from "../../../styles/animations";
 
 export const StyledEditCommerceProfileModal = styled.div`
   display: flex;
@@ -9,7 +9,6 @@ export const StyledEditCommerceProfileModal = styled.div`
   height: 100vh;
   position: fixed;
   z-index: 1000;
-
   background: rgba(51, 51, 51, 0.5);
   box-shadow: 0px 9px 2px rgba(0, 0, 0, 0.25);
 
@@ -93,7 +92,6 @@ export const StyledEditCommerceProfileModal = styled.div`
 
   div > form > div > input {
     height: 45px;
-
     font-size: 14px;
     border: 1px solid ${({ theme }) => theme.colors.gray300};
     color: #989898;
@@ -131,7 +129,6 @@ export const StyledEditCommerceProfileModal = styled.div`
     color: #ffffff;
     font-size: 0.875rem;
     font-weight: 600;
-
     padding: 0;
     margin-bottom: 1rem;
   }
@@ -141,7 +138,6 @@ export const StyledEditCommerceProfileModal = styled.div`
     height: 45px;
     align-self: center;
     margin-bottom: 2rem;
-
     background-color: #71cb9f;
     border: 1px solid #71cb9f;
     border-radius: 0.9rem;
