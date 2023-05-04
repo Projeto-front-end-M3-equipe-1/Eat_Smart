@@ -10,6 +10,7 @@ import {
   StyledCommerceDataContainer,
   /*   StyledCommerceLogoContainer, */
   StyledFooterCommerce,
+  StyledHeaderContainer,
   /*   StyledHeaderContainer, */
   StyledMainSections,
 } from './style';
