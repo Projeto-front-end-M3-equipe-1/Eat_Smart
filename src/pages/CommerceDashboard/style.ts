@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledCommerceDashboard = styled.div`
   display: flex;
@@ -7,7 +7,7 @@ export const StyledCommerceDashboard = styled.div`
   height: 100vh;
   align-items: center;
   background-color: #efe9e8;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   margin: 0 auto;
   overflow-x: hidden;
 `;
@@ -58,10 +58,11 @@ export const StyledCommerceDashboardMainContainer = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1rem 0;
+  margin: 4rem 0;
   width: 90%;
   height: 70%;
   max-width: 1440px;
+  overflow: auto;
 
   section {
     display: flex;
@@ -99,6 +100,15 @@ export const StyledCommerceDashboardMainContainer = styled.main`
         width: 100%;
       }
     }
+  }
+
+  ::-webkit-scrollbar {
+    height: 3px;
+    width: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #056365;
   }
 `;
 
