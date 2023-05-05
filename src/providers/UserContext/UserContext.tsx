@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 import { api } from '../../services/api';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { TLoginFormSchema } from '../../components/Form/LoginForm/loginFormSchema';
 import { TRegisterFormSchema } from '../../components/Form/RegisterCommerceForm/SchemaFormRegister';
 import { toast } from 'react-toastify';
@@ -60,6 +60,8 @@ interface IUserRegisterResponse {
 export const UserContext = createContext({} as IUserContext);
 
 export const UserProvider = ({ children }: IUserProviderProps) => {
+  const route = useLocation();
+  const location = `${route.pathname}`;
   const navigate = useNavigate();
   const [user, setUser] = useState<IUser | null>(null);
   const [isEditUserProfileModalOpen, setIsEditUserProfileModalOpen] =
@@ -110,8 +112,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     formData: TLoginFormSchema,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
-    const typeofRoute = localStorage.getItem('@handle:typUser');
-    if (typeofRoute === 'userLogin') {
+    if (location === '/login') {
       try {
         setLoading(true);
         const { data } = await api.post<IUserLoginResponse>('/login', formData);
@@ -143,7 +144,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         setLoading(false);
       }
     }
-    if (typeofRoute === 'companyLogin') {
+    if (location === '/signin') {
       try {
         setLoading(true);
         const { data } = await api.post<IUserLoginResponse>(
@@ -191,8 +192,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     formData: IUserRegister,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
-    const typeofRoute = localStorage.getItem('@handle:typUser');
-    if (typeofRoute === 'userRegister') {
+    if (location === '/register') {
       try {
         const confirmUser = { ...formData, isCompany: false };
         await api.post<IUserRegisterResponse>('/register', confirmUser);
@@ -200,8 +200,6 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         toast.success('Cadastro realizado com sucesso', {
           autoClose: 2000,
         });
-        localStorage.setItem('@handle:typUser', 'userLogin');
-        localStorage.setItem('@handle:nav', 'login');
         setTimeout(() => {
           navigate('/login');
         }, 2000);
@@ -213,7 +211,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         setLoading(false);
       }
     }
-    if (typeofRoute === 'companyRegister') {
+    if (location === '/signup') {
       try {
         const confirmUser = { ...formData, isCompany: true };
         setLoading(true);

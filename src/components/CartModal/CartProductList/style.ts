@@ -9,7 +9,21 @@ export const StyledCartProductList = styled.div`
     padding: 0;
     display: flex;
     flex-direction: column;
+    height: 400px !important;
+    overflow-y: scroll;
     gap: 10px;
+    margin-right: 9px;
+    ::-webkit-scrollbar {
+      width: 9px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f5f5f5;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #056365;
+      border-radius: 20px;
+      border: 3px solid #056365;
+    }
   }
 
   .container__total {
@@ -52,7 +66,7 @@ export const StyledCartProductList = styled.div`
   }
 
   div > button {
-    width: 100%;
+    width: 90%;
     height: 45px;
     border-radius: 16px;
     background-color: #ff543d;
@@ -65,7 +79,7 @@ export const StyledCartProductList = styled.div`
   }
 
   div > button:last-child {
-    width: 100%;
+    width: 90%;
     height: 45px;
     border-radius: 16px;
     background-color: #056365;

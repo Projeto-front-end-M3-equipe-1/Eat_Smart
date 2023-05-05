@@ -15,7 +15,6 @@ import { StyledTitleGreen } from '../../styles/typography';
 export const RegisterPage = () => {
   const route = useLocation();
   const location = `${route.pathname}`;
-  console.log(route.pathname);
   const navigate = useNavigate();
 
   const handleClick = () => {

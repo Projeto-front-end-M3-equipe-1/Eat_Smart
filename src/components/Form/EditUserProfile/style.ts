@@ -3,6 +3,7 @@ import { AnimationFadeIn } from '../../../styles/animations';
 
 export const StyledEditUserProfileModal = styled.div`
   display: flex;
+  top: 0 !important;
   flex-direction: column;
   align-items: flex-end;
   width: 100%;

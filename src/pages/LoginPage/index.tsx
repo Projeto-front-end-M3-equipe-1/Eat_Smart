@@ -14,7 +14,7 @@ export const LoginPage = () => {
   const navigate = useNavigate();
   const route = useLocation();
   const location = `${route.pathname}`;
-  console.log(route.pathname);
+
   const handleClick = () => {
     if (location === '/login') {
       navigate('/register');
