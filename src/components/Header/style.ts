@@ -70,7 +70,7 @@ export const StyledUserPageHeader = styled.header`
   list-style-type: none;
   z-index: 1;
   width: 100%;
-  background-color: #F1EDE7;
+  background-color: #f1ede7;
   margin-left: auto;
   margin-right: auto;
   left: 0;

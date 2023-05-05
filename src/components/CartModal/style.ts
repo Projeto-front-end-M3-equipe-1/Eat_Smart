@@ -4,13 +4,14 @@ import { AnimationFadeIn } from '../../styles/animations';
 
 export const StyledCartModalBox = styled.div`
   display: flex;
+  top: 0 !important;
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-start;
   width: 100%;
   height: 100vh;
   position: fixed;
-  z-index: 1000;
+  z-index: 1001;
   background: rgba(51, 51, 51, 0.5);
   box-shadow: 0px 9px 2px rgba(0, 0, 0, 0.25);
 
@@ -118,18 +119,11 @@ export const StyledCartModalBox = styled.div`
     margin: 0 -1rem;
     color: ${({ theme }) => theme.colors.greenPrimary};
   }
-  /*   .cartList__container > div > h2 {
-    display: flex;
-    margin-left: 14px;
-  }
-
-  .cartList__container > div > h3 {
-    margin-left: 14px;
-  } */
 `;
 
 export const StyledCartModalBoxContainer = styled.div`
-  position: fixed;
+  position: absolute;
+  margin-top: 0 !important;
   display: flex;
   flex-direction: column;
   align-items: flex-end;

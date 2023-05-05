@@ -12,26 +12,18 @@ export const LoginModal = ({ typeNav }: TNave) => {
 
   const handleClick = (type: string) => {
     if (type === 'user' && typeNav === 'register') {
-      console.log(type);
-      console.log(typeNav);
       navigate('/register');
     }
 
     if (type === 'user' && typeNav === 'login') {
-      console.log(type);
-      console.log(typeNav);
       navigate('/login');
     }
 
     if (type === 'company' && typeNav === 'register') {
-      console.log(type);
-      console.log(typeNav);
       navigate('/signup');
     }
 
     if (type === 'company' && typeNav === 'login') {
-      console.log(type);
-      console.log(typeNav);
       navigate('/signin');
     }
   };

@@ -12,7 +12,7 @@ import { useLocation } from 'react-router-dom';
 export const LoginForm = () => {
   const route = useLocation();
   const location = `${route.pathname}`;
-  console.log(route.pathname);
+
   const [loading, setLoading] = useState(false);
   const { signIn } = useContext(UserContext);
 
