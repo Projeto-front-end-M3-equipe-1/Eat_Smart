@@ -101,7 +101,7 @@ export const Header = ({ setIsEditProfileModalOpen }: IOpenModal) => {
           <section>
             <h2>
               {foodCategory === "bares".toUpperCase() ? <img src={pubIcon} alt="icon"></img> : null}
-              {foodCategory === "cafeteria" ? <img src={coffeeIcon} alt="icon"></img> : null}
+              {foodCategory === "cafeteria".toUpperCase() ? <img src={coffeeIcon} alt="icon"></img> : null}
               {foodCategory === "lanches".toUpperCase() ? (
                 <img src={snacksIcon} alt="icon"></img>
               ) : null}
