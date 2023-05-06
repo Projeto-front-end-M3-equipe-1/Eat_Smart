@@ -82,7 +82,7 @@ export const RegisterPage = () => {
             </StyledTitleGreen>
             <StyledButton
               $buttonSize='default'
-              $buttonStyle='buttonGreenLight'
+              $buttonStyle='buttonGreenLightForm'
               onClick={() => {
                 navigate('/');
               }}
@@ -99,7 +99,7 @@ export const RegisterPage = () => {
                 </StyledTitleGreen>
                 <StyledButton
                   $buttonSize='default'
-                  $buttonStyle='buttonGreenLight'
+                  $buttonStyle='buttonGreenLightForm'
                   onClick={() => {
                     handleClick();
                   }}

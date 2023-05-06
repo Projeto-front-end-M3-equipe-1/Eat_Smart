@@ -5,9 +5,10 @@ import { StyledCartModalBox } from './style';
 
 type TNave = {
   typeNav: string;
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const LoginModal = ({ typeNav }: TNave) => {
+export const RedirectModal = ({ typeNav, setIsModalOpen }: TNave) => {
   const navigate = useNavigate();
 
   const handleClick = (type: string) => {
@@ -31,6 +32,7 @@ export const LoginModal = ({ typeNav }: TNave) => {
   return (
     <StyledCartModalBox>
       <div>
+        <button onClick={() => setIsModalOpen(false)}>X</button>
         <StyledTitleWhite tag='h1' $fontSize='logo' textAlign='center'>
           Você é?
         </StyledTitleWhite>

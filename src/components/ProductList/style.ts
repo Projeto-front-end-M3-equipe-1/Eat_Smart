@@ -2,13 +2,17 @@ import styled from 'styled-components';
 
 export const StyledProductList = styled.ul`
   display: flex;
+  gap: 30px;
+  align-items: center;
+  height: 25rem;
   overflow-x: auto;
   list-style: none;
+  justify-content: flex-start;
   ::-webkit-scrollbar {
     width: 9px;
   }
   ::-webkit-scrollbar-track {
-    background: #F5F5F5;
+    background: #f5f5f5;
   }
   ::-webkit-scrollbar-thumb {
     background-color: #056365;

@@ -21,7 +21,6 @@ export const StyledUserDashboard = styled.main`
     width: 100%;
     margin: 1rem 0;
     padding: 1rem 0;
-    display: none;
   }
 
   .categories__container > div > h1 {
@@ -29,6 +28,7 @@ export const StyledUserDashboard = styled.main`
     margin: 1rem 1.8rem;
     font-weight: 600;
     cursor: pointer;
+    display: none;
   }
 
   .categories__container > nav {
@@ -40,17 +40,20 @@ export const StyledUserDashboard = styled.main`
     align-items: center;
     height: 2.9375rem;
     width: 100%;
-    margin-top: 1rem;
-    background-color: ${({ theme }) => theme.colors.white};
+    margin-top: 4rem;
+    padding-top: 0.3rem;
+    background-color: rgb(241, 237, 231);
     border: 2px solid ${({ theme }) => theme.colors.greenPrimary};
     border-radius: 0.75rem;
   }
 
   .categories__container > form > select {
+    border-radius: 0.75rem;
     font-family: 'Poppins';
     height: 2.1875rem;
     width: 100%;
     background: url ${{ arrow }} no-repeat right;
+    background-color: rgb(241, 237, 231);
     border: none;
     font-size: 22px;
     font-weight: 600;
@@ -68,15 +71,14 @@ export const StyledUserDashboard = styled.main`
     flex-direction: column;
     width: 100%;
     height: 100%;
-    padding-bottom: 4rem;
+    padding-bottom: 10rem;
   }
 
   .offers__container > h1 {
-    padding: 0;
     font-family: 'Poppins', sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
-    line-height: 2.25rem;
+    line-height: 1.2rem;
     color: #2e2e2e;
     cursor: pointer;
     width: 100px;
@@ -84,7 +86,7 @@ export const StyledUserDashboard = styled.main`
   }
 
   .offers__container > div {
-    height: 36rem;
+    height: 21rem;
     display: flex;
     align-items: center;
   }

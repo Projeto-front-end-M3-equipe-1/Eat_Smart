@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import backgroundImage from "../../assets/images/background.svg";
+import styled from 'styled-components';
+import backgroundImage from '../../assets/images/background.svg';
 
 export const StyledMainDashboardHeader = styled.header`
   z-index: 1;
   width: 100%;
-  position: absolute;
+  position: fixed;
   margin-left: auto;
   margin-right: auto;
   left: 0;
@@ -65,6 +65,7 @@ export const StyledMainDashboard = styled.div`
   }
 
   section:first-child {
+    padding-top: 60px;
     display: flex;
     text-align: center;
     flex-direction: column;

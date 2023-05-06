@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledColorBackground = styled.body`
+export const StyledColorBackground = styled.div`
   @media (min-width: 1024px) {
     background-color: black;
     z-index: -1;
@@ -67,6 +67,7 @@ export const StyledLoginPageHeaderCompany = styled.header`
 `;
 
 export const StyledUserPageHeader = styled.header`
+  top: 0;
   list-style-type: none;
   z-index: 1;
   width: 100%;
@@ -76,6 +77,7 @@ export const StyledUserPageHeader = styled.header`
   left: 0;
   right: 0;
   display: flex;
+  position: fixed;
   flex-direction: column;
   align-items: center;
   max-width: 1440px;

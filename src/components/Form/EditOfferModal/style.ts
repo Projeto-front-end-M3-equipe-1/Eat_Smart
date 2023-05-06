@@ -105,6 +105,12 @@ export const StyledEditOfferModal = styled.div`
     border-radius: 0.5rem;
     padding: 0 0 0 14px;
 
+    section > form > div > p,
+    section > form > div > span {
+      font-family: ${({ theme }) => theme.fonts.primaryPoppins};
+      font-size: 0.85rem;
+      color: red;
+    }
     ::placeholder {
       height: 45px;
       color: ${({ theme }) => theme.colors.gray150};

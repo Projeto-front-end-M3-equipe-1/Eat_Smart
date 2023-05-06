@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import companyRegister from "../../assets/images/companyRegister.svg";
+import styled from 'styled-components';
+import companyRegister from '../../assets/images/companyRegister.svg';
 
-export const StyledColorBackground = styled.body`
+export const StyledColorBackground = styled.div`
   @media (min-width: 1024px) {
     background-color: black;
   }
@@ -10,7 +10,8 @@ export const StyledColorBackground = styled.body`
 export const StyledFormRegisterCompany = styled.div`
   display: flex;
   width: 100vw;
-  height: 100vh;
+  /*  height: 100vh; */
+  max-height: auto;
   margin: 0 auto;
   z-index: -1;
   flex-direction: column;
@@ -20,6 +21,8 @@ export const StyledFormRegisterCompany = styled.div`
   .container__principal {
     padding-top: 170px;
     padding-bottom: 70px;
+    width: 100%;
+    max-width: 320px;
   }
   .container_nav {
     display: flex;
@@ -27,8 +30,8 @@ export const StyledFormRegisterCompany = styled.div`
     gap: 1rem;
     align-items: center;
     button {
-      width: 90%;
-      max-width: 95%;
+      width: 290px;
+      max-width: 90%;
     }
   }
   .container__desktop {
@@ -37,6 +40,13 @@ export const StyledFormRegisterCompany = styled.div`
 
   @media (min-width: 425px) {
     align-items: center;
+    .container__principal {
+      button {
+        width: 100%;
+        max-width: 290px;
+        text-align: center;
+      }
+    }
     .container__desktop {
       display: none;
     }
@@ -58,10 +68,9 @@ export const StyledFormRegisterCompany = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        button {
-          width: 300px;
-          max-width: 300px;
-          margin: 0;
+
+        div {
+          width: 100%;
         }
       }
     }
@@ -228,6 +237,13 @@ export const StyledFormRegisterUser = styled.div`
 
   @media (min-width: 425px) {
     align-items: center;
+    .container__principal {
+      button {
+        width: 100%;
+        max-width: 290px;
+        text-align: center;
+      }
+    }
     .container__desktop {
       display: none;
     }
@@ -241,19 +257,21 @@ export const StyledFormRegisterUser = styled.div`
       flex-direction: row;
       justify-content: space-between;
       max-width: 1440px;
-
       padding-top: 0px;
-
+      button {
+        width: 100%;
+        max-width: 290px;
+        text-align: center;
+      }
       section {
         display: flex;
         width: 100%;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        button {
-          width: 300px;
-          max-width: 300px;
-          margin: 0;
+
+        div {
+          width: 100%;
         }
       }
     }

@@ -9,7 +9,7 @@ export const StyledEditUserProfileModal = styled.div`
   width: 100%;
   height: 100vh;
   position: fixed;
-  z-index: 1000;
+  z-index: 1001;
   background: rgba(51, 51, 51, 0.5);
   box-shadow: 0px 9px 2px rgba(0, 0, 0, 0.25);
 
