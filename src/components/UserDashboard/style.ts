@@ -12,6 +12,8 @@ export const StyledUserDashboard = styled.main`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 15px;
+    padding: 0 2rem;
   }
 
   .categories__container > div {
@@ -72,6 +74,7 @@ export const StyledUserDashboard = styled.main`
     width: 100%;
     height: 100%;
     padding-bottom: 10rem;
+    padding: 0 2rem;
   }
 
   .offers__container > h1 {
@@ -99,8 +102,17 @@ export const StyledUserDashboard = styled.main`
   }
 
   @media (min-width: 768px) {
-    .categories__container > div {
+    .categories__container {
       display: flex;
+      align-items: center;
+      margin: 0;
+    }
+    .categories__container > div > h1 {
+      display: flex;
+      margin-left: 0;
+    }
+
+    .categories__container > div {
       margin-bottom: 0;
     }
 
@@ -109,11 +121,12 @@ export const StyledUserDashboard = styled.main`
     }
 
     .categories__container > nav {
-      width: 100%;
+      width: 90%;
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
-      gap: 0.5em;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
     }
 
     .categories__container > nav > button {
@@ -126,7 +139,6 @@ export const StyledUserDashboard = styled.main`
       justify-content: center;
       border: 1px solid white;
       border-radius: 16px;
-      padding: 0;
       box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
         rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
       cursor: pointer;
@@ -150,12 +162,12 @@ export const StyledUserDashboard = styled.main`
 
   @media (min-width: 768px) {
     .offers__container {
-      margin: 1rem 0;
+      margin: 2rem 0;
     }
 
     .offers__container > h1 {
       font-size: 36px;
-      margin: 2rem 1.8rem;
+      margin: 2rem 0rem;
       font-weight: 600;
     }
     .offers__container > div {
@@ -165,6 +177,9 @@ export const StyledUserDashboard = styled.main`
   }
 
   @media (min-width: 1024px) {
+    .categories__container > div > h1 {
+      display: flex;
+    }
     .categories__container > nav {
       font-size: 1.125rem;
       font-weight: 400;

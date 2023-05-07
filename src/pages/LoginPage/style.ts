@@ -4,13 +4,18 @@ import userRegister from '../../assets/images/userRegister.svg';
 export const StyledColorBackground = styled.div`
   @media (min-width: 1024px) {
     background-color: black;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 `;
 
 export const StyledLoginPageHeaderCompany = styled.header`
   z-index: 1;
   width: 100%;
-  position: absolute;
+
   margin-left: auto;
   margin-right: auto;
   left: 0;
@@ -129,6 +134,7 @@ export const StyledLoginPageHeaderUser = styled.header`
 
 export const StyledFormLoginUser = styled.div`
   display: flex;
+
   width: 100vw;
   height: 100vh;
   margin: 0 auto;

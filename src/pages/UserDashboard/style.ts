@@ -6,6 +6,7 @@ export const StyledContainerUserDashboard = styled.div`
   position: fixed;
   margin-left: auto;
   margin-right: auto;
+  top: 0;
   left: 0;
   right: 0;
   font-family: 'Poppins';
@@ -43,6 +44,6 @@ export const StyledMainContainerUserDashboard = styled.div`
   @media (min-width: 768px) {
     margin-top: 10rem;
     width: 80%;
-    height: 80%;
+    height: 90%;
   }
 `;

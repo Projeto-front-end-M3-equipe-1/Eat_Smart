@@ -2,12 +2,14 @@ import styled from 'styled-components';
 
 export const StyledProductList = styled.ul`
   display: flex;
-  gap: 30px;
+  padding: 1rem 2rem;
+  gap: 50px;
   align-items: center;
   height: 25rem;
   overflow-x: auto;
   list-style: none;
   justify-content: flex-start;
+
   ::-webkit-scrollbar {
     width: 9px;
   }
@@ -23,7 +25,7 @@ export const StyledProductList = styled.ul`
   @media (min-width: 768px) {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     flex-wrap: wrap;
     overflow-y: auto;
     height: 100%;

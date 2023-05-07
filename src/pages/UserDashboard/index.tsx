@@ -37,7 +37,7 @@ export const UserDashboard = () => {
         <StyledMainContainerUserDashboard>
           <StyledUserDashboard>
             <section className='categories__container'>
-              <div className='categories__container categories__container-desktop'>
+              <div className=' categories__container-desktop'>
                 <h1 onClick={() => searchByCategory('')}>Categorias</h1>
               </div>
               <nav>

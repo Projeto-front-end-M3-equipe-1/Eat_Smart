@@ -4,13 +4,18 @@ import companyRegister from '../../assets/images/companyRegister.svg';
 export const StyledColorBackground = styled.div`
   @media (min-width: 1024px) {
     background-color: black;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 `;
 
 export const StyledFormRegisterCompany = styled.div`
   display: flex;
   width: 100vw;
-  /*  height: 100vh; */
+  height: 100vh;
   max-height: auto;
   margin: 0 auto;
   z-index: -1;
