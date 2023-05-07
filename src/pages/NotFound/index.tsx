@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { StyledMainPageNotFound } from './style';
 import { StyledButtonLink } from '../../styles/button';
 

@@ -1,7 +1,6 @@
 import {
   StyledCommerceDashboard,
   StyledCommerceDashboardMainContainer,
-  StyledCommerceDataContainer,
   StyledFooterCommerce,
   StyledHeaderContainer,
   StyledMainSections,
