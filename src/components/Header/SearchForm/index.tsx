@@ -8,10 +8,11 @@ type TSearchFormValues = {
 
 export const SearchForm = () => {
   const { searchOffer } = useContext(CartContext);
-  const { register, handleSubmit } = useForm<TSearchFormValues>();
+  const { register, handleSubmit, setValue } = useForm<TSearchFormValues>();
 
   const submit: SubmitHandler<TSearchFormValues> = ({ search }) => {
     searchOffer(search);
+    setValue('search', '');
   };
 
   return (
