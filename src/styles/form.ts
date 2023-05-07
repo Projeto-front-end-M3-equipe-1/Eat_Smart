@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const StyledFormUserLight = styled.form`
+export const StyledFormLight = styled.form`
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -21,7 +21,7 @@ export const StyledFormUserDark = styled.form`
   flex-direction: column;
   gap: 20px;
   padding: 15px;
-  max-width: 350px;
+  max-width: 320px;
   background-color: ${({ theme }) => theme.colors.backgroundDark};
 
   p,
@@ -29,6 +29,9 @@ export const StyledFormUserDark = styled.form`
     font-family: ${({ theme }) => theme.fonts.primaryPoppins};
     font-size: 0.85rem;
     color: red;
+  }
+  button {
+    margin-top: 1rem;
   }
 `;
 

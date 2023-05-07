@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import backgroundImage from "../../assets/images/background.svg";
+import styled from 'styled-components';
+import backgroundImage from '../../assets/images/background.svg';
 
 export const StyledMainDashboardHeader = styled.header`
   z-index: 1;
@@ -9,6 +9,8 @@ export const StyledMainDashboardHeader = styled.header`
   align-items: center;
   max-width: 1440px;
   margin: 0 auto;
+  position: fixed;
+  overflow-y: hidden;
 
   h1 {
     color: ${({ theme }) => theme.colors.orangePrimary};
@@ -21,7 +23,7 @@ export const StyledMainDashboardHeader = styled.header`
     gap: 20px;
   }
 
-  @media (max-width: 768px) {
+  @media (min-width: 768px) {
     display: flex;
     flex-direction: column;
     background-color: ${({ theme }) => theme.colors.greenPrimary};
@@ -115,7 +117,7 @@ export const StyledMainDashboard = styled.main`
     max-height: 721px;
   }
 
-  @media (max-width: 768px) {
+  @media (min-width: 768px) {
     background-image: none;
     background-color: ${({ theme }) => theme.colors.greenPrimary};
     width: 100%;

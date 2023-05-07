@@ -3,6 +3,7 @@ import ellipse from '../../assets/icons/ellipse.svg';
 
 export const StyledFooter = styled.footer`
   background-color: ${({ theme }) => theme.colors.greenPrimary};
+  font-family: ${({ theme }) => theme.fonts.primaryPoppins};
   background-image: url(${ellipse});
   background-repeat: no-repeat;
   display: flex;

@@ -1,9 +1,14 @@
 import styled from 'styled-components';
 
-export const StyledColorBackground = styled.body`
+export const StyledColorBackground = styled.div`
   @media (min-width: 1024px) {
     background-color: black;
     z-index: -1;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 `;
 
@@ -73,9 +78,11 @@ export const StyledUserPageHeader = styled.header`
   background-color: #f1ede7;
   margin-left: auto;
   margin-right: auto;
+  top: 0;
   left: 0;
   right: 0;
   display: flex;
+  position: fixed;
   flex-direction: column;
   align-items: center;
   max-width: 1440px;
@@ -170,7 +177,7 @@ export const StyledUserPageHeader = styled.header`
   @media (min-width: 1024px) {
     z-index: 1;
     width: 100%;
-    position: absolute;
+    position: fixed;
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -198,9 +205,10 @@ export const StyledUserPageHeader = styled.header`
     }
     li {
       display: flex;
-      width: 100%;
+      justify-content: flex-start;
       align-items: center;
       flex-direction: row-reverse;
+      width: 80%;
 
       div {
         display: flex;
@@ -213,6 +221,9 @@ export const StyledUserPageHeader = styled.header`
       }
       section {
         text-align: right;
+        h2 {
+          width: 600px;
+        }
       }
     }
   }

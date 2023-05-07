@@ -28,7 +28,6 @@ export const CommerceDashboard = () => {
 
       {isEditProfileModalOpen ? <EditCommerceProfile /> : null}
 
-      <StyledCommerceDataContainer></StyledCommerceDataContainer>
       <StyledCommerceDashboardMainContainer>
         <StyledMainSections>
           <h6>

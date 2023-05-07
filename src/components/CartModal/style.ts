@@ -74,7 +74,7 @@ export const StyledCartModalBox = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    margin-left: 14px;
+    margin: 14px;
   }
 
   div > section > div > p {

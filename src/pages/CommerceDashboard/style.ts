@@ -4,12 +4,17 @@ export const StyledCommerceDashboard = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  height: 110vh;
+  position: fixed;
   align-items: center;
   background-color: #efe9e8;
   font-family: 'Poppins';
   margin: 0 auto;
   overflow-x: hidden;
+
+  @media (min-width: 768px) {
+    height: 110vh;
+  }
 `;
 
 export const StyledHeaderContainer = styled.div`
@@ -20,6 +25,7 @@ export const StyledHeaderContainer = styled.div`
 
 export const StyledCommerceDataContainer = styled.div`
   display: flex;
+  height: 2.8rem;
   width: 90%;
   justify-content: center;
   margin-top: 1rem;
@@ -58,9 +64,10 @@ export const StyledCommerceDashboardMainContainer = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 4rem 0;
+  margin: 1rem 0;
+  padding: 5rem;
   width: 90%;
-  height: 70%;
+  height: 100vh;
   max-width: 1440px;
   overflow: auto;
 
@@ -85,12 +92,16 @@ export const StyledCommerceDashboardMainContainer = styled.main`
   }
 
   @media (min-width: 768px) {
+    z-index: -1;
+    position: fixed;
+    padding: 2rem;
     flex-direction: row;
     max-width: 1440px;
     height: auto;
 
     section {
       display: flex;
+
       align-items: flex-start;
       justify-content: space-between;
       flex-direction: row;
@@ -109,6 +120,24 @@ export const StyledCommerceDashboardMainContainer = styled.main`
 
   ::-webkit-scrollbar-thumb {
     background: #056365;
+  }
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    max-width: 1440px;
+    height: auto;
+
+    section {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-direction: row;
+      gap: 1rem;
+      h6 {
+        margin-top: 9rem;
+        width: 100%;
+      }
+    }
   }
 `;
 

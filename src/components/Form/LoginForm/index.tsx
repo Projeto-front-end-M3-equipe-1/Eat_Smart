@@ -4,7 +4,7 @@ import { UserContext } from '../../../providers/UserContext/UserContext';
 import { LoginFormSchema, TLoginFormSchema } from './loginFormSchema';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { StyledFormUserDark, StyledFormUserLight } from '../../../styles/form';
+import { StyledFormUserDark, StyledFormLight } from '../../../styles/form';
 import { StyledTitleGreen, StyledTitleWhite } from '../../../styles/typography';
 import { StyledButton } from '../../../styles/button';
 import { useLocation } from 'react-router-dom';
@@ -27,7 +27,7 @@ export const LoginForm = () => {
   };
   if (location === '/signin') {
     return (
-      <StyledFormUserLight onSubmit={handleSubmit(submit)}>
+      <StyledFormLight onSubmit={handleSubmit(submit)}>
         <StyledTitleWhite tag='h1' $fontSize='titleForm' textAlign='center'>
           Faça login na sua conta
         </StyledTitleWhite>
@@ -54,7 +54,7 @@ export const LoginForm = () => {
         >
           {loading ? 'Entrando...' : 'Entrar'}
         </StyledButton>
-      </StyledFormUserLight>
+      </StyledFormLight>
     );
   }
   if (location === '/login') {

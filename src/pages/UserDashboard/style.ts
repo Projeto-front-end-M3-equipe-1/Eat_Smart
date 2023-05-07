@@ -1,14 +1,15 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledContainerUserDashboard = styled.div`
   width: 100vw;
   height: 100vh;
-  position: relative;
+  position: fixed;
   margin-left: auto;
   margin-right: auto;
+  top: 0;
   left: 0;
   right: 0;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   display: flex;
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.BackgroundLight};
@@ -35,7 +36,6 @@ export const StyledContainerUserDashboard = styled.div`
 `;
 
 export const StyledMainContainerUserDashboard = styled.div`
-
   width: 90%;
   height: 80%;
   display: flex;
@@ -44,6 +44,6 @@ export const StyledMainContainerUserDashboard = styled.div`
   @media (min-width: 768px) {
     margin-top: 10rem;
     width: 80%;
-    height: 80%;
+    height: 90%;
   }
 `;

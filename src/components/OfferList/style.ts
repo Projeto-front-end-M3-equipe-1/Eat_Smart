@@ -7,6 +7,7 @@ export const StyledOffersContainer = styled.div`
   border: 2px solid #056365;
   border-radius: 1rem;
   margin-top: 1rem;
+  margin-bottom: 3rem;
 
   h1 {
     display: flex;

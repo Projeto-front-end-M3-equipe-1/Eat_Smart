@@ -6,18 +6,20 @@ import {
 import { StyledButton } from '../../styles/button';
 import { StyledTitleGreen } from '../../styles/typography';
 import { useState } from 'react';
-import { LoginModal } from '../LoginModal';
+import { RedirectModal } from '../RedirectModal';
 
 export const MainDashboardComponent = () => {
-  const [isModalOpenLogin, setIsModalOpenLogin] = useState<boolean>(false);
-  const [isModalOpenRegister, setIsModalOpenRegister] =
-    useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [typeNav, setTypeNav] = useState<string>('');
 
   return (
     <div>
-      {isModalOpenLogin ? <LoginModal typeNav={typeNav} /> : null}
-      {isModalOpenRegister ? <LoginModal typeNav={typeNav} /> : null}
+      {isModalOpen ? (
+        <RedirectModal setIsModalOpen={setIsModalOpen} typeNav={typeNav} />
+      ) : null}
+      {isModalOpen ? (
+        <RedirectModal setIsModalOpen={setIsModalOpen} typeNav={typeNav} />
+      ) : null}
       <StyledMainDashboardHeader>
         <StyledTitleGreen tag='h1' $fontSize='logo' textAlign='center'>
           Eat<span>Smart</span>
@@ -28,7 +30,7 @@ export const MainDashboardComponent = () => {
             $buttonStyle='buttonGreenLight'
             id='register'
             onClick={() => {
-              setIsModalOpenRegister(true);
+              setIsModalOpen(true);
               setTypeNav('register');
             }}
           >
@@ -39,7 +41,7 @@ export const MainDashboardComponent = () => {
             $buttonStyle='buttonGreenLight'
             id='login'
             onClick={() => {
-              setIsModalOpenLogin(true);
+              setIsModalOpen(true);
               setTypeNav('login');
             }}
           >

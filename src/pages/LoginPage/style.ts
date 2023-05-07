@@ -1,16 +1,21 @@
-import styled from "styled-components";
-import userRegister from "../../assets/images/userRegister.svg";
+import styled from 'styled-components';
+import userRegister from '../../assets/images/userRegister.svg';
 
-export const StyledColorBackground = styled.body`
+export const StyledColorBackground = styled.div`
   @media (min-width: 1024px) {
     background-color: black;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 `;
 
 export const StyledLoginPageHeaderCompany = styled.header`
   z-index: 1;
   width: 100%;
-  position: absolute;
+
   margin-left: auto;
   margin-right: auto;
   left: 0;
@@ -129,6 +134,7 @@ export const StyledLoginPageHeaderUser = styled.header`
 
 export const StyledFormLoginUser = styled.div`
   display: flex;
+
   width: 100vw;
   height: 100vh;
   margin: 0 auto;
@@ -182,8 +188,8 @@ export const StyledFormLoginUser = styled.div`
         justify-content: center;
         align-items: center;
         button {
-          width: 330px;
-          max-width: 330px;
+          width: 290px;
+          max-width: 320px;
           margin: 0;
         }
       }
@@ -210,6 +216,7 @@ export const StyledFormLoginCompany = styled.div`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.white};
   margin: 0 auto;
+
   .container__principal {
     padding-top: 170px;
     padding-bottom: 70px;
@@ -224,11 +231,14 @@ export const StyledFormLoginCompany = styled.div`
     width: 100%;
     max-width: 290px;
     margin: 0 auto;
-    h1 {
-      color: ${({ theme }) => theme.colors.gray600};
-    }
+
     button {
       width: 290px;
+      max-width: 100%;
+    }
+
+    h1 {
+      color: ${({ theme }) => theme.colors.gray600};
     }
   }
   .container__desktop {
@@ -240,10 +250,17 @@ export const StyledFormLoginCompany = styled.div`
     .container__desktop {
       display: none;
     }
+    .container_nav {
+      button {
+        width: 290px;
+        max-width: 100%;
+      }
+    }
   }
 
   @media (min-width: 1024px) {
     max-width: 1440px;
+
     .container__principal {
       width: 100%;
       display: flex;
@@ -258,11 +275,13 @@ export const StyledFormLoginCompany = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        button {
-          width: 100%;
-          max-width: 330px;
-          margin: 0;
-        }
+      }
+    }
+
+    .container_nav {
+      button {
+        width: 290px;
+        max-width: 100%;
       }
     }
     .container__desktop {

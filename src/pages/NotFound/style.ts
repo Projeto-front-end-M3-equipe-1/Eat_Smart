@@ -1,14 +1,20 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledMainPageNotFound = styled.div`
-  min-height: 600px;
-  margin: 0px auto;
-  width: auto;
-  max-width: 460px;
+  position: fixed;
+  height: 100vh;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  font-family: ${({ theme }) => theme.fonts.primaryPoppins};
+  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.backgroundDark};
 
   .fundo {
     animation: scales 3s alternate infinite;
@@ -43,18 +49,11 @@ export const StyledMainPageNotFound = styled.div`
   }
 
   #errorText {
+    padding: 4rem;
     font-size: 22px;
     margin: 14px 0;
   }
-  #errorLink {
-    font-size: 20px;
-    padding: 12px;
-    border: 1px solid;
-    color: #000;
-    background-color: transparent;
-    text-decoration: none;
-    transition: all 0.5s ease-in-out;
-  }
+
   #errorLink:hover,
   #errorLink:active {
     color: #fff;
@@ -107,7 +106,7 @@ export const StyledMainPageNotFound = styled.div`
   @keyframes dash {
     0%,
     30% {
-      fill: 4B4B62;
+      fill: #056365;
       stroke-dashoffset: 0;
     }
     80%,

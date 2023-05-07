@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledFooterMobileCommerce = styled.div`
   display: flex;
@@ -8,11 +8,12 @@ export const StyledFooterMobileCommerce = styled.div`
   align-items: center;
   background-color: #056365;
   border: 1px solid #056365;
-  position:fixed;
+  position: fixed;
   bottom: 0;
 
   p {
     font-size: 1rem;
+    font-family: ${({ theme }) => theme.fonts.primaryPoppins};
     font-weight: 700;
     line-height: 1.5rem;
     color: #ffffff;
