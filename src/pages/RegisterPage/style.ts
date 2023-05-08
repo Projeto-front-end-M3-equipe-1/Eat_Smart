@@ -15,7 +15,7 @@ export const StyledColorBackground = styled.div`
 export const StyledFormRegisterCompany = styled.div`
   display: flex;
   width: 100vw;
-  height: 100vh;
+  height: 900px;
   max-height: auto;
   margin: 0 auto;
   z-index: -1;
