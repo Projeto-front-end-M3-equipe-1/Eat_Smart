@@ -61,6 +61,9 @@ export const CartProvider = ({ children }: ICartProviderProps) => {
       return;
     } else {
       setListOffersCart([...listOffersCart, offer]);
+      toast.success('Oferta adiciona ao carrinho', {
+        autoClose: 2000,
+      });
     }
   }
 
