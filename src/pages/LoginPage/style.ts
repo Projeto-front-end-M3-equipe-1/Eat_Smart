@@ -134,7 +134,6 @@ export const StyledLoginPageHeaderUser = styled.header`
 
 export const StyledFormLoginUser = styled.div`
   display: flex;
-
   width: 100vw;
   height: 100vh;
   margin: 0 auto;
@@ -210,7 +209,6 @@ export const StyledFormLoginCompany = styled.div`
   display: flex;
   width: 100vw;
   height: 100vh;
-  margin: 0 auto;
   z-index: -1;
   flex-direction: column;
   align-items: center;
@@ -218,7 +216,7 @@ export const StyledFormLoginCompany = styled.div`
   margin: 0 auto;
 
   .container__principal {
-    padding-top: 170px;
+    padding-top: 40px;
     padding-bottom: 70px;
     width: 320px;
     max-width: 320px;
