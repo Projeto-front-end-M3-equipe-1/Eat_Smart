@@ -23,10 +23,11 @@ export const StyledContainerUserDashboard = styled.div`
 
   @media (min-width: 768px) {
     padding-bottom: 150px;
+    position: absolute;
 
     header {
       width: 80%;
-      height: 10%;
+      height: 8%;
     }
 
     footer {
