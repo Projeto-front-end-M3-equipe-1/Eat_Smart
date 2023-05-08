@@ -64,10 +64,10 @@ export const StyledCommerceDashboardMainContainer = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1rem 0;
+  margin: 1.5rem 0;
   padding: 5rem;
   width: 90%;
-  height: 100vh;
+  height: auto;
   max-width: 1440px;
   overflow: auto;
 
@@ -98,6 +98,7 @@ export const StyledCommerceDashboardMainContainer = styled.main`
     flex-direction: row;
     max-width: 1440px;
     height: auto;
+    margin: 1rem 0;
 
     section {
       display: flex;
