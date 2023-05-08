@@ -106,15 +106,16 @@ export const StyledUserDashboard = styled.main`
     .categories__container {
       display: flex;
       align-items: center;
-      margin: 0;
+      padding-top: -1rem;
     }
     .categories__container > div > h1 {
       display: flex;
-      margin-left: 0;
+      margin: 0;
     }
 
     .categories__container > div {
-      margin-bottom: 0;
+      margin: 0;
+      height: 1rem;
     }
 
     .categories__container > form {
@@ -162,13 +163,12 @@ export const StyledUserDashboard = styled.main`
   }
 
   @media (min-width: 768px) {
-    .offers__container {
-      margin: 2rem 0;
-    }
+    height: 150rem;
+    margin-bottom: 0;
 
     .offers__container > h1 {
       font-size: 36px;
-      margin: 2rem 0rem;
+      margin-top: 1.5rem;
       font-weight: 600;
     }
     .offers__container > div {
@@ -178,6 +178,7 @@ export const StyledUserDashboard = styled.main`
   }
 
   @media (min-width: 1024px) {
+    height: 100vh;
     .categories__container > div > h1 {
       display: flex;
     }

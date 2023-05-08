@@ -64,7 +64,7 @@ export const StyledCommerceDashboardMainContainer = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 3.5rem 0;
+  margin: 1.5rem 0;
   padding: 5rem;
   width: 90%;
   height: auto;
@@ -176,13 +176,16 @@ export const StyledFooterCommerce = styled.div`
 
     footer {
       display: flex;
+      max-width: 1440px;
       background-color: #056365;
       gap: 1rem;
       bottom: 0;
       margin: 0 auto;
       left: 0;
       right: 0;
+      /*    top: 188vh; */
       position: fixed;
+      height: 10rem;
     }
   }
 `;

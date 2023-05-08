@@ -177,7 +177,7 @@ export const StyledUserPageHeader = styled.header`
   @media (min-width: 1024px) {
     z-index: 1;
     width: 100%;
-    position: fixed;
+    /*   position: fixed; */
     margin-left: auto;
     margin-right: auto;
     left: 0;

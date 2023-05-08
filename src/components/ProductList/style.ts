@@ -27,7 +27,10 @@ export const StyledProductList = styled.ul`
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    overflow-y: auto;
-    height: 100%;
+    overflow-y: hidden;
+    height: auto;
+    position: relative;
+    margin-top: auto;
+    margin-bottom: 1rem;
   }
 `;
