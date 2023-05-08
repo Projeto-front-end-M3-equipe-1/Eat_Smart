@@ -42,7 +42,7 @@ export const StyledUserDashboard = styled.main`
     align-items: center;
     height: 2.9375rem;
     width: 100%;
-    margin-top: 4rem;
+    margin-top: 3rem;
     padding-top: 0.3rem;
     background-color: rgb(241, 237, 231);
     border: 2px solid ${({ theme }) => theme.colors.greenPrimary};
@@ -74,7 +74,7 @@ export const StyledUserDashboard = styled.main`
     width: 100%;
     height: 100%;
     padding-bottom: 10rem;
-    padding: 0 2rem;
+    padding: 0 0.5rem;
   }
 
   .offers__container > h1 {
@@ -85,6 +85,7 @@ export const StyledUserDashboard = styled.main`
     color: #2e2e2e;
     cursor: pointer;
     width: 100px;
+    padding: 0 27px;
     margin-top: 1rem;
   }
 

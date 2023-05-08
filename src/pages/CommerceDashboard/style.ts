@@ -64,7 +64,7 @@ export const StyledCommerceDashboardMainContainer = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1.5rem 0;
+  margin: 3.5rem 0;
   padding: 5rem;
   width: 90%;
   height: auto;
