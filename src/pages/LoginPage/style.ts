@@ -220,6 +220,7 @@ export const StyledFormLoginCompany = styled.div`
     padding-bottom: 70px;
     width: 320px;
     max-width: 320px;
+    /*teste */
   }
   .container_nav {
     display: flex;
